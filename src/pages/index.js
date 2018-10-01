@@ -1,15 +1,30 @@
-import React from 'react'
-import { Link } from 'gatsby'
+import React from "react";
+import { Link } from "gatsby";
+import styled from "styled-components";
 
-import Layout from '../components/layout'
+import Layout from "../components/layout";
+import Navbar from "../components/navbar";
+import Logo from "../components/logo";
+import Intro from "../components/intro";
+
+const Header = styled.header`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: baseline;
+  color: white;
+  font-size: 3rem;
+  margin: 35px 100px 0 100px;
+`;
 
 const IndexPage = () => (
   <Layout>
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <Link to="/page-2/">Go to page 2</Link>
+    <Header>
+      <Logo />
+      <Navbar />
+    </Header>
+    <Intro />
   </Layout>
-)
+);
 
-export default IndexPage
+export default IndexPage;
