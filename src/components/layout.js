@@ -37,6 +37,32 @@ const GlobalStyle = createGlobalStyle`
     font-family: "AvantGardeBold";
     
   }
+
+  a {
+    cursor: var(--pointerwhite);
+    text-decoration: none;
+    &:hover {
+      color: white;
+      text-decoration: underline;
+    }
+    &:visited {
+      color: inherit;
+    }
+  }
+
+
+  // Scrollbar styles
+  ::scrollbar {
+    width: 10px;
+  }
+
+  ::scrollbar-thumb {
+    background: linear-gradient(to bottom, rgba(0,255,255,1) 0%, rgba(255,115,176,1) 33%, rgba(64,250,123,1) 66%, rgba(255,243,109,1) 100%);
+  }
+
+  ::scrollbar-track {
+    background: #333;
+  }
 `;
 
 const Layout = ({ children }) => (
