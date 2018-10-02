@@ -4,16 +4,29 @@ import styled from "styled-components";
 
 const IntroWrapper = styled.div`
   color: white;
-  margin: 0 100px;
+  margin: 3.5rem 4.1875rem;
 `;
 
 const IntroText = styled.p`
-  font-size: 4rem;
+  font-size: 3rem;
+  color: var(--lightgrey);
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.4;
+  letter-spacing: normal;
 `;
 
 const Intro = () => (
   <IntroWrapper>
-    <p>AAA</p>
+    <IntroText>
+      achos! attention-grabbing, panty-dropping communication and interactive
+      design agency based in Barcelona and Silicon Bali. We despise the boring
+      and are always looking for fun! We provide bold creative solutions
+      allowing our clients to stand out! In other words, we make sick ideas,
+      neat designs and seriously provocative work that will make your brand
+      hotter than a banging supernova!
+    </IntroText>
   </IntroWrapper>
 );
 
