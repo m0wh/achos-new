@@ -6,6 +6,9 @@ const NavWrapper = styled.nav`
   z-index: 1000;
   // position: fixed;
   order: 1;
+  align-self: flex-end;
+  flex-grow: 1;
+  padding: 1rem 0;
 `;
 const List = styled.ul`
   list-style: none;
@@ -14,8 +17,7 @@ const List = styled.ul`
 `;
 const ListItem = styled.li`
   font-size: 2rem;
-  padding: 0px 10px 10px 0px;
-  line-height: 1.3;
+  padding: 0 1.25rem;
   color: ${props => props.color};
 `;
 
@@ -25,7 +27,6 @@ const StyledLink = styled(Link)`
     color: white;
   }
 `;
-
 
 // onMouseOver
 // GIF background full
@@ -44,7 +45,7 @@ const Navbar = () => (
   <NavWrapper>
     <List>
       {/* onClick scrolls through page */}
-      <ListItem color="var(--pink)">
+      <ListItem color="var(--yellow)">
         <StyledLink to="/">5 sec tour</StyledLink>
       </ListItem>
       {/* onClick scrolls down to beginning of projects */}
@@ -56,11 +57,10 @@ const Navbar = () => (
         <StyledLink to="/">about</StyledLink>
       </ListItem>
       {/* StyledLink to Espai */}
-      <ListItem color="var(--yellow)">
-        <StyledLink to="/">espai</StyledLink>
+      <ListItem color="var(--pink)">
+        <StyledLink to="/">contact</StyledLink>
       </ListItem>
-      <ListItem>/</ListItem>
-      <ListItem>en</ListItem>
+      <ListItem color="var(--darkgrey)">eng</ListItem>
     </List>
   </NavWrapper>
 );
