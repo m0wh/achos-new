@@ -7,11 +7,9 @@ import reset from "styled-reset";
 import AvantBold from "../fonts/ITCAvantGardePro-Bold.woff";
 import PointerWhite from "../images/icons/white-default.png";
 
-import Header from "./header";
-
 const GlobalStyle = createGlobalStyle`
   ${reset}
-  /* other styles */
+  
   :root {
     // Colors
     --black: #111111;
@@ -19,6 +17,9 @@ const GlobalStyle = createGlobalStyle`
     --cyan: #00ffff;
     --green: #41fa70;
     --yellow: #fff36d;
+    --lightgrey: #cacaca;
+    --darkgrey: #9b9b9b;
+
     // Cursors
     --pointerwhite: url(${PointerWhite}) 0 0, auto;
   }
@@ -52,17 +53,18 @@ const GlobalStyle = createGlobalStyle`
 
 
   // Scrollbar styles
-  ::scrollbar {
-    width: 10px;
-  }
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
 
-  ::scrollbar-thumb {
-    background: linear-gradient(to bottom, rgba(0,255,255,1) 0%, rgba(255,115,176,1) 33%, rgba(64,250,123,1) 66%, rgba(255,243,109,1) 100%);
-  }
+    ::webkit-scrollbar-thumb {
+      background: linear-gradient(to bottom, rgba(0,255,255,1) 0%, rgba(255,115,176,1) 33%, rgba(64,250,123,1) 66%, rgba(255,243,109,1) 100%);
+    }
 
-  ::scrollbar-track {
-    background: #333;
-  }
+    ::webkit-scrollbar-track {
+      background: #333;
+    }
+  // End scrollbar styles  
 `;
 
 const Layout = ({ children }) => (
@@ -88,7 +90,6 @@ const Layout = ({ children }) => (
         >
           <html lang="en" />
         </Helmet>
-        {/* <Header siteTitle={data.site.siteMetadata.title} /> */}
         <div>{children}</div>
       </>
     )}
