@@ -4,6 +4,8 @@ import styled from "styled-components";
 
 const LogoWrapper = styled.div`
   order: 0;
+  align-self: flex-start;
+  flex-grow: 3;
 `;
 
 const LogoText = styled.h2`
