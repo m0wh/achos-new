@@ -6,15 +6,16 @@ import Layout from "../components/layout";
 import Navbar from "../components/navbar";
 import Logo from "../components/logo";
 import Intro from "../components/intro";
+import Contact from "../components/contact";
 
 const Header = styled.header`
+  max-width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
   align-items: baseline;
   color: white;
   font-size: 3rem;
-  margin: 35px 100px 0 100px;
+  margin: 2.625rem 3.1875rem 0 3.5625rem;
 `;
 
 const IndexPage = () => (
@@ -24,6 +25,8 @@ const IndexPage = () => (
       <Navbar />
     </Header>
     <Intro />
+    {/* <Projects /> */}
+    <Contact />
   </Layout>
 );
 
