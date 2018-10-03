@@ -6,7 +6,9 @@ import Layout from "../components/layout";
 import Navbar from "../components/navbar";
 import Logo from "../components/logo";
 import Intro from "../components/intro";
+import Projects from "../components/projects"
 import Contact from "../components/contact";
+import LuckyDay from "../components/luckyday";
 
 const Header = styled.header`
   max-width: 100%;
@@ -25,8 +27,9 @@ const IndexPage = () => (
       <Navbar />
     </Header>
     <Intro />
-    {/* <Projects /> */}
+    <Projects />
     <Contact />
+    <LuckyDay />
   </Layout>
 );
 
