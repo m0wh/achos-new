@@ -46,7 +46,7 @@ const Navbar = () => (
     <List>
       {/* onClick scrolls through page */}
       <ListItem color="var(--yellow)">
-        <StyledLink to="/">5 sec tour</StyledLink>
+        <StyledLink to="/">5 Second Tour</StyledLink>
       </ListItem>
       {/* onClick scrolls down to beginning of projects */}
       <ListItem color="var(--cyan)">
