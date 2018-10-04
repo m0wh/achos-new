@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="23px" height="27px" viewBox="0 0 23 27" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+    <title>370BEA23-1F01-4028-890E-3757BA033A8F</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <linearGradient x1="21.3233063%" y1="114.212264%" x2="77.0235484%" y2="6.51169111%" id="linearGradient-1">
+            <stop stop-color="#FF7754" offset="0%"></stop>
+            <stop stop-color="#FD267C" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Project" transform="translate(-1091.000000, -4182.000000)" fill="url(#linearGradient-1)">
+            <path d="M1103.34025,4182 C1103.23951,4182.00293 1103.23951,4182.18172 1103.23951,4182.18172 C1103.89641,4186.47267 1103.07501,4191.25864 1097.89998,4192.9091 L1097.81782,4192.82657 C1096.91427,4191.58877 1096.58564,4189.52582 1096.58564,4188.7005 C1096.58564,4188.53543 1096.33917,4188.53543 1096.33917,4188.53543 C1093.46419,4190.1859 1091,4193.89931 1091,4197.61254 C1091,4203.80137 1095.10716,4209 1102.50009,4209 C1109.31773,4209 1114,4203.63649 1114,4197.69507 C1114,4189.69089 1108.41418,4184.49226 1103.40364,4182.01665 C1103.38106,4182.00549 1103.36175,4182.00037 1103.34499,4182 L1103.34025,4182 Z" id="tinder"></path>
+        </g>
+    </g>
+</svg>
