@@ -4,10 +4,10 @@ import styled from "styled-components";
 
 const NavWrapper = styled.nav`
   z-index: 1000;
-  // position: fixed;
-  order: 1;
-  align-self: flex-end;
-  flex-grow: 1;
+  position: fixed;
+  left: 44%;
+  top: 76px;
+  justify-self: end;
   padding: 1rem 0;
 `;
 const List = styled.ul`
@@ -58,7 +58,7 @@ const Navbar = () => (
       </ListItem>
       {/* StyledLink to Espai */}
       <ListItem color="var(--pink)">
-        <StyledLink to="/">contact</StyledLink>
+        <StyledLink to="#Contact">contact</StyledLink>
       </ListItem>
       <ListItem color="var(--darkgrey)">eng</ListItem>
     </List>
