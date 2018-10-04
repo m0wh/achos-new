@@ -33,6 +33,9 @@ const GlobalStyle = createGlobalStyle`
     cursor: var(--pointerwhite);
   }
 
+  
+
+
   body {
     background-color: var(--black);
     font-family: "AvantGardeBold";
