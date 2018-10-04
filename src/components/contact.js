@@ -2,10 +2,15 @@ import React from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
 
+import FacebookIcon from "../images/icons/facebook.svg";
+import TinderIcon from "../images/icons/tinder.svg";
+import TwitterIcon from "../images/icons/twitter.svg";
+import YoutubeIcon from "../images/icons/youtube.svg";
+
 const ContactWrapper = styled.footer`
-  margin: 2.625rem 3.1875rem 2.625rem 3.5625rem;
+  margin: 3.75rem 3.1875rem 5.25rem 3.5625rem;
   max-width: 100%;
-  display: grid;
+  display: grid;  
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr
   justify-items: start;
@@ -29,6 +34,11 @@ const ListItem = styled.li`
   color: ${props => props.color};
 `;
 
+const SocialIcon = styled.img`
+  color: ${props => props.color};
+  padding-right: 2rem;
+`;
+
 // const Mail = styled.li``;
 
 const Contact = () => (
@@ -44,10 +54,22 @@ const Contact = () => (
     </ContactUs>
     <FollowUs>
       <li>Follow Us!</li>
-      <ListItem color="var(--pink)">Tinder</ListItem>
-      <ListItem color="var(--cyan)">Facebook</ListItem>
-      <ListItem color="var(--green)">Instagram</ListItem>
-      <ListItem color="var(--yellow)">Twitter</ListItem>
+      <ListItem color="var(--pink)">
+        <SocialIcon src={TinderIcon} />
+        Tinder
+      </ListItem>
+      <ListItem color="var(--cyan)">
+        <SocialIcon src={FacebookIcon} />
+        Facebook
+      </ListItem>
+      <ListItem color="var(--green)">
+        <SocialIcon src={YoutubeIcon} />
+        Instagram
+      </ListItem>
+      <ListItem color="var(--yellow)">
+        <SocialIcon src={TwitterIcon} />
+        Twitter
+      </ListItem>
     </FollowUs>
   </ContactWrapper>
 );
