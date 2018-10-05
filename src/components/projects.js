@@ -8,8 +8,7 @@ import DadaPic from "../images/dadadada-00.jpg";
 import DesigndoesPic from "../images/designdoes.jpg";
 import SmallfilmsPic from "../images/smallfilms-00.jpg";
 
-// Grid de 1 full x 2
-// El de full es veu a 80-90vh
+
 
 /*
 Projects Schema:
@@ -23,30 +22,24 @@ Projects Schema:
 
 */
 
-
-const ProjectsGrid = styled.section`
+const ProjectsGrid = styled.main`
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto;
 `;
 
-const BigProject = styled.img`
-  grid-column: span 2;
+const Project = styled.img`
   max-width: 100%;
+  grid-column: ${props => (props.big ? "span 2" : null)};
 `;
-
-const SmallProject = styled.img`
-  max-width: 100%;
-`;
-
 const Projects = () => (
   <ProjectsGrid>
-    <BigProject src={MarianoPic} />
-    <SmallProject src={AxpePic} />
-    <SmallProject src={DadaPic} />
-    <SmallProject src={DesigndoesPic} />
-    <SmallProject src={MarianoPic} />
-    <BigProject src={SmallfilmsPic} />
+    <Project big src={MarianoPic} />
+    <Project src={AxpePic} />
+    <Project src={DadaPic} />
+    <Project src={DesigndoesPic} />
+    <Project src={MarianoPic} />
+    <Project big src={SmallfilmsPic} />
   </ProjectsGrid>
 );
 
