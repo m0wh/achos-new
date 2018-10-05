@@ -12,16 +12,19 @@ const GlobalStyle = createGlobalStyle`
   
   :root {
     // Colors
-    --black: #111111;
-    --pink: #ff71b0;
-    --cyan: #00ffff;
-    --green: #41fa70;
-    --yellow: #fff36d;
-    --lightgrey: #cacaca;
-    --darkgrey: #9b9b9b;
+      --black: #111111;
+      --lightblack: #181818;
+      --pink: #ff71b0;
+      --cyan: #00ffff;
+      --green: #41fa70;
+      --yellow: #fff36d;
+      --lightgrey: #cacaca;
+      --darkgrey: #9b9b9b;
+    //
 
     // Cursors
-    --pointerwhite: url(${PointerWhite}) 0 0, auto;
+      --pointerwhite: url(${PointerWhite}) 0 0, auto;
+    //  
   }
   
   @font-face {
@@ -32,9 +35,6 @@ const GlobalStyle = createGlobalStyle`
   html {
     cursor: var(--pointerwhite);
   }
-
-  
-
 
   body {
     background-color: var(--black);
@@ -60,14 +60,14 @@ const GlobalStyle = createGlobalStyle`
       width: 10px;
     }
 
-    ::webkit-scrollbar-thumb {
+    ::-webkit-scrollbar-thumb {
       background: linear-gradient(to bottom, rgba(0,255,255,1) 0%, rgba(255,115,176,1) 33%, rgba(64,250,123,1) 66%, rgba(255,243,109,1) 100%);
     }
 
-    ::webkit-scrollbar-track {
+    ::-webkit-scrollbar-track {
       background: #333;
     }
-  // End scrollbar styles  
+  //
 `;
 
 const Layout = ({ children }) => (
