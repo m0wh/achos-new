@@ -8,7 +8,7 @@ import Contact from "../components/contact";
 import LuckyDay from "../components/luckyday";
 import Projects from "../components/projects";
 
-const ProjecttWrapper = styled.main`
+const ProjectWrapper = styled.main`
   background-color: var(--lightblack);
   color: var(--lightgrey);
   display: grid;
