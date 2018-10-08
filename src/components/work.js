@@ -8,8 +8,6 @@ import DadaPic from "../images/dadadada-00.jpg";
 import DesigndoesPic from "../images/designdoes.jpg";
 import SmallfilmsPic from "../images/smallfilms-00.jpg";
 
-
-
 /*
 Projects Schema:
 
@@ -22,25 +20,25 @@ Projects Schema:
 
 */
 
-const ProjectsGrid = styled.main`
+export const WorkGrid = styled.main`
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto;
 `;
 
-const Project = styled.img`
+export const Project = styled.img`
   max-width: 100%;
   grid-column: ${props => (props.big ? "span 2" : null)};
 `;
-const Projects = () => (
-  <ProjectsGrid>
+const Work = () => (
+  <WorkGrid>
     <Project big src={MarianoPic} />
     <Project src={AxpePic} />
     <Project src={DadaPic} />
     <Project src={DesigndoesPic} />
     <Project src={MarianoPic} />
     <Project big src={SmallfilmsPic} />
-  </ProjectsGrid>
+  </WorkGrid>
 );
 
-export default Projects;
+export default Work;
