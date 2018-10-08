@@ -6,7 +6,12 @@ import Layout from "../components/layout";
 import Header from "../components/header";
 import Contact from "../components/contact";
 import LuckyDay from "../components/luckyday";
-import Projects from "../components/projects";
+import { Project } from "../components/work";
+
+import MarianoPic from "../images/mariano.jpg";
+import AxpePic from "../images/axpe-01.jpg";
+import DadaPic from "../images/dadadada-00.jpg";
+import DesigndoesPic from "../images/designdoes.jpg";
 
 const ProjectWrapper = styled.main`
   background-color: var(--lightblack);
@@ -33,8 +38,6 @@ const TextLeft = styled.p`
   justify-self: start;
   color: ${props => props.color};
   padding-right: 1rem;
-  border: ${props => (props.test ? "1px solid red" : null)};
-  font-size: ${props => (props.test ? "10rem" : null)};
 `;
 const TextRight = styled.p`
   grid-column-start: 2;
@@ -43,28 +46,51 @@ const TextRight = styled.p`
   color: ${props => props.color};
 `;
 
-const TextCenter = styled.p`
+const CreditsList = styled.ul`
   grid-column: span 2;
   justify-self: center;
   align-self: center;
+  text-align: center;
   padding: 0 30vw;
   margin: 1rem 0;
   color: ${props => props.color};
 `;
+
+const credits = [
+  {
+    title: "director",
+    color: "var(--yellow)",
+    name: "Werner Herzog"
+  },
+  {
+    title: "art design",
+    color: "var(--cyan)",
+    name: "Tom Cruise"
+  },
+  {
+    title: "user interface",
+    color: "var(--pink)",
+    name: "Leo Messi"
+  },
+  {
+    title: "coding",
+    color: "var(--green)",
+    name: "Mariano Rajoy"
+  }
+];
 
 const ProjectPage = () => (
   <Layout>
     <Header />
     <ProjectWrapper>
       <TextContainer>
-        <TextLeft test color="var(--pink)">
-          introduction
-        </TextLeft>
+        <TextLeft color="var(--pink)">introduction</TextLeft>
         <TextRight>
           Discover the world of Mariano Pascual through his own eyes, or in this
           case, his computer.
         </TextRight>
       </TextContainer>
+      <Project src={MarianoPic} />
       <TextContainer>
         <TextLeft color="var(--yellow)">concept & execution</TextLeft>
         <TextRight>
@@ -75,15 +101,26 @@ const ProjectPage = () => (
           they really stand for.
         </TextRight>
       </TextContainer>
+      <Project src={DadaPic} />
+      <div>
+        <Project src={AxpePic} width="50%" />
+        <Project src={DesigndoesPic} width="50%" />
+      </div>
       <TextContainer>
-        <TextCenter>Hey</TextCenter>
-        <TextCenter>Hey</TextCenter>
-        <TextCenter>Hey</TextCenter>
-        <TextCenter>Hey</TextCenter>
-        <TextCenter>Hey</TextCenter>
-        <TextCenter>Hey</TextCenter>
+        <CreditsList>
+          {credits.map(credit => (
+            <ul style={{ marginBottom: "2.5rem" }}>
+              <li key={credit.id}>{credit.title}</li>
+              <li>{credit.name}</li>
+            </ul>
+          ))}
+        </CreditsList>
       </TextContainer>
     </ProjectWrapper>
+    <div>
+      <Project src={AxpePic} width="50%" />
+      <Project src={DadaPic} width="50%" />
+    </div>
     <Contact />
     <LuckyDay />
   </Layout>
