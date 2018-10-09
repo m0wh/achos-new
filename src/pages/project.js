@@ -3,9 +3,6 @@ import { Link } from "gatsby";
 import styled from "styled-components";
 
 import Layout from "../components/layout";
-import Header from "../components/header";
-import Contact from "../components/contact";
-import LuckyDay from "../components/luckyday";
 import { Project } from "../components/work";
 
 import MarianoPic from "../images/mariano.jpg";
@@ -22,7 +19,7 @@ const ProjectWrapper = styled.main`
   margin-top: 2.625rem;
 `;
 
-const TextContainer = styled.div`
+export const TextContainer = styled.div`
   display: grid;
   grid-template-columns: 25% auto;
   grid-template-rows: auto;
@@ -32,14 +29,14 @@ const TextContainer = styled.div`
   line-height: 1.53;
   margin: 0 3.1875rem 0 3.5625rem;
 `;
-const TextLeft = styled.p`
+export const TextLeft = styled.p`
   grid-column-start: 1;
   grid-column-end: 2;
   justify-self: start;
   color: ${props => props.color};
   padding-right: 1rem;
 `;
-const TextRight = styled.p`
+export const TextRight = styled.p`
   grid-column-start: 2;
   grid-column-end: 3;
   justify-self: start;
@@ -81,7 +78,6 @@ const credits = [
 
 const ProjectPage = () => (
   <Layout>
-    <Header />
     <ProjectWrapper>
       <TextContainer>
         <TextLeft color="var(--pink)">introduction</TextLeft>
@@ -121,8 +117,6 @@ const ProjectPage = () => (
       <Project src={AxpePic} width="50%" />
       <Project src={DadaPic} width="50%" />
     </div>
-    <Contact />
-    <LuckyDay />
   </Layout>
 );
 
