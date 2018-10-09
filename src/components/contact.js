@@ -1,6 +1,13 @@
 import React from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
+import {
+  Element,
+  Events,
+  animateScroll as scroll,
+  scrollSpy,
+  scroller
+} from "react-scroll";
 
 import FacebookIcon from "../images/icons/facebook.svg";
 import TinderIcon from "../images/icons/tinder.svg";
@@ -42,36 +49,38 @@ const SocialIcon = styled.img`
 // const Mail = styled.li``;
 
 const Contact = () => (
-  <ContactWrapper>
-    <ContactUs>
-      <li>Contact</li>
-      <ListItem color="var(--pink)">hi@achos.es</ListItem>
-      <ListItem color="var(--cyan)">(+34) 935 016 671</ListItem>
-      <ListItem color="var(--green)">(+34) 630 991 990</ListItem>
-      <ListItem color="var(--yellow)">
-        Vigatans 11, Local 2, 08003 Barcelona
-      </ListItem>
-    </ContactUs>
-    <FollowUs>
-      <li>Follow Us!</li>
-      <ListItem color="var(--pink)">
-        <SocialIcon src={TinderIcon} />
-        Tinder
-      </ListItem>
-      <ListItem color="var(--cyan)">
-        <SocialIcon src={FacebookIcon} />
-        Facebook
-      </ListItem>
-      <ListItem color="var(--green)">
-        <SocialIcon src={YoutubeIcon} />
-        Instagram
-      </ListItem>
-      <ListItem color="var(--yellow)">
-        <SocialIcon src={TwitterIcon} />
-        Twitter
-      </ListItem>
-    </FollowUs>
-  </ContactWrapper>
+  <Element name="contact">
+    <ContactWrapper>
+      <ContactUs>
+        <li>Contact</li>
+        <ListItem color="var(--pink)">hi@achos.es</ListItem>
+        <ListItem color="var(--cyan)">(+34) 935 016 671</ListItem>
+        <ListItem color="var(--green)">(+34) 630 991 990</ListItem>
+        <ListItem color="var(--yellow)">
+          Vigatans 11, Local 2, 08003 Barcelona
+        </ListItem>
+      </ContactUs>
+      <FollowUs>
+        <li>Follow Us!</li>
+        <ListItem color="var(--pink)">
+          <SocialIcon src={TinderIcon} />
+          Tinder
+        </ListItem>
+        <ListItem color="var(--cyan)">
+          <SocialIcon src={FacebookIcon} />
+          Facebook
+        </ListItem>
+        <ListItem color="var(--green)">
+          <SocialIcon src={YoutubeIcon} />
+          Instagram
+        </ListItem>
+        <ListItem color="var(--yellow)">
+          <SocialIcon src={TwitterIcon} />
+          Twitter
+        </ListItem>
+      </FollowUs>
+    </ContactWrapper>
+  </Element>
 );
 
 export default Contact;
