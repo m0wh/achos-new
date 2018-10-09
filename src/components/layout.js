@@ -7,6 +7,10 @@ import reset from "styled-reset";
 import AvantBold from "../fonts/ITCAvantGardePro-Bold.woff";
 import PointerWhite from "../images/icons/white-default.png";
 
+import Header from "./header";
+import Contact from "./contact";
+import LuckyDay from "./luckyday";
+
 const GlobalStyle = createGlobalStyle`
   ${reset}
   
@@ -93,7 +97,10 @@ const Layout = ({ children }) => (
         >
           <html lang="en" />
         </Helmet>
+        <Header />
         <div>{children}</div>
+        <Contact />
+        <LuckyDay />
       </>
     )}
   />
