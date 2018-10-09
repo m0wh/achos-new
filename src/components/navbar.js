@@ -66,11 +66,19 @@ class Navbar extends React.Component {
     Events.scrollEvent.remove("end");
   }
 
+  scrollTo() {
+    scroller.scrollTo("contact", {
+      duration: 800,
+      delay: 0,
+      smooth: true
+    });
+  }
+
   render() {
     return (
       <NavWrapper>
         <List>
-          {/* onClick scrolls through page */}
+          {/* If location IS NOT root, show Link to Home instead of 5 Sec Tour */}
           <ListItem color="var(--yellow)">
             <StyledLink
               onClick={() =>
@@ -91,9 +99,8 @@ class Navbar extends React.Component {
           <ListItem color="var(--green)">
             <StyledLink to="/">about</StyledLink>
           </ListItem>
-          {/* StyledLink to Espai */}
           <ListItem color="var(--pink)">
-            <StyledLink to="#Contact">contact</StyledLink>
+            <StyledLink onClick={() => this.scrollTo()}>contact</StyledLink>
           </ListItem>
           <ListItem color="var(--darkgrey)">eng</ListItem>
         </List>
