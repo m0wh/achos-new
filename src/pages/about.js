@@ -3,7 +3,10 @@ import { Link } from "gatsby";
 import styled from "styled-components";
 
 import Layout from "../components/layout";
-import { TextContainer, TextLeft, TextRight } from "./project";
+import { TextContainer, TextLeft, TextRight, CreditsList } from "./project";
+
+import BeansPic from "../images/beans.jpg";
+import AboutPic from "../images/about.gif";
 
 const aboutText = [
   {
@@ -24,26 +27,158 @@ const aboutText = [
   }
 ];
 
-const GreyTextContainer = styled(TextContainer)`
+const hotBranding =
+  "art direction / bondage / events / graphic design / illustration / digital marketing / sex / print /  editorial / naming / messaging / tone of voice / strategy / positioning / latex / packaging design / porn / social media / film / WOW factor! / creative team";
+
+const blaBoomBling = [
+  [
+    "EVA '17",
+    "Pecha Kucha Den Haag '17",
+    "ADCE Potencial '17",
+    "OFFF Barcelona '16",
+    "ENED '16",
+    "ADCE '15",
+    "Idep Barcelona '15",
+    "FIU Barcelona '15",
+    "Student Laus Tour '14",
+    "FIU Barcelona '14",
+    "UAB '14"
+  ],
+  [
+    "Design Kids '17",
+    "TIA '17",
+    "Charlie Magazine '15",
+    "el Periodico '15",
+    "Graffica '15",
+    "Creative Review '15",
+    "BOOOOOOOM '15",
+    "Murcia Visual '14",
+    "Idep Barcelona '14",
+    "Small Job '14"
+  ],
+  [
+    "Developer Award '18",
+    "Awwwards SOTD '18",
+    "Brutalist Website '17",
+    "Honors Awwwards '17",
+    "Brutalist Website '17",
+    "Honors Awwwards '17",
+    "Brutalist Website '17",
+    "Honors Awwwards '17",
+    "Honors Awwwards '17",
+    "Laus '15",
+    "Laus '14"
+  ]
+];
+
+const ProjectWrapper = styled.main`
+  background-color: var(--lightblack);
   color: var(--lightgrey);
+`;
+const ImageWrapper = styled.div`
+  max-width: 100%;
+  margin: 9rem 0;
+`;
+
+const ShowsContainer = styled.section`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+  grid-column-gap: 1rem;
+  justify-items: center;
+  align-items: baseline;
+  font-size: 2rem;
+  line-height: 1.53;
+  text-align: center;
 `;
 
 const AboutPage = () => (
   <Layout>
-    <GreyTextContainer>
-      <TextLeft color="var(--pink)">Who We Are</TextLeft>
-      <TextRight style={{ fontSize: "3rem" }}>{aboutText[0].header}</TextRight>
-      <TextRight>{aboutText[0].first}</TextRight>
-      <TextRight>{aboutText[0].second}</TextRight>
-    </GreyTextContainer>
-    <GreyTextContainer>
-      <TextLeft color="var(--yellow)">Attention</TextLeft>
-      <TextRight>{aboutText[1].attention}</TextRight>
-      <TextLeft color="var(--pink)">crazy websites</TextLeft>
-      <TextRight>{aboutText[1].crazyWebsites}</TextRight>
-      <TextLeft color="var(--green)">hot branding</TextLeft>
-      <TextRight>{aboutText[1].hotBranding}</TextRight>
-    </GreyTextContainer>
+    <ProjectWrapper>
+      <ImageWrapper style={{ marginTop: 0, marginBottom: "6rem" }}>
+        <img src={AboutPic} width="100%" />
+      </ImageWrapper>
+      <TextContainer
+        style={{
+          marginTop: "5rem",
+          paddingRight: "3rem"
+        }}
+      >
+        <TextLeft color="var(--pink)">Who We Are</TextLeft>
+        <TextRight
+          style={{
+            fontSize: "3rem",
+            marginBottom: "3.5rem",
+            lineHeight: "1.4"
+          }}
+        >
+          {aboutText[0].header}
+        </TextRight>
+        <TextRight style={{ marginBottom: "3.5rem" }}>
+          {aboutText[0].first}
+        </TextRight>
+        <TextRight>{aboutText[0].second}</TextRight>
+      </TextContainer>
+      <ImageWrapper>
+        <img src={BeansPic} width="100%" />
+      </ImageWrapper>
+      <TextContainer>
+        <TextLeft color="var(--yellow)">Attention</TextLeft>
+        <TextRight style={{ paddingRight: "3rem" }}>
+          {aboutText[1].attention}
+        </TextRight>
+      </TextContainer>
+      <TextContainer>
+        <TextLeft color="var(--pink)">crazy websites</TextLeft>
+        <TextRight style={{ paddingRight: "3rem" }}>
+          {aboutText[1].crazyWebsites}
+        </TextRight>
+      </TextContainer>
+      <TextContainer>
+        <TextLeft color="var(--green)">hot branding</TextLeft>
+        <TextRight style={{ paddingRight: "3rem" }}>
+          {aboutText[1].hotBranding}
+        </TextRight>
+      </TextContainer>
+      <ImageWrapper>
+        <img src={BeansPic} width="100%" />
+      </ImageWrapper>
+      <TextContainer>
+        <CreditsList style={{ padding: "0 3rem" }}>
+          <li style={{ color: "var(--green)", marginBottom: "2rem" }}>
+            Hot Branding
+          </li>
+          <li>{hotBranding}</li>
+        </CreditsList>
+      </TextContainer>
+      <TextContainer>
+        <CreditsList style={{ padding: "0 3rem" }}>
+          <li style={{ color: "var(--pink)", marginBottom: "2rem" }}>
+            Shooting Range
+          </li>
+        </CreditsList>
+      </TextContainer>
+      <ShowsContainer>
+        <ul>
+          <ul style={{ color: "var(--green)" }}>Bla Bla</ul>
+          {blaBoomBling[0].map(item => (
+            <li key={item.id}>{item}</li>
+          ))}
+        </ul>
+        <ul>
+          <ul style={{ color: "var(--cyan)" }}>Boom Boom</ul>
+          {blaBoomBling[1].map(item => (
+            <li key={item.id}>{item}</li>
+          ))}
+        </ul>
+        <ul>
+          <ul style={{ color: "var(--yellow)" }}>Bling Bling</ul>
+          {blaBoomBling[2].map(item => (
+            <li key={item.id}>{item}</li>
+          ))}
+        </ul>
+      </ShowsContainer>
+    </ProjectWrapper>
   </Layout>
 );
 
