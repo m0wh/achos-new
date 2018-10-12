@@ -49,6 +49,7 @@ const GlobalStyle = createGlobalStyle`
   a {
     cursor: var(--pointerwhite);
     text-decoration: none;
+    color: inherit;
     &:hover {
       color: white;
       text-decoration: underline;
@@ -74,7 +75,7 @@ const GlobalStyle = createGlobalStyle`
   //
 `;
 
-const Layout = ({ children }) => (
+const Layout = ({ children, location }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
