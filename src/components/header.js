@@ -17,7 +17,7 @@ const HeaderWrapper = styled.header`
 const Header = () => (
   <HeaderWrapper>
     <Logo />
-    <Navbar />
+    <Navbar homeorfive="5 Sec Tour" />
   </HeaderWrapper>
 );
 
