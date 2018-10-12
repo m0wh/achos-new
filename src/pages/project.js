@@ -43,7 +43,7 @@ export const TextRight = styled.p`
   color: ${props => props.color};
 `;
 
-const CreditsList = styled.ul`
+export const CreditsList = styled.ul`
   grid-column: span 2;
   justify-self: center;
   align-self: center;
