@@ -1,8 +1,8 @@
 import React from "react";
-// import { Link } from "gatsby";
+import { Link } from "gatsby";
 import styled from "styled-components";
 import {
-  Link,
+  Link as ScrollLink,
   DirectLink,
   Element,
   Events,
@@ -75,12 +75,13 @@ class Navbar extends React.Component {
   }
 
   render() {
+    const { homeorfive } = this.props;
     return (
       <NavWrapper>
         <List>
           {/* If location IS NOT root, show Link to Home instead of 5 Sec Tour */}
           <ListItem color="var(--yellow)">
-            <StyledLink
+            <ScrollLink
               onClick={() =>
                 scroll.scrollToBottom({
                   duration: 5000,
@@ -88,19 +89,19 @@ class Navbar extends React.Component {
                 })
               }
             >
-              5 Second Tour
-            </StyledLink>
+              {homeorfive}
+            </ScrollLink>
           </ListItem>
           {/* onClick scrolls down to beginning of projects */}
           <ListItem color="var(--cyan)">
-            <StyledLink to="/">work</StyledLink>
+            <StyledLink to="/project">work</StyledLink>
           </ListItem>
           {/* StyledLink to About */}
           <ListItem color="var(--green)">
-            <StyledLink to="/">about</StyledLink>
+            <StyledLink to="/about">about</StyledLink>
           </ListItem>
           <ListItem color="var(--pink)">
-            <StyledLink onClick={() => this.scrollTo()}>contact</StyledLink>
+            <ScrollLink onClick={() => this.scrollTo()}>contact</ScrollLink>
           </ListItem>
           <ListItem color="var(--darkgrey)">eng</ListItem>
         </List>
