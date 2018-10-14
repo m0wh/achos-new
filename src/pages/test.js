@@ -4,43 +4,45 @@ import styled from "styled-components";
 
 import GIF from "../images/gifs/5sectour.gif";
 import Sound from "../images/barcelona.mp3";
+import { throws } from "assert";
 
 
 const Trigger = styled.p`
-  z-index: 1;
+  // z-index: 1;
 
 `;
 
 const Wrapper = styled.div`
-  z-index: 1;
-  position: absolute;
+  // z-index: 1;
+  // position: absolute;
   width: 100vw;
   height: 100vh;
   max-width: 100%;
 `;
 
 const BackgroundGif = styled.div`
-  z-index: 1000;
-  position: absolute;
+  z-index: -2;
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100vw;
   height: 100vh;
   max-width: 100%;
-  background: cover url("${GIF}");
+  background-image: url("${GIF}");
+  background-size: cover;
+  background-position: center;
 
   
 `;
 
-
-
-
-
-
-export default class YourComponent extends Component {
+export default class GifAudioPlayer extends Component {
   
   state = {
     isAudioPlaying: false,
     isGifShowing: false
   };
+
+  // audioTest = React.createRef();
 
   startIt = () => {
     this.setState({
@@ -56,6 +58,16 @@ export default class YourComponent extends Component {
     });
   };
 
+  playAudio = () => {
+    this.playPlay.play();
+  }
+
+  stopAudio = () => {
+    this.playPlay.pause();
+    this.playPlay.currentTime = 0;
+  }
+
+  
 
   render() {
     console.log(this.state);
@@ -65,14 +77,23 @@ export default class YourComponent extends Component {
 
     return (
       
+      
         <Wrapper>
+        <Trigger onMouseOver={this.startIt} onMouseOut={this.stopIt} onMouseOver={this.playAudio} onMouseOut={this.stopAudio}>
         
-        <Trigger onMouseOver={this.startIt} onMouseOut={this.stopIt}>
-          aaa
+          ALOHA
         </Trigger>
+        
+
         { isGifShowing && <BackgroundGif/>}
+        
+        <audio preload="auto" ref={(hey) => { this.playPlay = hey; }} >
+        
+        <source src={Sound} type="audio/mpeg"></source></audio>
         </Wrapper>
+        
       );
   }
 }
+
 
