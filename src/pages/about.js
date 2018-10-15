@@ -90,6 +90,7 @@ const ShowsContainer = styled.section`
   font-size: 2rem;
   line-height: 1.53;
   text-align: center;
+  padding: 9rem 3.5rem;
 `;
 
 const AboutPage = () => (
@@ -101,7 +102,8 @@ const AboutPage = () => (
       <TextContainer
         style={{
           marginTop: "5rem",
-          paddingRight: "3rem"
+          paddingRight: "3rem",
+          gridGap: "4rem"
         }}
       >
         <TextLeft color="var(--pink)">Who We Are</TextLeft>
@@ -160,19 +162,25 @@ const AboutPage = () => (
       </TextContainer>
       <ShowsContainer>
         <ul>
-          <ul style={{ color: "var(--green)" }}>Bla Bla</ul>
+          <ul style={{ color: "var(--green)", marginBottom: "3.5rem" }}>
+            Bla Bla
+          </ul>
           {blaBoomBling[0].map(item => (
             <li key={item.id}>{item}</li>
           ))}
         </ul>
         <ul>
-          <ul style={{ color: "var(--cyan)" }}>Boom Boom</ul>
+          <ul style={{ color: "var(--cyan)", marginBottom: "3.5rem" }}>
+            Boom Boom
+          </ul>
           {blaBoomBling[1].map(item => (
             <li key={item.id}>{item}</li>
           ))}
         </ul>
         <ul>
-          <ul style={{ color: "var(--yellow)" }}>Bling Bling</ul>
+          <ul style={{ color: "var(--yellow)", marginBottom: "3.5rem" }}>
+            Bling Bling
+          </ul>
           {blaBoomBling[2].map(item => (
             <li key={item.id}>{item}</li>
           ))}
