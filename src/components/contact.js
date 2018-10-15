@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
 import { Element } from "react-scroll";
+import media from "../utils/breakpoints";
 
 import FacebookIcon from "../images/icons/facebook.svg";
 import TinderIcon from "../images/icons/tinder.svg";
@@ -15,10 +16,12 @@ const ContactWrapper = styled.footer`
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr
   justify-items: start;
-  align-items: center;
+  align-items: baseline;
   color: var(--lightgrey);
   font-size: 2rem;
   line-height: 1.4;
+  ${media.tablet`grid-gap: 4rem;`}
+  ${media.phone`grid-gap: 0;`}
 `;
 
 const ContactUs = styled.ul`
