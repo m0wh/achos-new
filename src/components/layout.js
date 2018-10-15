@@ -43,6 +43,8 @@ const GlobalStyle = createGlobalStyle`
   body {
     background-color: var(--black);
     font-family: "AvantGardeBold";
+    font-size: 1rem;
+    
     
   }
 
