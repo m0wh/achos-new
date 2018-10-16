@@ -5,19 +5,19 @@ import styled from "styled-components";
 
 const Trigger = styled.p`
   // z-index: 1;
-  color: red;
+  // color: red;
 `;
 
 const Wrapper = styled.div`
   // z-index: 1;
   // position: absolute;
-  width: 100vw;
-  height: 100vh;
-  max-width: 100%;
+  // width: 100vw;
+  // height: 100vh;
+  // max-width: 100%;
 `;
 
 const BackgroundGif = styled.div`
-  z-index: -2;
+  z-index: -1;
   position: fixed;
   top: 0;
   left: 0;
