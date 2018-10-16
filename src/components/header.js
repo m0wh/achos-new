@@ -8,7 +8,7 @@ import Logo from "./logo";
 const HeaderWrapper = styled.header`
   max-width: 100%;
   display: grid;
-  grid-template-columns: auto auto;
+  grid-template-columns: 1fr 3fr;
   align-items: end;
   color: white;
   font-size: 3rem;
