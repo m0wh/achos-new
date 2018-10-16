@@ -42,7 +42,7 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     background-color: var(--black);
-    font-family: "AvantGardeBold";
+    font-family: "AvantGardeBold", sans-serif;
     font-size: 1rem;
     
     
@@ -77,7 +77,7 @@ const GlobalStyle = createGlobalStyle`
   //
 `;
 
-const Layout = ({ children, location }) => (
+const Layout = ({ children }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
