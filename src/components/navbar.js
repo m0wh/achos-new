@@ -11,6 +11,11 @@ import {
   scroller
 } from "react-scroll";
 
+import SoundGif from "./soundgif";
+
+import Sound from "../images/hadouken.mp3";
+import GIF from "../images/gifs/baseball.gif";
+
 const NavWrapper = styled.nav`
   z-index: 1000;
   position: fixed;
@@ -36,19 +41,6 @@ const StyledLink = styled(Link)`
     color: white;
   }
 `;
-
-// onMouseOver
-// GIF background full
-// Play sound
-// omMouseOut
-// Stop Sound
-// Remove GIF
-
-// state = {
-//     isGifOn: true/false,
-//     isSoundPlaying: true/false,
-//     onMouseOver change states?
-// }
 
 class Navbar extends React.Component {
   componentDidMount() {
@@ -89,7 +81,9 @@ class Navbar extends React.Component {
                 })
               }
             >
-              {homeorfive}
+              <SoundGif sound={Sound} gif={GIF}>
+                {homeorfive}
+              </SoundGif>
             </ScrollLink>
           </ListItem>
           {/* onClick scrolls down to beginning of projects */}
