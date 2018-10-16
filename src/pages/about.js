@@ -103,7 +103,7 @@ const AboutPage = () => (
         style={{
           marginTop: "5rem",
           paddingRight: "3rem",
-          gridGap: "4rem"
+          columnGap: "4rem"
         }}
       >
         <TextLeft color="var(--pink)">Who We Are</TextLeft>
