@@ -69,6 +69,9 @@ const GlobalStyle = createGlobalStyle`
 
     ::-webkit-scrollbar-thumb {
       background: linear-gradient(to bottom, rgba(0,255,255,1) 0%, rgba(255,115,176,1) 33%, rgba(64,250,123,1) 66%, rgba(255,243,109,1) 100%);
+    &:hover {
+      background: linear-gradient(to bottom, rgba(255,243,109,1) 0%, rgba(64,250,123,1) 33%, rgba(255,115,176,1) 66%, rgba(0,255,255,1) 100%);
+    }  
     }
 
     ::-webkit-scrollbar-track {
