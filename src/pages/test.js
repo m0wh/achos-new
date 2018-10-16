@@ -4,7 +4,13 @@ import styled from "styled-components";
 
 import GIF from "../images/gifs/5sectour.gif";
 import Sound from "../images/barcelona.mp3";
-import { throws } from "assert";
+
+/* REFERENCES
+
+- https://codepen.io/StudentOfJS/pen/dzjPwP/
+- https://stackoverflow.com/questions/44379880/using-audio-tags-in-react-app-playing-chosen-file-onclick
+
+*/
 
 
 const Trigger = styled.p`
@@ -42,57 +48,46 @@ export default class GifAudioPlayer extends Component {
     isGifShowing: false
   };
 
-  // audioTest = React.createRef();
+  myRef = React.createRef();
+
 
   startIt = () => {
+    this.myRef.current.play();
     this.setState({
-      isAudioPlaying: true,
-      isGifShowing: true
-    });
-  };
+          isAudioPlaying: true,
+          isGifShowing: true
+        });
+  }
 
   stopIt = () => {
     this.setState({
       isAudioPlaying: false,
       isGifShowing: false
     });
-  };
-
-  playAudio = () => {
-    this.playPlay.play();
+    this.myRef.current.pause();
+    this.myRef.current.currentTime = 0;
+   
   }
-
-  stopAudio = () => {
-    this.playPlay.pause();
-    this.playPlay.currentTime = 0;
-  }
-
-  
 
   render() {
-    console.log(this.state);
-
     const isGifShowing = this.state.isGifShowing
-    const isAudioPlaying = this.state.isAudioPlaying;
+
 
     return (
+      <Wrapper>
+      <Trigger onMouseOver={this.startIt} onMouseOut={this.stopIt}>
       
+        ALOHA
+      </Trigger>
       
-        <Wrapper>
-        <Trigger onMouseOver={this.startIt} onMouseOut={this.stopIt} onMouseOver={this.playAudio} onMouseOut={this.stopAudio}>
-        
-          ALOHA
-        </Trigger>
-        
+      <audio preload="auto" ref={this.myRef} >
+        <source src={Sound} type="audio/mpeg"></source>
+      </audio>
 
-        { isGifShowing && <BackgroundGif/>}
+      { isGifShowing && <BackgroundGif/>}
+      </Wrapper>
         
-        <audio preload="auto" ref={(hey) => { this.playPlay = hey; }} >
-        
-        <source src={Sound} type="audio/mpeg"></source></audio>
-        </Wrapper>
-        
-      );
+    );
   }
 }
 
