@@ -10,6 +10,8 @@ import {
   scrollSpy,
   scroller
 } from "react-scroll";
+import media from "../utils/breakpoints";
+import Menu from "./mobilemenu";
 
 import SoundGif from "./soundgif";
 
@@ -28,6 +30,7 @@ const List = styled.ul`
   list-style: none;
   display: flex;
   flex-direction: row;
+  ${media.tablet`display: none;`};
 `;
 const ListItem = styled.li`
   font-size: 2rem;
@@ -99,6 +102,9 @@ class Navbar extends React.Component {
           </ListItem>
           <ListItem color="var(--darkgrey)">eng</ListItem>
         </List>
+        <Menu>
+          <ListItem>Pol</ListItem>
+        </Menu>
       </NavWrapper>
     );
   }
