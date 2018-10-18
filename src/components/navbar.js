@@ -102,9 +102,7 @@ class Navbar extends React.Component {
           </ListItem>
           <ListItem color="var(--darkgrey)">eng</ListItem>
         </List>
-        <Menu>
-          <ListItem>Pol</ListItem>
-        </Menu>
+        <Menu />
       </NavWrapper>
     );
   }
