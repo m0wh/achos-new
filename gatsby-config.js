@@ -3,6 +3,32 @@ module.exports = {
     title: "achos!"
   },
   plugins: [
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `projects`,
+        path: `${__dirname}/src/projects/`
+      }
+    },
+    {
+      resolve: "gatsby-transformer-remark",
+      options: {
+        plugins: [
+          {
+            resolve: "gatsby-remark-images",
+            options: {
+              maxWidth: 820,
+              quality: 90,
+              linkImagesToOriginal: false
+            }
+          },
+
+          {
+            resolve: "gatsby-remark-responsive-iframe"
+          }
+        ]
+      }
+    },
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-styled-components",
     {
