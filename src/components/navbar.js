@@ -103,7 +103,23 @@ class Navbar extends React.Component {
           <ListItem color="var(--darkgrey)">eng</ListItem>
         </List>
         <Menu>
-          <li>hahsa</li>
+          <List style={{ textAlign: "center", lineHeight: "1.3" }}>
+            <ListItem style={{ fontSize: "4rem" }}>
+              <StyledLink to="/">home</StyledLink>
+            </ListItem>
+            {/* onClick scrolls down to beginning of projects */}
+            <ListItem style={{ fontSize: "4rem" }}>
+              <StyledLink to="/project">work</StyledLink>
+            </ListItem>
+            {/* StyledLink to About */}
+            <ListItem style={{ fontSize: "4rem" }}>
+              <StyledLink to="/about">about</StyledLink>
+            </ListItem>
+            <ListItem style={{ fontSize: "4rem" }}>
+              <ScrollLink onClick={() => this.scrollTo()}>contact</ScrollLink>
+            </ListItem>
+            <ListItem style={{ fontSize: "4rem" }}>eng</ListItem>
+          </List>
         </Menu>
       </NavWrapper>
     );
