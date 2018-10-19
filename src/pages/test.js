@@ -1,12 +1,12 @@
-import React, { Component } from "react";
-import { Link } from "gatsby";
-import styled from "styled-components";
-import Example from "../components/mobilemenu";
+// import React, { Component } from "react";
+// import { Link } from "gatsby";
+// import styled from "styled-components";
+// import YourComponent from "../components/burgerbutton";
 
-const YourComponent = () => (
-  <div>
-    <Example />
-  </div>
-);
+// const Hey = () => (
+//   <div>
+//     <YourComponent />
+//   </div>
+// );
 
-export default YourComponent;
+// export default Hey;
