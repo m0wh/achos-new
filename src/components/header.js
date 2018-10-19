@@ -14,6 +14,7 @@ const HeaderWrapper = styled.header`
   font-size: 3rem;
   margin: 2.625rem 3.1875rem 0 3.5625rem;
 `;
+
 const Header = () => (
   <HeaderWrapper>
     <Logo />
