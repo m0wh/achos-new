@@ -17,6 +17,7 @@ const StyledBurgerMenu = styled.div`
   z-index: 100;
   cursor: pointer;
   right: 0;
+  top: 0;
 
   /* Position and sizing of burger button */
   .bm-burger-button {
@@ -99,6 +100,8 @@ const StyledBurgerMenu = styled.div`
     border: 0;
     margin: 0;
     overflow: visible;
+    position: fixed;
+    z-index: 10001;
   }
   .hamburger:hover {
     opacity: 0.7;
