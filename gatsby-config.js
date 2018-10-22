@@ -10,18 +10,20 @@ module.exports = {
         path: `${__dirname}/src/projects/`
       }
     },
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
     {
       resolve: "gatsby-transformer-remark",
       options: {
         plugins: [
-          {
-            resolve: "gatsby-remark-images",
-            options: {
-              maxWidth: 820,
-              quality: 90,
-              linkImagesToOriginal: false
-            }
-          },
+          // {
+          //   resolve: "gatsby-remark-images",
+          //   options: {
+          //     maxWidth: 820,
+          //     quality: 90,
+          //     withWebp: true
+          //   }
+          // },
 
           {
             resolve: "gatsby-remark-responsive-iframe"
