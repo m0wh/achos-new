@@ -27,7 +27,7 @@ export const TextContainer = styled.div`
   align-items: baseline;
   font-size: 2rem;
   line-height: 1.53;
-  margin: 0 3.1875rem 0 3.5625rem;
+  margin: 0 3.5625rem;
 `;
 export const TextLeft = styled.p`
   grid-column-start: 1;
@@ -106,7 +106,9 @@ const ProjectPage = () => (
         <CreditsList>
           {credits.map(credit => (
             <ul style={{ marginBottom: "2.5rem" }}>
-              <li key={credit.id}>{credit.title}</li>
+              <li style={{ color: credit.color }} key={credit.id}>
+                {credit.title}
+              </li>
               <li>{credit.name}</li>
             </ul>
           ))}
