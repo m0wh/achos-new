@@ -5,12 +5,14 @@ import Layout from "../components/layout";
 
 export default ({ data }) => {
   console.log(data);
-  const { frontmatter } = data.allMarkdownRemark.edges[0].node;
+  const { frontmatter } = data.allMarkdownRemark.edges[1].node;
   return (
     <Layout>
       <h1>{frontmatter.name}</h1>
       <h1>{frontmatter.introduction}</h1>
-      <Img fluid={frontmatter.bigimage1.childImageSharp.fluid} />
+      <div style={{ width: "50%" }}>
+        <Img fluid={frontmatter.bigimage1.childImageSharp.fluid} />
+      </div>
     </Layout>
   );
 };
@@ -25,7 +27,7 @@ export const query = graphql`
             introduction
             bigimage1 {
               childImageSharp {
-                fluid(maxWidth: 800) {
+                fluid(maxWidth: 800, quality: 80) {
                   ...GatsbyImageSharpFluid
                 }
               }
