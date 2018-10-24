@@ -56,9 +56,6 @@ const GlobalStyle = createGlobalStyle`
       color: white;
       text-decoration: underline;
     }
-    &:visited {
-      color: inherit;
-    }
   }
 
 
