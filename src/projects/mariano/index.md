@@ -7,12 +7,18 @@ bigimage2: "./mariano-01.jpg"
 smallimage1: "./mariano-03.jpg"
 smallimage2: "./mariano-05.jpg"
 credits:
-  [
-    { title: "director", color: "var(--yellow)", name: "Werner Herzog" },
-    { title: "art design", color: "var(--cyan)", name: "Tom Cruise" },
-    { title: "user interface", color: "var(--pink)", name: "Leo Messi" },
-    { title: "coding", color: "var(--green)", name: "Mariano Rajoy" },
-  ]
+  - title: "director"
+    color: "var(--yellow)"
+    name: "Werner Herzog"
+  - title: "art design"
+    color: "var(--cyan)"
+    name: "Tom Cruise"
+  - title: "user interface"
+    color: "var(--pink)"
+    name: "Leo Messi"
+  - title: "coding"
+    color: "var(--green)"
+    name: "Jose Mota"
 related1: "./mariano-06.jpg"
 related2: "./mariano-00.jpg"
 ---
