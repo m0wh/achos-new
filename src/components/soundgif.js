@@ -64,7 +64,7 @@ export default class SoundGif extends Component {
 
     return (
       <Wrapper>
-      <Trigger onMouseOver={this.startIt} onMouseOut={this.stopIt}>
+      <Trigger onMouseOver={this.startIt} onMouseOut={this.stopIt} onClick={this.stopIt}>
       {children}
       </Trigger>
       
