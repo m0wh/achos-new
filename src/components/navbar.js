@@ -44,7 +44,9 @@ const ListItem = styled.li`
 const StyledLink = styled(Link)`
   &:hover {
     text-decoration: none;
-    color: white;
+  }
+  &:visited {
+    text-decoration: none;
   }
 `;
 
