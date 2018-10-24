@@ -38,6 +38,11 @@ export const TextRight = styled.p`
   color: ${props => props.color};
 `;
 
+const SmallImg = styled(Img)`
+  width: 50%;
+  display: inline-block;
+`;
+
 export const CreditsList = styled.ul`
   grid-column: span 2;
   justify-self: center;
@@ -59,17 +64,27 @@ export default ({ data }) => {
           <TextRight>{frontmatter.introduction}</TextRight>
         </TextContainer>
         <div>
-          {/* <Img fluid={frontmatter.bigimage1.childImageSharp.fluid} /> */}
+          <Img fluid={frontmatter.bigimage1.childImageSharp.fluid} />
         </div>
         <TextContainer>
           <TextLeft color="var(--yellow)">concept & execution</TextLeft>
           <TextRight>{frontmatter.concept}</TextRight>
         </TextContainer>
-        {/* <Project src={DadaPic} /> */}
+        <Img fluid={frontmatter.bigimage2.childImageSharp.fluid} />
         <div>
-          {/* <Project src={AxpePic} width="50%" />
-          <Project src={DesigndoesPic} width="50%" /> */}
+          <SmallImg fluid={frontmatter.smallimage1.childImageSharp.fluid} />
+          <SmallImg fluid={frontmatter.smallimage2.childImageSharp.fluid} />
         </div>
+        <img
+          style={{ width: "100%" }}
+          src={frontmatter.attachments[0].publicURL}
+        />
+        <video
+          loop
+          controls
+          style={{ width: "100%" }}
+          src={frontmatter.attachments[1].publicURL}
+        />
         <TextContainer>
           <CreditsList>
             {frontmatter.credits.map(credit => (
@@ -98,6 +113,9 @@ export const query = graphql`
         name
         introduction
         concept
+        attachments {
+          publicURL
+        }
         credits {
           title
           color
@@ -130,6 +148,13 @@ export const query = graphql`
               ...GatsbyImageSharpFluid
             }
           }
+        }
+      }
+    }
+    allFile(filter: { extension: { eq: "gif" } }) {
+      edges {
+        node {
+          publicURL
         }
       }
     }
