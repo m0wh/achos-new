@@ -6,6 +6,9 @@ concept: "asas"
 bigimage2: "./mariano-01.jpg"
 smallimage1: "./mariano-03.jpg"
 smallimage2: "./mariano-05.jpg"
+attachments:
+  - "./baseball.gif"
+  - "./video.mp4"
 credits:
   - title: "director"
     color: "var(--yellow)"
