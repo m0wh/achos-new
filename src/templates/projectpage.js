@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, graphql } from "gatsby";
 import styled from "styled-components";
+import Img from "gatsby-image";
 
 import Layout from "../components/layout";
 
@@ -47,31 +48,7 @@ export const CreditsList = styled.ul`
   color: ${props => props.color};
 `;
 
-// const credits = [
-//   {
-//     title: "director",
-//     color: "var(--yellow)",
-//     name: "Werner Herzog"
-//   },
-//   {
-//     title: "art design",
-//     color: "var(--cyan)",
-//     name: "Tom Cruise"
-//   },
-//   {
-//     title: "user interface",
-//     color: "var(--pink)",
-//     name: "Leo Messi"
-//   },
-//   {
-//     title: "coding",
-//     color: "var(--green)",
-//     name: "Mariano Rajoy"
-//   }
-// ];
-
 export default ({ data }) => {
-  // console.log(data);
   const { frontmatter } = data.markdownRemark;
   console.log(frontmatter);
   return (
@@ -81,7 +58,9 @@ export default ({ data }) => {
           <TextLeft color="var(--pink)">introduction</TextLeft>
           <TextRight>{frontmatter.introduction}</TextRight>
         </TextContainer>
-        {/* <Project src={MarianoPic} /> */}
+        <div>
+          {/* <Img fluid={frontmatter.bigimage1.childImageSharp.fluid} /> */}
+        </div>
         <TextContainer>
           <TextLeft color="var(--yellow)">concept & execution</TextLeft>
           <TextRight>{frontmatter.concept}</TextRight>
@@ -119,8 +98,33 @@ export const query = graphql`
         name
         introduction
         concept
-        credits
+        credits {
+          title
+          color
+          name
+        }
         bigimage1 {
+          childImageSharp {
+            fluid(maxWidth: 800, quality: 80) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+        bigimage2 {
+          childImageSharp {
+            fluid(maxWidth: 800, quality: 80) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+        smallimage1 {
+          childImageSharp {
+            fluid(maxWidth: 800, quality: 80) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+        smallimage2 {
           childImageSharp {
             fluid(maxWidth: 800, quality: 80) {
               ...GatsbyImageSharpFluid
