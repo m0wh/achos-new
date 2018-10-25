@@ -12,27 +12,9 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-    {
-      resolve: "gatsby-transformer-remark",
-      options: {
-        plugins: [
-          // {
-          //   resolve: "gatsby-remark-images",
-          //   options: {
-          //     maxWidth: 820,
-          //     quality: 90,
-          //     withWebp: true
-          //   }
-          // },
-
-          {
-            resolve: "gatsby-remark-responsive-iframe"
-          }
-        ]
-      }
-    },
-    "gatsby-plugin-react-helmet",
-    "gatsby-plugin-styled-components",
+    `gatsby-transformer-remark`,
+    `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -45,6 +27,6 @@ module.exports = {
         icon: "src/images/achoslogo.png" // This path is relative to the root of the site.
       }
     },
-    "gatsby-plugin-offline"
+    `gatsby-plugin-offline`
   ]
 };
