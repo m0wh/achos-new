@@ -2,6 +2,7 @@ import React from "react";
 import { Link, graphql } from "gatsby";
 import styled from "styled-components";
 import Img from "gatsby-image";
+import TextBlock, { Wrapper } from "../components/textblock";
 
 import Layout from "../components/layout";
 
@@ -14,36 +15,12 @@ const ProjectWrapper = styled.main`
   margin-top: 2.625rem;
 `;
 
-export const TextContainer = styled.div`
-  display: grid;
-  grid-template-columns: 25% auto;
-  grid-template-rows: auto;
-  padding: 10vh 0;
-  align-items: baseline;
-  font-size: 2rem;
-  line-height: 1.53;
-  margin: 0 3.5625rem;
-`;
-export const TextLeft = styled.p`
-  grid-column-start: 1;
-  grid-column-end: 2;
-  justify-self: start;
-  color: ${props => props.color};
-  padding-right: 1rem;
-`;
-export const TextRight = styled.p`
-  grid-column-start: 2;
-  grid-column-end: 3;
-  justify-self: start;
-  color: ${props => props.color};
-`;
-
 const SmallImg = styled(Img)`
   width: 50%;
   display: inline-block;
 `;
 
-export const CreditsList = styled.ul`
+const CreditsList = styled.ul`
   grid-column: span 2;
   justify-self: center;
   align-self: center;
@@ -59,23 +36,27 @@ export default ({ data }) => {
   return (
     <Layout>
       <ProjectWrapper>
-        <TextContainer>
-          <TextLeft color="var(--pink)">introduction</TextLeft>
-          <TextRight>{frontmatter.introduction}</TextRight>
-        </TextContainer>
+        <TextBlock
+          colorLeft="var(--pink)"
+          textLeft="introduction"
+          textRight={frontmatter.introduction}
+        />
+
         <div>
           <Img fluid={frontmatter.bigimage1.childImageSharp.fluid} />
         </div>
-        <TextContainer>
-          <TextLeft color="var(--yellow)">concept & execution</TextLeft>
-          <TextRight>{frontmatter.concept}</TextRight>
-        </TextContainer>
+        <TextBlock
+          colorLeft="var(--yellow)"
+          textLeft="concept & execution"
+          textRight={frontmatter.concept}
+        />
         <Img fluid={frontmatter.bigimage2.childImageSharp.fluid} />
         <div>
           <SmallImg fluid={frontmatter.smallimage1.childImageSharp.fluid} />
           <SmallImg fluid={frontmatter.smallimage2.childImageSharp.fluid} />
         </div>
-        <img
+
+        {/* <img
           style={{ width: "100%" }}
           src={frontmatter.attachments[0].publicURL}
         />
@@ -84,8 +65,8 @@ export default ({ data }) => {
           controls
           style={{ width: "100%" }}
           src={frontmatter.attachments[1].publicURL}
-        />
-        <TextContainer>
+        /> */}
+        <Wrapper>
           <CreditsList>
             {frontmatter.credits.map(credit => (
               <ul style={{ marginBottom: "2.5rem" }}>
@@ -96,7 +77,7 @@ export default ({ data }) => {
               </ul>
             ))}
           </CreditsList>
-        </TextContainer>
+        </Wrapper>
       </ProjectWrapper>
       <div>
         {/* <Project src={AxpePic} width="50%" />
