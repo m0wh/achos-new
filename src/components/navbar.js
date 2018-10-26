@@ -36,12 +36,17 @@ const ListItem = styled.li`
   font-size: 2rem;
   padding: 0 1.25rem;
   color: ${props => props.color};
+  &:hover {
+    animation: ${props => (props.hoverable ? "zoom 200ms ease-in" : null)};
+  }
 `;
 
 const StyledLink = styled(Link)`
   &:hover {
     text-decoration: none;
-    color: white;
+  }
+  &:visited {
+    text-decoration: none;
   }
 `;
 
@@ -93,7 +98,6 @@ class Navbar extends React.Component {
           <ListItem color="var(--cyan)">
             <StyledLink to="/project">work</StyledLink>
           </ListItem>
-          {/* StyledLink to About */}
           <ListItem color="var(--green)">
             <StyledLink to="/about">about</StyledLink>
           </ListItem>
@@ -104,21 +108,22 @@ class Navbar extends React.Component {
         </List>
         <Menu>
           <List style={{ textAlign: "center", lineHeight: "1.3" }}>
-            <ListItem style={{ fontSize: "4rem" }}>
+            <ListItem style={{ fontSize: "4rem" }} hoverable>
               <StyledLink to="/">home</StyledLink>
             </ListItem>
             {/* onClick scrolls down to beginning of projects */}
-            <ListItem style={{ fontSize: "4rem" }}>
+            <ListItem style={{ fontSize: "4rem" }} hoverable>
               <StyledLink to="/project">work</StyledLink>
             </ListItem>
-            {/* StyledLink to About */}
-            <ListItem style={{ fontSize: "4rem" }}>
+            <ListItem style={{ fontSize: "4rem" }} hoverable>
               <StyledLink to="/about">about</StyledLink>
             </ListItem>
-            <ListItem style={{ fontSize: "4rem" }}>
+            <ListItem style={{ fontSize: "4rem" }} hoverable>
               <ScrollLink onClick={() => this.scrollTo()}>contact</ScrollLink>
             </ListItem>
-            <ListItem style={{ fontSize: "4rem" }}>eng</ListItem>
+            <ListItem style={{ fontSize: "4rem" }} hoverable>
+              eng
+            </ListItem>
           </List>
         </Menu>
       </NavWrapper>

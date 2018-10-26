@@ -8,39 +8,21 @@ const StyledBurgerMenu = styled.div`
   ${media.tablet`display: inherit;`};
   ${media.phone`display: inherit;`};
   position: fixed;
-  width: 5rem;
-  height: 3rem;
-  padding-top: 30px;
-  padding-right: 40px;
-  padding-bottom: 70px;
-  padding-left: 70px;
   z-index: 100;
   cursor: pointer;
-  right: 0;
+  right: 12rem;
   top: 0;
 
-  /* Position and sizing of burger button */
-  .bm-burger-button {
-    position: fixed;
-    width: 5em;
-    height: 3em;
-    right: 0;
-  }
-
-  /* Color/shape of burger icon bars */
-  .bm-burger-bars {
-    background: #373a47;
-  }
-
-  /* Position and sizing of clickable cross button */
-  .bm-cross-button {
-    height: 5em;
-    width: 6em;
-  }
-
-  /* Color/shape of close button cross */
-  .bm-cross {
-    background: #bdc3c7;
+  // ZOOM Animation
+  @keyframes zoom {
+    0%, 100% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+    }
+    50% {
+      -webkit-transform: scale(1.1);
+              transform: scale(1.1);
+    }
   }
 
   /* General sidebar styles */
@@ -60,18 +42,16 @@ const StyledBurgerMenu = styled.div`
 
   .bm-menu-wrap {
     top: 0;
+    cursor: var(--pointerwhite);
   }
 
-  /* Morph shape necessary with bubble or elastic */
-  .bm-morph-shape {
-    fill: #373a47;
-  }
 
   /* Wrapper for item list */
   .bm-item-list {
     display: grid;
     justify-items: center;
     align-items: center;
+    opacity: 1;
   }
 
   /* Individual item */
@@ -87,7 +67,10 @@ const StyledBurgerMenu = styled.div`
   // Styles of button
 
   .hamburger {
-    padding: 15px 15px;
+    padding-top: 30px;
+    padding-right: 100px;
+    padding-bottom: 70px;
+    padding-left: 70px;
     display: inline-block;
     cursor: pointer;
     transition-property: opacity, filter;
@@ -104,10 +87,10 @@ const StyledBurgerMenu = styled.div`
     z-index: 10001;
   }
   .hamburger:hover {
-    opacity: 0.7;
+    animation: zoom 300ms ease-in;
   }
   .hamburger.is-active:hover {
-    opacity: 0.7;
+    animation: zoom 300ms ease-in;
   }
   .hamburger.is-active .hamburger-inner,
   .hamburger.is-active .hamburger-inner::before,
@@ -126,14 +109,15 @@ const StyledBurgerMenu = styled.div`
     display: block;
     top: 50%;
     margin-top: -2px;
+    // height: 10px;
   }
   .hamburger-inner,
   .hamburger-inner::before,
   .hamburger-inner::after {
-    width: 40px;
-    height: 4px;
+    width: 5rem;
+    height: 10px;
+    margin: 10px 0;
     background-color: white;
-    border-radius: 4px;
     position: absolute;
     transition-property: transform;
     transition-duration: 0.15s;
@@ -154,7 +138,7 @@ const StyledBurgerMenu = styled.div`
     top: 2px;
   }
   .hamburger--slider .hamburger-inner::before {
-    top: 10px;
+    top: 5px;
     transition-property: transform, opacity;
     transition-timing-function: ease;
     transition-duration: 0.15s;
@@ -171,9 +155,10 @@ const StyledBurgerMenu = styled.div`
     opacity: 0;
   }
   .hamburger--slider.is-active .hamburger-inner::after {
-    transform: translate3d(0, -20px, 0) rotate(-90deg);
+    transform: translate3d(0, -30px, 0) rotate(-90deg);
   }
 `;
+
 
 
 
