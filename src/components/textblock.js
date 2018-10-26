@@ -4,9 +4,8 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`
   display: grid;
-  grid-template-columns: 30% 70%;
+  grid-template-columns: 3fr 7fr;
   grid-gap: 1rem;
-  grid-template-rows: auto;
   padding: 10vh 0;
   align-items: baseline;
   font-size: 2rem;
