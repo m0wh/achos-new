@@ -1,12 +1,12 @@
 // import React, { Component } from "react";
 // import { Link } from "gatsby";
 // import styled from "styled-components";
-// import Hadouken from "../components/hadouken";
+// import Textcontainer from "../components/textblock";
 
 // const Hey = () => (
-//   <div>
-//     <Hadouken />
-//   </div>
+//   <>
+//     <Textcontainer colorLeft="red" textLeft="pol" textRight="hey" />
+//   </>
 // );
 
 // export default Hey;

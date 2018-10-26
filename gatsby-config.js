@@ -3,8 +3,18 @@ module.exports = {
     title: "achos!"
   },
   plugins: [
-    "gatsby-plugin-react-helmet",
-    "gatsby-plugin-styled-components",
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `projects`,
+        path: `${__dirname}/src/projects/`
+      }
+    },
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-remark`,
+    `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -17,6 +27,6 @@ module.exports = {
         icon: "src/images/achoslogo.png" // This path is relative to the root of the site.
       }
     },
-    "gatsby-plugin-offline"
+    `gatsby-plugin-offline`
   ]
 };
