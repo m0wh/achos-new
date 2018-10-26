@@ -41,8 +41,7 @@ export default ({ data }) => {
           textLeft="introduction"
           textRight={frontmatter.introduction}
         />
-
-        <div>
+        <div style={{ maxWidth: "100%" }}>
           <Img fluid={frontmatter.bigimage1.childImageSharp.fluid} />
         </div>
         <TextBlock
@@ -56,16 +55,17 @@ export default ({ data }) => {
           <SmallImg fluid={frontmatter.smallimage2.childImageSharp.fluid} />
         </div>
 
-        {/* <img
-          style={{ width: "100%" }}
-          src={frontmatter.attachments[0].publicURL}
-        />
-        <video
-          loop
-          controls
-          style={{ width: "100%" }}
-          src={frontmatter.attachments[1].publicURL}
-        /> */}
+        {frontmatter.attachments &&
+          frontmatter.attachments.map(item => (
+            <video
+              key={item.id}
+              loop
+              controls
+              style={{ width: "100%" }}
+              src={item.publicURL}
+            />
+          ))}
+
         <Wrapper>
           <CreditsList>
             {frontmatter.credits.map(credit => (
