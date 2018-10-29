@@ -66,8 +66,16 @@ class Navbar extends React.Component {
     Events.scrollEvent.remove("end");
   }
 
-  scrollTo() {
+  scrollToContact() {
     scroller.scrollTo("contact", {
+      duration: 800,
+      delay: 0,
+      smooth: true
+    });
+  }
+
+  scrollToWork() {
+    scroller.scrollTo("work", {
       duration: 800,
       delay: 0,
       smooth: true
@@ -96,13 +104,15 @@ class Navbar extends React.Component {
           </ListItem>
           {/* onClick scrolls down to beginning of projects */}
           <ListItem color="var(--cyan)">
-            <StyledLink to="/project">work</StyledLink>
+            <ScrollLink onClick={() => this.scrollToWork()}>work</ScrollLink>
           </ListItem>
           <ListItem color="var(--green)">
             <StyledLink to="/about">about</StyledLink>
           </ListItem>
           <ListItem color="var(--pink)">
-            <ScrollLink onClick={() => this.scrollTo()}>contact</ScrollLink>
+            <ScrollLink onClick={() => this.scrollToContact()}>
+              contact
+            </ScrollLink>
           </ListItem>
           <ListItem color="var(--darkgrey)">eng</ListItem>
         </List>
