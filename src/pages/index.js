@@ -1,16 +1,40 @@
 import React from "react";
-import { Link } from "gatsby";
+import { Link, graphql } from "gatsby";
 import styled from "styled-components";
 
 import Layout from "../components/layout";
 import Intro from "../components/intro";
 import Work from "../components/work";
 
-const IndexPage = () => (
+const IndexPage = ({
+  data: {
+    allMarkdownRemark: { edges: projectEdges }
+  }
+}) => (
   <Layout>
     <Intro />
-    <Work />
+    <Work projectEdges={projectEdges} />
   </Layout>
 );
 
 export default IndexPage;
+
+export const pageQuery = graphql`
+  query IndexQuery {
+    allMarkdownRemark {
+      edges {
+        node {
+          frontmatter {
+            bigimage1 {
+              childImageSharp {
+                fluid(maxWidth: 800, quality: 80) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;
