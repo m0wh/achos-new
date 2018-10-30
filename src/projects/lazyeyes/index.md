@@ -1,0 +1,25 @@
+---
+name: "lazy eyes"
+introduction: "Lazy Eyes is a Colombian based multidisciplinary design and art studio. They work across various fields within the creative community, bringing forward new technologies to create stunning and inspiring artworks. By doing what they do, we weren’t the only ones addicted to their work."
+bigimage1: "./lazyeyes-00.jpg"
+concept: "Through getting addicted to Lazy Eyes work. The concept we came up with for the whole project was Gambling, this is also a reference to the fact that they love playing around as much as working. So it was a no brainer. We created a slot machine that unveil their projects, by using this we’ve projected the personality, sense of humor and addictiveness of Lazyeyes work!"
+bigimage2: "./lazyeyes-01.jpg"
+smallimage1: "./lazyeyes-02.jpg"
+smallimage2: "./lazyeyes-03.jpg"
+credits:
+  - title: "producer"
+    color: "var(--yellow)"
+    name: "Torbe"
+  - title: "illustration"
+    color: "var(--cyan)"
+    name: "Brad Pitt"
+  - title: "user interface"
+    color: "var(--pink)"
+    name: "Nacho Vidal"
+  - title: "coding"
+    color: "var(--green)"
+    name: "JM Aznar"
+
+related1: "./lazyeyes-00.jpg"
+related2: "./lazyeyes-01.jpg"
+---

@@ -1,0 +1,25 @@
+---
+name: "elrow"
+introduction: "On Good Friday, elrow celebrated the inaugural edition of The Filipinas Festival with 12 hours of electronic music and good times. The beach, food, markets, and vermouth… God help us!"
+bigimage1: "./elrow-00.jpg"
+concept: "The idea behind the promotional video for Filipinas was driven by the party’s coincidence with Good Friday. All the good times the party promised had us begging forgiveness in advance."
+bigimage2: "./elrow-02.jpg"
+smallimage1: "./elrow-03.jpg"
+smallimage2: "./elrow-04.jpg"
+credits:
+  - title: "producer"
+    color: "var(--yellow)"
+    name: "Torbe"
+  - title: "illustration"
+    color: "var(--cyan)"
+    name: "Brad Pitt"
+  - title: "user interface"
+    color: "var(--pink)"
+    name: "Nacho Vidal"
+  - title: "coding"
+    color: "var(--green)"
+    name: "JM Aznar"
+
+related1: "./elrow-00.jpg"
+related2: "./elrow-01.jpg"
+---

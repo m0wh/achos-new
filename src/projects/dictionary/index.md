@@ -1,0 +1,25 @@
+---
+name: "dictionary of online behavior"
+introduction: "Dictionary of Online Behavior is an ever-growing project. It is a collection of new words, a digital dictionary that describes behavior that have emerged on social networks and have changed our way of communication."
+bigimage1: "./dictionary-00.jpg"
+concept: "We live in an age where two worlds are colliding, the digital vs real world. The idea behind the websites navigation was to combine both  and remind you where all these new terms and habits come from. Just like browsing for terms in your dictionary browsing through folders on the web in a digital/analogic way has never been so satisfying."
+bigimage2: "./dictionary-01.jpg"
+smallimage1: "./dictionary-02.jpg"
+smallimage2: "./dictionary-03.jpg"
+credits:
+  - title: "producer"
+    color: "var(--yellow)"
+    name: "Torbe"
+  - title: "illustration"
+    color: "var(--cyan)"
+    name: "Brad Pitt"
+  - title: "user interface"
+    color: "var(--pink)"
+    name: "Nacho Vidal"
+  - title: "coding"
+    color: "var(--green)"
+    name: "JM Aznar"
+
+related1: "./dictionary-00.jpg"
+related2: "./dictionary-01.jpg"
+---

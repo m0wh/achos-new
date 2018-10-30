@@ -1,0 +1,25 @@
+---
+name: "designdoes*"
+introduction: "Design Does* is a co-production between Elisava and the Barcelona Design Museum in collaboration with Domestic Data Streamers. The project collectively explores how design tackles the challenges faced by society, at times offering improvements and, at others, doing just the opposite."
+bigimage1: "./designdoes-00.jpg"
+concept: "The challenge of this campaign was to make people understand what Design Does*. To do so we took everyday objects, like a pen, and showed them that apart from the original functionality it was conceived for, its design is used in many other ways and for many different purposes. For better & for worse."
+bigimage2: "./designdoes-04.jpg"
+smallimage1: "./designdoes-05.jpg"
+smallimage2: "./designdoes-06.jpg"
+credits:
+  - title: "producer"
+    color: "var(--yellow)"
+    name: "Torbe"
+  - title: "illustration"
+    color: "var(--cyan)"
+    name: "Brad Pitt"
+  - title: "user interface"
+    color: "var(--pink)"
+    name: "Nacho Vidal"
+  - title: "coding"
+    color: "var(--green)"
+    name: "JM Aznar"
+
+related1: "./designdoes-00.jpg"
+related2: "./designdoes-01.jpg"
+---
