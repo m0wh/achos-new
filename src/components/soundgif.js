@@ -30,7 +30,7 @@ const BackgroundGif = styled.div`
   
 `;
 
-export default class SoundGif extends Component {
+export default class SoundGIf extends Component {
   state = {
     isAudioPlaying: false,
     isGifShowing: false
