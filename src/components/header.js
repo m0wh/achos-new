@@ -2,8 +2,8 @@ import React from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
 
-import Navbar from "./navbar";
-import Logo from "./logo";
+import Navbar from "./Navbar";
+import Logo from "./Logo";
 
 const HeaderWrapper = styled.header`
   max-width: 100%;
