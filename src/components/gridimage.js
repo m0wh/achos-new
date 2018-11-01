@@ -10,11 +10,11 @@ const Wrapper = styled.div`
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
   position: relative;
+  grid-column: ${props => (props.big ? "span 2" : null)};
   // height: 80vh;
 `;
 const Overlay = styled.div`
-  background: rgba(26, 26, 26, 0.69)
-  ;
+  background: rgba(26, 26, 26, 0.69);
   grid-column: 1 / -1;
   grid-row: 1 / -1;
   display: flex;
@@ -27,25 +27,29 @@ const Overlay = styled.div`
   top: 0;
   bottom: 0;
   right: 0;
+  opacity: 0;
+  &:hover {
+    opacity: 1;
+  }
 `;
 
 const OverlayWrapper = styled.div`
   margin: 3.5rem 4.1875rem;
 `;
 const Title = styled.h3`
-  font-size: 3rem;
+  font-size: 3.33vmax;
   color: var(--pink);
   line-height: 1.53;
 `;
 
 const Category = styled.p`
   color: var(--lightgrey);
-  font-size: 2rem;
+  font-size: 2.08vw;
 `;
 
 const Text = styled.p`
   color: var(--lightgrey);
-  font-size: 2rem;
+  font-size: 2.08vw;
   line-height: 1.53;
 `;
 
@@ -53,42 +57,24 @@ const StyledImg = styled(Img)`
   grid-column: ${props => (props.big ? "span 2" : null)};
 `;
 
-
 export default class Gridimage extends React.Component {
-  state = {
-    isHovering: false,
-  }
-
-  onHover = () => {
-    this.setState({isHovering: true})
-  }
-
-  onLeave = () => {
-    this.setState({isHovering: false})
-  }
-
   render() {
-    
-    const { isHovering } = this.state;
+    const { big, link, fluid, name, category, introduction } = this.props;
     return (
-      <Wrapper onMouseEnter={this.onHover} onMouseLeave={this.onLeave} big={this.props.big}>
-        <StyledImg
-          fluid={
-            this.props.fluid
-          }
-          
-        />
-        { isHovering === true && (
-        <Overlay>
-          <OverlayWrapper>
-            <Title>{this.props.name}</Title>
-            <Category>{this.props.category}</Category>
-          </OverlayWrapper>
-          <OverlayWrapper>
-            <Text>{this.props.introduction}</Text>
-          </OverlayWrapper>
-        </Overlay>)
-        } 
+      <Wrapper big={big}>
+        <Link to={link}>
+          <StyledImg fluid={fluid} />
+
+          <Overlay>
+            <OverlayWrapper>
+              <Title>{name}</Title>
+              <Category>{category}</Category>
+            </OverlayWrapper>
+            <OverlayWrapper>
+              <Text>{introduction.substr(0, 120)}</Text>
+            </OverlayWrapper>
+          </Overlay>
+        </Link>
       </Wrapper>
     );
   }
