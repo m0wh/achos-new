@@ -1,5 +1,6 @@
 ---
 name: "elarco"
+category: "porn"
 introduction: "Following their minimalistic approach to design, we realised that just by cutting the bottom half of the futura font we ended up representing the companies naming, the arch. Sometimes at achos! less is more too!"
 bigimage1: "./elarco-00.jpg"
 concept: "Daniel Wenzel helped us turn the logo into a full typeface for elarco to use, a modified Futura to fit the arched logo. Thank you Daniel!"

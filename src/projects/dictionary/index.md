@@ -1,5 +1,6 @@
 ---
 name: "dictionary of online behavior"
+category: "porn"
 introduction: "Dictionary of Online Behavior is an ever-growing project. It is a collection of new words, a digital dictionary that describes behavior that have emerged on social networks and have changed our way of communication."
 bigimage1: "./dictionary-00.jpg"
 concept: "We live in an age where two worlds are colliding, the digital vs real world. The idea behind the websites navigation was to combine both  and remind you where all these new terms and habits come from. Just like browsing for terms in your dictionary browsing through folders on the web in a digital/analogic way has never been so satisfying."

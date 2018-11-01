@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
 
-import SoundGif from "./soundgif";
+import SoundGif from "./SoundGIF";
 
 import Sound from "../images/barcelona.mp3";
 import GIF from "../images/gifs/5sectour.gif";

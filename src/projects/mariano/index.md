@@ -1,5 +1,6 @@
 ---
 name: "Mariano Pascual"
+category: "porn"
 introduction: "Discover the world of Mariano Pascual through his own eyes, or in this case, his computer."
 bigimage1: "./mariano-00.jpg"
 concept: "asas"

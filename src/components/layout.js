@@ -7,9 +7,9 @@ import reset from "styled-reset";
 import AvantBold from "../fonts/ITCAvantGardePro-Bold.woff";
 import PointerWhite from "../images/icons/white-default.png";
 
-import Header from "./header";
-import Contact from "./contact";
-import LuckyDay from "./luckyday";
+import Header from "./Header";
+import Contact from "./Contact";
+import LuckyDay from "./LuckyDay";
 
 const GlobalStyle = createGlobalStyle`
   ${reset}

@@ -2,9 +2,9 @@ import React from "react";
 import { Link, graphql } from "gatsby";
 import styled from "styled-components";
 
-import Layout from "../components/layout";
-import Intro from "../components/intro";
-import Work from "../components/work";
+import Layout from "../components/Layout";
+import Intro from "../components/Intro";
+import Work from "../components/Work";
 
 const IndexPage = ({
   data: {
@@ -24,7 +24,13 @@ export const pageQuery = graphql`
     allMarkdownRemark {
       edges {
         node {
+          fields {
+            slug
+          }
           frontmatter {
+            name
+            category
+            introduction
             bigimage1 {
               childImageSharp {
                 fluid(maxWidth: 800, quality: 80) {
