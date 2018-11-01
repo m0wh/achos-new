@@ -2,9 +2,9 @@ import React from "react";
 import { Link, graphql } from "gatsby";
 import styled from "styled-components";
 
-import Layout from "../components/Layout";
-import Intro from "../components/Intro";
-import Work from "../components/Work";
+import Layout from "../components/layout";
+import Intro from "../components/intro";
+import Work from "../components/work";
 
 const IndexPage = ({
   data: {

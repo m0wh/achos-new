@@ -4,7 +4,7 @@ import { Element } from "react-scroll";
 import styled from "styled-components";
 import Img from "gatsby-image";
 import media from "../utils/breakpoints";
-import GridImage from "./Gridimage";
+import GridImage from "./gridimage";
 
 const WorkGrid = styled.main`
   display: grid;

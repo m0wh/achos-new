@@ -11,9 +11,9 @@ import {
   scroller
 } from "react-scroll";
 import media from "../utils/breakpoints";
-import Menu from "./MobileMenu";
+import Menu from "./mobilemenu";
 
-import SoundGif from "./SoundGIF";
+import SoundGif from "./soundgif";
 
 import Sound from "../images/hadouken.mp3";
 import GIF from "../images/gifs/baseball.gif";

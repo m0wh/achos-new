@@ -7,9 +7,9 @@ import reset from "styled-reset";
 import AvantBold from "../fonts/ITCAvantGardePro-Bold.woff";
 import PointerWhite from "../images/icons/white-default.png";
 
-import Header from "./Header";
-import Contact from "./Contact";
-import LuckyDay from "./LuckyDay";
+import Header from "./header";
+import Contact from "./contact";
+import LuckyDay from "./luckyday";
 
 const GlobalStyle = createGlobalStyle`
   ${reset}
@@ -40,10 +40,10 @@ const GlobalStyle = createGlobalStyle`
     cursor: var(--pointerwhite);
   }
 
+
   body {
     background-color: var(--black);
     font-family: "AvantGardeBold", sans-serif;
-    font-size: 1rem;
     
     
   }
