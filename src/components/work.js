@@ -4,6 +4,7 @@ import { Element } from "react-scroll";
 import styled from "styled-components";
 import Img from "gatsby-image";
 import media from "../utils/breakpoints";
+import GridImage from "./Gridimage";
 
 const WorkGrid = styled.main`
   display: grid;
@@ -11,9 +12,6 @@ const WorkGrid = styled.main`
   ${media.phone`grid-template-columns: 1fr`};
 `;
 
-const GridImage = styled(Img)`
-  grid-column: ${props => (props.big ? "span 2" : null)};
-`;
 export default ({ projectEdges }) => {
   console.log(projectEdges);
   const everyFifth = [0, 5, 10, 15, 20, 25, 30];
@@ -28,10 +26,18 @@ export default ({ projectEdges }) => {
               <GridImage
                 big
                 fluid={project.node.frontmatter.bigimage1.childImageSharp.fluid}
+                name={project.node.frontmatter.name}
+                category={project.node.frontmatter.category}
+                introduction={project.node.frontmatter.introduction}
+                link={project.node.fields.slug}
               />
             ) : (
               <GridImage
                 fluid={project.node.frontmatter.bigimage1.childImageSharp.fluid}
+                name={project.node.frontmatter.name}
+                category={project.node.frontmatter.category}
+                introduction={project.node.frontmatter.introduction}
+                link={project.node.fields.slug}
               />
             )
         )}
