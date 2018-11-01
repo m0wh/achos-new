@@ -1,5 +1,6 @@
 ---
 name: "dadadada"
+category: "porn"
 introduction: "blablablablabla"
 bigimage1: "./dadadada-00.jpg"
 concept: "blablablablabla"

@@ -1,5 +1,6 @@
 ---
 name: "elrow"
+category: "porn"
 introduction: "On Good Friday, elrow celebrated the inaugural edition of The Filipinas Festival with 12 hours of electronic music and good times. The beach, food, markets, and vermouth… God help us!"
 bigimage1: "./elrow-00.jpg"
 concept: "The idea behind the promotional video for Filipinas was driven by the party’s coincidence with Good Friday. All the good times the party promised had us begging forgiveness in advance."

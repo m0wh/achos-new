@@ -1,5 +1,6 @@
 ---
 name: "lazy eyes"
+category: "porn"
 introduction: "Lazy Eyes is a Colombian based multidisciplinary design and art studio. They work across various fields within the creative community, bringing forward new technologies to create stunning and inspiring artworks. By doing what they do, we weren’t the only ones addicted to their work."
 bigimage1: "./lazyeyes-00.jpg"
 concept: "Through getting addicted to Lazy Eyes work. The concept we came up with for the whole project was Gambling, this is also a reference to the fact that they love playing around as much as working. So it was a no brainer. We created a slot machine that unveil their projects, by using this we’ve projected the personality, sense of humor and addictiveness of Lazyeyes work!"
