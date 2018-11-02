@@ -24,6 +24,7 @@ export default ({ projectEdges }) => {
           project =>
             everyFifth.includes(projectEdges.indexOf(project)) ? (
               <GridImage
+                key={project.node.frontmatter.name}
                 big
                 fluid={project.node.frontmatter.bigimage1.childImageSharp.fluid}
                 name={project.node.frontmatter.name}
@@ -33,6 +34,7 @@ export default ({ projectEdges }) => {
               />
             ) : (
               <GridImage
+                key={project.node.frontmatter.name}
                 fluid={project.node.frontmatter.bigimage1.childImageSharp.fluid}
                 name={project.node.frontmatter.name}
                 category={project.node.frontmatter.category}
