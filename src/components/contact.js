@@ -18,7 +18,16 @@ const ContactWrapper = styled.footer`
   justify-items: start;
   align-items: baseline;
   color: var(--lightgrey);
-  font-size: 2rem;
+  @media (min-width: 20rem) {
+    {
+     font-size: calc(1.2rem + ((1vw - 0.2rem) * 2.4107));
+   }
+  }
+ @media (min-width: 48rem) {
+    {
+     font-size: 1.875rem;
+   }
+ }
   line-height: 1.4;
   ${media.tablet`grid-gap: 4rem;`}
   ${media.phone`grid-gap: 0;`}
@@ -31,7 +40,7 @@ const ContactUs = styled.ul`
 const FollowUs = styled.ul`
   list-style: none;
   justify-self: center;
-  margin-right: 3.8rem;
+  margin-right: 3vw;
 `;
 
 const ListItem = styled.li`
@@ -40,7 +49,7 @@ const ListItem = styled.li`
 
 const SocialIcon = styled.img`
   color: ${props => props.color};
-  padding-right: 2rem;
+  padding-right: 2.08vw;
 `;
 
 // const Mail = styled.li``;

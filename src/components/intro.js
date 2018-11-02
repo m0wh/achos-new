@@ -8,7 +8,17 @@ const IntroWrapper = styled.div`
 `;
 
 const IntroText = styled.p`
-  font-size: 3rem;
+  // font-size: 3rem;
+  @media (min-width: 20rem) {
+     {
+      font-size: calc(2rem + ((1vw - 0.2rem) * 3.5714));
+    }
+  }
+  @media (min-width: 48rem) {
+     {
+      font-size: 3rem;
+    }
+  }
   color: var(--lightgrey);
   font-weight: bold;
   font-style: normal;

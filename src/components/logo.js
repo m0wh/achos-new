@@ -8,14 +8,21 @@ import Sound from "../images/barcelona.mp3";
 import GIF from "../images/gifs/5sectour.gif";
 
 const LogoWrapper = styled.div`
-  order: 0;
-  align-self: flex-start;
-  flex-grow: 3;
   z-index: 1000;
 `;
 
 const LogoText = styled.h2`
-  font-size: 5rem;
+  // font-size: 5rem;
+  @media (min-width: 20rem) {
+     {
+      font-size: calc(4rem + ((1vw - 0.2rem) * 2.4107));
+    }
+  }
+  @media (min-width: 48rem) {
+     {
+      font-size: 5rem;
+    }
+  }
   letter-spacing: 3px;
   line-height: 100px;
 `;
