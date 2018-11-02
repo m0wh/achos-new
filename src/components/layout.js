@@ -30,6 +30,10 @@ const GlobalStyle = createGlobalStyle`
       --pointerwhite: url(${PointerWhite}) 0 0, auto;
     //  
   }
+
+  // html > * {
+  //   border: 1px solid red;
+  // }
   
   @font-face {
     font-family: "AvantGardeBold";
