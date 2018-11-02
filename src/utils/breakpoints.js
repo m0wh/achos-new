@@ -7,6 +7,14 @@ const sizes = {
   phone: 576
 };
 
+/*
+desktop -> 62rem
+tablet -> 48rem
+phone -> 36rem
+
+
+*/
+
 // Iterate through the sizes and create a media template
 const media = Object.keys(sizes).reduce((acc, label) => {
   acc[label] = (...args) => css`
