@@ -11,7 +11,6 @@ const HeaderWrapper = styled.header`
   grid-template-columns: 1fr 3fr;
   align-items: end;
   color: white;
-  font-size: 3rem;
   margin: 2.625rem 3.1875rem 0 3.5625rem;
 `;
 
