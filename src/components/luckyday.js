@@ -17,12 +17,12 @@ const LuckyWrapper = styled.div`
 `;
 
 const LuckyText = styled.p`
-  @media (min-width: 20rem) {
+  @media (min-width: 320px) {
      {
       font-size: calc(2rem + ((1vw - 0.2rem) * 2.4107));
     }
   }
-  @media (min-width: 48rem) {
+  @media (min-width: 768px) {
      {
       font-size: 3rem;
     }

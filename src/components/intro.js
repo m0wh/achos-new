@@ -9,12 +9,12 @@ const IntroWrapper = styled.div`
 
 const IntroText = styled.p`
   // font-size: 3rem;
-  @media (min-width: 20rem) {
+  @media (min-width: 320px) {
      {
       font-size: calc(2rem + ((1vw - 0.2rem) * 3.5714));
     }
   }
-  @media (min-width: 48rem) {
+  @media (min-width: 768px) {
      {
       font-size: 3rem;
     }

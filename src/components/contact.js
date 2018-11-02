@@ -18,12 +18,12 @@ const ContactWrapper = styled.footer`
   justify-items: start;
   align-items: baseline;
   color: var(--lightgrey);
-  @media (min-width: 20rem) {
+  @media (min-width: 320px) {
     {
-     font-size: calc(1.2rem + ((1vw - 0.2rem) * 2.4107));
+     font-size: calc(1.1rem + ((1vw - 0.2rem) * 2.4107));
    }
   }
- @media (min-width: 48rem) {
+ @media (min-width: 768px) {
     {
      font-size: 1.875rem;
    }
