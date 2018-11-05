@@ -1,6 +1,6 @@
 ---
 name: "kiwi bravo"
-category: "porn"
+category: "branding"
 introduction: "Kiwi Bravo is a Barcelona based, Industrial Design Studio, that focuses in product communication through images, formed by Raúl Arribas and Gonzalo Sánchez de Lollano."
 bigimage1: "./kiwibravo-00.jpg"
 concept: "The best kiwis have a good sticker. We created a random identity to pair with the random name of the product communication duo Kiwi Bravo."
