@@ -3,6 +3,7 @@ import { Link, graphql } from "gatsby";
 import styled from "styled-components";
 import Img from "gatsby-image";
 import TextBlock, { Wrapper } from "../components/textblock";
+import randomColor from "../utils/randomColor";
 
 import Layout from "../components/layout";
 
@@ -37,7 +38,7 @@ export default ({ data }) => {
     <Layout>
       <ProjectWrapper>
         <TextBlock
-          colorLeft="var(--pink)"
+          colorLeft={randomColor()}
           textLeft="introduction"
           textRight={frontmatter.introduction}
         />
@@ -45,7 +46,7 @@ export default ({ data }) => {
           <Img fluid={frontmatter.bigimage1.childImageSharp.fluid} />
         </div>
         <TextBlock
-          colorLeft="var(--yellow)"
+          colorLeft={randomColor()}
           textLeft="concept & execution"
           textRight={frontmatter.concept}
         />
@@ -58,7 +59,7 @@ export default ({ data }) => {
         {frontmatter.attachments &&
           frontmatter.attachments.map(item => (
             <video
-              key={item.id}
+              key={item.publicURL}
               loop
               controls
               style={{ width: "100%" }}
@@ -70,7 +71,7 @@ export default ({ data }) => {
           <CreditsList>
             {frontmatter.credits.map(credit => (
               <ul style={{ marginBottom: "2.5rem" }}>
-                <li style={{ color: credit.color }} key={credit.id}>
+                <li style={{ color: randomColor() }} key={credit.id}>
                   {credit.title}
                 </li>
                 <li>{credit.name}</li>
