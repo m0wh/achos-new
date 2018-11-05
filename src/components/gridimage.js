@@ -37,18 +37,36 @@ const OverlayWrapper = styled.div`
 `;
 const Title = styled.h3`
   font-size: 3.33vmax;
-  color: var(--pink);
+  color: ${props => props.color};
   line-height: 1.53;
 `;
 
 const Category = styled.p`
   color: var(--lightgrey);
-  font-size: 2.08vw;
+  @media (min-width: 320px) {
+     {
+      font-size: calc(1.1rem + ((1vw - 0.2rem) * 2.4107));
+    }
+  }
+  @media (min-width: 768px) {
+     {
+      font-size: 1.875rem;
+    }
+  }
 `;
 
 const Text = styled.p`
   color: var(--lightgrey);
-  font-size: 2.08vw;
+  @media (min-width: 320px) {
+     {
+      font-size: calc(1.1rem + ((1vw - 0.2rem) * 2.4107));
+    }
+  }
+  @media (min-width: 768px) {
+     {
+      font-size: 1.875rem;
+    }
+  }
   line-height: 1.53;
 `;
 
@@ -58,7 +76,15 @@ const StyledImg = styled(Img)`
 
 export default class Gridimage extends React.Component {
   render() {
-    const { big, link, fluid, name, category, introduction } = this.props;
+    const {
+      big,
+      link,
+      fluid,
+      name,
+      category,
+      introduction,
+      color
+    } = this.props;
     return (
       <Wrapper big={big}>
         <Link to={link}>
@@ -66,7 +92,7 @@ export default class Gridimage extends React.Component {
 
           <Overlay>
             <OverlayWrapper>
-              <Title>{name}</Title>
+              <Title color={color}>{name}</Title>
               <Category>{category}</Category>
             </OverlayWrapper>
             <OverlayWrapper>
