@@ -42,6 +42,7 @@ const GlobalStyle = createGlobalStyle`
 
   html {
     cursor: var(--pointerwhite);
+    overflow-x: hidden;
   }
 
 
