@@ -3,7 +3,6 @@ import { Link } from "gatsby";
 import styled from "styled-components";
 import Img from "gatsby-image";
 import posed from "react-pose";
-import ReactTilt from "react-universal-tilt";
 import media from "../utils/breakpoints";
 
 // const sidebarProps = {
@@ -145,7 +144,7 @@ export default class Gridimage extends React.Component {
       color
     } = this.props;
     return (
-      // <ReactTilt>
+      
       <Wrapper big={big}>
         <Link to={link}>
           <StyledImg fluid={fluid} />
@@ -161,7 +160,7 @@ export default class Gridimage extends React.Component {
           </Overlay>
         </Link>
       </Wrapper>
-      // </ReactTilt>
+      
     );
   }
 }
