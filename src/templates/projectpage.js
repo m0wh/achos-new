@@ -71,7 +71,7 @@ export default ({ data }) => {
           <CreditsList>
             {frontmatter.credits.map(credit => (
               <ul style={{ marginBottom: "2.5rem" }}>
-                <li style={{ color: randomColor() }} key={credit.id}>
+                <li style={{ color: randomColor() }} key={credit.title}>
                   {credit.title}
                 </li>
                 <li>{credit.name}</li>
