@@ -12,16 +12,16 @@ import media from "../utils/breakpoints";
 
 // const Sidebar = styled(posed.nav(sidebarProps))`
 
-const testProps = {
-  hoverable: true,
-  init: {
-    scale: 1
-  },
-  hover: {
-    scale: 1.02,
-    transition: { duration: 400 }
-  }
-};
+// const testProps = {
+//   hoverable: true,
+//   init: {
+//     scale: 1
+//   },
+//   hover: {
+//     scale: 1.02,
+//     transition: { duration: 400 }
+//   }
+// };
 
 const hoverProps = {
   hoverable: true,
@@ -44,17 +44,6 @@ const titleProps = {
   }
 };
 
-const textProps = {
-  init: {
-    y: "120%",
-    scale: 0
-  },
-  hover: {
-    y: "0",
-    scale: 1
-  }
-};
-
 const categoryProps = {
   init: {
     scale: 0
@@ -64,14 +53,13 @@ const categoryProps = {
   }
 };
 
-const Wrapper = styled(posed.div(testProps))`
+const Wrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
   position: relative;
   grid-column: ${props => (props.big ? "span 2" : null)};
   // height: 80vh;
-  padding: 1.5vw;
 `;
 const Overlay = styled(posed.div(hoverProps))`
   background: rgba(26, 26, 26, 0.69);
@@ -90,7 +78,7 @@ const Overlay = styled(posed.div(hoverProps))`
 `;
 
 const OverlayWrapper = styled.div`
-  margin: 3.5rem 4.1875rem;
+  margin: 3.5vw 4.1875vw;
 `;
 const Title = styled(posed.h3(titleProps))`
   font-size: 3.33vmax;
@@ -112,24 +100,23 @@ const Category = styled(posed.p(categoryProps))`
   }
 `;
 
-const Text = styled(posed.p(textProps))`
-  color: var(--lightgrey);
-  @media (min-width: 320px) {
-     {
-      font-size: calc(1.1rem + ((1vw - 0.2rem) * 2.4107));
-    }
-  }
-  @media (min-width: 768px) {
-     {
-      font-size: 1.875rem;
-    }
-  }
-  line-height: 1.53;
-`;
+// const Text = styled(posed.p(textProps))`
+//   color: var(--lightgrey);
+//   @media (min-width: 320px) {
+//      {
+//       font-size: calc(1.1rem + ((1vw - 0.2rem) * 2.4107));
+//     }
+//   }
+//   @media (min-width: 768px) {
+//      {
+//       font-size: 1.875rem;
+//     }
+//   }
+//   line-height: 1.53;
+// `;
 
 const StyledImg = styled(Img)`
   grid-column: ${props => (props.big ? "span 2" : null)};
-  border-radius: 10px;
 `;
 
 export default class Gridimage extends React.Component {
@@ -144,7 +131,6 @@ export default class Gridimage extends React.Component {
       color
     } = this.props;
     return (
-      
       <Wrapper big={big}>
         <Link to={link}>
           <StyledImg fluid={fluid} />
@@ -154,13 +140,9 @@ export default class Gridimage extends React.Component {
               <Title color={color}>{name}</Title>
               <Category>{category}</Category>
             </OverlayWrapper>
-            <OverlayWrapper>
-              <Text>{introduction.substr(0, 120)}</Text>
-            </OverlayWrapper>
           </Overlay>
         </Link>
       </Wrapper>
-      
     );
   }
 }
