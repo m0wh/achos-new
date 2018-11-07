@@ -30,7 +30,6 @@ export const pageQuery = graphql`
           frontmatter {
             name
             category
-            introduction
             bigimage1 {
               childImageSharp {
                 fluid(maxWidth: 800, quality: 80) {

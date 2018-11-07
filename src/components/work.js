@@ -30,7 +30,6 @@ export default ({ projectEdges }) => {
                 fluid={project.node.frontmatter.bigimage1.childImageSharp.fluid}
                 name={project.node.frontmatter.name}
                 category={project.node.frontmatter.category}
-                introduction={project.node.frontmatter.introduction}
                 link={project.node.fields.slug}
               />
             ) : (
@@ -40,7 +39,6 @@ export default ({ projectEdges }) => {
                 fluid={project.node.frontmatter.bigimage1.childImageSharp.fluid}
                 name={project.node.frontmatter.name}
                 category={project.node.frontmatter.category}
-                introduction={project.node.frontmatter.introduction}
                 link={project.node.fields.slug}
               />
             )
