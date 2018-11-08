@@ -5,6 +5,7 @@ import Img from "gatsby-image";
 import posed from "react-pose";
 import media from "../utils/breakpoints";
 
+
 // const sidebarProps = {
 //   open: { x: '0%' },
 //   closed: { x: '-100%' }
@@ -120,6 +121,12 @@ const StyledImg = styled(Img)`
 `;
 
 export default class Gridimage extends React.Component {
+  myRef = React.createRef();
+
+  startSound = () => {
+    this.myRef.current.play();
+    
+  }
   render() {
     const {
       big,
@@ -131,9 +138,12 @@ export default class Gridimage extends React.Component {
       color
     } = this.props;
     return (
-      <Wrapper big={big}>
+      <Wrapper big={big} onMouseEnter={this.startSound}>
         <Link to={link}>
           <StyledImg fluid={fluid} />
+          <audio preload="auto" ref={this.myRef} >
+            <source src={this.props.sound} type="audio/mpeg"></source>
+          </audio>
 
           <Overlay>
             <OverlayWrapper>
