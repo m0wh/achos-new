@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Helmet from "react-helmet";
+import posed from "react-pose";
 import { StaticQuery, graphql } from "gatsby";
 import { createGlobalStyle } from "styled-components";
 import reset from "styled-reset";
@@ -10,6 +11,19 @@ import PointerWhite from "../images/icons/white-default.png";
 import Header from "./header";
 import Contact from "./contact";
 import LuckyDay from "./luckyday";
+
+const Transition = posed.div({
+  enter: {
+    // y: 0,
+    opacity: 1,
+    filter: "blur(0px)"
+  },
+  exit: {
+    // y: 30,
+    opacity: 0,
+    filter: "blur(20px)"
+  }
+});
 
 const GlobalStyle = createGlobalStyle`
   ${reset}
@@ -105,10 +119,12 @@ const Layout = ({ children }) => (
         >
           <html lang="en" />
         </Helmet>
-        <Header />
-        <div>{children}</div>
-        <Contact />
-        <LuckyDay />
+        <Transition>
+          <Header />
+          <div>{children}</div>
+          <Contact />
+          <LuckyDay />
+        </Transition>
       </>
     )}
   />
