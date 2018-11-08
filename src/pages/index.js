@@ -21,7 +21,7 @@ export default IndexPage;
 
 export const pageQuery = graphql`
   query IndexQuery {
-    allMarkdownRemark {
+    allMarkdownRemark(sort: { fields: [fileAbsolutePath], order: ASC }) {
       edges {
         node {
           fields {
