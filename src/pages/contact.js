@@ -1,11 +1,14 @@
 import React from "react";
-import { Link } from "gatsby";
-import styled from "styled-components";
+import { Link, graphql } from "gatsby";
+import styled, { css } from "styled-components";
+import Img from "gatsby-image";
 
 import Layout from "../components/layout";
 import TextBlock from "../components/textblock";
 import AboutPic from "../images/about.gif";
 import fontSizes from "../utils/fontSizes";
+
+import BeansImg from "../images/beans.jpg";
 
 const Wrapper = styled.main`
   background-color: var(--lightblack);
@@ -15,6 +18,11 @@ const Wrapper = styled.main`
 `;
 const ImageWrapper = styled.div`
   max-width: 100%;
+`;
+
+const LocationsWrapper = styled.section`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 `;
 
 const ListsWrapper = styled.section`
@@ -29,7 +37,17 @@ const List = styled.ul`
   text-align: center;
 `;
 
-export default () => (
+const BusinessMail = styled.a`
+  ${fontSizes(8)};
+`;
+const CollabsMail = styled.a`
+  ${fontSizes(4.6)};
+`;
+const InternshipsMail = styled.a`
+  ${fontSizes(2.2)};
+`;
+
+export default ({ data }) => (
   <Layout>
     <Wrapper>
       <ImageWrapper>
@@ -39,40 +57,55 @@ export default () => (
         <List>
           <li style={{ color: "var(--pink)" }}>Business Enquiries</li>
           <li style={{ textAlign: "center" }}>
-            <a
+            <BusinessMail
               href="mailto:hi@achos.es?Subject=Shut up and take my money!"
               target="_blank"
               rel="noopener noreferrer"
             >
               hi@achos.es
-            </a>
+            </BusinessMail>
           </li>
         </List>
         <List>
           <li style={{ color: "var(--cyan)" }}>Collabs</li>
           <li style={{ textAlign: "center" }}>
-            <a
+            <CollabsMail
               href="mailto:collab@achos.es"
               target="_blank"
               rel="noopener noreferrer"
             >
               collab@achos.es
-            </a>
+            </CollabsMail>
           </li>
         </List>
         <List>
           <li style={{ color: "var(--yellow)" }}>Internships</li>
           <li style={{ textAlign: "center" }}>
-            <a
+            <InternshipsMail
               href="mailto:experience@achos.es"
               target="_blank"
               rel="noopener noreferrer"
             >
               experience@achos.es
-            </a>
+            </InternshipsMail>
           </li>
         </List>
       </ListsWrapper>
+      <LocationsWrapper>
+        <Img fluid={data.file.childImageSharp.fluid} />
+      </LocationsWrapper>
     </Wrapper>
   </Layout>
 );
+
+export const query = graphql`
+  query ContactQuery {
+    file(relativePath: { eq: "achosnew/src/images/beans.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 800, quality: 80) {
+          ...GatsbyImageSharpFluid_tracedSVG
+        }
+      }
+    }
+  }
+`;
