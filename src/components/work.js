@@ -35,29 +35,28 @@ export default ({ projectEdges }) => {
   return (
     <Element name="work">
       <WorkGrid>
-        {projectEdges.map(
-          project =>
-            everyFifth.includes(projectEdges.indexOf(project)) ? (
-              <GridImage
-                color={randomColor()}
-                key={project.node.frontmatter.name}
-                big
-                fluid={project.node.frontmatter.bigimage1.childImageSharp.fluid}
-                name={project.node.frontmatter.name}
-                category={project.node.frontmatter.category}
-                link={project.node.fields.slug}
-                sound={randomMoan()}
-              />
-            ) : (
-              <GridImage
-                color={randomColor()}
-                key={project.node.frontmatter.name}
-                fluid={project.node.frontmatter.bigimage1.childImageSharp.fluid}
-                name={project.node.frontmatter.name}
-                category={project.node.frontmatter.category}
-                link={project.node.fields.slug}
-              />
-            )
+        {projectEdges.map(project =>
+          everyFifth.includes(projectEdges.indexOf(project)) ? (
+            <GridImage
+              color={randomColor()}
+              key={project.node.frontmatter.name}
+              big
+              fluid={project.node.frontmatter.bigimage1.childImageSharp.fluid}
+              name={project.node.frontmatter.name}
+              category={project.node.frontmatter.category}
+              link={project.node.fields.slug}
+              sound={randomMoan()}
+            />
+          ) : (
+            <GridImage
+              color={randomColor()}
+              key={project.node.frontmatter.name}
+              fluid={project.node.frontmatter.bigimage1.childImageSharp.fluid}
+              name={project.node.frontmatter.name}
+              category={project.node.frontmatter.category}
+              link={project.node.fields.slug}
+            />
+          )
         )}
       </WorkGrid>
     </Element>
