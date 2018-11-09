@@ -134,7 +134,6 @@ export default class Gridimage extends React.Component {
       fluid,
       name,
       category,
-      introduction,
       color
     } = this.props;
     return (
