@@ -13,18 +13,6 @@ import Header from "./header";
 import Contact from "./contact";
 import LuckyDay from "./luckyday";
 
-const Transition = posed.div({
-  enter: {
-    // y: 0,
-    opacity: 1,
-    filter: "blur(0px)"
-  },
-  exit: {
-    // y: 30,
-    opacity: 0,
-    filter: "blur(20px)"
-  }
-});
 
 const GlobalStyle = createGlobalStyle`
   ${reset}
@@ -121,12 +109,10 @@ const Layout = ({ children }) => (
         >
           <html lang="en" />
         </Helmet>
-        <Transition>
           <Header />
           <div>{children}</div>
           <Contact />
           <LuckyDay />
-        </Transition>
       </>
     )}
   />
