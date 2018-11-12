@@ -14,6 +14,8 @@ const HeaderWrapper = styled.header`
   margin: 2.625vw 3.1875vw 0 3.5625vw;
 `;
 
+// location.history.pathname
+
 const Header = () => (
   <HeaderWrapper>
     <Logo />
