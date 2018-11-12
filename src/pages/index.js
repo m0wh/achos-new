@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, graphql } from "gatsby";
 import styled from "styled-components";
+import { AniLink } from "gatsby-plugin-transition-link";
 
 import Layout from "../components/layout";
 import Intro from "../components/intro";
@@ -12,6 +13,9 @@ const IndexPage = ({
   }
 }) => (
   <Layout>
+    <AniLink cover direction="right" to="/about" bg="var(--black)">
+      Go to Page 4
+    </AniLink>
     <Intro />
     <Work projectEdges={projectEdges} />
   </Layout>
