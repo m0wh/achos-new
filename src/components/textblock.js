@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`
   display: grid;
-  grid-template-columns: 3fr 7fr;
+  grid-template-columns: 1fr 4fr;
   grid-gap: 1vw;
   align-items: baseline;
   @media (min-width: 320px) {
