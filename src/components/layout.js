@@ -7,6 +7,7 @@ import { createGlobalStyle } from "styled-components";
 import reset from "styled-reset";
 import AvantBold from "../fonts/ITCAvantGardePro-Bold.woff";
 import PointerWhite from "../images/icons/white-default.png";
+import PlusCursor from "../images/icons/white-+.png";
 
 import Header from "./header";
 import Contact from "./contact";
@@ -42,6 +43,7 @@ const GlobalStyle = createGlobalStyle`
 
     // Cursors
       --pointerwhite: url(${PointerWhite}) 0 0, auto;
+      --plusminus: url(${PlusCursor}) 40 40, auto;
     //  
   }
 

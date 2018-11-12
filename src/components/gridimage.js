@@ -6,6 +6,8 @@ import posed from "react-pose";
 import media from "../utils/breakpoints";
 
 
+
+
 // const sidebarProps = {
 //   open: { x: '0%' },
 //   closed: { x: '-100%' }
@@ -27,21 +29,22 @@ import media from "../utils/breakpoints";
 const hoverProps = {
   hoverable: true,
   init: {
-    opacity: 0
+    opacity: 0,
   },
   hover: {
-    opacity: 1
+    opacity: 1,
   }
 };
 
 const titleProps = {
   init: {
     y: "-20%",
-    scale: 0
+    scale: 0,
   },
   hover: {
     y: "0",
-    scale: 1
+    scale: 1,
+    
   }
 };
 
@@ -61,6 +64,7 @@ const Wrapper = styled.div`
   position: relative;
   grid-column: ${props => (props.big ? "span 2" : null)};
   // height: 80vh;
+  
 `;
 const Overlay = styled(posed.div(hoverProps))`
   background: rgba(26, 26, 26, 0.69);
@@ -76,6 +80,9 @@ const Overlay = styled(posed.div(hoverProps))`
   top: 0;
   bottom: 0;
   right: 0;
+  &:hover {
+    cursor: var(--plusminus); 
+  }
 `;
 
 const OverlayWrapper = styled.div`
