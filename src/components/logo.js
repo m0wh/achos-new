@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
+import fontSizes from "../utils/fontSizes";
 
 import SoundGif from "./soundgif";
 
@@ -12,17 +13,7 @@ const LogoWrapper = styled.div`
 `;
 
 const LogoText = styled.h2`
-  // font-size: 5rem;
-  @media (min-width: 320px) {
-     {
-      font-size: calc(4rem + ((1vw - 0.2rem) * 2.4107));
-    }
-  }
-  @media (min-width: 768px) {
-     {
-      font-size: 5rem;
-    }
-  }
+  ${fontSizes(5)};
   letter-spacing: 3px;
   line-height: 100px;
 `;
