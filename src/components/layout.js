@@ -5,6 +5,7 @@ import posed from "react-pose";
 import { StaticQuery, graphql } from "gatsby";
 import { createGlobalStyle } from "styled-components";
 import reset from "styled-reset";
+import Headroom from "react-headroom";
 import AvantBold from "../fonts/ITCAvantGardePro-Bold.woff";
 import PointerWhite from "../images/icons/white-default.png";
 import PlusCursor from "../images/icons/white-+.png";
@@ -12,7 +13,6 @@ import PlusCursor from "../images/icons/white-+.png";
 import Header from "./header";
 import Contact from "./contactus";
 import LuckyDay from "./luckyday";
-
 
 const GlobalStyle = createGlobalStyle`
   ${reset}
@@ -109,10 +109,12 @@ const Layout = ({ children }) => (
         >
           <html lang="en" />
         </Helmet>
+        <Headroom>
           <Header />
-          <div>{children}</div>
-          <Contact />
-          <LuckyDay />
+        </Headroom>
+        <div>{children}</div>
+        <Contact />
+        <LuckyDay />
       </>
     )}
   />

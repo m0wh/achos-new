@@ -19,10 +19,6 @@ import Sound from "../images/hadouken.mp3";
 import GIF from "../images/gifs/baseball.gif";
 
 const NavWrapper = styled.nav`
-  z-index: 1000;
-  position: fixed;
-  left: 44%;
-  top: 76px;
   justify-self: end;
   padding: 1rem 0;
 `;
