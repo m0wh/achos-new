@@ -11,7 +11,7 @@ import {
   scroller
 } from "react-scroll";
 import media from "../utils/breakpoints";
-import Menu from "./mobilemenu";
+import MobileMenu from "./mobilemenu";
 
 import SoundGif from "./soundgif";
 
@@ -53,20 +53,20 @@ const StyledLink = styled(Link)`
 `;
 
 class Navbar extends React.Component {
-  componentDidMount() {
-    Events.scrollEvent.register("begin", function() {
-      console.log("begin", arguments);
-    });
+  // componentDidMount() {
+  //   Events.scrollEvent.register("begin", function() {
+  //     console.log("begin", arguments);
+  //   });
 
-    Events.scrollEvent.register("end", function() {
-      console.log("end", arguments);
-    });
-  }
+  //   Events.scrollEvent.register("end", function() {
+  //     console.log("end", arguments);
+  //   });
+  // }
 
-  componentWillUnmount() {
-    Events.scrollEvent.remove("begin");
-    Events.scrollEvent.remove("end");
-  }
+  // componentWillUnmount() {
+  //   Events.scrollEvent.remove("begin");
+  //   Events.scrollEvent.remove("end");
+  // }
 
   scrollToWork() {
     scroller.scrollTo("work", {
@@ -78,6 +78,7 @@ class Navbar extends React.Component {
 
   render() {
     const { homeorfive } = this.props;
+    console.log(this.props);
     return (
       <NavWrapper>
         <List>
@@ -106,9 +107,9 @@ class Navbar extends React.Component {
           <ListItem color="var(--pink)">
             <StyledLink to="/contact">contact</StyledLink>
           </ListItem>
-          <ListItem color="var(--darkgrey)">eng</ListItem>
+          {/* <ListItem color="var(--darkgrey)">eng</ListItem> */}
         </List>
-        <Menu>
+        <MobileMenu>
           <List style={{ textAlign: "center", lineHeight: "1.3" }}>
             <ListItem style={{ fontSize: "4rem" }} hoverable>
               <StyledLink to="/">home</StyledLink>
@@ -123,11 +124,11 @@ class Navbar extends React.Component {
             <ListItem style={{ fontSize: "4rem" }} hoverable>
               <StyledLink to="/contact">contact</StyledLink>
             </ListItem>
-            <ListItem style={{ fontSize: "4rem" }} hoverable>
+            {/* <ListItem style={{ fontSize: "4rem" }} hoverable>
               eng
-            </ListItem>
+            </ListItem> */}
           </List>
-        </Menu>
+        </MobileMenu>
       </NavWrapper>
     );
   }
