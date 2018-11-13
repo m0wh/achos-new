@@ -39,6 +39,12 @@ const ListItem = styled.li`
   &:hover {
     animation: ${props => (props.hoverable ? "zoom 200ms ease-in" : null)};
   }
+  a:hover {
+    text-decoration: none;
+  }
+  a:visited {
+    text-decoration: none;
+  }
 `;
 
 const StyledLink = styled(Link)`
@@ -102,7 +108,7 @@ class Navbar extends React.Component {
             <StyledLink to="/about">about</StyledLink>
           </ListItem>
           <ListItem color="var(--pink)">
-            <Link to="/contact">contact</Link>
+            <StyledLink to="/contact">contact</StyledLink>
           </ListItem>
           <ListItem color="var(--darkgrey)">eng</ListItem>
         </List>
