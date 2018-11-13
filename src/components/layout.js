@@ -10,7 +10,7 @@ import PointerWhite from "../images/icons/white-default.png";
 import PlusCursor from "../images/icons/white-+.png";
 
 import Header from "./header";
-import Contact from "./contact";
+import Contact from "./contactus";
 import LuckyDay from "./luckyday";
 
 
