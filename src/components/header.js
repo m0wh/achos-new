@@ -11,7 +11,7 @@ const HeaderWrapper = styled.header`
   grid-template-columns: 1fr 3fr;
   align-items: end;
   color: white;
-  margin: 2.625vw 3.1875vw 0 3.5625vw;
+  padding: 2.625vw 3.5625vw;
 `;
 
 const Header = () => (
