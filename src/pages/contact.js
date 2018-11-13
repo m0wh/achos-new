@@ -7,6 +7,7 @@ import Layout from "../components/layout";
 import TextBlock from "../components/textblock";
 import AboutPic from "../images/about.gif";
 import fontSizes from "../utils/fontSizes";
+import media from "../utils/breakpoints";
 
 import BeansImg from "../images/beans.jpg";
 
@@ -20,9 +21,10 @@ const ImageWrapper = styled.div`
   max-width: 100%;
 `;
 
-const LocationsWrapper = styled.section`
+const LocationsGrid = styled.section`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: 1fr 1fr;
+  ${media.tablet`grid-template-columns: 1fr`};
 `;
 
 const ListsWrapper = styled.section`
@@ -36,6 +38,33 @@ const ListsWrapper = styled.section`
 const List = styled.ul`
   text-align: center;
 `;
+const LocationWrapper = styled.div`
+  position: relative;
+`;
+const Overlay = styled.div`
+  background: rgba(26, 26, 26, 0.69);
+  grid-column: 1 / -1;
+  grid-row: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: absolute;
+  width: 100%;
+  // height: 80vh;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+`;
+
+const OverlayWrapper = styled.div`
+  margin: 3.5vw 4.1875vw;
+`;
+const Title = styled.h3`
+  ${fontSizes(3)};
+  color: ${props => props.color};
+  line-height: 1.53;
+`;
 
 const BusinessMail = styled.a`
   ${fontSizes(8)};
@@ -47,7 +76,7 @@ const InternshipsMail = styled.a`
   ${fontSizes(2.2)};
 `;
 
-export default ({ data }) => (
+export default () => (
   <Layout>
     <Wrapper>
       <ImageWrapper>
@@ -91,21 +120,104 @@ export default ({ data }) => (
           </li>
         </List>
       </ListsWrapper>
-      <LocationsWrapper>
-        <Img fluid={data.file.childImageSharp.fluid} />
-      </LocationsWrapper>
+      <LocationsGrid>
+        <LocationWrapper>
+          <img src={BeansImg} width="100%" />
+          <Overlay>
+            <OverlayWrapper>
+              <Title color="var(--yellow)">Barcelona</Title>
+              <address>
+                Carrer dels Vigatans 11, <br />
+                08003 Barcelona
+                <br />
+                <br />
+                <a
+                  href="tel:+34935016671"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  +34 935 016 671
+                </a>
+                <br />
+                <a
+                  href="mailto:hi@achos.es"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  hi@achos.es
+                </a>
+              </address>
+            </OverlayWrapper>
+          </Overlay>
+        </LocationWrapper>
+        <LocationWrapper>
+          <img src={BeansImg} width="100%" />
+          <Overlay>
+            <OverlayWrapper>
+              <Title color="var(--pink)">Bali</Title>
+              <address>
+                Jl. Kuwum II, Kerobokan <br />
+                80361, Bali
+                <br />
+                <br />
+                <a
+                  href="tel:+62081238399"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  +62 081 23 83 99
+                </a>
+                <br />
+                <a
+                  href="mailto:hi@achos.es"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  hi@achos.es
+                </a>
+              </address>
+            </OverlayWrapper>
+          </Overlay>
+        </LocationWrapper>
+        <LocationWrapper>
+          <img src={BeansImg} width="100%" />
+          <Overlay>
+            <OverlayWrapper>
+              <Title color="var(--green)">Medellin</Title>
+              <address>Coming soon</address>
+            </OverlayWrapper>
+          </Overlay>
+        </LocationWrapper>
+        <LocationWrapper>
+          <img src={BeansImg} width="100%" />
+          <Overlay>
+            <OverlayWrapper>
+              <Title color="var(--cyan)">Hong Kong</Title>
+              <address>
+                Jl. Kuwum II, Kerobokan <br />
+                80361, Bali
+                <br />
+                <br />
+                <a
+                  href="tel:+62081238399"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  +62 081 23 83 99
+                </a>
+                <br />
+                <a
+                  href="mailto:hi@achos.es"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  hi@achos.es
+                </a>
+              </address>
+            </OverlayWrapper>
+          </Overlay>
+        </LocationWrapper>
+      </LocationsGrid>
     </Wrapper>
   </Layout>
 );
-
-export const query = graphql`
-  query ContactQuery {
-    file(relativePath: { eq: "achosnew/src/images/beans.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 800, quality: 80) {
-          ...GatsbyImageSharpFluid_tracedSVG
-        }
-      }
-    }
-  }
-`;
