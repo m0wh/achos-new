@@ -60,7 +60,6 @@ const categoryProps = {
 const Wrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr;
   position: relative;
   grid-column: ${props => (props.big ? "span 2" : null)};
   // height: 80vh;
