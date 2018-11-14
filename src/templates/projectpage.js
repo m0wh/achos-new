@@ -12,8 +12,6 @@ const ProjectWrapper = styled.main`
   color: var(--lightgrey);
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: auto;
-  margin-top: 2.625rem;
 `;
 
 const SmallImg = styled(Img)`
@@ -23,12 +21,14 @@ const SmallImg = styled(Img)`
 
 const CreditsList = styled.ul`
   grid-column: span 2;
-  justify-self: center;
-  align-self: center;
+  justify-items: center;
+  align-items: center;
   text-align: center;
-  padding: 0 30vw;
-  margin: 1rem 0;
   color: ${props => props.color};
+`;
+
+const StyledTextBlock = styled(TextBlock)`
+  padding: 10vw 0 !important;
 `;
 
 export default ({ data }) => {
@@ -37,7 +37,7 @@ export default ({ data }) => {
   return (
     <Layout>
       <ProjectWrapper>
-        <TextBlock
+        <StyledTextBlock
           colorLeft={randomColor()}
           textLeft="introduction"
           textRight={frontmatter.introduction}
@@ -45,7 +45,7 @@ export default ({ data }) => {
         <div style={{ maxWidth: "100%" }}>
           <Img fluid={frontmatter.bigimage1.childImageSharp.fluid} />
         </div>
-        <TextBlock
+        <StyledTextBlock
           colorLeft={randomColor()}
           textLeft="concept & execution"
           textRight={frontmatter.concept}
