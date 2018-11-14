@@ -78,24 +78,35 @@ class Navbar extends React.Component {
 
   render() {
     const { homeorfive } = this.props;
-    console.log(this.props);
+    const fiveSecLink = (
+      <ScrollLink
+        onClick={() =>
+          scroll.scrollToBottom({
+            duration: 5000,
+            smooth: true
+          })
+        }
+      >
+        <SoundGif sound={Sound} gif={GIF}>
+          5 Second Tour
+        </SoundGif>
+      </ScrollLink>
+    );
+
+    const homeLink = (
+      <StyledLink to="/">
+        <SoundGif sound={Sound} gif={GIF}>
+          home
+        </SoundGif>
+      </StyledLink>
+    );
+
     return (
       <NavWrapper>
         <List>
           {/* If location IS NOT root, show Link to Home instead of 5 Sec Tour */}
           <ListItem color="var(--yellow)">
-            <ScrollLink
-              onClick={() =>
-                scroll.scrollToBottom({
-                  duration: 5000,
-                  smooth: true
-                })
-              }
-            >
-              <SoundGif sound={Sound} gif={GIF}>
-                {homeorfive}
-              </SoundGif>
-            </ScrollLink>
+            {location.pathname === "/" ? fiveSecLink : homeLink}
           </ListItem>
           {/* onClick scrolls down to beginning of projects */}
           <ListItem color="var(--cyan)">
