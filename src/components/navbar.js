@@ -104,13 +104,11 @@ class Navbar extends React.Component {
     return (
       <NavWrapper>
         <List>
-          {/* If location IS NOT root, show Link to Home instead of 5 Sec Tour */}
           <ListItem color="var(--yellow)">
             {typeof location !== `undefined` && location.pathname === "/"
               ? fiveSecLink
               : homeLink}
           </ListItem>
-          {/* onClick scrolls down to beginning of projects */}
           <ListItem color="var(--cyan)">
             <ScrollLink onClick={() => this.scrollToWork()}>work</ScrollLink>
           </ListItem>
