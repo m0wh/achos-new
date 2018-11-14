@@ -109,7 +109,7 @@ const Layout = ({ children }) => (
         >
           <html lang="en" />
         </Helmet>
-        <Headroom>
+        <Headroom downTolerance={50}>
           <Header />
         </Headroom>
         <div>{children}</div>
