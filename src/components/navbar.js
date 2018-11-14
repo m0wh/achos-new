@@ -106,7 +106,9 @@ class Navbar extends React.Component {
         <List>
           {/* If location IS NOT root, show Link to Home instead of 5 Sec Tour */}
           <ListItem color="var(--yellow)">
-            {location.pathname === "/" ? fiveSecLink : homeLink}
+            {typeof location !== `undefined` && location.pathname === "/"
+              ? fiveSecLink
+              : homeLink}
           </ListItem>
           {/* onClick scrolls down to beginning of projects */}
           <ListItem color="var(--cyan)">

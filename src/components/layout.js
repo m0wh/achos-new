@@ -113,7 +113,8 @@ const Layout = ({ children }) => (
           <Header />
         </Headroom>
         <div>{children}</div>
-        {location.pathname !== "/contact" && <Contact />}
+        {typeof location !== `undefined` &&
+          location.pathname !== "/contact" && <Contact />}
         <LuckyDay />
       </>
     )}
