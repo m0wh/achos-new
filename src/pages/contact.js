@@ -19,6 +19,8 @@ const Wrapper = styled.main`
 `;
 const ImageWrapper = styled.div`
   max-width: 100%;
+  position: relative;
+  bottom: 180px;
 `;
 
 const LocationsGrid = styled.section`
@@ -38,7 +40,7 @@ const ListsWrapper = styled.section`
 const List = styled.ul`
   text-align: center;
 `;
-const LocationWrapper = styled.div`
+const LocationWrapper = styled.article`
   position: relative;
 `;
 const Overlay = styled.div`
