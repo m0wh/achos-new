@@ -78,11 +78,15 @@ const InternshipsMail = styled.a`
   ${fontSizes(2.2)};
 `;
 
-export default () => (
+const ContactPage = ({
+  data: {
+    allFile: { edges: locationEdges }
+  }
+}) => (
   <Layout>
     <Wrapper>
       <ImageWrapper>
-        <img src={AboutPic} width="100%" />
+        <Img fluid={locationEdges[0].node.childImageSharp.fluid} />
       </ImageWrapper>
       <ListsWrapper>
         <List>
@@ -124,7 +128,7 @@ export default () => (
       </ListsWrapper>
       <LocationsGrid>
         <LocationWrapper>
-          <img src={BeansImg} width="100%" />
+          <Img fluid={locationEdges[3].node.childImageSharp.fluid} />
           <Overlay>
             <OverlayWrapper>
               <Title color="var(--yellow)">Barcelona</Title>
@@ -153,7 +157,7 @@ export default () => (
           </Overlay>
         </LocationWrapper>
         <LocationWrapper>
-          <img src={BeansImg} width="100%" />
+          <Img fluid={locationEdges[0].node.childImageSharp.fluid} />
           <Overlay>
             <OverlayWrapper>
               <Title color="var(--pink)">Bali</Title>
@@ -182,7 +186,7 @@ export default () => (
           </Overlay>
         </LocationWrapper>
         <LocationWrapper>
-          <img src={BeansImg} width="100%" />
+          <Img fluid={locationEdges[1].node.childImageSharp.fluid} />
           <Overlay>
             <OverlayWrapper>
               <Title color="var(--green)">Medellin</Title>
@@ -191,7 +195,7 @@ export default () => (
           </Overlay>
         </LocationWrapper>
         <LocationWrapper>
-          <img src={BeansImg} width="100%" />
+          <Img fluid={locationEdges[2].node.childImageSharp.fluid} />
           <Overlay>
             <OverlayWrapper>
               <Title color="var(--cyan)">Hong Kong</Title>
@@ -221,5 +225,24 @@ export default () => (
         </LocationWrapper>
       </LocationsGrid>
     </Wrapper>
+    {console.log(locationEdges)}
   </Layout>
 );
+
+export default ContactPage;
+
+export const pageQuery = graphql`
+  query ContactQuery {
+    allFile(filter: { sourceInstanceName: { eq: "locationimages" } }) {
+      edges {
+        node {
+          childImageSharp {
+            fluid(maxWidth: 800, quality: 80) {
+              ...GatsbyImageSharpFluid_tracedSVG
+            }
+          }
+        }
+      }
+    }
+  }
+`;
