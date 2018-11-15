@@ -1,27 +1,21 @@
 import React from "react";
 import { Link, graphql } from "gatsby";
 import styled from "styled-components";
-import { AniLink } from "gatsby-plugin-transition-link";
 
 import Layout from "../components/layout";
 import Intro from "../components/intro";
 import Work from "../components/work";
 
-const IndexPage = ({
+export default ({
   data: {
     allMarkdownRemark: { edges: projectEdges }
   }
 }) => (
   <Layout>
-    <AniLink cover direction="right" to="/about" bg="var(--black)">
-      Go to Page 4
-    </AniLink>
     <Intro />
     <Work projectEdges={projectEdges} />
   </Layout>
 );
-
-export default IndexPage;
 
 export const pageQuery = graphql`
   query IndexQuery {

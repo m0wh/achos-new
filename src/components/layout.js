@@ -120,10 +120,10 @@ const Layout = ({ children }) => (
           <html lang="en" />
         </Helmet>
         {/* <Transition> */}
-          <Header />
-          <div>{children}</div>
-          <Contact />
-          <LuckyDay />
+        <Header />
+        <div>{children}</div>
+        <Contact />
+        <LuckyDay />
         {/* </Transition> */}
       </>
     )}
