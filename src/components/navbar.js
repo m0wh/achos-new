@@ -21,6 +21,10 @@ import GIF from "../images/gifs/baseball.gif";
 const NavWrapper = styled.nav`
   justify-self: end;
   padding: 1rem 0;
+  z-index: 9000;
+  position: fixed;
+  right: 100px;
+  top: 74px;
 `;
 const List = styled.ul`
   list-style: none;
@@ -67,6 +71,34 @@ class Navbar extends React.Component {
   //   Events.scrollEvent.remove("begin");
   //   Events.scrollEvent.remove("end");
   // }
+  state = {
+    slide: 0,  // How much should the Navbar slide up or down
+    lastScrollY: 0,
+   // Keep track of current position in state
+  };
+
+  componentDidMount() {
+    // When this component mounts, begin listening for scroll changes
+    window.addEventListener('scroll', this.handleScroll);
+  }
+
+  componentWillUnmount() {
+    // If this component is unmounted, stop listening
+    window.removeEventListener('scroll', this.handleScroll);
+  }
+
+  handleScroll = () => {
+    const { lastScrollY } = this.state; 
+    const currentScrollY = window.scrollY;
+
+
+    if (currentScrollY > lastScrollY) {
+      this.setState({ slide: '-500px'});
+    } else {
+      this.setState({ slide: '0px'});
+    }
+    this.setState({ lastScrollY: currentScrollY });
+  };
 
   scrollToWork() {
     scroller.scrollTo("work", {
@@ -77,7 +109,6 @@ class Navbar extends React.Component {
   }
 
   render() {
-    const { homeorfive } = this.props;
     const fiveSecLink = (
       <ScrollLink
         onClick={() =>
@@ -102,7 +133,11 @@ class Navbar extends React.Component {
     );
 
     return (
-      <NavWrapper>
+      <NavWrapper style={{
+        transform: `translate(0, ${this.state.slide})`,
+        transition: 'transform 1s ease',
+        
+      }}>
         <List>
           <ListItem color="var(--yellow)">
             {typeof location !== `undefined` && location.pathname === "/"
