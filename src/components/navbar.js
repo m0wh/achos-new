@@ -23,7 +23,7 @@ const navWrapperProps = {
   hidden: {
     opacity: 0,
     filter: "blur(10px)",
-    x: "50%"
+    x: "80%"
     
   },
   visible: {
@@ -74,9 +74,9 @@ const StyledLink = styled(Link)`
 
 class Navbar extends React.Component {
   state = {
-    // slide: 0,  // How much should the Navbar slide up or down
+    
     lastScrollY: 0,
-    isShowing: false // Keep track of current position in state
+    isShowing: false
   };
 
   componentDidMount() {
@@ -137,7 +137,8 @@ class Navbar extends React.Component {
     const { isShowing } = this.state;
 
     return (
-      <NavWrapper pose={isShowing ? 'visible' : 'hidden'}>
+      
+      <NavWrapper  pose={isShowing ? 'visible' : 'hidden'}>
         <List>
           <ListItem color="var(--yellow)">
             {typeof location !== `undefined` && location.pathname === "/"
