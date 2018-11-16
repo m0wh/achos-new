@@ -12,13 +12,28 @@ import {
 } from "react-scroll";
 import media from "../utils/breakpoints";
 import MobileMenu from "./mobilemenu";
+import posed from "react-pose";
 
 import SoundGif from "./soundgif";
 
 import Sound from "../images/hadouken.mp3";
 import GIF from "../images/gifs/baseball.gif";
 
-const NavWrapper = styled.nav`
+const navWrapperProps = {
+  hidden: {
+    opacity: 0,
+    filter: "blur(10px)",
+    x: "50%"
+    
+  },
+  visible: {
+    opacity: 1,
+    filter: "blur(0px)",
+    x: "0%"
+  }
+};
+
+const NavWrapper = styled(posed.nav(navWrapperProps))`
   justify-self: end;
   padding: 1rem 0;
   z-index: 9000;
@@ -33,6 +48,7 @@ const List = styled.ul`
   ${media.tablet`display: none;`};
 `;
 const ListItem = styled.li`
+
   font-size: 1.875rem;
   padding: 0 1.25rem;
   color: ${props => props.color};
@@ -57,23 +73,10 @@ const StyledLink = styled(Link)`
 `;
 
 class Navbar extends React.Component {
-  // componentDidMount() {
-  //   Events.scrollEvent.register("begin", function() {
-  //     console.log("begin", arguments);
-  //   });
-
-  //   Events.scrollEvent.register("end", function() {
-  //     console.log("end", arguments);
-  //   });
-  // }
-
-  // componentWillUnmount() {
-  //   Events.scrollEvent.remove("begin");
-  //   Events.scrollEvent.remove("end");
-  // }
   state = {
-    slide: 0,  // How much should the Navbar slide up or down
-    lastScrollY: 0, // Keep track of current position in state
+    // slide: 0,  // How much should the Navbar slide up or down
+    lastScrollY: 0,
+    isShowing: false // Keep track of current position in state
   };
 
   componentDidMount() {
@@ -92,9 +95,9 @@ class Navbar extends React.Component {
 
 
     if (currentScrollY > lastScrollY) {
-      this.setState({ slide: '-500px'});
+      this.setState({ isShowing: false});
     } else {
-      this.setState({ slide: '0px'});
+      this.setState({ isShowing: true});
     }
     this.setState({ lastScrollY: currentScrollY });
   };
@@ -131,12 +134,10 @@ class Navbar extends React.Component {
       </StyledLink>
     );
 
+    const { isShowing } = this.state;
+
     return (
-      <NavWrapper style={{
-        transform: `translate(0, ${this.state.slide})`,
-        transition: 'transform 1s ease',
-        
-      }}>
+      <NavWrapper pose={isShowing ? 'visible' : 'hidden'}>
         <List>
           <ListItem color="var(--yellow)">
             {typeof location !== `undefined` && location.pathname === "/"
