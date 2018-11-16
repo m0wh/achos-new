@@ -1,22 +1,14 @@
 import React from "react";
 import { Link, graphql } from "gatsby";
 import styled from "styled-components";
+import fontSizes from "../utils/fontSizes";
 
 export const Wrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr 4fr;
   grid-gap: 1vw;
   align-items: baseline;
-  @media (min-width: 320px) {
-     {
-      font-size: calc(1.1rem + ((1vw - 0.2rem) * 2.4107));
-    }
-  }
-  @media (min-width: 768px) {
-     {
-      font-size: 1.875rem;
-    }
-  }
+  ${fontSizes(1.875)}
   line-height: 1.53;
   margin: 0 3.5625vw;
 `;

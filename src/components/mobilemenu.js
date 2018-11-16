@@ -162,7 +162,7 @@ const StyledBurgerMenu = styled.div`
 
 
 
-export default class Menu extends React.Component {
+export default class MobileMenu extends React.Component {
   state = {
     menuOpen: false,
   }

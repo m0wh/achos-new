@@ -1,41 +1,61 @@
 import React from "react";
-import { Link } from "gatsby";
 import styled from "styled-components";
+import fontSizes from "../utils/fontSizes";
 
-const IntroWrapper = styled.div`
-  color: white;
-  margin: 3.5rem 4.1875rem;
+const IntroWrapper = styled.section`
+  margin: 3.5vw 4.187vw;
 `;
 
 const IntroText = styled.p`
-  // font-size: 3rem;
-  @media (min-width: 320px) {
-     {
-      font-size: calc(2rem + ((1vw - 0.2rem) * 3.5714));
-    }
-  }
-  @media (min-width: 768px) {
-     {
-      font-size: 3rem;
-    }
-  }
+  ${fontSizes(3)};
   color: var(--lightgrey);
-  font-weight: bold;
-  font-style: normal;
-  font-stretch: normal;
   line-height: 1.4;
-  letter-spacing: normal;
+`;
+
+const Inside = styled.span`
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
+  &:hover {
+    color: white;
+  }
+  &::before {
+    position: absolute;
+    top: -3px;
+    left: -1px;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 113, 177, 1);
+    background: linear-gradient(
+      to right,
+      rgba(255, 113, 177, 1) 0%,
+      rgba(0, 255, 255, 1) 33%,
+      rgba(66, 250, 121, 1) 66%,
+      rgba(255, 243, 109, 1) 100%
+    );
+    content: "";
+    transition: transform 5s;
+    transform: scale(0.9) translateX(-110%);
+  }
+  &:hover::before {
+    transform: scaleY(0.9) translateX(0);
+  }
+  &:focus::before {
+    transform: scaleY(0.9) translateX(0);
+  }
 `;
 
 const Intro = () => (
   <IntroWrapper>
     <IntroText>
       achos! attention-grabbing, panty-dropping communication and interactive
-      design agency based in Barcelona and Silicon Bali. We despise the boring
-      and are always looking for fun! We provide bold creative solutions
-      allowing our clients to stand out! In other words, we make sick ideas,
-      neat designs and seriously provocative work that will make your brand
-      hotter than a banging supernova!
+      <Inside>design</Inside>
+      agency based in Barcelona and Silicon Bali. We despise the boring and are
+      always looking for fun! We provide bold creative solutions allowing our
+      clients to stand out! In other words, we make sick ideas, neat designs and
+      seriously provocative work that will make your brand hotter than a banging
+      supernova!
     </IntroText>
   </IntroWrapper>
 );

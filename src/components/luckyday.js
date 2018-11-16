@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
+import fontSizes from "../utils/fontSizes";
 
 const LuckyWrapper = styled.div`
   margin: auto;
@@ -17,16 +18,7 @@ const LuckyWrapper = styled.div`
 `;
 
 const LuckyText = styled.p`
-  @media (min-width: 320px) {
-     {
-      font-size: calc(2rem + ((1vw - 0.2rem) * 2.4107));
-    }
-  }
-  @media (min-width: 768px) {
-     {
-      font-size: 3rem;
-    }
-  }
+  ${fontSizes(3)};
   line-height: 1.4;
 `;
 

@@ -11,7 +11,7 @@ const HeaderWrapper = styled.header`
   grid-template-columns: 1fr 3fr;
   align-items: end;
   color: white;
-  padding: 2.625vw 3.1875vw 0 3.5625vw;
+  padding: 2.625vw 3.5625vw;
 `;
 
 // location.history.pathname
@@ -19,7 +19,7 @@ const HeaderWrapper = styled.header`
 const Header = () => (
   <HeaderWrapper>
     <Logo />
-    <Navbar homeorfive="5 Sec Tour" />
+    <Navbar />
   </HeaderWrapper>
 );
 

@@ -12,6 +12,8 @@ import MoanSound2 from "../images/moan/moan2.mp3";
 import MoanSound3 from "../images/moan/moan3.mp3";
 import MoanSound4 from "../images/moan/moan4.mp3";
 
+import TickSound from "../images/tick3.mp3";
+
 const randomMoan = () => {
   const moanSounds = [MoanSound1, MoanSound2, MoanSound3, MoanSound4];
   function getRandomInt(max) {
@@ -55,6 +57,7 @@ export default ({ projectEdges }) => {
               name={project.node.frontmatter.name}
               category={project.node.frontmatter.category}
               link={project.node.fields.slug}
+              sound={TickSound}
             />
           )
         )}

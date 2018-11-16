@@ -6,11 +6,13 @@ import Helmet from "react-helmet";
 import { StaticQuery, graphql } from "gatsby";
 import { createGlobalStyle } from "styled-components";
 import reset from "styled-reset";
+import Headroom from "react-headroom";
 import AvantBold from "../fonts/ITCAvantGardePro-Bold.woff";
 import PointerWhite from "../images/icons/white-default.png";
+import PlusCursor from "../images/icons/white-+.png";
 
 import Header from "./header";
-import Contact from "./contact";
+import Contact from "./contactus";
 import LuckyDay from "./luckyday";
 
 const transitionDuration = 300;
@@ -61,6 +63,7 @@ const GlobalStyle = createGlobalStyle`
 
     // Cursors
       --pointerwhite: url(${PointerWhite}) 0 0, auto;
+      --plusminus: url(${PlusCursor}) 40 40, auto;
     //  
   }
 
@@ -142,10 +145,13 @@ const Layout = ({ children }) => (
           <Transition
             key={typeof location !== `undefined` && location.pathname}
           >
-            <Header />
+            <Headroom downTolerance={50}>
+              <Header />
+            </Headroom>
             {children}
 
-            <Contact />
+            {typeof location !== `undefined` &&
+              location.pathname !== "/contact" && <Contact />}
             <LuckyDay />
           </Transition>
         </PoseGroup>

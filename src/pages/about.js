@@ -5,6 +5,7 @@ import styled from "styled-components";
 import Layout from "../components/layout";
 import TextBlock from "../components/textblock";
 import BeansPic from "../images/beans.jpg";
+import fontSizes from "../utils/fontSizes";
 import AboutPic from "../images/about.gif";
 
 const aboutText = [
@@ -139,21 +140,16 @@ const blaBoomBling = [
 const ProjectWrapper = styled.main`
   background-color: var(--lightblack);
   color: var(--lightgrey);
-  @media (min-width: 320px) {
-     {
-      font-size: calc(1.1rem + ((1vw - 0.2rem) * 2.4107));
-    }
-  }
-  @media (min-width: 768px) {
-     {
-      font-size: 1.875rem;
-    }
-  }
+  ${fontSizes(1.875)}
   line-height: 1.53;
 `;
 const ImageWrapper = styled.div`
   max-width: 100%;
   margin: 9vw 0;
+`;
+const VideoWrapper = styled.div`
+  max-width: 100%;
+  position: relative;
 `;
 
 const ShowsContainer = styled.section`
@@ -174,18 +170,32 @@ const CreditsList = styled.ul`
 export default () => (
   <>
     <ProjectWrapper>
-      <ImageWrapper style={{ marginTop: 0, marginBottom: "6rem" }}>
-        <img src={AboutPic} width="100%" />
-      </ImageWrapper>
+      <VideoWrapper style={{ marginTop: 0, marginBottom: "6rem" }}>
+        <video
+          style={{ width: "100%" }}
+          controls
+          loop
+          autoPlay
+          muted
+          playsInline
+        >
+          <source
+            src="https://www.sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4"
+            type="video/mp4"
+          />
+          Your browser does not support the video tag.
+        </video>
+      </VideoWrapper>
       <TextBlock
         colorLeft="var(--pink)"
         textLeft="who we are"
         textRight={aboutText[0].header}
-        sizeRight="3rem"
-        sizeLeft="1.875rem"
+        sizeRight={"3rem"}
         style={{ margin: "9vw 0" }}
       />
+      <br />
       <TextBlock textRight={aboutText[0].first} />
+      <br />
       <TextBlock textRight={aboutText[0].second} />
 
       <ImageWrapper>
@@ -196,11 +206,15 @@ export default () => (
         textLeft="attention"
         textRight={aboutText[1].attention}
       />
+      <br />
+      <br />
       <TextBlock
         colorLeft="var(--pink)"
         textLeft="crazy websites"
         textRight={aboutText[1].crazyWebsites}
       />
+      <br />
+      <br />
       <TextBlock
         colorLeft="var(--green)"
         textLeft="hot branding"
@@ -210,7 +224,7 @@ export default () => (
         <img src={BeansPic} width="100%" />
       </ImageWrapper>
 
-      <CreditsList style={{ padding: "0 3rem" }}>
+      <CreditsList style={{ margin: "0 3rem" }}>
         <li style={{ color: "var(--green)", marginBottom: "2rem" }}>
           and everything nice!
         </li>

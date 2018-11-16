@@ -74,7 +74,11 @@ const Contact = () => (
           </a>
         </ListItem>
         <ListItem color="var(--green)">
-          <a href="tel:+34630991990" target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://wa.me/34630991990"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             (+34) 630 991 990
           </a>
         </ListItem>

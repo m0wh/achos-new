@@ -11,7 +11,7 @@ import {
   scroller
 } from "react-scroll";
 import media from "../utils/breakpoints";
-import Menu from "./mobilemenu";
+import MobileMenu from "./mobilemenu";
 
 import SoundGif from "./soundgif";
 
@@ -19,10 +19,6 @@ import Sound from "../images/hadouken.mp3";
 import GIF from "../images/gifs/baseball.gif";
 
 const NavWrapper = styled.nav`
-  z-index: 1000;
-  position: fixed;
-  left: 44%;
-  top: 76px;
   justify-self: end;
   padding: 1rem 0;
 `;
@@ -39,6 +35,12 @@ const ListItem = styled.li`
   &:hover {
     animation: ${props => (props.hoverable ? "zoom 200ms ease-in" : null)};
   }
+  a:hover {
+    text-decoration: none;
+  }
+  a:visited {
+    text-decoration: none;
+  }
 `;
 
 const StyledLink = styled(Link)`
@@ -51,20 +53,20 @@ const StyledLink = styled(Link)`
 `;
 
 class Navbar extends React.Component {
-  componentDidMount() {
-    Events.scrollEvent.register("begin", function() {
-      console.log("begin", arguments);
-    });
+  // componentDidMount() {
+  //   Events.scrollEvent.register("begin", function() {
+  //     console.log("begin", arguments);
+  //   });
 
-    Events.scrollEvent.register("end", function() {
-      console.log("end", arguments);
-    });
-  }
+  //   Events.scrollEvent.register("end", function() {
+  //     console.log("end", arguments);
+  //   });
+  // }
 
-  componentWillUnmount() {
-    Events.scrollEvent.remove("begin");
-    Events.scrollEvent.remove("end");
-  }
+  // componentWillUnmount() {
+  //   Events.scrollEvent.remove("begin");
+  //   Events.scrollEvent.remove("end");
+  // }
 
   scrollToWork() {
     scroller.scrollTo("work", {
@@ -76,25 +78,37 @@ class Navbar extends React.Component {
 
   render() {
     const { homeorfive } = this.props;
+    const fiveSecLink = (
+      <ScrollLink
+        onClick={() =>
+          scroll.scrollToBottom({
+            duration: 5000,
+            smooth: true
+          })
+        }
+      >
+        <SoundGif sound={Sound} gif={GIF}>
+          5 Second Tour
+        </SoundGif>
+      </ScrollLink>
+    );
+
+    const homeLink = (
+      <StyledLink to="/">
+        <SoundGif sound={Sound} gif={GIF}>
+          home
+        </SoundGif>
+      </StyledLink>
+    );
+
     return (
       <NavWrapper>
         <List>
-          {/* If location IS NOT root, show Link to Home instead of 5 Sec Tour */}
           <ListItem color="var(--yellow)">
-            <ScrollLink
-              onClick={() =>
-                scroll.scrollToBottom({
-                  duration: 5000,
-                  smooth: true
-                })
-              }
-            >
-              <SoundGif sound={Sound} gif={GIF}>
-                {homeorfive}
-              </SoundGif>
-            </ScrollLink>
+            {typeof location !== `undefined` && location.pathname === "/"
+              ? fiveSecLink
+              : homeLink}
           </ListItem>
-          {/* onClick scrolls down to beginning of projects */}
           <ListItem color="var(--cyan)">
             <ScrollLink onClick={() => this.scrollToWork()}>work</ScrollLink>
           </ListItem>
@@ -102,11 +116,11 @@ class Navbar extends React.Component {
             <StyledLink to="/about">about</StyledLink>
           </ListItem>
           <ListItem color="var(--pink)">
-            <Link to="/contact">contact</Link>
+            <StyledLink to="/contact">contact</StyledLink>
           </ListItem>
-          <ListItem color="var(--darkgrey)">eng</ListItem>
+          {/* <ListItem color="var(--darkgrey)">eng</ListItem> */}
         </List>
-        <Menu>
+        <MobileMenu>
           <List style={{ textAlign: "center", lineHeight: "1.3" }}>
             <ListItem style={{ fontSize: "4rem" }} hoverable>
               <StyledLink to="/">home</StyledLink>
@@ -121,11 +135,11 @@ class Navbar extends React.Component {
             <ListItem style={{ fontSize: "4rem" }} hoverable>
               <StyledLink to="/contact">contact</StyledLink>
             </ListItem>
-            <ListItem style={{ fontSize: "4rem" }} hoverable>
+            {/* <ListItem style={{ fontSize: "4rem" }} hoverable>
               eng
-            </ListItem>
+            </ListItem> */}
           </List>
-        </Menu>
+        </MobileMenu>
       </NavWrapper>
     );
   }
