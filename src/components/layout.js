@@ -140,12 +140,11 @@ const Layout = ({ children }) => (
         >
           <html lang="en" />
         </Helmet>
+        <Header />
         <PoseGroup>
           <Transition
             key={typeof location !== `undefined` && location.pathname}
           >
-            <Header />
-
             {children}
 
             {typeof location !== `undefined` &&
