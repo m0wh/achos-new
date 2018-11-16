@@ -3,7 +3,7 @@ import { Link, graphql } from "gatsby";
 import styled from "styled-components";
 import fontSizes from "../utils/fontSizes";
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.article`
   display: grid;
   grid-template-columns: 1fr 4fr;
   grid-gap: 1vw;
@@ -11,6 +11,7 @@ export const Wrapper = styled.div`
   ${fontSizes(1.875)}
   line-height: 1.53;
   margin: 0 3.5625vw;
+  padding: ${props => props.padding};
 `;
 
 const TextLeft = styled.p`
@@ -32,7 +33,7 @@ const TextCenter = styled.p`
 `;
 
 export default props => (
-  <Wrapper>
+  <Wrapper padding={props.padding}>
     <TextLeft sizeLeft={props.sizeLeft} color={props.colorLeft}>
       {props.textLeft}
     </TextLeft>
