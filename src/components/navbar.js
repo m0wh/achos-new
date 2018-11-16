@@ -137,6 +137,7 @@ class Navbar extends React.Component {
     const { isShowing } = this.state;
 
     return (
+      <>
       
       <NavWrapper  pose={isShowing ? 'visible' : 'hidden'}>
         <List>
@@ -156,27 +157,28 @@ class Navbar extends React.Component {
           </ListItem>
           {/* <ListItem color="var(--darkgrey)">eng</ListItem> */}
         </List>
-        <MobileMenu>
-          <List style={{ textAlign: "center", lineHeight: "1.3" }}>
-            <ListItem style={{ fontSize: "4rem" }} hoverable>
-              <StyledLink to="/">home</StyledLink>
-            </ListItem>
-            {/* onClick scrolls down to beginning of projects */}
-            <ListItem style={{ fontSize: "4rem" }} hoverable>
-              <StyledLink to="/">work</StyledLink>
-            </ListItem>
-            <ListItem style={{ fontSize: "4rem" }} hoverable>
-              <StyledLink to="/about">about</StyledLink>
-            </ListItem>
-            <ListItem style={{ fontSize: "4rem" }} hoverable>
-              <StyledLink to="/contact">contact</StyledLink>
-            </ListItem>
-            {/* <ListItem style={{ fontSize: "4rem" }} hoverable>
-              eng
-            </ListItem> */}
-          </List>
-        </MobileMenu>
       </NavWrapper>
+      <MobileMenu>
+      <List style={{ textAlign: "center", lineHeight: "1.3" }}>
+        <ListItem style={{ fontSize: "4rem" }} hoverable>
+          <StyledLink to="/">home</StyledLink>
+        </ListItem>
+        {/* onClick scrolls down to beginning of projects */}
+        <ListItem style={{ fontSize: "4rem" }} hoverable>
+          <StyledLink to="/">work</StyledLink>
+        </ListItem>
+        <ListItem style={{ fontSize: "4rem" }} hoverable>
+          <StyledLink to="/about">about</StyledLink>
+        </ListItem>
+        <ListItem style={{ fontSize: "4rem" }} hoverable>
+          <StyledLink to="/contact">contact</StyledLink>
+        </ListItem>
+        {/* <ListItem style={{ fontSize: "4rem" }} hoverable>
+          eng
+        </ListItem> */}
+      </List>
+    </MobileMenu>
+    </>
     );
   }
 }
