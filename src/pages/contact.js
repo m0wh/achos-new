@@ -78,10 +78,11 @@ const InternshipsMail = styled.a`
   ${fontSizes(2.2)};
 `;
 
-export default (({
+export default ({
   data: {
     allFile: { edges: locationEdges }
-  }) => (
+  }
+}) => (
   <>
     <Wrapper>
       <ImageWrapper>
@@ -226,8 +227,6 @@ export default (({
     </Wrapper>
   </>
 );
-
-export default ContactPage;
 
 export const pageQuery = graphql`
   query ContactQuery {
