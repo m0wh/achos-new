@@ -12,15 +12,34 @@ import {
 } from "react-scroll";
 import media from "../utils/breakpoints";
 import MobileMenu from "./mobilemenu";
+import posed from "react-pose";
 
 import SoundGif from "./soundgif";
 
 import Sound from "../images/hadouken.mp3";
 import GIF from "../images/gifs/baseball.gif";
 
-const NavWrapper = styled.nav`
+const navWrapperProps = {
+  hidden: {
+    opacity: 0,
+    filter: "blur(10px)",
+    x: "50%"
+    
+  },
+  visible: {
+    opacity: 1,
+    filter: "blur(0px)",
+    x: "0%"
+  }
+};
+
+const NavWrapper = styled(posed.nav(navWrapperProps))`
   justify-self: end;
   padding: 1rem 0;
+  z-index: 9000;
+  position: fixed;
+  right: 100px;
+  top: 74px;
 `;
 const List = styled.ul`
   list-style: none;
@@ -29,6 +48,7 @@ const List = styled.ul`
   ${media.tablet`display: none;`};
 `;
 const ListItem = styled.li`
+
   font-size: 1.875rem;
   padding: 0 1.25rem;
   color: ${props => props.color};
@@ -53,20 +73,34 @@ const StyledLink = styled(Link)`
 `;
 
 class Navbar extends React.Component {
-  // componentDidMount() {
-  //   Events.scrollEvent.register("begin", function() {
-  //     console.log("begin", arguments);
-  //   });
+  state = {
+    // slide: 0,  // How much should the Navbar slide up or down
+    lastScrollY: 0,
+    isShowing: false // Keep track of current position in state
+  };
 
-  //   Events.scrollEvent.register("end", function() {
-  //     console.log("end", arguments);
-  //   });
-  // }
+  componentDidMount() {
+    // When this component mounts, begin listening for scroll changes
+    window.addEventListener('scroll', this.handleScroll);
+  }
 
-  // componentWillUnmount() {
-  //   Events.scrollEvent.remove("begin");
-  //   Events.scrollEvent.remove("end");
-  // }
+  componentWillUnmount() {
+    // If this component is unmounted, stop listening
+    window.removeEventListener('scroll', this.handleScroll);
+  }
+
+  handleScroll = () => {
+    const { lastScrollY } = this.state; 
+    const currentScrollY = window.scrollY;
+
+
+    if (currentScrollY > lastScrollY) {
+      this.setState({ isShowing: false});
+    } else {
+      this.setState({ isShowing: true});
+    }
+    this.setState({ lastScrollY: currentScrollY });
+  };
 
   scrollToWork() {
     scroller.scrollTo("work", {
@@ -77,7 +111,6 @@ class Navbar extends React.Component {
   }
 
   render() {
-    const { homeorfive } = this.props;
     const fiveSecLink = (
       <ScrollLink
         onClick={() =>
@@ -101,8 +134,10 @@ class Navbar extends React.Component {
       </StyledLink>
     );
 
+    const { isShowing } = this.state;
+
     return (
-      <NavWrapper>
+      <NavWrapper pose={isShowing ? 'visible' : 'hidden'}>
         <List>
           <ListItem color="var(--yellow)">
             {typeof location !== `undefined` && location.pathname === "/"

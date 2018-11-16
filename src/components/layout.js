@@ -6,7 +6,6 @@ import Helmet from "react-helmet";
 import { StaticQuery, graphql } from "gatsby";
 import { createGlobalStyle } from "styled-components";
 import reset from "styled-reset";
-import Headroom from "react-headroom";
 import AvantBold from "../fonts/ITCAvantGardePro-Bold.woff";
 import PointerWhite from "../images/icons/white-default.png";
 import PlusCursor from "../images/icons/white-+.png";
@@ -145,9 +144,8 @@ const Layout = ({ children }) => (
           <Transition
             key={typeof location !== `undefined` && location.pathname}
           >
-            <Headroom downTolerance={50}>
-              <Header />
-            </Headroom>
+            <Header />
+
             {children}
 
             {typeof location !== `undefined` &&
