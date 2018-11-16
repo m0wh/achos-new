@@ -3,7 +3,7 @@ import { Link, graphql } from "gatsby";
 import styled, { css } from "styled-components";
 import Img from "gatsby-image";
 
-import Layout from "../components/layout";
+// import Layout from "../components/layout";
 import TextBlock from "../components/textblock";
 import AboutPic from "../images/about.gif";
 import fontSizes from "../utils/fontSizes";
@@ -48,7 +48,7 @@ const InternshipsMail = styled.a`
 `;
 
 export default ({ data }) => (
-  <Layout>
+  <>
     <Wrapper>
       <ImageWrapper>
         <img src={AboutPic} width="100%" />
@@ -95,7 +95,7 @@ export default ({ data }) => (
         <Img fluid={data.file.childImageSharp.fluid} />
       </LocationsWrapper>
     </Wrapper>
-  </Layout>
+  </>
 );
 
 export const query = graphql`

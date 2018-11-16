@@ -2,7 +2,7 @@ import React from "react";
 import { Link, graphql } from "gatsby";
 import styled from "styled-components";
 
-import Layout from "../components/layout";
+// import Layout from "../components/layout";
 import Intro from "../components/intro";
 import Work from "../components/work";
 
@@ -11,10 +11,10 @@ export default ({
     allMarkdownRemark: { edges: projectEdges }
   }
 }) => (
-  <Layout>
+  <>
     <Intro />
     <Work projectEdges={projectEdges} />
-  </Layout>
+  </>
 );
 
 export const pageQuery = graphql`

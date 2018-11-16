@@ -35,7 +35,7 @@ export default ({ data }) => {
   const { frontmatter } = data.markdownRemark;
   console.log(frontmatter);
   return (
-    <Layout>
+    <>
       <ProjectWrapper>
         <TextBlock
           colorLeft={randomColor()}
@@ -84,7 +84,7 @@ export default ({ data }) => {
         {/* <Project src={AxpePic} width="50%" />
         <Project src={DadaPic} width="50%" /> */}
       </div>
-    </Layout>
+    </>
   );
 };
 

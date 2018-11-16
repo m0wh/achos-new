@@ -172,7 +172,7 @@ const CreditsList = styled.ul`
 `;
 
 export default () => (
-  <Layout>
+  <>
     <ProjectWrapper>
       <ImageWrapper style={{ marginTop: 0, marginBottom: "6rem" }}>
         <img src={AboutPic} width="100%" />
@@ -262,5 +262,5 @@ export default () => (
         </ul>
       </ShowsContainer>
     </ProjectWrapper>
-  </Layout>
+  </>
 );
