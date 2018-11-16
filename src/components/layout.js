@@ -1,4 +1,5 @@
 import React from "react";
+import posed, { PoseGroup } from "react-pose";
 import PropTypes from "prop-types";
 import Helmet from "react-helmet";
 // import posed from "react-pose";
@@ -11,6 +12,24 @@ import PointerWhite from "../images/icons/white-default.png";
 import Header from "./header";
 import Contact from "./contact";
 import LuckyDay from "./luckyday";
+
+const transitionDuration = 300;
+const transitionDelay = 350;
+
+const Transition = posed.div({
+  enter: {
+    opacity: 1,
+    transition: { duration: transitionDuration },
+    delay: transitionDelay,
+    beforeChildren: true,
+    filter: "blur(0px)"
+  },
+  exit: {
+    opacity: 0,
+    filter: "blur(100px)",
+    transition: { duration: transitionDuration }
+  }
+});
 
 // const Transition = posed.div({
 //   enter: {
@@ -119,10 +138,17 @@ const Layout = ({ children }) => (
         >
           <html lang="en" />
         </Helmet>
-        <Header />
-        <div>{children}</div>
-        <Contact />
-        <LuckyDay />
+        <PoseGroup>
+          <Transition
+            key={typeof location !== `undefined` && location.pathname}
+          >
+            <Header />
+            {children}
+
+            <Contact />
+            <LuckyDay />
+          </Transition>
+        </PoseGroup>
       </>
     )}
   />
