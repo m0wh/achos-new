@@ -73,8 +73,7 @@ class Navbar extends React.Component {
   // }
   state = {
     slide: 0,  // How much should the Navbar slide up or down
-    lastScrollY: 0,
-   // Keep track of current position in state
+    lastScrollY: 0, // Keep track of current position in state
   };
 
   componentDidMount() {
