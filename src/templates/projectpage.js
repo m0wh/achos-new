@@ -3,8 +3,8 @@ import { Link, graphql } from "gatsby";
 import styled from "styled-components";
 import Img from "gatsby-image";
 import TextBlock, { Wrapper } from "../components/textblock";
+// import ScrollToClose from "../components/scrolltoclose";
 import randomColor from "../utils/randomColor";
-
 
 const ProjectWrapper = styled.main`
   background-color: var(--lightblack);
@@ -26,30 +26,28 @@ const CreditsList = styled.ul`
   color: ${props => props.color};
 `;
 
-const StyledTextBlock = styled(TextBlock)`
-  padding: 10vw 0 !important;
-`;
-
 export default ({ data }) => {
   const { frontmatter } = data.markdownRemark;
   console.log(frontmatter);
   return (
     <>
       <ProjectWrapper>
-        <StyledTextBlock
-          colorLeft={randomColor()}
-          textLeft="introduction"
-          textRight={frontmatter.introduction}
-        />
         <div style={{ maxWidth: "100%" }}>
           <Img fluid={frontmatter.bigimage1.childImageSharp.fluid} />
         </div>
-        <StyledTextBlock
+        <TextBlock
+          colorLeft={randomColor()}
+          textLeft="introduction"
+          textRight={frontmatter.introduction}
+          padding="4vw 0"
+        />
+        <Img fluid={frontmatter.bigimage2.childImageSharp.fluid} />
+        <TextBlock
           colorLeft={randomColor()}
           textLeft="concept & execution"
           textRight={frontmatter.concept}
+          padding="4vw 0"
         />
-        <Img fluid={frontmatter.bigimage2.childImageSharp.fluid} />
         <div>
           <SmallImg fluid={frontmatter.smallimage1.childImageSharp.fluid} />
           <SmallImg fluid={frontmatter.smallimage2.childImageSharp.fluid} />
@@ -66,10 +64,10 @@ export default ({ data }) => {
             />
           ))}
 
-        <Wrapper>
+        <Wrapper style={{ padding: "4vw 0" }}>
           <CreditsList>
             {frontmatter.credits.map(credit => (
-              <ul style={{ marginBottom: "2.5rem" }}>
+              <ul style={{ marginBottom: "2.5vw" }}>
                 <li style={{ color: randomColor() }} key={credit.title}>
                   {credit.title}
                 </li>
@@ -78,11 +76,8 @@ export default ({ data }) => {
             ))}
           </CreditsList>
         </Wrapper>
+        {/* <ScrollToClose /> */}
       </ProjectWrapper>
-      <div>
-        {/* <Project src={AxpePic} width="50%" />
-        <Project src={DadaPic} width="50%" /> */}
-      </div>
     </>
   );
 };
