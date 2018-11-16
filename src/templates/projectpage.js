@@ -5,7 +5,6 @@ import Img from "gatsby-image";
 import TextBlock, { Wrapper } from "../components/textblock";
 import randomColor from "../utils/randomColor";
 
-import Layout from "../components/layout";
 
 const ProjectWrapper = styled.main`
   background-color: var(--lightblack);
