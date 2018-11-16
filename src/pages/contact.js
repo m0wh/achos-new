@@ -3,7 +3,7 @@ import { Link, graphql } from "gatsby";
 import styled, { css } from "styled-components";
 import Img from "gatsby-image";
 
-import Layout from "../components/layout";
+// import Layout from "../components/layout";
 import TextBlock from "../components/textblock";
 import AboutPic from "../images/about.gif";
 import fontSizes from "../utils/fontSizes";
@@ -78,12 +78,11 @@ const InternshipsMail = styled.a`
   ${fontSizes(2.2)};
 `;
 
-const ContactPage = ({
+export default (({
   data: {
     allFile: { edges: locationEdges }
-  }
-}) => (
-  <Layout>
+  }) => (
+  <>
     <Wrapper>
       <ImageWrapper>
         <Img fluid={locationEdges[0].node.childImageSharp.fluid} />
@@ -225,8 +224,7 @@ const ContactPage = ({
         </LocationWrapper>
       </LocationsGrid>
     </Wrapper>
-    {console.log(locationEdges)}
-  </Layout>
+  </>
 );
 
 export default ContactPage;

@@ -1,7 +1,8 @@
 import React from "react";
+import posed, { PoseGroup } from "react-pose";
 import PropTypes from "prop-types";
 import Helmet from "react-helmet";
-import posed from "react-pose";
+// import posed from "react-pose";
 import { StaticQuery, graphql } from "gatsby";
 import { createGlobalStyle } from "styled-components";
 import reset from "styled-reset";
@@ -13,6 +14,37 @@ import PlusCursor from "../images/icons/white-+.png";
 import Header from "./header";
 import Contact from "./contactus";
 import LuckyDay from "./luckyday";
+
+const transitionDuration = 300;
+const transitionDelay = 350;
+
+const Transition = posed.div({
+  enter: {
+    opacity: 1,
+    transition: { duration: transitionDuration },
+    delay: transitionDelay,
+    beforeChildren: true,
+    filter: "blur(0px)"
+  },
+  exit: {
+    opacity: 0,
+    filter: "blur(100px)",
+    transition: { duration: transitionDuration }
+  }
+});
+
+// const Transition = posed.div({
+//   enter: {
+//     // y: 0,
+//     opacity: 1,
+//     filter: "blur(0px)"
+//   },
+//   exit: {
+//     // y: 30,
+//     opacity: 0,
+//     filter: "blur(20px)"
+//   }
+// });
 
 const GlobalStyle = createGlobalStyle`
   ${reset}
@@ -109,13 +141,20 @@ const Layout = ({ children }) => (
         >
           <html lang="en" />
         </Helmet>
-        <Headroom downTolerance={50}>
-          <Header />
-        </Headroom>
-        <div>{children}</div>
-        {typeof location !== `undefined` &&
-          location.pathname !== "/contact" && <Contact />}
-        <LuckyDay />
+        <PoseGroup>
+          <Transition
+            key={typeof location !== `undefined` && location.pathname}
+          >
+            <Headroom downTolerance={50}>
+              <Header />
+            </Headroom>
+            {children}
+
+            {typeof location !== `undefined` &&
+              location.pathname !== "/contact" && <Contact />}
+            <LuckyDay />
+          </Transition>
+        </PoseGroup>
       </>
     )}
   />

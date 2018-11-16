@@ -168,7 +168,7 @@ const CreditsList = styled.ul`
 `;
 
 export default () => (
-  <Layout>
+  <>
     <ProjectWrapper>
       <VideoWrapper style={{ marginTop: 0, marginBottom: "6rem" }}>
         <video
@@ -276,5 +276,5 @@ export default () => (
         </ul>
       </ShowsContainer>
     </ProjectWrapper>
-  </Layout>
+  </>
 );

@@ -14,6 +14,8 @@ const HeaderWrapper = styled.header`
   padding: 2.625vw 3.5625vw;
 `;
 
+// location.history.pathname
+
 const Header = () => (
   <HeaderWrapper>
     <Logo />
