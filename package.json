@@ -1,8 +1,8 @@
 {
   "name": "achos",
-  "description": "Achos new site",
+  "description": "Achos new",
   "version": "0.0.1",
-  "author": "Pol & Achos <pol@polmilian.com>",
+  "author": "Pol Milian & Achos <pol@polmilian.com>",
   "dependencies": {
     "babel-plugin-styled-components": "^1.8.0",
     "gatsby": "^2.0.50",
@@ -27,7 +27,13 @@
     "styled-reset": "^1.6.0"
   },
   "keywords": [
-    "gatsby"
+    "gatsby",
+    "react",
+    "achos",
+    "graphql",
+    "design",
+    "agency",
+    "digital"
   ],
   "license": "MIT",
   "scripts": {
@@ -48,6 +54,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/Polcius/achos-new"
   }
 }
