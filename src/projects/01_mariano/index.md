@@ -22,6 +22,4 @@ credits:
   - title: "coding"
     color: "var(--green)"
     name: "Jose Mota"
-related1: "./mariano-06.jpg"
-related2: "./mariano-00.jpg"
 ---

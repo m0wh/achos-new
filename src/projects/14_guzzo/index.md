@@ -21,6 +21,4 @@ credits:
     color: "var(--green)"
     name: "JM Aznar"
 
-related1: "./guzzo-00.jpg"
-related2: "./guzzo-01.jpg"
 ---
