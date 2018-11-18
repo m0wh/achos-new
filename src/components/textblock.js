@@ -2,6 +2,7 @@ import React from "react";
 import { Link, graphql } from "gatsby";
 import styled from "styled-components";
 import fontSizes from "../utils/fontSizes";
+import media from "../utils/breakpoints";
 
 export const Wrapper = styled.article`
   display: grid;
@@ -9,7 +10,6 @@ export const Wrapper = styled.article`
   grid-gap: 1vw;
   align-items: baseline;
   ${fontSizes(1.875)}
-  line-height: 1.53;
   margin: 0 3.5625vw;
   padding: ${props => props.padding};
 `;
@@ -23,6 +23,11 @@ const TextLeft = styled.p`
 const TextRight = styled.p`
   grid-column-start: 2;
   grid-column-end: 3;
+  ${media.phone`
+    grid-column-start: 1;
+    grid-column-end: -1;
+  `}
+
   color: inherit;
   font-size: ${props => props.sizeRight};
 `;
