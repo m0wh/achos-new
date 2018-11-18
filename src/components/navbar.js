@@ -40,7 +40,7 @@ const NavWrapper = styled(posed.nav(navWrapperProps))`
   z-index: 9000;
   position: fixed;
   right: 100px;
-  top: 74px;
+  top: 64px;
 `;
 const List = styled.ul`
   list-style: none;
