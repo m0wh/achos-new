@@ -4,7 +4,7 @@ export default size => `
 @media (min-width: 320px) {
   
   {
-   font-size: calc(${size / 1.7}rem + ((1vw - 0.2rem) * 2.4107));
+   font-size: calc(${size / 1.5}rem + ((1vw - 0.2rem) * 2.4107));
  }
 }
 @media (min-width: 768px) {
@@ -14,7 +14,7 @@ export default size => `
 }`;
 
 /*
-1.875/1.1 = 1.7
+1.875/1.25 = 1.5
 
 In this project, fonts are: 
 
