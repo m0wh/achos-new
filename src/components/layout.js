@@ -32,18 +32,6 @@ const Transition = posed.div({
   }
 });
 
-// const Transition = posed.div({
-//   enter: {
-//     // y: 0,
-//     opacity: 1,
-//     filter: "blur(0px)"
-//   },
-//   exit: {
-//     // y: 30,
-//     opacity: 0,
-//     filter: "blur(20px)"
-//   }
-// });
 
 const GlobalStyle = createGlobalStyle`
   ${reset}
