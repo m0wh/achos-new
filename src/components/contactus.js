@@ -28,7 +28,7 @@ const ContactWrapper = styled.footer`
      font-size: 1.875rem;
    }
  }
-  line-height: 1.4;
+  line-height: var(--bigtextlineheight);
   ${media.tablet`grid-gap: 4rem;`}
   ${media.phone`grid-gap: 0;`}
 `;

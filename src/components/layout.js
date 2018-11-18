@@ -6,6 +6,7 @@ import Helmet from "react-helmet";
 import { StaticQuery, graphql } from "gatsby";
 import { createGlobalStyle } from "styled-components";
 import reset from "styled-reset";
+import media from "../utils/breakpoints";
 import AvantBold from "../fonts/ITCAvantGardePro-Bold.woff";
 import PointerWhite from "../images/icons/white-default.png";
 import PlusCursor from "../images/icons/white-+.png";
@@ -32,6 +33,7 @@ const Transition = posed.div({
   }
 });
 
+// TODO: set variables for line-heights (either in fontSizes util or simple CSS vars)
 
 const GlobalStyle = createGlobalStyle`
   ${reset}
@@ -51,7 +53,14 @@ const GlobalStyle = createGlobalStyle`
     // Cursors
       --pointerwhite: url(${PointerWhite}) 0 0, auto;
       --plusminus: url(${PlusCursor}) 40 40, auto;
-    //  
+    //
+    
+    // Line-height
+    --regularlineheight: 1.53;
+    --bigtextlineheight: 1.4;
+    --mobilelineheight: 1.7;
+
+    // 
   }
 
   // html > * {
@@ -72,6 +81,10 @@ const GlobalStyle = createGlobalStyle`
   body {
     background-color: var(--black);
     font-family: "AvantGardeBold", sans-serif;
+    line-height: var(--regularlineheight);
+    ${media.phone`line-height: var(--mobilelineheight);`}
+    
+    
     
     
   }

@@ -9,7 +9,7 @@ const IntroWrapper = styled.section`
 const IntroText = styled.p`
   ${fontSizes(3)};
   color: var(--lightgrey);
-  line-height: 1.4;
+  line-height: var(--bigtextlineheight);
 `;
 
 const Inside = styled.span`

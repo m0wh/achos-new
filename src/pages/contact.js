@@ -14,7 +14,6 @@ const Wrapper = styled.main`
   background-color: var(--lightblack);
   color: var(--lightgrey);
   ${fontSizes(1.875)}
-  line-height: 1.53;
 `;
 const ImageWrapper = styled.div`
   max-width: 100%;
@@ -64,7 +63,6 @@ const OverlayWrapper = styled.div`
 const Title = styled.h3`
   ${fontSizes(3)};
   color: ${props => props.color};
-  line-height: 1.53;
 `;
 
 const BusinessMail = styled.a`

@@ -19,7 +19,7 @@ const LuckyWrapper = styled.div`
 
 const LuckyText = styled.p`
   ${fontSizes(3)};
-  line-height: 1.4;
+  line-height: var(--bigtextlineheight);
 `;
 
 const LuckyDay = () => (

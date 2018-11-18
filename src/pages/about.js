@@ -140,7 +140,6 @@ const ProjectWrapper = styled.main`
   background-color: var(--lightblack);
   color: var(--lightgrey);
   ${fontSizes(1.875)}
-  line-height: 1.53;
 `;
 const ImageWrapper = styled.div`
   max-width: 100%;

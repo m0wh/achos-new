@@ -90,7 +90,6 @@ const OverlayWrapper = styled.div`
 const Title = styled(posed.h3(titleProps))`
   font-size: 3.33vmax;
   color: ${props => props.color};
-  line-height: 1.53;
 `;
 
 const Category = styled(posed.p(categoryProps))`
