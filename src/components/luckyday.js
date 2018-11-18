@@ -8,13 +8,29 @@ const LuckyWrapper = styled.div`
   padding: 2.625rem 0;
   text-align: center;
   color: white;
-  background-image: linear-gradient(
-    to right,
-    #fe71b0,
-    #00ffff 35%,
-    #3eec6a 63%,
-    #fff36d
-  );
+  // background-image: linear-gradient(
+  //   to right,
+  //   #fe71b0,
+  //   #00ffff 35%,
+  //   #3eec6a 63%,
+  //   #fff36d
+  // );
+  background: linear-gradient(246deg, #ff60dd, #60ff66, #f4ff60, #60f0ff);
+  background-size: 800% 800%;
+
+  animation: AnimationName 30s ease infinite;
+
+  @keyframes AnimationName {
+    0% {
+      background-position: 0% 72%;
+    }
+    50% {
+      background-position: 100% 29%;
+    }
+    100% {
+      background-position: 0% 72%;
+    }
+  }
 `;
 
 const LuckyText = styled.p`
