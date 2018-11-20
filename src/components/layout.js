@@ -12,7 +12,7 @@ import PointerWhite from "../images/icons/white-default.png";
 import PlusCursor from "../images/icons/white-+.png";
 
 import Header from "./header";
-import Contact from "./contactus";
+import ContactUs from "./contactus";
 import LuckyDay from "./luckyday";
 
 const transitionDuration = 300;
@@ -149,7 +149,7 @@ const Layout = ({ children }) => (
 
             {children}
             {typeof location !== `undefined` && location.pathname === "/" && (
-              <Contact />
+              <ContactUs />
             )}
           </Transition>
         </PoseGroup>

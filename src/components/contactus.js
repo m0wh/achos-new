@@ -54,7 +54,7 @@ const SocialIcon = styled.img`
 
 // const Mail = styled.li``;
 
-const Contact = () => (
+const ContactUs = () => (
   <Element name="contact">
     <ContactWrapper>
       <ContactUs>
@@ -141,4 +141,4 @@ const Contact = () => (
   </Element>
 );
 
-export default Contact;
+export default ContactUs;
