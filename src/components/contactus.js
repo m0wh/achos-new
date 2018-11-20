@@ -33,7 +33,7 @@ const ContactWrapper = styled.footer`
   ${media.phone`grid-gap: 0;`}
 `;
 
-const ContactUs = styled.ul`
+const ContactList = styled.ul`
   list-style: none;
 `;
 
@@ -57,7 +57,7 @@ const SocialIcon = styled.img`
 const ContactUs = () => (
   <Element name="contact">
     <ContactWrapper>
-      <ContactUs>
+      <ContactList>
         <li>Contact</li>
         <ListItem color="var(--pink)">
           <a
@@ -91,7 +91,7 @@ const ContactUs = () => (
             <address>Vigatans 11, Local 2, 08003 Barcelona</address>
           </a>
         </ListItem>
-      </ContactUs>
+      </ContactList>
       <FollowUs>
         <li>Follow Us!</li>
 
