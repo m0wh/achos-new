@@ -16,7 +16,7 @@ const LuckyWrapper = styled.div`
   //   #fff36d
   // );
   background: linear-gradient(246deg, #ff60dd, #60ff66, #f4ff60, #60f0ff);
-  background-size: 800% 800%;
+  background-size: 400% 400%;
 
   animation: AnimationName 30s ease infinite;
 
