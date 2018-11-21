@@ -36,6 +36,7 @@ const hoverProps = {
   }
 };
 
+
 const titleProps = {
   init: {
     y: "-20%",
@@ -56,6 +57,7 @@ const categoryProps = {
     scale: 1
   }
 };
+
 
 const Wrapper = styled.div`
   display: grid;
@@ -95,14 +97,14 @@ const Title = styled(posed.h3(titleProps))`
 const Category = styled(posed.p(categoryProps))`
   color: var(--lightgrey);
   @media (min-width: 320px) {
-     {
+     
       font-size: calc(1.1rem + ((1vw - 0.2rem) * 2.4107));
     }
-  }
+  
   @media (min-width: 768px) {
-     {
+     
       font-size: 1.875rem;
-    }
+    
   }
 `;
 
@@ -124,6 +126,7 @@ const Category = styled(posed.p(categoryProps))`
 const StyledImg = styled(Img)`
   grid-column: ${props => (props.big ? "span 2" : null)};
 `;
+
 
 export default class Gridimage extends React.Component {
   myRef = React.createRef();
