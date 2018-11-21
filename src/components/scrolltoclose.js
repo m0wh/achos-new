@@ -1,46 +1,50 @@
-// import React from "react";
-// import { Link, graphql } from "gatsby";
-// import styled from "styled-components";
-// import fontSizes from "../utils/fontSizes";
+import React from "react";
+import { Link } from "gatsby";
+import styled from "styled-components";
+import fontSizes from "../utils/fontSizes";
 
-// const Wrapper = styled.div`
-//   display: grid;
-//   justify-items: center;
-//   align-items: end;
-//   height: 80vh;
-//   ${fontSizes(1.875)}
-// `;
+// Hi ha un div on escolto "scroll" i a mesura que baixo augmenta l'opacitat d'un element child. Quan arribo a un cert nivell, funcio que em fa tornar enrere (goback).
 
-// const Text = styled.p`
-//   color: white;
-// `;
+// http://qnimate.com/detecting-end-of-scrolling-in-html-element/
 
-// export default class ScrollToClose extends React.Component {
+const Wrapper = styled.div`
+  display: grid;
+  justify-items: center;
+  align-items: start;
+  height: 80vh;
+  ${fontSizes(1.875)}
+`;
 
-//   state = {
-//     currentScrollHeight: 0,
-//   }
-//   componentDidMount() {
-//     // When this component mounts, begin listening for scroll changes
-//     window.addEventListener('scroll', this.handleScroll);
-//   }
+const Text = styled.p`
+  color: white;
+`;
 
-//   componentWillUnmount() {
-//     // If this component is unmounted, stop listening
-//     window.removeEventListener('scroll', this.handleScroll);
-//   }
+export default class ScrollToClose extends React.Component {
 
-//   handleScroll = () => {
-//     this.setState({ currentScrollHeight: window.scrollY });
-//       console.log(currentScrollHeight);
-//   }
+  state = {
+    currentScrollHeight: '',
+  }
+  componentDidMount() {
+    // When this component mounts, begin listening for scroll changes
+    window.addEventListener('scroll', this.handleScroll);
+  }
 
-//   render() {
-//     const opacity = Math.max(100 / this.state.currentScrollHeight, 1);
-//     return (
-//       <Wrapper>
-//         <Text style={{opacity}}>Scroll to close</Text>
-//       </Wrapper>
-//     );
-//   }
-// }
+  componentWillUnmount() {
+    // If this component is unmounted, stop listening
+    window.removeEventListener('scroll', this.handleScroll);
+  }
+
+  handleScroll = () => {
+    this.setState({ currentScrollHeight: window.scrollY });
+    console.log(this.state.currentScrollHeight);
+  }
+
+  render() {
+    const opacity = Math.max(100 / this.state.currentScrollHeight, 1);
+    return (
+      <Wrapper>
+        <Text style={{opacity}}>Scroll to close</Text>
+      </Wrapper>
+    );
+  }
+}
