@@ -5,14 +5,14 @@
   "author": "Pol Milian & Achos <pol@polmilian.com>",
   "dependencies": {
     "babel-plugin-styled-components": "^1.8.0",
-    "gatsby": "^2.0.50",
+    "gatsby": "^2.0.54",
     "gatsby-image": "^2.0.20",
-    "gatsby-plugin-manifest": "^2.0.9",
+    "gatsby-plugin-manifest": "^2.0.10",
     "gatsby-plugin-netlify": "^2.0.5",
-    "gatsby-plugin-offline": "^2.0.15",
+    "gatsby-plugin-offline": "^2.0.17",
     "gatsby-plugin-react-helmet": "^3.0.2",
-    "gatsby-plugin-sharp": "^2.0.12",
-    "gatsby-plugin-styled-components": "^3.0.2",
+    "gatsby-plugin-sharp": "^2.0.13",
+    "gatsby-plugin-styled-components": "^3.0.3",
     "gatsby-source-filesystem": "^2.0.8",
     "gatsby-transformer-remark": "^2.1.12",
     "gatsby-transformer-sharp": "^2.1.8",
@@ -24,7 +24,7 @@
     "react-pose": "^3.4.0",
     "react-scroll": "^1.7.10",
     "styled-components": "^4.1.1",
-    "styled-reset": "^1.6.0"
+    "styled-reset": "^1.6.1"
   },
   "keywords": [
     "gatsby",
