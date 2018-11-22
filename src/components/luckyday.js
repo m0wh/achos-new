@@ -31,6 +31,10 @@ const LuckyWrapper = styled.div`
       background-position: 0% 72%;
     }
   }
+  &:hover {
+    background-size: 100% 100%;
+    cursor: var(--mail);
+  }
 `;
 
 const LuckyText = styled.p`
