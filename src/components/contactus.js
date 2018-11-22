@@ -12,25 +12,29 @@ import YoutubeIcon from "../images/icons/youtube.svg";
 const ContactWrapper = styled.footer`
   margin: 3.75rem 3.1875rem 5.25rem 3.5625rem;
   max-width: 100%;
-  display: grid;  
+  display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr
   justify-items: start;
   align-items: baseline;
   color: var(--lightgrey);
   @media (min-width: 320px) {
-    {
-     font-size: calc(1.1rem + ((1vw - 0.2rem) * 2.4107));
-   }
+     {
+      font-size: calc(1.1rem + ((1vw - 0.2rem) * 2.4107));
+    }
   }
- @media (min-width: 768px) {
-    {
-     font-size: 1.875rem;
-   }
- }
+  @media (min-width: 768px) {
+     {
+      font-size: 1.875rem;
+    }
+  }
   line-height: var(--bigtextlineheight);
-  ${media.tablet`grid-gap: 4rem;`}
-  ${media.phone`grid-gap: 0;`}
+  ${media.tablet`grid-gap: 5vw;`}
+  ${media.phone`
+    grid-template-columns: 1fr;
+    justify-items: center;
+    align-items: center;
+    text-align: center;
+    ;`}
 `;
 
 const ContactList = styled.ul`
