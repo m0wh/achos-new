@@ -49,7 +49,6 @@ const List = styled.ul`
   ${media.tablet`display: none;`};
 `;
 const ListItem = styled.li`
-
   font-size: 1.875rem;
   padding: 0 1.25rem;
   color: ${props => props.color};
@@ -141,7 +140,6 @@ class Navbar extends React.Component {
 
     return (
       <>
-      
       <NavWrapper pose={isShowing ? 'visible' : 'hidden'}>
         <List>
           <ListItem color="var(--yellow)">

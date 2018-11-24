@@ -9,7 +9,7 @@ import TinderIcon from "../images/icons/tinder.svg";
 import TwitterIcon from "../images/icons/twitter.svg";
 import YoutubeIcon from "../images/icons/youtube.svg";
 
-const ContactWrapper = styled.footer`
+const Wrapper = styled.footer`
   margin: 3.75rem 3.1875rem 5.25rem 3.5625rem;
   max-width: 100%;
   display: grid;
@@ -60,7 +60,7 @@ const SocialIcon = styled.img`
 
 const ContactUs = () => (
   <Element name="contact">
-    <ContactWrapper>
+    <Wrapper>
       <ContactList>
         <li>Contact</li>
         <ListItem color="var(--pink)">
@@ -141,7 +141,7 @@ const ContactUs = () => (
           </a>
         </ListItem>
       </FollowUs>
-    </ContactWrapper>
+    </Wrapper>
   </Element>
 );
 
