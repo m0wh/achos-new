@@ -3,6 +3,7 @@ import { Link } from "gatsby";
 import styled from "styled-components";
 import Img from "gatsby-image";
 import posed from "react-pose";
+import fontSizes from "../utils/fontSizes";
 import media from "../utils/breakpoints";
 
 
@@ -90,38 +91,15 @@ const OverlayWrapper = styled.div`
   margin: 3.5vw 4.1875vw;
 `;
 const Title = styled(posed.h3(titleProps))`
-  font-size: 3.33vmax;
+  ${fontSizes(3.33)};
   color: ${props => props.color};
 `;
 
 const Category = styled(posed.p(categoryProps))`
   color: var(--lightgrey);
-  @media (min-width: 320px) {
-     
-      font-size: calc(1.1rem + ((1vw - 0.2rem) * 2.4107));
-    }
-  
-  @media (min-width: 768px) {
-     
-      font-size: 1.875rem;
-    
-  }
+  ${fontSizes(1.875)};
 `;
 
-// const Text = styled(posed.p(textProps))`
-//   color: var(--lightgrey);
-//   @media (min-width: 320px) {
-//      {
-//       font-size: calc(1.1rem + ((1vw - 0.2rem) * 2.4107));
-//     }
-//   }
-//   @media (min-width: 768px) {
-//      {
-//       font-size: 1.875rem;
-//     }
-//   }
-//   line-height: 1.53;
-// `;
 
 const StyledImg = styled(Img)`
   grid-column: ${props => (props.big ? "span 2" : null)};
