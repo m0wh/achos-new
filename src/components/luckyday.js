@@ -4,6 +4,10 @@ import styled from "styled-components";
 import fontSizes from "../utils/fontSizes";
 
 const LuckyWrapper = styled.div`
+  a {
+    cursor: inherit;
+    text-decoration: none;
+  }
   margin: auto;
   padding: 2.625rem 0;
   text-align: center;
@@ -44,7 +48,13 @@ const LuckyText = styled.p`
 
 const LuckyDay = () => (
   <LuckyWrapper>
-    <LuckyText>Today Is Your Lucky Day!</LuckyText>
+    <a
+      href="mailto:hi@achos.es?Subject=Shut up and take my money!"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <LuckyText>Today Is Your Lucky Day!</LuckyText>
+    </a>
   </LuckyWrapper>
 );
 
