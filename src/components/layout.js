@@ -3,9 +3,10 @@ import posed, { PoseGroup } from "react-pose";
 import PropTypes from "prop-types";
 import Helmet from "react-helmet";
 // import posed from "react-pose";
-import { StaticQuery, graphql } from "gatsby";
+// import { StaticQuery, graphql } from "gatsby";
 import { createGlobalStyle } from "styled-components";
 import reset from "styled-reset";
+import SEO from "./SEO";
 import media from "../utils/breakpoints";
 import AvantBold from "../fonts/ITCAvantGardePro-Bold.woff";
 import PointerWhite from "../images/icons/white-default.png";
@@ -124,43 +125,20 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const Layout = ({ children }) => (
-  <StaticQuery
-    query={graphql`
-      query SiteTitleQuery {
-        site {
-          siteMetadata {
-            title
-          }
-        }
-      }
-    `}
-    render={data => (
-      <>
-        <GlobalStyle />
-        <Helmet
-          title={data.site.siteMetadata.title}
-          meta={[
-            { name: "description", content: "Sample" },
-            { name: "keywords", content: "sample, something" }
-          ]}
-        >
-          <html lang="en" />
-        </Helmet>
-        <Header />
-        <PoseGroup animateOnMount preEnterPose="initial">
-          <Transition
-            key={typeof location !== `undefined` && location.pathname}
-          >
-            {children}
-            {typeof location !== `undefined` && location.pathname === "/" && (
-              <ContactUs />
-            )}
-            <LuckyDay />
-          </Transition>
-        </PoseGroup>
-      </>
-    )}
-  />
+  <>
+    <SEO />
+    <GlobalStyle />
+    <Header />
+    <PoseGroup animateOnMount preEnterPose="initial">
+      <Transition key={typeof location !== `undefined` && location.pathname}>
+        {children}
+        {typeof location !== `undefined` && location.pathname === "/" && (
+          <ContactUs />
+        )}
+        <LuckyDay />
+      </Transition>
+    </PoseGroup>
+  </>
 );
 
 Layout.propTypes = {
