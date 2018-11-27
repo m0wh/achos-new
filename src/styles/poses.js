@@ -3,16 +3,19 @@ const transitionDelay = 350;
 
 export const pageFade = {
   initial: {
-    opacity: 0
+    opacity: 0,
+    filter: "blur(100px)"
   },
   enter: {
     opacity: 1,
+    // y: "0px",
     transition: { duration: transitionDuration },
     delay: transitionDelay,
     beforeChildren: true,
     filter: "blur(0px)"
   },
   exit: {
+    // y: "-900px",
     opacity: 0,
     transition: { duration: transitionDuration },
     filter: "blur(100px)"
