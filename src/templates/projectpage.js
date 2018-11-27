@@ -3,6 +3,7 @@ import { Link, graphql } from "gatsby";
 import styled from "styled-components";
 import Img from "gatsby-image";
 import TextBlock, { Wrapper } from "../components/textblock";
+import SEO from "../components/seo";
 // import ScrollToClose from "../components/scrolltoclose";
 import randomColor from "../utils/randomColor";
 
@@ -28,9 +29,16 @@ const CreditsList = styled.ul`
 
 export default ({ data }) => {
   const { frontmatter } = data.markdownRemark;
-  console.log(frontmatter);
+  // console.log(frontmatter);
   return (
     <>
+      <SEO
+        title={frontmatter.name}
+        description={
+          frontmatter.introduction || frontmatter.concept || "nothin’"
+        }
+        image={frontmatter.bigimage1.childImageSharp.fluid}
+      />
       <ProjectWrapper>
         <div style={{ maxWidth: "100%" }}>
           <Img fluid={frontmatter.bigimage1.childImageSharp.fluid} />
