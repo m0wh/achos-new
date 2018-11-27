@@ -1,11 +1,11 @@
 module.exports = {
   siteMetadata: {
     title: "achos!",
-    titleTemplate: "%s · The Real Hero",
+    titleTemplate: "achos&%s!",
     description:
-      "Hogwarts Potions master, Head of Slytherin house and former Death Eater.",
+      "achos! attention-grabbing, panty-dropping communication and interactive design agency based in Barcelona and Silicon Bali.",
     url: "https://www.doe.com", // No trailing slash allowed!
-    image: "/images/snape.jpg", // Path to your image you placed in the 'static' folder
+    image: "src/images/achoslogo.png", // Path to your image you placed in the 'static' folder
     twitterUsername: "@achosagency"
   },
   plugins: [
@@ -34,8 +34,8 @@ module.exports = {
         name: "achos!",
         short_name: "achos!",
         start_url: "/",
-        background_color: "#663399",
-        theme_color: "#663399",
+        background_color: "#333",
+        theme_color: "#333",
         display: "minimal-ui",
         icon: "src/images/achoslogo.png" // This path is relative to the root of the site.
       }
