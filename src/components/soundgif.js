@@ -2,19 +2,20 @@ import React, { Component } from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
 
+// FIXME: BackgroundGIF needs to be ALWAYS full width no matter its container. Maybe it would be better to alter the "global" background everytime?
 
 const Trigger = styled.p`
   // z-index: 1;
   // color: red;
 `;
 
-const Wrapper = styled.div`
-  // z-index: 1;
-  // position: absolute;
-  // width: 100vw;
-  // height: 100vh;
-  // max-width: 100%;
-`;
+// const Wrapper = styled.div`
+//   // z-index: 1;
+//   // position: absolute;
+//   // width: 100vw;
+//   // height: 100vh;
+//   // max-width: 100%;
+// `;
 
 const BackgroundGif = styled.div`
   z-index: -1;
@@ -23,6 +24,7 @@ const BackgroundGif = styled.div`
   left: 0;
   width: 100vw;
   height: 100vh;
+  
   max-width: 100%;
   background-image: url("${props =>props.gif}");
   background-size: cover;
@@ -63,17 +65,17 @@ export default class SoundGIf extends Component {
 
 
     return (
-      <Wrapper>
-      <Trigger onMouseOver={this.startIt} onMouseOut={this.stopIt} onClick={this.stopIt}>
-      {children}
-      </Trigger>
-      
-      <audio loop preload="auto" ref={this.myRef} >
-        <source src={this.props.sound} type="audio/mpeg"></source>
-      </audio>
+      <>
+        <Trigger onMouseOver={this.startIt} onMouseOut={this.stopIt} onClick={this.stopIt}>
+          {children}
+        </Trigger>
+        
+        <audio loop preload="auto" ref={this.myRef} >
+          <source src={this.props.sound} type="audio/mpeg"></source>
+        </audio>
 
-      { isGifShowing && <BackgroundGif gif={this.props.gif} />}
-      </Wrapper>
+        { isGifShowing && <BackgroundGif gif={this.props.gif} />}
+      </>
         
     );
   }
