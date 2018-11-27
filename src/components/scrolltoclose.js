@@ -14,19 +14,19 @@ import debounce from "../utils/debounce";
 // Quan arribo al final, funcio "goback"
 // Aquest scroll te una "resistencia" que es va fent mes gran com mes a prop del bottom
 
-// TODO: hide scrollbar (different code for each browser)
+
 
 const Wrapper = styled.div`
   display: grid;
   justify-items: center;
   align-items: start;
-  height: 500px;
+  height: 300px;
   overflow-y: scroll;
   ${fontSizes(1.875)}
 `;
 
 const Inner = styled.div`
-  height: 900px;
+  height: 500px;
   display: grid;
   justify-items: center;
   align-content: center;
@@ -45,7 +45,9 @@ class ScrollToClose extends React.Component {
   handleScroll = (e) => {
     const top = e.target.scrollTop === 0;
     const bottom = e.target.scrollHeight - e.target.scrollTop === e.target.clientHeight;
-    console.log(e.target.scrollHeight, e.target.scrollTop);
+    // TODO: increase/decrease opacity depending if scrolldown/scrollup
+    // TODO: hide inner scrollbar
+    // TODO: lock body scroll?? use pose?
     this.setState({
       opacity: this.state.opacity + 0.01,
     })
