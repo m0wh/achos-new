@@ -11,28 +11,31 @@ import AvantBold from "../fonts/ITCAvantGardePro-Bold.woff";
 import PointerWhite from "../images/icons/white-default.png";
 import PlusCursor from "../images/icons/white-+.png";
 import BlackMail from "../images/icons/black-contact2.png";
+import { pageFade } from "../styles/poses";
 
 import Header from "./header";
 import ContactUs from "./contactus";
 import LuckyDay from "./luckyday";
 
-const transitionDuration = 300;
-const transitionDelay = 350;
+// const transitionDuration = 300;
+// const transitionDelay = 350;
 
-const Transition = posed.div({
-  enter: {
-    opacity: 1,
-    transition: { duration: transitionDuration },
-    delay: transitionDelay,
-    beforeChildren: true,
-    filter: "blur(0px)"
-  },
-  exit: {
-    opacity: 0,
-    filter: "blur(100px)",
-    transition: { duration: transitionDuration }
-  }
-});
+// const Transition = posed.div({
+//   enter: {
+//     opacity: 1,
+//     transition: { duration: transitionDuration },
+//     delay: transitionDelay,
+//     beforeChildren: true,
+//     filter: "blur(0px)"
+//   },
+//   exit: {
+//     opacity: 0,
+//     filter: "blur(100px)",
+//     transition: { duration: transitionDuration }
+//   }
+// });
+
+const Transition = posed.div(pageFade);
 
 // TODO: set variables for line-heights (either in fontSizes util or simple CSS vars)
 
@@ -144,7 +147,7 @@ const Layout = ({ children }) => (
           <html lang="en" />
         </Helmet>
         <Header />
-        <PoseGroup>
+        <PoseGroup animateOnMount preEnterPose="initial">
           <Transition
             key={typeof location !== `undefined` && location.pathname}
           >

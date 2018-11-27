@@ -1,12 +1,14 @@
 import React from "react";
 import styled from "styled-components";
+import posed from "react-pose";
 import fontSizes from "../utils/fontSizes";
+import { appear, fade, slideUp, staggerChildren } from "../styles/poses";
 
 const IntroWrapper = styled.section`
   margin: 3.5vw 4.187vw;
 `;
 
-const IntroText = styled.p`
+const IntroText = styled(posed.p(fade))`
   ${fontSizes(3)};
   color: var(--lightgrey);
   line-height: var(--bigtextlineheight);
