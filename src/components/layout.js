@@ -151,7 +151,13 @@ const Layout = ({ children }) => (
             {typeof location !== `undefined` && location.pathname === "/" && (
               <ContactUs />
             )}
-            <LuckyDay />
+            {typeof location !== `undefined` && location.pathname === "/" && (
+              <LuckyDay />
+            )}
+            {typeof location !== `undefined` &&
+              location.pathname === "/about" && <LuckyDay />}
+            {typeof location !== `undefined` &&
+              location.pathname === "/contact" && <LuckyDay />}
           </Transition>
         </PoseGroup>
       </>
