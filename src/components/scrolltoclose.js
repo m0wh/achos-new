@@ -19,18 +19,13 @@ import debounce from "../utils/debounce";
 const Wrapper = styled.div`
   display: grid;
   justify-items: center;
-  align-items: start;
-  height: 300px;
-  overflow-y: scroll;
+  align-items: center;
+  height: 60vh;
+  padding-bottom: 20vh;
   ${fontSizes(1.875)}
 `;
 
-const Inner = styled.div`
-  height: 500px;
-  display: grid;
-  justify-items: center;
-  align-content: center;
-`;
+
 
 const Text = styled.p`
   color: rgba(255, 255, 255, ${props => props.opacity})
@@ -70,9 +65,7 @@ class ScrollToClose extends React.Component {
   render() {
     return (
       <Wrapper  onScroll={this.handleScroll}>
-        <Inner>
           <Text opacity={this.state.opacity}>Scroll to close</Text>
-        </Inner>
       </Wrapper>
     );
   }
