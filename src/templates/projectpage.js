@@ -3,7 +3,7 @@ import { Link, graphql } from "gatsby";
 import styled from "styled-components";
 import Img from "gatsby-image";
 import TextBlock, { Wrapper } from "../components/textblock";
-import SEO from "../components/seo";
+import SEO from "../components/SEO";
 // import ScrollToClose from "../components/scrolltoclose";
 import randomColor from "../utils/randomColor";
 
