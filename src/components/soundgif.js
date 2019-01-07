@@ -10,15 +10,15 @@ const Trigger = styled.p`
 `;
 
 // const Wrapper = styled.div`
-//   // z-index: 1;
-//   // position: absolute;
-//   // width: 100vw;
-//   // height: 100vh;
-//   // max-width: 100%;
+   // z-index: 1;
+   // position: absolute;
+   // width: 100vw;
+   // height: 100vh;
+   // max-width: 100%;
 // `;
 
-const BackgroundGif = styled.div`
-  z-index: -1;
+const BackgroundGif = styled.span`
+  z-index: -2;
   position: fixed;
   top: 0;
   left: 0;
@@ -32,7 +32,7 @@ const BackgroundGif = styled.div`
   
 `;
 
-export default class SoundGIf extends Component {
+export default class SoundGIF extends Component {
   state = {
     isAudioPlaying: false,
     isGifShowing: false
