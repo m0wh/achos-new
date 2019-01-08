@@ -1,9 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import posed from "react-pose";
 import fontSizes from "../utils/fontSizes";
 import SoundGIF from "./soundgif";
-import { appear, fade, slideUp, staggerChildren } from "../styles/poses";
 
 // Gif imports
 import Gif1 from "../images/gifs/1_achos.gif";
@@ -32,28 +30,45 @@ import Gif34 from "../images/gifs/34_hotter.gif";
 import Gif35 from "../images/gifs/35_than_a_banging_supernova.gif";
 // Sound imports
 import Sound1 from "../images/sounds/1_achos.mp3";
-import Sound1 from "../images/sounds/2_attention-grabing.mp3";
-import Sound1 from "../images/sounds/3_panty-dropping.mp3";
-import Sound1 from "../images/sounds/4_communication.mp3";
-import Sound1 from "../images/sounds/5_and_interactive.mp3";
-import Sound1 from "../images/sounds/7_agency.mp3";
-import Sound1 from "../images/sounds/8_based_in.mp3";
-import Sound1 from "../images/sounds/9_barcelona.mp3";
-import Sound1 from "../images/sounds/10_and_Silicon_Bali2.mp3";
-import Sound1 from "../images/sounds/11_we_despise.mp3";
-import Sound1 from "../images/sounds/12_the_boring.mp3";
-import Sound1 from "../images/sounds/13_and_are.mp3";
-import Sound1 from "../images/sounds/14_always.mp3";
-import Sound1 from "../images/sounds/15_looking_for.mp3";
-import Sound1 from "../images/sounds/16_fun.mp3";
-import Sound1 from "../images/sounds/1_achos.mp3";
-
+import Sound2 from "../images/sounds/2_attention-grabing.mp3";
+import Sound3 from "../images/sounds/3_panty-dropping.mp3";
+import Sound4 from "../images/sounds/4_communication.mp3";
+import Sound5 from "../images/sounds/5_and_interactive.mp3";
+import Sound6 from "../images/sounds/6_design2.mp3";
+import Sound7 from "../images/sounds/7_agency.mp3";
+import Sound8 from "../images/sounds/8_based_in.mp3";
+import Sound9 from "../images/sounds/9_barcelona.mp3";
+import Sound10 from "../images/sounds/10_and_Silicon_Bali2.mp3";
+import Sound11 from "../images/sounds/11_we_despise.mp3";
+import Sound12 from "../images/sounds/12_the_boring.mp3";
+import Sound13 from "../images/sounds/13_and_are.mp3";
+import Sound14 from "../images/sounds/14_always.mp3";
+import Sound15 from "../images/sounds/15_looking_for.mp3";
+import Sound16 from "../images/sounds/16_fun.mp3";
+import Sound17 from "../images/sounds/17_we_provide.mp3";
+import Sound18 from "../images/sounds/18_bold.mp3";
+import Sound19 from "../images/sounds/19_cretive.mp3";
+import Sound20 from "../images/sounds/20_solutions.mp3";
+import Sound21 from "../images/sounds/21_allowing.mp3";
+import Sound22 from "../images/sounds/22_our_clients.mp3";
+import Sound23 from "../images/sounds/23_to_stand_out.mp3";
+import Sound24 from "../images/sounds/24_in_other_words.mp3";
+import Sound25 from "../images/sounds/25_we_come_up.mp3";
+import Sound26 from "../images/sounds/26_with_sick_ideas.mp3";
+import Sound27 from "../images/sounds/27_make_neat_designs.mp3";
+import Sound28 from "../images/sounds/28_and_create.mp3";
+import Sound29 from "../images/sounds/29_aseriously_provocative.mp3";
+import Sound30 from "../images/sounds/30_work.mp3";
+import Sound31 from "../images/sounds/31_that_will_make.mp3";
+import Sound33 from "../images/sounds/33_brand.mp3";
+import Sound34 from "../images/sounds/34_hotter.mp3";
+import Sound35 from "../images/sounds/35_than_a_banging_supernova.mp3";
 
 const IntroWrapper = styled.section`
   margin: 3.5vw 4.187vw;
 `;
 
-const IntroText = styled(posed.p(fade))`
+const IntroText = styled.p`
   ${fontSizes(3)};
   color: var(--lightgrey);
   line-height: var(--bigtextlineheight);
@@ -100,128 +115,128 @@ const Intro = () => (
         <SoundGIF sound={Sound1} gif={Gif1}>
           achos!
         </SoundGIF>
-      </Inside>
+      </Inside>{" "}
       <Inside>
-        <SoundGIF sound={Sound1} gif={Gif2}>
+        <SoundGIF sound={Sound2} gif={Gif2}>
           attention-grabbing,
         </SoundGIF>
-      </Inside>
+      </Inside>{" "}
       <Inside>
-        <SoundGIF sound={Sound1} gif={Gif3}>
+        <SoundGIF sound={Sound3} gif={Gif3}>
           panty-dropping
         </SoundGIF>
-      </Inside>
-      communication
+      </Inside>{" "}
+      <p>communication </p>
       <Inside>
-        <SoundGIF sound={Sound1} gif={Gif5}>
+        <SoundGIF sound={Sound5} gif={Gif5}>
           and interactive
         </SoundGIF>
-      </Inside>
+      </Inside>{" "}
       <Inside>
-        <SoundGIF sound={Sound1} gif={Gif6}>
+        <SoundGIF sound={Sound6} gif={Gif6}>
           design
         </SoundGIF>
-      </Inside>
-      agency based in
+      </Inside>{" "}
+      <Inside>agency based in </Inside>
       <Inside>
-        <SoundGIF sound={Sound1} gif={Gif9}>
+        <SoundGIF sound={Sound9} gif={Gif9}>
           Barcelona
         </SoundGIF>
-      </Inside>
+      </Inside>{" "}
       <Inside>
-        <SoundGIF sound={Sound1} gif={Gif10}>
+        <SoundGIF sound={Sound10} gif={Gif10}>
           and Silicon Bali.
         </SoundGIF>
-      </Inside>
-      We despise
+      </Inside>{" "}
+      We despise{" "}
       <Inside>
-        <SoundGIF sound={Sound1} gif={Gif12}>
+        <SoundGIF sound={Sound12} gif={Gif12}>
           the boring
         </SoundGIF>
-      </Inside>
+      </Inside>{" "}
       <Inside>
-        <SoundGIF sound={Sound1} gif={Gif13}>
+        <SoundGIF sound={Sound13} gif={Gif13}>
           and are
         </SoundGIF>
-      </Inside>
+      </Inside>{" "}
       <Inside>
-        <SoundGIF sound={Sound1} gif={Gif15}>
+        <SoundGIF sound={Sound15} gif={Gif15}>
           always looking for
         </SoundGIF>
-      </Inside>
+      </Inside>{" "}
       <Inside>
-        <SoundGIF sound={Sound1} gif={Gif16}>
+        <SoundGIF sound={Sound16} gif={Gif16}>
           fun!
         </SoundGIF>
-      </Inside>
+      </Inside>{" "}
       <Inside>
-        <SoundGIF sound={Sound1} gif={Gif17}>
+        <SoundGIF sound={Sound17} gif={Gif17}>
           We provide
         </SoundGIF>
-      </Inside>
+      </Inside>{" "}
       <Inside>
-        <SoundGIF sound={Sound1} gif={Gif18}>
+        <SoundGIF sound={Sound18} gif={Gif18}>
           bold
         </SoundGIF>
-      </Inside>
+      </Inside>{" "}
       <Inside>
-        <SoundGIF sound={Sound1} gif={Gif20}>
+        <SoundGIF sound={Sound20} gif={Gif20}>
           creative solutions
         </SoundGIF>
-      </Inside>
+      </Inside>{" "}
       <Inside>
-        <SoundGIF sound={Sound1} gif={Gif21}>
+        <SoundGIF sound={Sound21} gif={Gif21}>
           allowing
         </SoundGIF>
-      </Inside>
+      </Inside>{" "}
       <Inside>
-        <SoundGIF sound={Sound1} gif={Gif22}>
+        <SoundGIF sound={Sound22} gif={Gif22}>
           our clients
         </SoundGIF>
-      </Inside>
+      </Inside>{" "}
       <Inside>
-        <SoundGIF sound={Sound1} gif={Gif23}>
+        <SoundGIF sound={Sound23} gif={Gif23}>
           to stand out!
         </SoundGIF>
-      </Inside>
-      In other words,
+      </Inside>{" "}
+      In other words,{" "}
       <Inside>
-        <SoundGIF sound={Sound1} gif={Gif25}>
+        <SoundGIF sound={Sound25} gif={Gif25}>
           we come up with
         </SoundGIF>
-      </Inside>
+      </Inside>{" "}
       <Inside>
-        <SoundGIF sound={Sound1} gif={Gif26}>
+        <SoundGIF sound={Sound26} gif={Gif26}>
           sick ideas,
         </SoundGIF>
-      </Inside>
+      </Inside>{" "}
       <Inside>
-        <SoundGIF sound={Sound1} gif={Gif28}>
+        <SoundGIF sound={Sound28} gif={Gif28}>
           and create neat designs
         </SoundGIF>
-      </Inside>
-      and
+      </Inside>{" "}
+      and{" "}
       <Inside>
-        <SoundGIF sound={Sound1} gif={Gif29}>
+        <SoundGIF sound={Sound29} gif={Gif29}>
           seriously provocative work
         </SoundGIF>
-      </Inside>
-      that will make
+      </Inside>{" "}
+      that will make{" "}
       <Inside>
-        <SoundGIF sound={Sound1} gif={Gif33}>
+        <SoundGIF sound={Sound33} gif={Gif33}>
           your brand
         </SoundGIF>
-      </Inside>
+      </Inside>{" "}
       <Inside>
-        <SoundGIF sound={Sound1} gif={Gif34}>
+        <SoundGIF sound={Sound34} gif={Gif34}>
           hotter
         </SoundGIF>
-      </Inside>
+      </Inside>{" "}
       <Inside>
-        <SoundGIF sound={Sound1} gif={Gif35}>
+        <SoundGIF sound={Sound35} gif={Gif35}>
           than a banging supernova!
         </SoundGIF>
-      </Inside>
+      </Inside>{" "}
     </IntroText>
   </IntroWrapper>
 );
