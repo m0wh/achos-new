@@ -1,8 +1,16 @@
 import React, { Component } from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
+import { createGlobalStyle } from 'styled-components'
 
-// FIXME: BackgroundGIF needs to be ALWAYS full width no matter its container. Maybe it would be better to alter the "global" background everytime?
+const BackgroundGif = createGlobalStyle`
+  body {
+    background: url("${props =>props.gif}") no-repeat center center fixed; 
+    background-size: cover;
+  
+  }
+`;
+
 
 const Trigger = styled.p`
   // z-index: 1;
@@ -17,20 +25,6 @@ const Trigger = styled.p`
    // max-width: 100%;
 // `;
 
-const BackgroundGif = styled.span`
-  z-index: -2;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  
-  max-width: 100%;
-  background-image: url("${props =>props.gif}");
-  background-size: cover;
-  background-position: center;
-  
-`;
 
 export default class SoundGIF extends Component {
   state = {
