@@ -3,6 +3,8 @@ import { Link } from "gatsby";
 import styled from "styled-components";
 import { createGlobalStyle } from 'styled-components'
 
+// TODO: onHover always flickering
+
 const BackgroundGif = createGlobalStyle`
   body {
     background: url("${props =>props.gif}") no-repeat center center fixed; 
