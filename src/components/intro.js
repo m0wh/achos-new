@@ -126,7 +126,9 @@ const Intro = () => (
           panty-dropping
         </SoundGIF>
       </Inside>{" "}
-      <p>communication </p>
+      <Inside>
+        <SoundGIF sound={Sound4}>communication</SoundGIF>
+      </Inside>{" "}
       <Inside>
         <SoundGIF sound={Sound5} gif={Gif5}>
           and interactive
@@ -137,7 +139,12 @@ const Intro = () => (
           design
         </SoundGIF>
       </Inside>{" "}
-      <Inside>agency based in </Inside>
+      <Inside>
+        <SoundGIF sound={Sound7}>agency</SoundGIF>
+      </Inside>{" "}
+      <Inside>
+        <SoundGIF sound={Sound8}>based in</SoundGIF>
+      </Inside>{" "}
       <Inside>
         <SoundGIF sound={Sound9} gif={Gif9}>
           Barcelona
@@ -148,7 +155,9 @@ const Intro = () => (
           and Silicon Bali.
         </SoundGIF>
       </Inside>{" "}
-      We despise{" "}
+      <Inside>
+        <SoundGIF sound={Sound11}>We despise</SoundGIF>
+      </Inside>{" "}
       <Inside>
         <SoundGIF sound={Sound12} gif={Gif12}>
           the boring
@@ -160,8 +169,11 @@ const Intro = () => (
         </SoundGIF>
       </Inside>{" "}
       <Inside>
+        <SoundGIF sound={Sound14}>always</SoundGIF>
+      </Inside>{" "}
+      <Inside>
         <SoundGIF sound={Sound15} gif={Gif15}>
-          always looking for
+          looking for
         </SoundGIF>
       </Inside>{" "}
       <Inside>
@@ -180,8 +192,11 @@ const Intro = () => (
         </SoundGIF>
       </Inside>{" "}
       <Inside>
+        <SoundGIF sound={Sound19}>creative</SoundGIF>
+      </Inside>{" "}
+      <Inside>
         <SoundGIF sound={Sound20} gif={Gif20}>
-          creative solutions
+          solutions
         </SoundGIF>
       </Inside>{" "}
       <Inside>
@@ -199,7 +214,11 @@ const Intro = () => (
           to stand out!
         </SoundGIF>
       </Inside>{" "}
-      In other words,{" "}
+      <Inside>
+        <SoundGIF sound={Sound24} gif={Gif23}>
+          In other words,
+        </SoundGIF>
+      </Inside>{" "}
       <Inside>
         <SoundGIF sound={Sound25} gif={Gif25}>
           we come up with
@@ -211,17 +230,24 @@ const Intro = () => (
         </SoundGIF>
       </Inside>{" "}
       <Inside>
+        <SoundGIF sound={Sound27}>and create</SoundGIF>
+      </Inside>{" "}
+      <Inside>
         <SoundGIF sound={Sound28} gif={Gif28}>
-          and create neat designs
+          neat designs
         </SoundGIF>
       </Inside>{" "}
-      and{" "}
       <Inside>
         <SoundGIF sound={Sound29} gif={Gif29}>
-          seriously provocative work
+          and seriously provocative
         </SoundGIF>
       </Inside>{" "}
-      that will make{" "}
+      <Inside>
+        <SoundGIF sound={Sound30}>work</SoundGIF>
+      </Inside>{" "}
+      <Inside>
+        <SoundGIF sound={Sound31}>that will make</SoundGIF>
+      </Inside>{" "}
       <Inside>
         <SoundGIF sound={Sound33} gif={Gif33}>
           your brand
