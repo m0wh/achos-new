@@ -41,8 +41,6 @@ class ScrollToClose extends React.Component {
     const top = e.target.scrollTop === 0;
     const bottom = e.target.scrollHeight - e.target.scrollTop === e.target.clientHeight;
     // TODO: increase/decrease opacity depending if scrolldown/scrollup
-    // TODO: hide inner scrollbar
-    // TODO: lock body scroll?? use pose?
     this.setState({
       opacity: this.state.opacity + 0.01,
     })
@@ -64,7 +62,7 @@ class ScrollToClose extends React.Component {
 
   render() {
     return (
-      <Wrapper  onScroll={this.handleScroll}>
+      <Wrapper onScroll={this.handleScroll}>
           <Text opacity={this.state.opacity}>Scroll to close</Text>
       </Wrapper>
     );
