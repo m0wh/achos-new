@@ -3,16 +3,10 @@ import { Link } from "gatsby";
 import styled from "styled-components";
 import fontSizes from "../utils/fontSizes";
 import debounce from "../utils/debounce";
+import Waypoint from 'react-waypoint';
 
 
-// http://qnimate.com/detecting-end-of-scrolling-in-html-element/
-
-
-// Hi ha un div d'una alcada determinada
-// Faig scroll a dins del div, no a window/document
-// A mesura que baixo, augmento opacitat de scroll to close
-// Quan arribo al final, funcio "goback"
-// Aquest scroll te una "resistencia" que es va fent mes gran com mes a prop del bottom
+// https://codepen.io/michaeldoyle/pen/Bhsif
 
 
 
@@ -27,43 +21,80 @@ const Wrapper = styled.div`
 
 
 
-const Text = styled.p`
-  color: rgba(255, 255, 255, ${props => props.opacity})
-`;
+
+
+// const Text = styled.p`
+//   opacity: ${props => props.opacity};
+// `;
+
+const Text = styled.p.attrs({
+  style: props => ({
+    opacity: props.opacity
+  })
+});
 
 class ScrollToClose extends React.Component {
 
+  componentDidMount() {
+    window.addEventListener('scroll', this.handleScroll);
+  }
+
+  componentWillMount() {
+    window.removeEventListener('scroll', this.handleScroll);
+  }
+
   state = {
     opacity: 0.1,
+    visible: false
   };
+  
 
   handleScroll = (e) => {
-    const top = e.target.scrollTop === 0;
-    const bottom = e.target.scrollHeight - e.target.scrollTop === e.target.clientHeight;
-    // TODO: increase/decrease opacity depending if scrolldown/scrollup
-    this.setState({
-      opacity: this.state.opacity + 0.01,
-    })
-    if (top) {
-      this.setState({
-        opacity: 0.1,
-      })
-    }
-    if (bottom) { 
-      this.setState({
-        opacity: 1,
-        
-      })
-      typeof window !== `undefined` && window.history.back();
-      
+    // start to detect scroll only in the wrapper
+    // if scroll down
+      // increase opacity
+    // if scroll up
+      // decrease opacity
+    // when bottom of page/section => opacity === 1 && goback()
+    // console.log('scrolling');
+    if (this.state.visible) {
+      this.setState((prevState) => ({
+        opacity: prevState.opacity + 0.1
+      }))
     }
     
-  };
+    
+  }
+
+  increaseOpacity = () => {
+    this.setState({
+      visible: true,
+      opacity: 0
+    })
+    
+  }
+
+  decreaseOpacity = () => {
+    this.setState({
+      visible: false,
+      opacity: 0
+    })
+    console.log(this.state);
+  }
+    //   typeof window !== `undefined` && window.history.back();
+      
+    
+  
 
   render() {
+
     return (
-      <Wrapper onScroll={this.handleScroll}>
+      <Wrapper>
+        <Waypoint onEnter={this.increaseOpacity} onLeave={this.decreaseOpacity}>
+          <div>
           <Text opacity={this.state.opacity}>Scroll to close</Text>
+          </div>
+        </Waypoint>  
       </Wrapper>
     );
   }
