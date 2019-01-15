@@ -7,6 +7,12 @@ import Waypoint from 'react-waypoint';
 
 
 // https://codepen.io/michaeldoyle/pen/Bhsif
+// Range = 100
+  // Start = 0
+  // Final = 100
+  // Scroll position dins del div ha de coincidir, map 0-100/distancia scrollable
+  // Opacity = range/100
+// debounce  
 
 
 
@@ -50,12 +56,6 @@ class ScrollToClose extends React.Component {
   
 
   handleScroll = (e) => {
-    // start to detect scroll only in the wrapper
-    // if scroll down
-      // increase opacity
-    // if scroll up
-      // decrease opacity
-    // when bottom of page/section => opacity === 1 && goback()
     // console.log('scrolling');
     if (this.state.visible) {
       this.setState((prevState) => ({
