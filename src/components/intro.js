@@ -64,6 +64,8 @@ import Sound33 from "../images/sounds/33_brand.mp3";
 import Sound34 from "../images/sounds/34_hotter.mp3";
 import Sound35 from "../images/sounds/35_than_a_banging_supernova.mp3";
 
+// TODO: hide other text when hovering on a word (https://stackoverflow.com/questions/54132564/hide-a-component-when-another-is-hovered)
+
 const IntroWrapper = styled.section`
   margin: 3.5vw 4.187vw;
 `;
