@@ -1,9 +1,7 @@
 import React, { Component } from "react";
-import { Link } from "gatsby";
 import styled from "styled-components";
 import { createGlobalStyle } from 'styled-components'
 
-// TODO: onHover always flickering
 
 const BackgroundGif = createGlobalStyle`
   body {
@@ -13,19 +11,6 @@ const BackgroundGif = createGlobalStyle`
   }
 `;
 
-
-const Trigger = styled.p`
-  // z-index: 1;
-  // color: red;
-`;
-
-// const Wrapper = styled.div`
-   // z-index: 1;
-   // position: absolute;
-   // width: 100vw;
-   // height: 100vh;
-   // max-width: 100%;
-// `;
 
 
 export default class SoundGIF extends Component {
@@ -62,9 +47,9 @@ export default class SoundGIF extends Component {
 
     return (
       <>
-        <Trigger onMouseOver={this.startIt} onMouseOut={this.stopIt} onClick={this.stopIt}>
+        <div onMouseOver={this.startIt} onMouseOut={this.stopIt} onClick={this.stopIt}>
           {children}
-        </Trigger>
+        </div>
         
         <audio loop preload="auto" ref={this.myRef} >
           <source src={this.props.sound} type="audio/mpeg"></source>
