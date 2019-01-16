@@ -7,6 +7,8 @@ import SEO from "../components/SEO";
 // import ScrollToClose from "../components/scrolltoclose";
 import randomColor from "../utils/randomColor";
 
+// TODO: play Mario sound on route change/load
+
 const ProjectWrapper = styled.main`
   background-color: var(--lightblack);
   color: var(--lightgrey);
