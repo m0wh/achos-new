@@ -14,6 +14,19 @@ import Waypoint from 'react-waypoint';
   // Opacity = range/100
 // debounce  
 
+/*
+ const linkCoords = this.getBoundingClientRect();
+    console.log(linkCoords);
+    const coords = {
+      width: linkCoords.width,
+      height: linkCoords.height,
+      top: linkCoords.top + window.scrollY,
+      left: linkCoords.left + window.scrollX
+    };
+  window.scrollY
+  window.innerHeight  
+*/
+
 
 
 const Wrapper = styled.div`
@@ -29,15 +42,9 @@ const Wrapper = styled.div`
 
 
 
-// const Text = styled.p`
-//   opacity: ${props => props.opacity};
-// `;
-
-const Text = styled.p.attrs({
-  style: props => ({
-    opacity: props.opacity
-  })
-});
+const Text = styled.p`
+  opacity: ${props => props.opacity};
+`;
 
 class ScrollToClose extends React.Component {
 
@@ -87,7 +94,6 @@ class ScrollToClose extends React.Component {
   
 
   render() {
-
     return (
       <Wrapper>
         <Waypoint onEnter={this.increaseOpacity} onLeave={this.decreaseOpacity}>
