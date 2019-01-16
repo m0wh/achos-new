@@ -74,9 +74,8 @@ const StyledLink = styled(Link)`
 
 class Navbar extends React.Component {
   state = {
-    
     lastScrollY: 0,
-    isShowing: false
+    isShowing: true
   };
 
   componentDidMount() {
