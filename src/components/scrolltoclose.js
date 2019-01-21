@@ -27,6 +27,25 @@ import Waypoint from 'react-waypoint';
   window.innerHeight  
 */
 
+/*
+
+function getOffset(el) {
+  const rect = el.getBoundingClientRect();
+  return {
+    left: rect.left + window.scrollX,
+    top: rect.top + window.scrollY
+  };
+}
+Using this we can call
+
+getOffset(element).left
+or
+
+getOffset(element).top
+
+
+*/
+
 
 
 const Wrapper = styled.div`
