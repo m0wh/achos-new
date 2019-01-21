@@ -1,10 +1,10 @@
 import React from "react";
-import { Link, graphql } from "gatsby";
+import { graphql } from "gatsby";
 import styled from "styled-components";
 import Img from "gatsby-image";
+import Fade from "react-reveal/Fade";
 import TextBlock, { Wrapper } from "../components/textblock";
 import SEO from "../components/SEO";
-// import ScrollToClose from "../components/scrolltoclose";
 import randomColor from "../utils/randomColor";
 
 // TODO: play Mario sound on route change/load
@@ -42,26 +42,36 @@ export default ({ data }) => {
         image={frontmatter.bigimage1.childImageSharp.fluid}
       />
       <ProjectWrapper>
-        <div style={{ maxWidth: "100%" }}>
-          <Img fluid={frontmatter.bigimage1.childImageSharp.fluid} />
-        </div>
-        <TextBlock
-          colorLeft={randomColor()}
-          textLeft="introduction"
-          textRight={frontmatter.introduction}
-          padding="4vw 0"
-        />
-        <Img fluid={frontmatter.bigimage2.childImageSharp.fluid} />
-        <TextBlock
-          colorLeft={randomColor()}
-          textLeft="concept & execution"
-          textRight={frontmatter.concept}
-          padding="4vw 0"
-        />
-        <div>
-          <SmallImg fluid={frontmatter.smallimage1.childImageSharp.fluid} />
-          <SmallImg fluid={frontmatter.smallimage2.childImageSharp.fluid} />
-        </div>
+        <Fade duration={3000}>
+          <div style={{ maxWidth: "100%" }}>
+            <Img fluid={frontmatter.bigimage1.childImageSharp.fluid} />
+          </div>
+        </Fade>
+        <Fade left duration={3000}>
+          <TextBlock
+            colorLeft={randomColor()}
+            textLeft="introduction"
+            textRight={frontmatter.introduction}
+            padding="4vw 0"
+          />
+        </Fade>
+        <Fade duration={3000}>
+          <Img fluid={frontmatter.bigimage2.childImageSharp.fluid} />
+        </Fade>
+        <Fade right duration={3000}>
+          <TextBlock
+            colorLeft={randomColor()}
+            textLeft="concept & execution"
+            textRight={frontmatter.concept}
+            padding="4vw 0"
+          />
+        </Fade>
+        <Fade cascade duration={3000}>
+          <div>
+            <SmallImg fluid={frontmatter.smallimage1.childImageSharp.fluid} />
+            <SmallImg fluid={frontmatter.smallimage2.childImageSharp.fluid} />
+          </div>
+        </Fade>
 
         {frontmatter.attachments &&
           frontmatter.attachments.map(item => (
@@ -73,20 +83,20 @@ export default ({ data }) => {
               src={item.publicURL}
             />
           ))}
-
-        <Wrapper style={{ padding: "4vw 0" }}>
-          <CreditsList>
-            {frontmatter.credits.map(credit => (
-              <ul style={{ marginBottom: "2.5vw" }}>
-                <li style={{ color: randomColor() }} key={credit.title}>
-                  {credit.title}
-                </li>
-                <li>{credit.name}</li>
-              </ul>
-            ))}
-          </CreditsList>
-        </Wrapper>
-        {/* <ScrollToClose /> */}
+        <Fade bottom duration={3000}>
+          <Wrapper style={{ padding: "4vw 0" }}>
+            <CreditsList>
+              {frontmatter.credits.map(credit => (
+                <ul style={{ marginBottom: "2.5vw" }}>
+                  <li style={{ color: randomColor() }} key={credit.title}>
+                    {credit.title}
+                  </li>
+                  <li>{credit.name}</li>
+                </ul>
+              ))}
+            </CreditsList>
+          </Wrapper>
+        </Fade>
       </ProjectWrapper>
     </>
   );

@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
+import Fade from "react-reveal/Fade";
 import fontSizes from "../utils/fontSizes";
 
 import SoundGif from "./soundgif";
@@ -22,7 +23,11 @@ const Logo = () => (
   <LogoWrapper>
     <SoundGif sound={Sound} gif={GIF}>
       <Link to="/">
-        <LogoText>achos!</LogoText>
+        <LogoText>
+          <Fade duration={3000} cascade count={2}>
+            achos!
+          </Fade>
+        </LogoText>
       </Link>
     </SoundGif>
   </LogoWrapper>

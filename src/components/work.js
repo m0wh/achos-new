@@ -1,8 +1,8 @@
 import React from "react";
-import { Link } from "gatsby";
 import { Element } from "react-scroll";
 import styled from "styled-components";
 import Img from "gatsby-image";
+import Fade from "react-reveal/Fade";
 import media from "../utils/breakpoints";
 import GridImage from "./gridimage";
 import randomColor from "../utils/randomColor";
@@ -37,30 +37,32 @@ export default ({ projectEdges }) => {
   return (
     <Element name="work">
       <WorkGrid>
-        {projectEdges.map(project =>
-          everyFifth.includes(projectEdges.indexOf(project)) ? (
-            <GridImage
-              color={randomColor()}
-              key={project.node.frontmatter.name}
-              big
-              fluid={project.node.frontmatter.bigimage1.childImageSharp.fluid}
-              name={project.node.frontmatter.name}
-              category={project.node.frontmatter.category}
-              link={project.node.fields.slug}
-              sound={randomMoan()}
-            />
-          ) : (
-            <GridImage
-              color={randomColor()}
-              key={project.node.frontmatter.name}
-              fluid={project.node.frontmatter.bigimage1.childImageSharp.fluid}
-              name={project.node.frontmatter.name}
-              category={project.node.frontmatter.category}
-              link={project.node.fields.slug}
-              sound={TickSound}
-            />
-          )
-        )}
+        <Fade duration={1500} delay={400}>
+          {projectEdges.map(project =>
+            everyFifth.includes(projectEdges.indexOf(project)) ? (
+              <GridImage
+                color={randomColor()}
+                key={project.node.frontmatter.name}
+                big
+                fluid={project.node.frontmatter.bigimage1.childImageSharp.fluid}
+                name={project.node.frontmatter.name}
+                category={project.node.frontmatter.category}
+                link={project.node.fields.slug}
+                sound={randomMoan()}
+              />
+            ) : (
+              <GridImage
+                color={randomColor()}
+                key={project.node.frontmatter.name}
+                fluid={project.node.frontmatter.bigimage1.childImageSharp.fluid}
+                name={project.node.frontmatter.name}
+                category={project.node.frontmatter.category}
+                link={project.node.fields.slug}
+                sound={TickSound}
+              />
+            )
+          )}
+        </Fade>
       </WorkGrid>
     </Element>
   );
