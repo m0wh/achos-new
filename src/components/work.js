@@ -1,7 +1,6 @@
 import React from "react";
 import { Element } from "react-scroll";
 import styled from "styled-components";
-import Img from "gatsby-image";
 import Fade from "react-reveal/Fade";
 import media from "../utils/breakpoints";
 import GridImage from "./gridimage";

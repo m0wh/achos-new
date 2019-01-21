@@ -188,7 +188,7 @@ export default () => (
         colorLeft="var(--pink)"
         textLeft="who we are"
         textRight={aboutText[0].header}
-        sizeRight={"3rem"}
+        sizeRight="3rem"
         style={{ margin: "9vw 0" }}
       />
       <br />

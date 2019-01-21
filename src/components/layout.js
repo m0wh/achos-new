@@ -15,26 +15,6 @@ import BlackMail from "../images/icons/black-contact2.png";
 import { pageFade } from "../styles/poses";
 
 import Header from "./header";
-import ContactUs from "./contactus";
-import LuckyDay from "./luckyday";
-
-// const transitionDuration = 300;
-// const transitionDelay = 350;
-
-// const Transition = posed.div({
-//   enter: {
-//     opacity: 1,
-//     transition: { duration: transitionDuration },
-//     delay: transitionDelay,
-//     beforeChildren: true,
-//     filter: "blur(0px)"
-//   },
-//   exit: {
-//     opacity: 0,
-//     filter: "blur(100px)",
-//     transition: { duration: transitionDuration }
-//   }
-// });
 
 const Transition = posed.div(pageFade);
 
@@ -132,10 +112,6 @@ const Layout = ({ children }) => (
     <PoseGroup animateOnMount preEnterPose="initial">
       <Transition key={typeof location !== `undefined` && location.pathname}>
         {children}
-        {typeof location !== `undefined` && location.pathname === "/" && (
-          <ContactUs />
-        )}
-        <LuckyDay />
       </Transition>
     </PoseGroup>
   </>

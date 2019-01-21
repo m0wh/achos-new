@@ -6,6 +6,7 @@ import Fade from "react-reveal/Fade";
 import TextBlock, { Wrapper } from "../components/textblock";
 import SEO from "../components/SEO";
 import randomColor from "../utils/randomColor";
+import LuckyDay from "../components/luckyday";
 
 // TODO: play Mario sound on route change/load
 
@@ -98,6 +99,7 @@ export default ({ data }) => {
           </Wrapper>
         </Fade>
       </ProjectWrapper>
+      <LuckyDay />
     </>
   );
 };

@@ -4,6 +4,8 @@ import styled from "styled-components";
 
 import Intro from "../components/intro";
 import Work from "../components/work";
+import ContactUs from "../components/contactus";
+import LuckyDay from "../components/luckyday";
 
 export default ({
   data: {
@@ -13,6 +15,8 @@ export default ({
   <>
     <Intro />
     <Work projectEdges={projectEdges} />
+    <ContactUs />
+    <LuckyDay />
   </>
 );
 
