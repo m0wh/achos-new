@@ -23,11 +23,9 @@ const Logo = () => (
   <LogoWrapper>
     <SoundGif sound={Sound} gif={GIF}>
       <Link to="/">
-        <LogoText>
-          <Fade duration={3000} cascade count={2}>
-            achos!
-          </Fade>
-        </LogoText>
+        <Fade duration={3000} top cascade>
+          <LogoText>achos!</LogoText>
+        </Fade>
       </Link>
     </SoundGif>
   </LogoWrapper>

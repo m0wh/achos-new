@@ -37,7 +37,7 @@ export default ({ projectEdges }) => {
   return (
     <Element name="work">
       <WorkGrid>
-        <LightSpeed delay={400}>
+        <LightSpeed duration={500} delay={400}>
           {projectEdges.map(project =>
             everyFifth.includes(projectEdges.indexOf(project)) ? (
               <GridImage

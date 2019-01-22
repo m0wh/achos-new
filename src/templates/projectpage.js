@@ -7,6 +7,7 @@ import TextBlock, { Wrapper } from "../components/textblock";
 import SEO from "../components/SEO";
 import randomColor from "../utils/randomColor";
 import LuckyDay from "../components/luckyday";
+import fontSizes from "../utils/fontSizes";
 
 // TODO: play Mario sound on route change/load
 
@@ -43,30 +44,32 @@ export default ({ data }) => {
         image={frontmatter.bigimage1.childImageSharp.fluid}
       />
       <ProjectWrapper>
+        <TextBlock
+          textCenter={frontmatter.name}
+          padding="4vw 0"
+          sizeCenter={fontSizes(5)}
+          colorCenter="white"
+        />
         <Fade duration={3000}>
           <div style={{ maxWidth: "100%" }}>
             <Img fluid={frontmatter.bigimage1.childImageSharp.fluid} />
           </div>
         </Fade>
-        <Fade left duration={3000}>
-          <TextBlock
-            colorLeft={randomColor()}
-            textLeft="introduction"
-            textRight={frontmatter.introduction}
-            padding="4vw 0"
-          />
-        </Fade>
+        <TextBlock
+          colorLeft={randomColor()}
+          textLeft="introduction"
+          textRight={frontmatter.introduction}
+          padding="4vw 0"
+        />
         <Fade duration={3000}>
           <Img fluid={frontmatter.bigimage2.childImageSharp.fluid} />
         </Fade>
-        <Fade right duration={3000}>
-          <TextBlock
-            colorLeft={randomColor()}
-            textLeft="concept & execution"
-            textRight={frontmatter.concept}
-            padding="4vw 0"
-          />
-        </Fade>
+        <TextBlock
+          colorLeft={randomColor()}
+          textLeft="concept & execution"
+          textRight={frontmatter.concept}
+          padding="4vw 0"
+        />
         <Fade cascade duration={3000}>
           <div>
             <SmallImg fluid={frontmatter.smallimage1.childImageSharp.fluid} />
@@ -84,7 +87,7 @@ export default ({ data }) => {
               src={item.publicURL}
             />
           ))}
-        <Fade bottom duration={3000}>
+        <Fade cascade duration={3000}>
           <Wrapper style={{ padding: "4vw 0" }}>
             <CreditsList>
               {frontmatter.credits.map(credit => (

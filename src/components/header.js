@@ -15,6 +15,7 @@ const HeaderWrapper = styled.header`
 `;
 
 // location.history.pathname
+// TODO: if location is a project, replace "!" with "&"
 
 const Header = () => (
   <HeaderWrapper>
