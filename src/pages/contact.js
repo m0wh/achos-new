@@ -3,12 +3,23 @@ import { Link, graphql } from "gatsby";
 import styled, { css } from "styled-components";
 import Img from "gatsby-image";
 
+import posed from "react-pose";
 import TextBlock from "../components/textblock";
 import AboutPic from "../images/about.gif";
 import fontSizes from "../utils/fontSizes";
 import media from "../utils/breakpoints";
 
 import BeansImg from "../images/beans.jpg";
+
+const hoverProps = {
+  hoverable: true,
+  init: {
+    opacity: 0
+  },
+  hover: {
+    opacity: 1
+  }
+};
 
 const Wrapper = styled.main`
   background-color: var(--lightblack);
@@ -75,6 +86,10 @@ const InternshipsMail = styled.a`
   ${fontSizes(2.2)};
 `;
 
+const AddressDetails = styled(posed.article(hoverProps))`
+  //asas
+`;
+
 export default ({
   data: {
     allFile: { edges: locationEdges }
@@ -129,7 +144,7 @@ export default ({
           <Overlay>
             <OverlayWrapper>
               <Title color="var(--yellow)">Barcelona</Title>
-              <address>
+              <AddressDetails>
                 Carrer dels Vigatans 11, <br />
                 08003 Barcelona
                 <br />
@@ -149,7 +164,7 @@ export default ({
                 >
                   hi@achos.es
                 </a>
-              </address>
+              </AddressDetails>
             </OverlayWrapper>
           </Overlay>
         </LocationWrapper>
@@ -158,7 +173,7 @@ export default ({
           <Overlay>
             <OverlayWrapper>
               <Title color="var(--pink)">Bali</Title>
-              <address>
+              <AddressDetails>
                 Jl. Kuwum II, Kerobokan <br />
                 80361, Bali
                 <br />
@@ -178,7 +193,7 @@ export default ({
                 >
                   hi@achos.es
                 </a>
-              </address>
+              </AddressDetails>
             </OverlayWrapper>
           </Overlay>
         </LocationWrapper>
@@ -187,7 +202,7 @@ export default ({
           <Overlay>
             <OverlayWrapper>
               <Title color="var(--green)">Medellin</Title>
-              <address>Coming soon</address>
+              <AddressDetails>Coming soon</AddressDetails>
             </OverlayWrapper>
           </Overlay>
         </LocationWrapper>
@@ -196,7 +211,7 @@ export default ({
           <Overlay>
             <OverlayWrapper>
               <Title color="var(--cyan)">Hong Kong</Title>
-              <address>
+              <AddressDetails>
                 Jl. Kuwum II, Kerobokan <br />
                 80361, Bali
                 <br />
@@ -216,7 +231,7 @@ export default ({
                 >
                   hi@achos.es
                 </a>
-              </address>
+              </AddressDetails>
             </OverlayWrapper>
           </Overlay>
         </LocationWrapper>
