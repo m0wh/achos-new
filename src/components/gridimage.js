@@ -40,11 +40,11 @@ const hoverProps = {
 
 const titleProps = {
   init: {
-    y: "-20%",
+    x: "-100%",
     scale: 0,
   },
   hover: {
-    y: "0",
+    x: "0",
     scale: 1,
     
   }
@@ -52,10 +52,12 @@ const titleProps = {
 
 const categoryProps = {
   init: {
-    scale: 0
+    x: "-100%",
+    scale: 0,
   },
   hover: {
-    scale: 1
+    x: "0",
+    scale: 1,
   }
 };
 
