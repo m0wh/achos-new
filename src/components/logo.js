@@ -24,7 +24,13 @@ const Logo = () => (
     <SoundGif sound={Sound} gif={GIF}>
       <Link to="/">
         <Fade duration={3000} top cascade>
-          <LogoText>achos!</LogoText>
+          <LogoText>
+            {(typeof location !== `undefined` && location.pathname === "/") ||
+            location.pathname === "/contact" ||
+            location.pathname === "/about"
+              ? "achos!"
+              : "achos&"}
+          </LogoText>
         </Fade>
       </Link>
     </SoundGif>
