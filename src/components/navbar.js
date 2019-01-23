@@ -146,9 +146,12 @@ class Navbar extends React.Component {
               ? fiveSecLink
               : homeLink}
           </ListItem>
-          <ListItem color="var(--cyan)">
-            <ScrollLink onClick={() => this.scrollToWork()}>work</ScrollLink>
-          </ListItem>
+          {(typeof location !== `undefined` && location.pathname === "/") 
+            && (
+              <ListItem color="var(--cyan)">
+                <ScrollLink onClick={() => this.scrollToWork()}>work</ScrollLink>
+              </ListItem>)
+          }
           <ListItem color="var(--green)">
             <StyledLink to="/about">about</StyledLink>
           </ListItem>
