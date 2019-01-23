@@ -1,5 +1,4 @@
 import React from "react";
-import { Link, graphql } from "gatsby";
 import styled from "styled-components";
 import Fade from "react-reveal/Fade";
 import fontSizes from "../utils/fontSizes";
@@ -39,23 +38,34 @@ const TextCenter = styled.p`
   font-size: ${props => props.sizeCenter};
   color: ${props => props.color};
 `;
-
-export default props => (
-  <Wrapper padding={props.padding}>
-    <TextLeft sizeLeft={props.sizeLeft} color={props.colorLeft}>
+const TextBlock = ({
+  padding,
+  sizeLeft,
+  colorLeft,
+  textLeft,
+  sizeRight,
+  textRight,
+  sizeCenter,
+  colorCenter,
+  textCenter
+}) => (
+  <Wrapper padding={padding}>
+    <TextLeft sizeLeft={sizeLeft} color={colorLeft}>
       <Fade left duration={2000}>
-        {props.textLeft}
+        {textLeft}
       </Fade>
     </TextLeft>
-    <TextRight sizeRight={props.sizeRight}>
+    <TextRight sizeRight={sizeRight}>
       <Fade right cascade duration={2000}>
-        {props.textRight}
+        {textRight}
       </Fade>
     </TextRight>
-    <TextCenter sizeCenter={props.sizeCenter} color={props.colorCenter}>
+    <TextCenter sizeCenter={sizeCenter} color={colorCenter}>
       <Fade duration={2000} delay={1500}>
-        {props.textCenter}
+        {textCenter}
       </Fade>
     </TextCenter>
   </Wrapper>
 );
+
+export default TextBlock;
