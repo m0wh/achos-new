@@ -47,9 +47,9 @@ export default class SoundGIF extends Component {
 
     return (
       <>
-        <div onMouseOver={this.startIt} onMouseOut={this.stopIt} onClick={this.stopIt}>
+        <span onMouseOver={this.startIt} onMouseOut={this.stopIt} onClick={this.stopIt}>
           {children}
-        </div>
+        </span>
         
         <audio loop preload="auto" ref={this.myRef} >
           <source src={this.props.sound} type="audio/mpeg"></source>
