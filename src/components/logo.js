@@ -19,6 +19,8 @@ const LogoText = styled.h2`
   line-height: 100px;
 `;
 
+// TODO: in contact and about page, achos& shows up instead of achos!
+
 const Logo = () => (
   <LogoWrapper>
     <SoundGif sound={Sound} gif={GIF}>

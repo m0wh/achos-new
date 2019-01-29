@@ -18,8 +18,6 @@ import Header from "./header";
 
 const Transition = posed.div(pageFade);
 
-// TODO: set variables for line-heights (either in fontSizes util or simple CSS vars)
-
 const GlobalStyle = createGlobalStyle`
   ${reset}
   
