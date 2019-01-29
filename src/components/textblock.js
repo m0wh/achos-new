@@ -56,7 +56,7 @@ const TextBlock = ({
       </Fade>
     </TextLeft>
     <TextRight sizeRight={sizeRight}>
-      <Fade right cascade duration={2000}>
+      <Fade right duration={3000}>
         {textRight}
       </Fade>
     </TextRight>
