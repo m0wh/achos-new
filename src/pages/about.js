@@ -6,6 +6,7 @@ import TextBlock from "../components/textblock";
 import BeansPic from "../images/beans.jpg";
 import fontSizes from "../utils/fontSizes";
 import AboutPic from "../images/about.gif";
+import media from "../utils/breakpoints";
 
 const aboutText = [
   {
@@ -158,6 +159,12 @@ const ShowsContainer = styled.section`
   align-items: baseline;
   text-align: center;
   padding: 9vh 3.5vw;
+  ul {
+    ${media.tablet`margin: 5vw 0;`}
+    ul {
+      margin-bottom: 3vw;
+    }
+  }
 `;
 
 const CreditsList = styled.ul`
@@ -188,7 +195,7 @@ export default () => (
         colorLeft="var(--pink)"
         textLeft="who we are"
         textRight={aboutText[0].header}
-        sizeRight="3rem"
+        sizeRight={fontSizes(3)}
         style={{ margin: "9vw 0" }}
       />
       <br />
@@ -229,17 +236,15 @@ export default () => (
         <li style={{ textAlign: "center" }}>{hotBranding}</li>
       </CreditsList>
 
-      <CreditsList style={{ padding: "0 3rem" }}>
+      {/* <CreditsList style={{ padding: "0 3rem" }}>
         <li style={{ color: "var(--pink)", marginBottom: "2rem" }}>
           Shooting Range
         </li>
-      </CreditsList>
+      </CreditsList> */}
 
       <ShowsContainer>
         <ul>
-          <ul style={{ color: "var(--green)", marginBottom: "4vw" }}>
-            Bla Bla
-          </ul>
+          <ul style={{ color: "var(--green)" }}>Bla Bla</ul>
           {blaBoomBling[0].map(item => (
             <li key={item.id}>
               <a href={item.link} target="_blank" rel="noopener noreferrer">
@@ -249,9 +254,7 @@ export default () => (
           ))}
         </ul>
         <ul>
-          <ul style={{ color: "var(--cyan)", marginBottom: "4vw" }}>
-            Boom Boom
-          </ul>
+          <ul style={{ color: "var(--cyan)" }}>Boom Boom</ul>
           {blaBoomBling[1].map(item => (
             <li key={item.id}>
               <a href={item.link} target="_blank" rel="noopener noreferrer">
@@ -261,9 +264,7 @@ export default () => (
           ))}
         </ul>
         <ul>
-          <ul style={{ color: "var(--yellow)", marginBottom: "4vw" }}>
-            Bling Bling
-          </ul>
+          <ul style={{ color: "var(--yellow)" }}>Bling Bling</ul>
           {blaBoomBling[2].map(item => (
             <li key={item.id}>
               <a href={item.link} target="_blank" rel="noopener noreferrer">
