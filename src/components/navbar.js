@@ -133,7 +133,6 @@ class Navbar extends React.Component {
       </StyledLink>
     );
 
-    // FIXME: soundGIF on navbar element is not full width, caused by the show/hide pose animation
 
     const { isShowing } = this.state;
 
