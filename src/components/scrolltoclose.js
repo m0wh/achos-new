@@ -3,7 +3,6 @@ import { Link } from "gatsby";
 import styled from "styled-components";
 import fontSizes from "../utils/fontSizes";
 import debounce from "../utils/debounce";
-import Waypoint from 'react-waypoint';
 
 
 // https://codepen.io/michaeldoyle/pen/Bhsif
@@ -46,6 +45,22 @@ getOffset(element).top
 
 */
 
+/*
+$(window).on('scroll', function () {
+  
+  var scrollTop = $(this).scrollTop(),
+      height = header.outerHeight(),
+      offset = height / 2,
+      calc = 1 - (scrollTop - offset + range) / range;
+  
+  header.css({ 'opacity': calc });
+   
+  
+  
+});
+
+*/
+
 
 
 const Wrapper = styled.div`
@@ -57,55 +72,71 @@ const Wrapper = styled.div`
   ${fontSizes(1.875)}
 `;
 
-
-
-
-
 const Text = styled.p`
   opacity: ${props => props.opacity};
 `;
 
 class ScrollToClose extends React.Component {
 
+  state = {
+    opacity: 0,
+  };
+
+  myRef = React.createRef();
+
   componentDidMount() {
     window.addEventListener('scroll', this.handleScroll);
+    
   }
 
   componentWillMount() {
     window.removeEventListener('scroll', this.handleScroll);
   }
 
-  state = {
-    opacity: 0.1,
-    visible: false
-  };
+  
   
 
-  handleScroll = (e) => {
-    // console.log('scrolling');
-    if (this.state.visible) {
-      this.setState((prevState) => ({
-        opacity: prevState.opacity + 0.1
-      }))
+  handleScroll = () => {
+    function getOffset(el) {
+      const rect = el.getBoundingClientRect();
+      return {
+        top: rect.top
+      };
+      
+    }
+
+    let height = this.myRef.current.offsetHeight;
+    let scrollTop = this.myRef.current.scrollTop;
+    let offset = height / 2;
+    let calc = 0 + (scrollTop - offset + 200) / 200;
+
+    
+
+
+
+    if (calc < 0) {
+      this.setState({ opacity: 1 });
     }
     
-    
-  }
+    else if ( calc > 1 ) {
+      this.setState({ opacity: 0 });
+    }
 
-  increaseOpacity = () => {
-    this.setState({
-      visible: true,
-      opacity: 0
-    })
     
-  }
-
-  decreaseOpacity = () => {
     this.setState({
-      visible: false,
-      opacity: 0
+      opacity: calc
     })
-    console.log(this.state);
+
+    console.log(calc);
+
+      
+    
+
+    
+
+
+    
+    
   }
     //   typeof window !== `undefined` && window.history.back();
       
@@ -113,13 +144,11 @@ class ScrollToClose extends React.Component {
   
 
   render() {
+    
+    
     return (
-      <Wrapper>
-        <Waypoint onEnter={this.increaseOpacity} onLeave={this.decreaseOpacity}>
-          <div>
-          <Text opacity={this.state.opacity}>Scroll to close</Text>
-          </div>
-        </Waypoint>  
+      <Wrapper ref={this.myRef}>
+          <Text style={{opacity: this.state.opacity}}>Scroll to close</Text>
       </Wrapper>
     );
   }
