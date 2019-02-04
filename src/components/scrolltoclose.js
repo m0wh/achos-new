@@ -4,15 +4,6 @@ import styled from "styled-components";
 import fontSizes from "../utils/fontSizes";
 import debounce from "../utils/debounce";
 
-
-// https://codepen.io/michaeldoyle/pen/Bhsif
-// Range = 100
-  // Start = 0
-  // Final = 100
-  // Scroll position dins del div ha de coincidir, map 0-100/distancia scrollable
-  // Opacity = range/100
-// debounce  
-
 /*
  const linkCoords = this.getBoundingClientRect();
     console.log(linkCoords);
@@ -42,22 +33,6 @@ or
 
 getOffset(element).top
 
-
-*/
-
-/*
-$(window).on('scroll', function () {
-  
-  var scrollTop = $(this).scrollTop(),
-      height = header.outerHeight(),
-      offset = height / 2,
-      calc = 1 - (scrollTop - offset + range) / range;
-  
-  header.css({ 'opacity': calc });
-   
-  
-  
-});
 
 */
 
@@ -94,33 +69,28 @@ class ScrollToClose extends React.Component {
   }
 
   
-  
-
   handleScroll = () => {
     function getOffset(el) {
       const rect = el.getBoundingClientRect();
-      return {
-        top: rect.top
-      };
-      
+      return rect.top;
     }
+    
+    let elementTop = getOffset(this.myRef.current);
+      
+    // }
 
     let height = this.myRef.current.offsetHeight;
-    let scrollTop = this.myRef.current.scrollTop;
+    let scrollTop = this.myRef.current.pageYOffset;
     let offset = height / 2;
-    let calc = 0 + (scrollTop - offset + 200) / 200;
+    let calc = ((window.pageYOffset - elementTop) - offset + 200) / 200;
 
+    // if (calc < 0) {
+    //   this.setState({ opacity: 1 });
+    // }  
     
-
-
-
-    if (calc < 0) {
-      this.setState({ opacity: 1 });
-    }
-    
-    else if ( calc > 1 ) {
-      this.setState({ opacity: 0 });
-    }
+    // else if ( calc > 1 ) {
+    //   this.setState({ opacity: 0 });
+    // }
 
     
     this.setState({
@@ -128,16 +98,10 @@ class ScrollToClose extends React.Component {
     })
 
     console.log(calc);
-
-      
-    
-
-    
-
-
-    
-    
   }
+
+  
+  
     //   typeof window !== `undefined` && window.history.back();
       
     
