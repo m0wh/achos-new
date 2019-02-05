@@ -3,6 +3,7 @@ import { Link } from "gatsby";
 import styled from "styled-components";
 import fontSizes from "../utils/fontSizes";
 import debounce from "../utils/debounce";
+import { element } from "prop-types";
 
 /*
  const linkCoords = this.getBoundingClientRect();
@@ -76,13 +77,23 @@ class ScrollToClose extends React.Component {
     }
     
     let elementTop = getOffset(this.myRef.current);
+    // console.log(elementTop);
       
-    // }
+    
+    let scrolled = window.pageYOffset;
+    let elemHeight = this.myRef.current.offsetHeight;
+    let elemOffsetTop = this.myRef.current.offsetTop;
+    console.log(elemOffsetTop);
+    // let offset = height / 2;
+    // let calc = 0 + (scrolled - offset + 200) / 200;
+    // When scrolled === 
+    let calc = (scrolled - elemOffsetTop) / elemOffsetTop;
+    console.log(calc);
 
-    let height = this.myRef.current.offsetHeight;
-    let scrollTop = this.myRef.current.pageYOffset;
-    let offset = height / 2;
-    let calc = ((window.pageYOffset - elementTop) - offset + 200) / 200;
+
+
+
+
 
     // if (calc < 0) {
     //   this.setState({ opacity: 1 });
@@ -97,7 +108,7 @@ class ScrollToClose extends React.Component {
       opacity: calc
     })
 
-    console.log(calc);
+  //   console.log(calc);
   }
 
   
