@@ -2,7 +2,7 @@ import React from "react";
 import { Element } from "react-scroll";
 import styled from "styled-components";
 // import Fade from "react-reveal/Fade";
-import LightSpeed from "react-reveal/LightSpeed";
+import Fade from "react-reveal/Fade";
 import media from "../utils/breakpoints";
 import GridImage from "./gridimage";
 import randomColor from "../utils/randomColor";
@@ -37,7 +37,7 @@ export default ({ projectEdges }) => {
   return (
     <Element name="work">
       <WorkGrid>
-        <LightSpeed duration={500} delay={400}>
+        <Fade duration={500} delay={400}>
           {projectEdges.map(project =>
             everyFifth.includes(projectEdges.indexOf(project)) ? (
               <GridImage
@@ -62,7 +62,7 @@ export default ({ projectEdges }) => {
               />
             )
           )}
-        </LightSpeed>
+        </Fade>
       </WorkGrid>
     </Element>
   );
