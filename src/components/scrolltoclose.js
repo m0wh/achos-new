@@ -1,46 +1,89 @@
-// import React from "react";
-// import { Link, graphql } from "gatsby";
-// import styled from "styled-components";
-// import fontSizes from "../utils/fontSizes";
+import React from "react";
+import { Link } from "gatsby";
+import styled from "styled-components";
+import fontSizes from "../utils/fontSizes";
+import debounce from "../utils/debounce";
+import { element } from "prop-types";
+import { navigate } from "gatsby"
 
-// const Wrapper = styled.div`
-//   display: grid;
-//   justify-items: center;
-//   align-items: end;
-//   height: 80vh;
-//   ${fontSizes(1.875)}
-// `;
 
-// const Text = styled.p`
-//   color: white;
-// `;
 
-// export default class ScrollToClose extends React.Component {
+const Wrapper = styled.div`
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  height: 60vh;
+  padding-bottom: 40vh;
+  color: white;
+  ${fontSizes(1.875)}
+`;
 
-//   state = {
-//     currentScrollHeight: 0,
-//   }
-//   componentDidMount() {
-//     // When this component mounts, begin listening for scroll changes
-//     window.addEventListener('scroll', this.handleScroll);
-//   }
 
-//   componentWillUnmount() {
-//     // If this component is unmounted, stop listening
-//     window.removeEventListener('scroll', this.handleScroll);
-//   }
+class ScrollToClose extends React.Component {
 
-//   handleScroll = () => {
-//     this.setState({ currentScrollHeight: window.scrollY });
-//       console.log(currentScrollHeight);
-//   }
+  state = {
+    opacity: 0,
+  };
 
-//   render() {
-//     const opacity = Math.max(100 / this.state.currentScrollHeight, 1);
-//     return (
-//       <Wrapper>
-//         <Text style={{opacity}}>Scroll to close</Text>
-//       </Wrapper>
-//     );
-//   }
-// }
+  myRef = React.createRef();
+
+  componentDidMount() {
+    // window.scrollTo(0,0);
+    window.addEventListener('scroll', this.handleScroll);
+    
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.handleScroll);
+  }
+
+  
+  handleScroll = () => {
+    // function getOffset(el) {
+    //   const rect = el.getBoundingClientRect();
+    //   return rect.top;
+    // }
+    
+    // let elementTop = getOffset(this.myRef.current);
+    // console.log(elementTop);
+      
+    
+    let scrolled = window.pageYOffset;
+    const elemHeight = this.myRef.current && this.myRef.current.offsetHeight;
+    const elemOffsetTop = this.myRef.current && this.myRef.current.offsetTop;
+    // let offset = height / 2;
+    // let calc = 0 + (scrolled - offset + 200) / 200;
+    // When scrolled === 
+    let calc = ((scrolled - elemOffsetTop + elemHeight) / elemHeight).toFixed(2);
+
+    
+    this.setState({
+      opacity: calc
+    })
+
+    // if (calc <= 0.2) {
+    //   this.setState({
+    //     opacity: 0
+    //   })
+    // }
+
+    if (this.state.opacity >= 1) {
+      navigate('/');
+    }
+    
+    // TODO: go back when reaching the bottom. Now it is buggy.
+
+  }
+
+  render() {
+    
+    
+    return (
+      <Wrapper ref={this.myRef}>
+          <p style={{opacity: this.state.opacity}}>Scroll to close</p>
+      </Wrapper>
+    );
+  }
+}
+
+export default ScrollToClose;
