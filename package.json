@@ -5,7 +5,7 @@
   "author": "Pol Milian & Achos <pol@polmilian.com>",
   "dependencies": {
     "babel-plugin-styled-components": "^1.10.0",
-    "gatsby": "^2.0.114",
+    "gatsby": "^2.0.115",
     "gatsby-image": "^2.0.29",
     "gatsby-plugin-manifest": "^2.0.17",
     "gatsby-plugin-netlify": "^2.0.8",
