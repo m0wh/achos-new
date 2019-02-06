@@ -4,6 +4,7 @@ import styled from "styled-components";
 import fontSizes from "../utils/fontSizes";
 import debounce from "../utils/debounce";
 import { element } from "prop-types";
+import { navigate } from "gatsby"
 
 
 
@@ -27,11 +28,12 @@ class ScrollToClose extends React.Component {
   myRef = React.createRef();
 
   componentDidMount() {
+    // window.scrollTo(0,0);
     window.addEventListener('scroll', this.handleScroll);
     
   }
 
-  componentWillMount() {
+  componentWillUnmount() {
     window.removeEventListener('scroll', this.handleScroll);
   }
 
@@ -47,8 +49,8 @@ class ScrollToClose extends React.Component {
       
     
     let scrolled = window.pageYOffset;
-    let elemHeight = this.myRef.current.offsetHeight;
-    let elemOffsetTop = this.myRef.current.offsetTop;
+    const elemHeight = this.myRef.current && this.myRef.current.offsetHeight;
+    const elemOffsetTop = this.myRef.current && this.myRef.current.offsetTop;
     // let offset = height / 2;
     // let calc = 0 + (scrolled - offset + 200) / 200;
     // When scrolled === 
@@ -59,21 +61,19 @@ class ScrollToClose extends React.Component {
       opacity: calc
     })
 
-    if (calc <= 0.2) {
-      this.setState({
-        opacity: 0
-      })
+    // if (calc <= 0.2) {
+    //   this.setState({
+    //     opacity: 0
+    //   })
+    // }
+
+    if (this.state.opacity >= 1) {
+      navigate('/');
     }
     
     // TODO: go back when reaching the bottom. Now it is buggy.
 
   }
-
-  
-      
-      
-    
-  
 
   render() {
     
