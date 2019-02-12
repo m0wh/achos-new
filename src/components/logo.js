@@ -21,15 +21,16 @@ const LogoText = styled.h2`
 
 // TODO: in contact and about page, achos& shows up instead of achos!
 
+const locationArray = ["/", "/contact", "/about"];
+
 const Logo = () => (
   <LogoWrapper>
     <SoundGif sound={Sound} gif={GIF}>
       <Link to="/">
         <Fade duration={3000} top cascade>
           <LogoText>
-            {(typeof location !== `undefined` && location.pathname === "/") ||
-            location.pathname === "/contact" ||
-            location.pathname === "/about"
+            {typeof location !== `undefined` &&
+            locationArray.includes(location.pathname)
               ? "achos!"
               : "achos&"}
           </LogoText>
