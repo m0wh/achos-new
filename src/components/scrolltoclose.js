@@ -38,7 +38,7 @@ class ScrollToClose extends React.Component {
   }
 
   
-  handleScroll = () => {
+  handleScroll = (e) => {
     // function getOffset(el) {
     //   const rect = el.getBoundingClientRect();
     //   return rect.top;
@@ -54,12 +54,13 @@ class ScrollToClose extends React.Component {
     // let offset = height / 2;
     // let calc = 0 + (scrolled - offset + 200) / 200;
     // When scrolled === 
-    let calc = ((scrolled - elemOffsetTop + elemHeight) / elemHeight).toFixed(2);
+    let calc = ((scrolled - elemOffsetTop + elemHeight) / elemHeight - 0.3).toFixed(2);
 
     
     this.setState({
       opacity: calc
     })
+    // console.log(calc);
 
     // if (calc <= 0.2) {
     //   this.setState({
@@ -67,11 +68,13 @@ class ScrollToClose extends React.Component {
     //   })
     // }
 
-    if (this.state.opacity >= 1) {
-      navigate('/');
-    }
+    // if (this.state.opacity >= 1) {
+    //   navigate('/');
+    // }
+
     
     // TODO: go back when reaching the bottom. Now it is buggy.
+    // TODO: detect bottom
 
   }
 
