@@ -8,6 +8,7 @@ import SEO from "../components/SEO";
 import randomColor from "../utils/randomColor";
 import LuckyDay from "../components/luckyday";
 import fontSizes from "../utils/fontSizes";
+import ScrollToClose from "../components/scrolltoclose";
 
 // TODO: play Mario sound on route change/load
 
@@ -101,8 +102,8 @@ export default ({ data }) => {
             </CreditsList>
           </Wrapper>
         </Fade>
+        <ScrollToClose />
       </ProjectWrapper>
-      <LuckyDay />
     </>
   );
 };
