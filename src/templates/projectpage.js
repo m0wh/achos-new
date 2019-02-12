@@ -6,7 +6,6 @@ import Fade from "react-reveal/Fade";
 import TextBlock, { Wrapper } from "../components/textblock";
 import SEO from "../components/SEO";
 import randomColor from "../utils/randomColor";
-import LuckyDay from "../components/luckyday";
 import fontSizes from "../utils/fontSizes";
 import ScrollToClose from "../components/scrolltoclose";
 
@@ -44,6 +43,7 @@ export default ({ data }) => {
         }
         image={frontmatter.bigimage1.childImageSharp.fluid}
       />
+
       <ProjectWrapper>
         <TextBlock
           textCenter={frontmatter.name}

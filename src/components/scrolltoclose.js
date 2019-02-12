@@ -3,7 +3,7 @@ import { Link } from "gatsby";
 import styled from "styled-components";
 import fontSizes from "../utils/fontSizes";
 import debounce from "../utils/debounce";
-import { element } from "prop-types";
+import BottomScrollListener from "react-bottom-scroll-listener";
 import { navigate } from "gatsby"
 
 
@@ -13,7 +13,7 @@ const Wrapper = styled.div`
   justify-items: center;
   align-items: center;
   height: 60vh;
-  padding-bottom: 40vh;
+  padding-bottom: 400px;
   color: white;
   ${fontSizes(1.875)}
 `;
@@ -38,45 +38,33 @@ class ScrollToClose extends React.Component {
   }
 
   
-  handleScroll = (e) => {
-    // function getOffset(el) {
-    //   const rect = el.getBoundingClientRect();
-    //   return rect.top;
-    // }
-    
-    // let elementTop = getOffset(this.myRef.current);
-    // console.log(elementTop);
+  handleScroll = () => {
       
     
     let scrolled = window.pageYOffset;
     const elemHeight = this.myRef.current && this.myRef.current.offsetHeight;
     const elemOffsetTop = this.myRef.current && this.myRef.current.offsetTop;
-    // let offset = height / 2;
-    // let calc = 0 + (scrolled - offset + 200) / 200;
-    // When scrolled === 
-    let calc = ((scrolled - elemOffsetTop + elemHeight) / elemHeight - 0.3).toFixed(2);
+    let calc = ((scrolled - elemOffsetTop + 400) / 400).toFixed(2);
+
+    
+
 
     
     this.setState({
       opacity: calc
     })
-    // console.log(calc);
 
-    // if (calc <= 0.2) {
-    //   this.setState({
-    //     opacity: 0
-    //   })
-    // }
-
-    // if (this.state.opacity >= 1) {
-    //   navigate('/');
-    // }
+    if ((window.innerHeight + window.pageYOffset) >= document.body.scrollHeight - 1) {
+      // you're at the bottom of the page
+      navigate('/');
+    }
 
     
-    // TODO: go back when reaching the bottom. Now it is buggy.
-    // TODO: detect bottom
 
   }
+
+  
+
 
   render() {
     
