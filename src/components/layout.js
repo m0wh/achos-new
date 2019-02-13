@@ -12,6 +12,7 @@ import AvantBold from "../fonts/ITCAvantGardePro-Bold.woff";
 import PointerWhite from "../images/icons/white-default.png";
 import PlusCursor from "../images/icons/white-+.png";
 import BlackMail from "../images/icons/black-contact2.png";
+import Resizer from "./resizer";
 import { pageFade } from "../styles/poses";
 
 import Header from "./header";
@@ -106,6 +107,7 @@ const Layout = ({ children }) => (
   <>
     <SEO />
     <GlobalStyle />
+    <Resizer />
     <Header />
     <PoseGroup animateOnMount preEnterPose="initial">
       <Transition key={typeof location !== `undefined` && location.pathname}>
