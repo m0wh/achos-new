@@ -111,6 +111,10 @@ const Inside = styled.span`
   }
 `;
 
+// if one gif is playing, hide other elements on the page
+// add a class of hidden to all?
+//
+
 const Intro = () => (
   <IntroWrapper>
     <Fade cascade duration={3000}>

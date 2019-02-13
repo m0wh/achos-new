@@ -1,19 +1,21 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import { createGlobalStyle } from 'styled-components'
 
 
-const BackgroundGif = createGlobalStyle`
-  body {
-    background: url("${props =>props.gif}") no-repeat center center fixed; 
-    background-size: cover;
-  
-  }
+const BackgroundGif = styled.div`
+  background: url("${props =>props.gif}") no-repeat center center fixed; 
+  background-size: cover;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -2;
 `;
 
 
 
-export default class SoundGIF extends Component {
+class SoundGIF extends Component {
   state = {
     isAudioPlaying: false,
     isGifShowing: false
@@ -61,4 +63,6 @@ export default class SoundGIF extends Component {
     );
   }
 }
+
+export default SoundGIF;
 

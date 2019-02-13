@@ -19,7 +19,6 @@ const LogoText = styled.h2`
   line-height: 100px;
 `;
 
-// TODO: in contact and about page, achos& shows up instead of achos!
 
 const locationArray = ["/", "/contact", "/about"];
 
