@@ -51,14 +51,10 @@ const TextBlock = ({
 }) => (
   <Wrapper padding={padding}>
     <TextLeft sizeLeft={sizeLeft} color={colorLeft}>
-      <Fade left duration={2000}>
-        {textLeft}
-      </Fade>
+      <Fade duration={2000}>{textLeft}</Fade>
     </TextLeft>
     <TextRight sizeRight={sizeRight}>
-      <Fade right duration={3000}>
-        {textRight}
-      </Fade>
+      <Fade duration={3000}>{textRight}</Fade>
     </TextRight>
     <TextCenter sizeCenter={sizeCenter} color={colorCenter}>
       <Fade duration={2000} delay={1500}>
