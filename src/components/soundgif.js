@@ -1,18 +1,23 @@
 import React, { Component } from "react";
-import styled from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 
 
-const BackgroundGif = styled.div`
-  background: url("${props =>props.gif}") no-repeat center center fixed; 
-  background-size: cover;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: -2;
+const BackgroundGif = createGlobalStyle`
+  body {
+    background: url("${props => props.gif}") no-repeat center center fixed; 
+    background-size: cover;
+    div:not(:hover) {
+      opacity: 0;
+    }
+    ul:not(:hover) {
+      opacity: 0;
+    }
+    span:not(:hover) {
+      opacity: 0;
+    }
+    
+  }
 `;
-
 
 
 class SoundGIF extends Component {
