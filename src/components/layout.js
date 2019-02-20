@@ -1,7 +1,6 @@
 import React from "react";
 import posed, { PoseGroup } from "react-pose";
 import PropTypes from "prop-types";
-import Helmet from "react-helmet";
 // import posed from "react-pose";
 // import { StaticQuery, graphql } from "gatsby";
 import { createGlobalStyle } from "styled-components";
@@ -13,6 +12,7 @@ import PointerWhite from "../images/icons/white-default.png";
 import PlusCursor from "../images/icons/white-+.png";
 import BlackMail from "../images/icons/black-contact2.png";
 import Resizer from "./resizer";
+import SecretCode from "./secretcode";
 import { pageFade } from "../styles/poses";
 
 import Header from "./header";
@@ -114,6 +114,7 @@ const Layout = ({ children }) => (
         {children}
       </Transition>
     </PoseGroup>
+    <SecretCode />
   </>
 );
 
