@@ -1,5 +1,6 @@
 import React from "react";
 import { slide as BurgerMenu } from "react-burger-menu";
+import { List, ListItem, StyledLink } from "./navbar";
 import styled from "styled-components";
 import media from "../utils/breakpoints";
 
@@ -161,8 +162,7 @@ const StyledBurgerMenu = styled.div`
 
 
 
-
-export default class MobileMenu extends React.Component {
+class MobileMenu extends React.Component {
   state = {
     menuOpen: false,
   }
@@ -181,7 +181,21 @@ export default class MobileMenu extends React.Component {
       <StyledBurgerMenu>
         <BurgerMenu isOpen={this.state.menuOpen}
           onStateChange={(state) => this.handleStateChange(state)} customBurgerIcon={false} customCrossIcon={false} noOverlay right width="100%">
-          {this.props.children}
+          <List style={{ textAlign: "center", lineHeight: "1.3" }} onClick={()=> this.toggleMenu()}>
+            <ListItem style={{ fontSize: "4rem" }} hoverable>
+              <StyledLink to="/">home</StyledLink>
+            </ListItem>
+            {/* onClick scrolls down to beginning of projects */}
+            {/* <ListItem style={{ fontSize: "4rem" }} hoverable>
+              <StyledLink to="/">work</StyledLink>
+            </ListItem> */}
+            <ListItem style={{ fontSize: "4rem" }} hoverable>
+              <StyledLink to="/about">about</StyledLink>
+            </ListItem>
+            <ListItem style={{ fontSize: "4rem" }} hoverable>
+              <StyledLink to="/contact">contact</StyledLink>
+            </ListItem>
+          </List>
         </BurgerMenu>
         <button onClick={() => this.toggleMenu()} className={this.state.menuOpen ? "hamburger hamburger--slider is-active" : "hamburger hamburger--slider"} type="button">
           <span className="hamburger-box">
@@ -192,3 +206,5 @@ export default class MobileMenu extends React.Component {
     );
   }
 }
+
+export default MobileMenu;

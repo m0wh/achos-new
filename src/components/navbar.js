@@ -42,13 +42,13 @@ const NavWrapper = styled(posed.nav(navWrapperProps))`
   right: 100px;
   top: 64px;
 `;
-const List = styled.ul`
+export const List = styled.ul`
   list-style: none;
   display: flex;
   flex-direction: row;
   ${media.tablet`display: none;`};
 `;
-const ListItem = styled.li`
+export const ListItem = styled.li`
   font-size: 1.875rem;
   padding: 0 1.25rem;
   color: ${props => props.color};
@@ -63,7 +63,7 @@ const ListItem = styled.li`
   }
 `;
 
-const StyledLink = styled(Link)`
+export const StyledLink = styled(Link)`
   &:hover {
     text-decoration: none;
   }
@@ -160,26 +160,8 @@ class Navbar extends React.Component {
           {/* <ListItem color="var(--darkgrey)">eng</ListItem> */}
         </List>
       </NavWrapper>
-      <MobileMenu>
-      <List style={{ textAlign: "center", lineHeight: "1.3" }}>
-        <ListItem style={{ fontSize: "4rem" }} hoverable>
-          <StyledLink to="/">home</StyledLink>
-        </ListItem>
-        {/* onClick scrolls down to beginning of projects */}
-        <ListItem style={{ fontSize: "4rem" }} hoverable>
-          <StyledLink to="/">work</StyledLink>
-        </ListItem>
-        <ListItem style={{ fontSize: "4rem" }} hoverable>
-          <StyledLink to="/about">about</StyledLink>
-        </ListItem>
-        <ListItem style={{ fontSize: "4rem" }} hoverable>
-          <StyledLink to="/contact">contact</StyledLink>
-        </ListItem>
-        {/* <ListItem style={{ fontSize: "4rem" }} hoverable>
-          eng
-        </ListItem> */}
-      </List>
-    </MobileMenu>
+      <MobileMenu />
+      
     </>
     );
   }
