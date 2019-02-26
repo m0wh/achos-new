@@ -1,15 +1,15 @@
-import React from "react";
-import { Link, graphql } from "gatsby";
-import styled, { css } from "styled-components";
-import Img from "gatsby-image";
+import React from 'react'
+import { Link, graphql } from 'gatsby'
+import styled, { css } from 'styled-components'
+import Img from 'gatsby-image'
 
-import posed from "react-pose";
-import TextBlock from "../components/textblock";
-import AboutPic from "../images/about.gif";
-import fontSizes from "../utils/fontSizes";
-import media from "../utils/breakpoints";
+import posed from 'react-pose'
+import TextBlock from '../components/textblock'
+import AboutPic from '../images/about.gif'
+import fontSizes from '../utils/fontSizes'
+import media from '../utils/breakpoints'
 
-import BeansImg from "../images/beans.jpg";
+import BeansImg from '../images/beans.jpg'
 
 const hoverProps = {
   hoverable: true,
@@ -19,24 +19,24 @@ const hoverProps = {
   hover: {
     opacity: 1
   }
-};
+}
 
 const Wrapper = styled.main`
   background-color: var(--lightblack);
   color: var(--lightgrey);
-  ${fontSizes(1.875)}
-`;
+  ${ fontSizes(1.875) }
+`
 const ImageWrapper = styled.div`
   max-width: 100%;
   position: relative;
   bottom: 180px;
-`;
+`
 
 const LocationsGrid = styled.section`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  ${media.tablet`grid-template-columns: 1fr`};
-`;
+  ${ media.tablet`grid-template-columns: 1fr` };
+`
 
 const ListsWrapper = styled.section`
   display: grid;
@@ -44,14 +44,14 @@ const ListsWrapper = styled.section`
   align-items: center;
   padding: 5vw 0;
   grid-gap: 3vw;
-`;
+`
 
 const List = styled.ul`
   text-align: center;
-`;
+`
 const LocationWrapper = styled.article`
   position: relative;
-`;
+`
 const Overlay = styled.div`
   background: rgba(26, 26, 26, 0.69);
   grid-column: 1 / -1;
@@ -66,29 +66,29 @@ const Overlay = styled.div`
   top: 0;
   bottom: 0;
   right: 0;
-`;
+`
 
 const OverlayWrapper = styled.div`
   margin: 3.5vw 4.1875vw;
-`;
+`
 const Title = styled.h3`
-  ${fontSizes(3)};
-  color: ${props => props.color};
-`;
+  ${ fontSizes(3) };
+  color: ${ props => props.color };
+`
 
 const BusinessMail = styled.a`
-  ${fontSizes(8)};
-`;
+  ${ fontSizes(8) };
+`
 const CollabsMail = styled.a`
-  ${fontSizes(4.6)};
-`;
+  ${ fontSizes(4.6) };
+`
 const InternshipsMail = styled.a`
-  ${fontSizes(2.2)};
-`;
+  ${ fontSizes(2.2) };
+`
 
 const AddressDetails = styled(posed.article(hoverProps))`
   //asas
-`;
+`
 
 export default ({
   data: {
@@ -102,8 +102,8 @@ export default ({
       </ImageWrapper>
       <ListsWrapper>
         <List>
-          <li style={{ color: "var(--pink)" }}>Business Enquiries</li>
-          <li style={{ textAlign: "center" }}>
+          <li style={{ color: 'var(--pink)' }}>Business Enquiries</li>
+          <li style={{ textAlign: 'center' }}>
             <BusinessMail
               href="mailto:hi@achos.es?Subject=Shut up and take my money!"
               target="_blank"
@@ -114,8 +114,8 @@ export default ({
           </li>
         </List>
         <List>
-          <li style={{ color: "var(--cyan)" }}>Collabs</li>
-          <li style={{ textAlign: "center" }}>
+          <li style={{ color: 'var(--cyan)' }}>Collabs</li>
+          <li style={{ textAlign: 'center' }}>
             <CollabsMail
               href="mailto:collab@achos.es"
               target="_blank"
@@ -126,8 +126,8 @@ export default ({
           </li>
         </List>
         <List>
-          <li style={{ color: "var(--yellow)" }}>Internships</li>
-          <li style={{ textAlign: "center" }}>
+          <li style={{ color: 'var(--yellow)' }}>Internships</li>
+          <li style={{ textAlign: 'center' }}>
             <InternshipsMail
               href="mailto:experience@achos.es"
               target="_blank"
@@ -238,7 +238,7 @@ export default ({
       </LocationsGrid>
     </Wrapper>
   </>
-);
+)
 
 export const pageQuery = graphql`
   query ContactQuery {
@@ -254,4 +254,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`;
+`
