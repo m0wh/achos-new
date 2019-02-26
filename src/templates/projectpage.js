@@ -51,7 +51,7 @@ export default ({ data }) => {
           sizeCenter={fontSizes(5)}
           colorCenter="white"
         />
-        <Fade duration={3000}>
+        <Fade duration={2000}>
           <div style={{ maxWidth: '100%' }}>
             <Img fluid={frontmatter.bigimage1.childImageSharp.fluid} />
           </div>
@@ -62,7 +62,7 @@ export default ({ data }) => {
           textRight={frontmatter.introduction}
           padding="4vw 0"
         />
-        <Fade duration={3000}>
+        <Fade duration={2000}>
           <Img fluid={frontmatter.bigimage2.childImageSharp.fluid} />
         </Fade>
         <TextBlock
@@ -71,7 +71,7 @@ export default ({ data }) => {
           textRight={frontmatter.concept}
           padding="4vw 0"
         />
-        <Fade cascade duration={3000}>
+        <Fade cascade duration={2000}>
           <div>
             <SmallImg fluid={frontmatter.smallimage1.childImageSharp.fluid} />
             <SmallImg fluid={frontmatter.smallimage2.childImageSharp.fluid} />
@@ -88,7 +88,7 @@ export default ({ data }) => {
               src={item.publicURL}
             />
           ))}
-        <Fade cascade duration={3000}>
+        <Fade cascade duration={2000}>
           <Wrapper style={{ padding: '4vw 0' }}>
             <CreditsList>
               {frontmatter.credits.map(credit => (
