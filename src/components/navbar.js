@@ -1,6 +1,6 @@
-import React from "react";
-import { Link } from "gatsby";
-import styled from "styled-components";
+import React from 'react'
+import { Link } from 'gatsby'
+import styled from 'styled-components'
 import {
   Link as ScrollLink,
   DirectLink,
@@ -9,51 +9,51 @@ import {
   animateScroll as scroll,
   scrollSpy,
   scroller
-} from "react-scroll";
-import media from "../utils/breakpoints";
-import MobileMenu from "./mobilemenu";
-import posed from "react-pose";
+} from 'react-scroll'
+import media from '../utils/breakpoints'
+import MobileMenu from './mobilemenu'
+import posed from 'react-pose'
 
-import SoundGif from "./soundgif";
+import SoundGif from './soundgif'
 
-import Sound from "../images/hadouken.mp3";
-import GIF from "../images/gifs/baseball.gif";
+import Sound from '../images/hadouken.mp3'
+import GIF from '../images/gifs/baseball.gif'
 
 const navWrapperProps = {
   hidden: {
     opacity: 0,
-    filter: "blur(10px)",
-    x: "80%"
-    
+    filter: 'blur(10px)',
+    x: '80%'
+
   },
   visible: {
     opacity: 1,
-    filter: "blur(0px)",
-    x: "0%",
+    filter: 'blur(0px)',
+    x: '0%',
     delay: 400
   }
-};
+}
 
 const NavWrapper = styled(posed.nav(navWrapperProps))`
   justify-self: end;
   padding: 1rem 0;
-  // z-index: 9000;
+  z-index: 9000;
   position: fixed;
   right: 100px;
   top: 64px;
-`;
+`
 export const List = styled.ul`
   list-style: none;
   display: flex;
   flex-direction: row;
-  ${media.tablet`display: none;`};
-`;
+  ${ media.tablet`display: none;` };
+`
 export const ListItem = styled.li`
   font-size: 1.875rem;
   padding: 0 1.25rem;
-  color: ${props => props.color};
+  color: ${ props => props.color };
   &:hover {
-    animation: ${props => (props.hoverable ? "zoom 200ms ease-in" : null)};
+    animation: ${ props => (props.hoverable ? 'zoom 200ms ease-in' : null) };
   }
   a:hover {
     text-decoration: none;
@@ -61,7 +61,7 @@ export const ListItem = styled.li`
   a:visited {
     text-decoration: none;
   }
-`;
+`
 
 export const StyledLink = styled(Link)`
   &:hover {
@@ -70,7 +70,7 @@ export const StyledLink = styled(Link)`
   &:visited {
     text-decoration: none;
   }
-`;
+`
 
 class Navbar extends React.Component {
   state = {
@@ -78,38 +78,37 @@ class Navbar extends React.Component {
     isShowing: true
   };
 
-  componentDidMount() {
+  componentDidMount () {
     // When this component mounts, begin listening for scroll changes
-    window.addEventListener('scroll', this.handleScroll);
+    window.addEventListener('scroll', this.handleScroll)
   }
 
-  componentWillUnmount() {
+  componentWillUnmount () {
     // If this component is unmounted, stop listening
-    window.removeEventListener('scroll', this.handleScroll);
+    window.removeEventListener('scroll', this.handleScroll)
   }
 
   handleScroll = () => {
-    const { lastScrollY } = this.state; 
-    const currentScrollY = window.scrollY;
-
+    const { lastScrollY } = this.state
+    const currentScrollY = window.scrollY
 
     if (currentScrollY > lastScrollY) {
-      this.setState({ isShowing: false});
+      this.setState({ isShowing: false })
     } else {
-      this.setState({ isShowing: true});
+      this.setState({ isShowing: true })
     }
-    this.setState({ lastScrollY: currentScrollY });
+    this.setState({ lastScrollY: currentScrollY })
   };
 
-  scrollToWork() {
-    scroller.scrollTo("work", {
+  scrollToWork () {
+    scroller.scrollTo('work', {
       duration: 800,
       delay: 0,
       smooth: true
-    });
+    })
   }
 
-  render() {
+  render () {
     const fiveSecLink = (
       <ScrollLink
         onClick={() =>
@@ -123,7 +122,7 @@ class Navbar extends React.Component {
           5 Second Tour
         </SoundGif>
       </ScrollLink>
-    );
+    )
 
     const homeLink = (
       <StyledLink to="/">
@@ -131,22 +130,21 @@ class Navbar extends React.Component {
           home
         </SoundGif>
       </StyledLink>
-    );
+    )
 
-
-    const { isShowing } = this.state;
+    const { isShowing } = this.state
 
     return (
       <>
       <NavWrapper pose={isShowing ? 'visible' : 'hidden'}>
         <List>
           <ListItem color="var(--yellow)">
-            {typeof location !== `undefined` && location.pathname === "/"
+            {typeof location !== `undefined` && location.pathname === '/'
               ? fiveSecLink
               : homeLink}
           </ListItem>
-          {(typeof location !== `undefined` && location.pathname === "/") 
-            && (
+          {(typeof location !== `undefined` && location.pathname === '/') &&
+            (
               <ListItem color="var(--cyan)">
                 <ScrollLink onClick={() => this.scrollToWork()}>work</ScrollLink>
               </ListItem>)
@@ -161,10 +159,10 @@ class Navbar extends React.Component {
         </List>
       </NavWrapper>
       <MobileMenu />
-      
+
     </>
-    );
+    )
   }
 }
 
-export default Navbar;
+export default Navbar
