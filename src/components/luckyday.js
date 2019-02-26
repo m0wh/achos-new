@@ -1,7 +1,7 @@
-import React from "react";
-import { Link } from "gatsby";
-import styled from "styled-components";
-import fontSizes from "../utils/fontSizes";
+import React from 'react'
+import { Link } from 'gatsby'
+import styled from 'styled-components'
+import fontSizes from '../utils/fontSizes'
 
 const LuckyWrapper = styled.div`
   a {
@@ -39,12 +39,12 @@ const LuckyWrapper = styled.div`
     background-size: 100% 100%;
     cursor: var(--mail);
   }
-`;
+`
 
 const LuckyText = styled.p`
-  ${fontSizes(3)};
+  ${ fontSizes(3) };
   line-height: var(--bigtextlineheight);
-`;
+`
 
 const LuckyDay = () => (
   <LuckyWrapper>
@@ -56,6 +56,6 @@ const LuckyDay = () => (
       <LuckyText>Today Is Your Lucky Day!</LuckyText>
     </a>
   </LuckyWrapper>
-);
+)
 
-export default LuckyDay;
+export default LuckyDay
