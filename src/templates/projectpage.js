@@ -51,7 +51,7 @@ export default ({ data }) => {
           sizeCenter={fontSizes(5)}
           colorCenter="white"
         />
-        <Fade duration={2000}>
+        <Fade duration={500}>
           <div style={{ maxWidth: '100%' }}>
             <Img fluid={frontmatter.bigimage1.childImageSharp.fluid} />
           </div>
@@ -62,7 +62,7 @@ export default ({ data }) => {
           textRight={frontmatter.introduction}
           padding="4vw 0"
         />
-        <Fade duration={2000}>
+        <Fade duration={500}>
           <Img fluid={frontmatter.bigimage2.childImageSharp.fluid} />
         </Fade>
         <TextBlock
@@ -71,7 +71,7 @@ export default ({ data }) => {
           textRight={frontmatter.concept}
           padding="4vw 0"
         />
-        <Fade cascade duration={2000}>
+        <Fade cascade duration={500}>
           <div>
             <SmallImg fluid={frontmatter.smallimage1.childImageSharp.fluid} />
             <SmallImg fluid={frontmatter.smallimage2.childImageSharp.fluid} />
