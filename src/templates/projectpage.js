@@ -1,13 +1,13 @@
-import React from "react";
-import { graphql } from "gatsby";
-import styled from "styled-components";
-import Img from "gatsby-image";
-import Fade from "react-reveal/Fade";
-import TextBlock, { Wrapper } from "../components/textblock";
-import SEO from "../components/SEO";
-import randomColor from "../utils/randomColor";
-import fontSizes from "../utils/fontSizes";
-import ScrollToClose from "../components/scrolltoclose";
+import React from 'react'
+import { graphql } from 'gatsby'
+import styled from 'styled-components'
+import Img from 'gatsby-image'
+import Fade from 'react-reveal/Fade'
+import TextBlock, { Wrapper } from '../components/textblock'
+import SEO from '../components/SEO'
+import randomColor from '../utils/randomColor'
+import fontSizes from '../utils/fontSizes'
+import ScrollToClose from '../components/scrolltoclose'
 
 // TODO: play Mario sound on route change/load
 
@@ -16,30 +16,30 @@ const ProjectWrapper = styled.main`
   color: var(--lightgrey);
   display: grid;
   grid-template-columns: 1fr;
-`;
+`
 
 const SmallImg = styled(Img)`
   width: 50%;
   display: inline-block;
-`;
+`
 
 const CreditsList = styled.ul`
   grid-column: span 2;
   justify-items: center;
   align-items: center;
   text-align: center;
-  color: ${props => props.color};
-`;
+  color: ${ props => props.color };
+`
 
 export default ({ data }) => {
-  const { frontmatter } = data.markdownRemark;
+  const { frontmatter } = data.markdownRemark
   // console.log(frontmatter);
   return (
     <>
       <SEO
         title={frontmatter.name}
         description={
-          frontmatter.introduction || frontmatter.concept || "nothin’"
+          frontmatter.introduction || frontmatter.concept || 'nothin’'
         }
         image={frontmatter.bigimage1.childImageSharp.fluid}
       />
@@ -52,7 +52,7 @@ export default ({ data }) => {
           colorCenter="white"
         />
         <Fade duration={3000}>
-          <div style={{ maxWidth: "100%" }}>
+          <div style={{ maxWidth: '100%' }}>
             <Img fluid={frontmatter.bigimage1.childImageSharp.fluid} />
           </div>
         </Fade>
@@ -84,15 +84,15 @@ export default ({ data }) => {
               key={item.publicURL}
               loop
               controls
-              style={{ width: "100%" }}
+              style={{ width: '100%' }}
               src={item.publicURL}
             />
           ))}
         <Fade cascade duration={3000}>
-          <Wrapper style={{ padding: "4vw 0" }}>
+          <Wrapper style={{ padding: '4vw 0' }}>
             <CreditsList>
               {frontmatter.credits.map(credit => (
-                <ul style={{ marginBottom: "2.5vw" }}>
+                <ul style={{ marginBottom: '2.5vw' }}>
                   <li style={{ color: randomColor() }} key={credit.title}>
                     {credit.title}
                   </li>
@@ -105,8 +105,8 @@ export default ({ data }) => {
         <ScrollToClose />
       </ProjectWrapper>
     </>
-  );
-};
+  )
+}
 
 export const query = graphql`
   query($slug: String!) {
@@ -161,4 +161,4 @@ export const query = graphql`
       }
     }
   }
-`;
+`
