@@ -1,5 +1,6 @@
 ---
 name: "mariano pascual"
+isbig: true
 category: "web design"
 introduction: "Discover the world of Mariano Pascual through his own eyes, or in this case, his computer."
 bigimage1: "./mariano-00.jpg"

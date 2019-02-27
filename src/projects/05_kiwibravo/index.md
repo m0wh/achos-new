@@ -1,5 +1,6 @@
 ---
 name: "kiwi bravo"
+isbig: true
 category: "branding"
 introduction: "Kiwi Bravo is a Barcelona based, Industrial Design Studio, that focuses in product communication through images, formed by Raúl Arribas and Gonzalo Sánchez de Lollano."
 bigimage1: "./kiwibravo-00.jpg"

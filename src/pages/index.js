@@ -32,6 +32,7 @@ export const pageQuery = graphql`
           }
           frontmatter {
             name
+            isbig 
             category
             bigimage1 {
               childImageSharp {
