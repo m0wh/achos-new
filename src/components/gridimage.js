@@ -1,31 +1,11 @@
-import React from "react";
-import { Link } from "gatsby";
-import styled from "styled-components";
-import Img from "gatsby-image";
-import posed from "react-pose";
-import fontSizes from "../utils/fontSizes";
-import media from "../utils/breakpoints";
-
-
-
-
-// const sidebarProps = {
-//   open: { x: '0%' },
-//   closed: { x: '-100%' }
-// }
-
-// const Sidebar = styled(posed.nav(sidebarProps))`
-
-// const testProps = {
-//   hoverable: true,
-//   init: {
-//     scale: 1
-//   },
-//   hover: {
-//     scale: 1.02,
-//     transition: { duration: 400 }
-//   }
-// };
+import React from 'react'
+import { Link } from 'gatsby'
+import styled from 'styled-components'
+import Img from 'gatsby-image'
+import posed from 'react-pose'
+import fontSizes from '../utils/fontSizes'
+import media from '../utils/breakpoints'
+import Fade from 'react-reveal/Fade'
 
 const hoverProps = {
   hoverable: true,
@@ -35,41 +15,39 @@ const hoverProps = {
   hover: {
     opacity: 1,
   }
-};
-
+}
 
 const titleProps = {
   init: {
-    x: "-100%",
+    x: '-100%',
     scale: 0,
   },
   hover: {
-    x: "0",
+    x: '0',
     scale: 1,
-    
+
   }
-};
+}
 
 const categoryProps = {
   init: {
-    x: "-100%",
+    x: '-100%',
     scale: 0,
   },
   hover: {
-    x: "0",
+    x: '0',
     scale: 1,
   }
-};
-
+}
 
 const Wrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   position: relative;
-  grid-column: ${props => (props.big ? "span 2" : null)};
+  grid-column: ${ props => (props.big ? 'span 2' : null) };
   // height: 80vh;
   
-`;
+`
 const Overlay = styled(posed.div(hoverProps))`
   background: rgba(26, 26, 26, 0.69);
   grid-column: 1 / -1;
@@ -87,35 +65,32 @@ const Overlay = styled(posed.div(hoverProps))`
   &:hover {
     cursor: var(--plusminus); 
   }
-`;
+`
 
 const OverlayWrapper = styled.div`
   margin: 3.5vw 4.1875vw;
-`;
+`
 const Title = styled(posed.h3(titleProps))`
-  ${fontSizes(3.33)};
-  color: ${props => props.color};
-`;
+  ${ fontSizes(3.33) };
+  color: ${ props => props.color };
+`
 
 const Category = styled(posed.p(categoryProps))`
   color: var(--lightgrey);
-  ${fontSizes(1.875)};
-`;
-
+  ${ fontSizes(1.875) };
+`
 
 const StyledImg = styled(Img)`
-  grid-column: ${props => (props.big ? "span 2" : null)};
-`;
-
+  grid-column: ${ props => (props.big ? 'span 2' : null) };
+`
 
 export default class Gridimage extends React.Component {
   myRef = React.createRef();
 
   startSound = () => {
-    this.myRef.current.play();
-    
+    this.myRef.current.play()
   }
-  render() {
+  render () {
     const {
       big,
       link,
@@ -123,23 +98,25 @@ export default class Gridimage extends React.Component {
       name,
       category,
       color
-    } = this.props;
+    } = this.props
     return (
       <Wrapper big={big} onMouseEnter={this.startSound}>
-        <Link to={link}>
-          <StyledImg fluid={fluid} />
-          <audio preload="auto" ref={this.myRef} >
-            <source src={this.props.sound} type="audio/mpeg"></source>
-          </audio>
+        <Fade duration={500} delay={400}>
+          <Link to={link}>
+            <StyledImg fluid={fluid} />
+            <audio preload="auto" ref={this.myRef} >
+              <source src={this.props.sound} type="audio/mpeg"></source>
+            </audio>
 
-          <Overlay>
-            <OverlayWrapper>
-              <Title color={color}>{name}</Title>
-              <Category>{category}</Category>
-            </OverlayWrapper>
-          </Overlay>
-        </Link>
+            <Overlay>
+              <OverlayWrapper>
+                <Title color={color}>{name}</Title>
+                <Category>{category}</Category>
+              </OverlayWrapper>
+            </Overlay>
+          </Link>
+        </Fade>
       </Wrapper>
-    );
+    )
   }
 }
