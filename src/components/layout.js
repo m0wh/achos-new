@@ -17,6 +17,7 @@ import SecretCode from './secretcode'
 import { pageFade } from '../styles/poses'
 
 import Header from './header'
+import TapToClose from './taptoclose'
 
 const Transition = posed.div(pageFade)
 
@@ -109,6 +110,7 @@ const Layout = ({ children }) => (
   <>
     <SEO />
     <GlobalStyle />
+    <TapToClose />
     <Resizer />
     <Header />
     <PoseGroup animateOnMount preEnterPose="initial">
