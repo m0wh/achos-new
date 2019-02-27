@@ -15,7 +15,7 @@ export default ({
 }) => (
   <>
     <Intro />
-    <Marquee />
+    <Marquee text="Scroll Down!" />
     <Work projectEdges={projectEdges} />
     <ContactUs />
     <LuckyDay />
