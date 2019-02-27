@@ -1,11 +1,12 @@
-import React from "react";
-import { Link, graphql } from "gatsby";
-import styled from "styled-components";
+import React from 'react'
+import { Link, graphql } from 'gatsby'
+import styled from 'styled-components'
 
-import Intro from "../components/intro";
-import Work from "../components/work";
-import ContactUs from "../components/contactus";
-import LuckyDay from "../components/luckyday";
+import Intro from '../components/intro'
+import Work from '../components/work'
+import ContactUs from '../components/contactus'
+import LuckyDay from '../components/luckyday'
+import Marquee from '../components/marquee'
 
 export default ({
   data: {
@@ -14,11 +15,12 @@ export default ({
 }) => (
   <>
     <Intro />
+    <Marquee />
     <Work projectEdges={projectEdges} />
     <ContactUs />
     <LuckyDay />
   </>
-);
+)
 
 export const pageQuery = graphql`
   query IndexQuery {
@@ -43,4 +45,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`;
+`
