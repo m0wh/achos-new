@@ -1,26 +1,26 @@
-import React from "react";
-import posed, { PoseGroup } from "react-pose";
-import PropTypes from "prop-types";
+import React from 'react'
+import posed, { PoseGroup } from 'react-pose'
+import PropTypes from 'prop-types'
 // import posed from "react-pose";
 // import { StaticQuery, graphql } from "gatsby";
-import { createGlobalStyle } from "styled-components";
-import reset from "styled-reset";
-import SEO from "./SEO";
-import media from "../utils/breakpoints";
-import AvantBold from "../fonts/ITCAvantGardePro-Bold.woff";
-import PointerWhite from "../images/icons/white-default.png";
-import PlusCursor from "../images/icons/white-+.png";
-import BlackMail from "../images/icons/black-contact2.png";
-import Resizer from "./resizer";
-import SecretCode from "./secretcode";
-import { pageFade } from "../styles/poses";
+import { createGlobalStyle } from 'styled-components'
+import reset from 'styled-reset'
+import SEO from './SEO'
+import media from '../utils/breakpoints'
+import AvantBold from '../fonts/ITCAvantGardePro-Bold.woff'
+import PointerWhite from '../images/icons/white-default.png'
+import PlusCursor from '../images/icons/white-+.png'
+import BlackMail from '../images/icons/black-contact2.png'
+import Resizer from './resizer'
+import SecretCode from './secretcode'
+import { pageFade } from '../styles/poses'
 
-import Header from "./header";
+import Header from './header'
 
-const Transition = posed.div(pageFade);
+const Transition = posed.div(pageFade)
 
 const GlobalStyle = createGlobalStyle`
-  ${reset}
+  ${ reset }
   
   :root {
     // Colors
@@ -35,9 +35,9 @@ const GlobalStyle = createGlobalStyle`
     //
 
     // Cursors
-      --pointerwhite: url(${PointerWhite}) 0 0, auto;
-      --plusminus: url(${PlusCursor}) 40 40, auto;
-      --mail: url(${BlackMail}) 40 40, auto;
+      --pointerwhite: url(${ PointerWhite }) 0 0, auto;
+      --plusminus: url(${ PlusCursor }) 40 40, auto;
+      --mail: url(${ BlackMail }) 40 40, auto;
     //
     
     // Line-height
@@ -54,7 +54,7 @@ const GlobalStyle = createGlobalStyle`
   
   @font-face {
     font-family: "AvantGardeBold";
-    src: url(${AvantBold}) format("woff");
+    src: url(${ AvantBold }) format("woff");
   }
 
   html {
@@ -67,7 +67,7 @@ const GlobalStyle = createGlobalStyle`
     background-color: var(--black);
     font-family: "AvantGardeBold", sans-serif;
     line-height: var(--regularlineheight);
-    ${media.phone`line-height: var(--mobilelineheight);`}
+    ${ media.phone`line-height: var(--mobilelineheight);` }
     
     
     
@@ -101,7 +101,7 @@ const GlobalStyle = createGlobalStyle`
       background: #333;
     }
   //
-`;
+`
 
 const Layout = ({ children }) => (
   <>
@@ -116,10 +116,10 @@ const Layout = ({ children }) => (
     </PoseGroup>
     <SecretCode />
   </>
-);
+)
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired
-};
+}
 
-export default Layout;
+export default Layout
