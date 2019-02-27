@@ -12,10 +12,10 @@ const Container = styled.section`
   position: relative;
   padding: 2.625rem 0;
   color: white;
-  background: linear-gradient(246deg, #ff60dd, #60ff66, #f4ff60, #60f0ff);
+  background: ${ props => props.black ? 'var(--black)' : 'linear-gradient(246deg, #ff60dd, #60ff66, #f4ff60, #60f0ff)' };
   background-size: 400% 400%;
 
-  animation: BgColors 30s ease infinite;
+  animation: ${ props => props.black ? '' : 'BgColors 30s ease infinite' };
 
   @keyframes BgColors {
     0% {
@@ -35,7 +35,7 @@ const Container = styled.section`
 `
 
 const ScrollingText = styled.p`
-  ${ fontSizes(8) };
+  ${ fontSizes(9) };
   line-height: var(--bigtextlineheight);
   position: absolute;
   width: 100%;
@@ -45,7 +45,7 @@ const ScrollingText = styled.p`
   /* Starting position */
   transform:translateX(100%);
   /* Apply animation to this element */ 
-  animation: scroll-left 10s linear infinite;
+  animation: scroll-left 15s linear infinite;
   }
   /* Move it (define the animation) */
   @keyframes scroll-left {
@@ -57,11 +57,11 @@ const ScrollingText = styled.p`
   }
 `
 
-const Marquee = () => {
+const Marquee = ({ text, black }) => {
   return (
-    <Container>
+    <Container black={black}>
       <ScrollingText>
-          Scroll Down!
+        {text}
       </ScrollingText>
 
     </Container>
