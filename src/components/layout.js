@@ -11,6 +11,7 @@ import AvantBold from '../fonts/ITCAvantGardePro-Bold.woff'
 import PointerWhite from '../images/icons/white-default.png'
 import PlusCursor from '../images/icons/white-+.png'
 import BlackMail from '../images/icons/black-contact2.png'
+import DownCursor from '../images/icons/white-down.png'
 import Resizer from './resizer'
 import SecretCode from './secretcode'
 import { pageFade } from '../styles/poses'
@@ -38,6 +39,7 @@ const GlobalStyle = createGlobalStyle`
       --pointerwhite: url(${ PointerWhite }) 0 0, auto;
       --plusminus: url(${ PlusCursor }) 40 40, auto;
       --mail: url(${ BlackMail }) 40 40, auto;
+      --down: url(${ DownCursor }) 40 40, auto;
     //
     
     // Line-height

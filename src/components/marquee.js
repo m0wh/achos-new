@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'gatsby'
 import styled from 'styled-components'
 import fontSizes from '../utils/fontSizes'
 
@@ -30,7 +29,7 @@ const Container = styled.section`
   }
   &:hover {
     background-size: 100% 100%;
-    cursor: var(--mail);
+    cursor: ${ props => props.cursormail ? 'var(--mail)' : 'var(--down)' };
   }
 `
 
