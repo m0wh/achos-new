@@ -1,46 +1,57 @@
-const path = require(`path`);
-const { createFilePath } = require(`gatsby-source-filesystem`);
+const _ = require(`lodash`)
+const path = require(`path`)
+const slash = require(`slash`)
 
-exports.onCreateNode = ({ node, getNode, actions }) => {
-  const { createNodeField } = actions;
-  if (node.internal.type === `MarkdownRemark`) {
-    const slug = createFilePath({ node, getNode, basePath: `pages` });
-    createNodeField({
-      node,
-      name: `slug`,
-      value: slug
-    });
-  }
-};
-
+// Implement the Gatsby API “createPages”. This is
+// called after the Gatsby bootstrap is finished so you have
+// access to any information necessary to programmatically
+// create pages.
 exports.createPages = ({ graphql, actions }) => {
-  const { createPage } = actions;
-  return new Promise((resolve, reject) => {
-    graphql(`
+  const { createPage } = actions
+  // The “graphql” function allows us to run arbitrary
+  // queries against the local Contentful graphql schema. Think of
+  // it like the site has a built-in database constructed
+  // from the fetched data that you can run queries against.
+  return graphql(
+    `
       {
-        allMarkdownRemark {
+        allContentfulProyecto(
+          sort: { fields: [orden], order: DESC }
+          limit: 1000
+        ) {
           edges {
             node {
-              fields {
-                slug
-              }
+              slug
             }
           }
         }
       }
-    `).then(result => {
-      result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+    `
+  )
+    .then(result => {
+      if (result.errors) {
+        throw result.errors
+      }
+
+      // Create Product pages
+      const proyectoTemplate = path.resolve(`./src/templates/projectpage.js`)
+      // We want to create a detailed page for each
+      // product node. We'll just use the Contentful id for the slug.
+      _.each(result.data.allContentfulProyecto.edges, edge => {
+        // Gatsby uses Redux to manage its internal state.
+        // Plugins and sites can use functions like "createPage"
+        // to interact with Gatsby.
         createPage({
-          path: node.fields.slug,
-          component: path.resolve(`./src/templates/projectpage.js`),
+          // Each page is required to have a `path` as well
+          // as a template component. The `context` is
+          // optional but is often necessary so the template
+          // can query data specific to each page.
+          path: `/projects/${ edge.node.slug }/`,
+          component: slash(proyectoTemplate),
           context: {
-            // Data passed to context is available
-            // in page queries as GraphQL variables.
-            slug: node.fields.slug
-          }
-        });
-      });
-      resolve();
-    });
-  });
-};
+            slug: edge.node.slug
+          },
+        })
+      })
+    })
+}
