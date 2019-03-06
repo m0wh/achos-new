@@ -48,6 +48,9 @@ exports.createPages = ({ graphql, actions }) => {
           // can query data specific to each page.
           path: `/${ edge.node.slug }/`,
           component: slash(proyectoTemplate),
+          context: {
+            slug: edge.node.slug
+          },
 
         })
       })
