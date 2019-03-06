@@ -24,10 +24,11 @@ export default ({
 
 export const pageQuery = graphql`
   query IndexQuery {
-    allContentfulProyecto {
+    allContentfulProyecto(sort: { fields: [orden] order: DESC }) {
       edges {
         node {
           titulo
+          orden
           slug
           esGrande
           categoria
