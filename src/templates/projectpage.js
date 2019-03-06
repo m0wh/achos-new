@@ -38,7 +38,7 @@ export default ({ data }) => {
       <SEO
         title={node.titulo}
         description={
-          node.textoBloque1.childMarkdownRemark.rawMarkdownBody || 'nothin’'
+          node.bloquesDeTexto[0].childContentfulBloqueDeTextoBodyTextNode.childMarkdownRemark.rawMarkdownBody || 'nothin’'
         }
         image={node.imagenPortada.fluid}
       />
@@ -57,8 +57,8 @@ export default ({ data }) => {
         </Fade>
         <TextBlock
           colorLeft={randomColor()}
-          textLeft={node.textoBloque1.childMarkdownRemark.frontmatter.titulo}
-          textRight={node.textoBloque1.childMarkdownRemark.rawMarkdownBody}
+          textLeft={node.bloquesDeTexto[0].titulo}
+          textRight={node.bloquesDeTexto[0].childContentfulBloqueDeTextoBodyTextNode.childMarkdownRemark.rawMarkdownBody}
           padding="4vw 0"
         />
         {/* <Fade duration={500}>
@@ -66,8 +66,8 @@ export default ({ data }) => {
         </Fade>
         <TextBlock
           colorLeft={randomColor()}
-          textLeft="concept & execution"
-          textRight={frontmatter.concept}
+          textLeft={node.textoBloque2.childMarkdownRemark.frontmatter.titulo}
+          textRight={node.textoBloque2.childMarkdownRemark.rawMarkdownBody}
           padding="4vw 0"
         />
         <Fade cascade duration={500}>
@@ -113,77 +113,35 @@ export const query = graphql`
       edges {
         node {
           titulo
-          slug
-          textoBloque1 {
-            childMarkdownRemark {
-              frontmatter {
-                titulo
-              }
-              rawMarkdownBody
-            }
+          listacreditos {
+            credito1
+            credito2
+            credito3
+            credito4
           }
           imagenPortada {
+            fluid(maxWidth: 800, quality: 80) {
+               ...GatsbyContentfulFluid_tracedSVG
+            }
+          }
+          bloquesDeTexto {
+            titulo
+            childContentfulBloqueDeTextoBodyTextNode {
+              childMarkdownRemark {
+                rawMarkdownBody
+              }
+            }
+          }
+          imagenes {
+            esgrande
+            imagen {
               fluid(maxWidth: 800, quality: 80) {
                ...GatsbyContentfulFluid_tracedSVG
               }
+            }
           }
         }
       }
     }
   }
 `
-
-// export const query = graphql`
-//   query ProjectPageQuery ($slug: String!) {
-//     allContentfulProyecto(fields: { slug: { eq: $slug } }) {
-//       frontmatter {
-//         name
-//         introduction
-//         concept
-//         attachments {
-//           publicURL
-//         }
-//         credits {
-//           title
-//           color
-//           name
-//         }
-//         bigimage1 {
-//           childImageSharp {
-//             fluid(maxWidth: 800, quality: 80) {
-//               ...GatsbyImageSharpFluid
-//             }
-//           }
-//         }
-//         bigimage2 {
-//           childImageSharp {
-//             fluid(maxWidth: 800, quality: 80) {
-//               ...GatsbyImageSharpFluid
-//             }
-//           }
-//         }
-//         smallimage1 {
-//           childImageSharp {
-//             fluid(maxWidth: 800, quality: 80) {
-//               ...GatsbyImageSharpFluid
-//             }
-//           }
-//         }
-//         smallimage2 {
-//           childImageSharp {
-//             fluid(maxWidth: 800, quality: 80) {
-//               ...GatsbyImageSharpFluid
-//             }
-//           }
-//         }
-//       }
-//     }
-//     allFile(filter: { extension: { eq: "gif" } }) {
-//       edges {
-//         node {
-//           publicURL
-//         }
-//       }
-//     }
-//   }
-// `
