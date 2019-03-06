@@ -32,37 +32,36 @@ const CreditsList = styled.ul`
 `
 
 export default ({ data }) => {
-  const { frontmatter } = data.markdownRemark
-  // console.log(frontmatter);
+  const { node } = data.allContentfulProyecto.edges[0]
   return (
     <>
       <SEO
-        title={frontmatter.name}
+        title={node.titulo}
         description={
-          frontmatter.introduction || frontmatter.concept || 'nothin’'
+          node.textoBloque1.childMarkdownRemark.rawMarkdownBody || 'nothin’'
         }
-        image={frontmatter.bigimage1.childImageSharp.fluid}
+        image={node.imagenPortada.fluid}
       />
 
       <ProjectWrapper>
         <TextBlock
-          textCenter={frontmatter.name}
+          textCenter={node.titulo}
           padding="4vw 0"
           sizeCenter={fontSizes(5)}
           colorCenter="white"
         />
         <Fade duration={500}>
           <div style={{ maxWidth: '100%' }}>
-            <Img fluid={frontmatter.bigimage1.childImageSharp.fluid} />
+            <Img fluid={node.imagenPortada.fluid} />
           </div>
         </Fade>
         <TextBlock
           colorLeft={randomColor()}
-          textLeft="introduction"
-          textRight={frontmatter.introduction}
+          textLeft={node.textoBloque1.childMarkdownRemark.frontmatter.titulo}
+          textRight={node.textoBloque1.childMarkdownRemark.rawMarkdownBody}
           padding="4vw 0"
         />
-        <Fade duration={500}>
+        {/* <Fade duration={500}>
           <Img fluid={frontmatter.bigimage2.childImageSharp.fluid} />
         </Fade>
         <TextBlock
@@ -101,7 +100,7 @@ export default ({ data }) => {
               ))}
             </CreditsList>
           </Wrapper>
-        </Fade>
+        </Fade> */}
         <ScrollToClose />
       </ProjectWrapper>
     </>
@@ -109,56 +108,82 @@ export default ({ data }) => {
 }
 
 export const query = graphql`
-  query($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      frontmatter {
-        name
-        introduction
-        concept
-        attachments {
-          publicURL
-        }
-        credits {
-          title
-          color
-          name
-        }
-        bigimage1 {
-          childImageSharp {
-            fluid(maxWidth: 800, quality: 80) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-        bigimage2 {
-          childImageSharp {
-            fluid(maxWidth: 800, quality: 80) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-        smallimage1 {
-          childImageSharp {
-            fluid(maxWidth: 800, quality: 80) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-        smallimage2 {
-          childImageSharp {
-            fluid(maxWidth: 800, quality: 80) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-      }
-    }
-    allFile(filter: { extension: { eq: "gif" } }) {
+  query ProjectPageQuery ($slug: String!) {
+    allContentfulProyecto(filter: { slug: { eq: $slug }}) {
       edges {
         node {
-          publicURL
+          titulo
+          slug
+          textoBloque1 {
+            childMarkdownRemark {
+              frontmatter {
+                titulo
+              }
+              rawMarkdownBody
+            }
+          }
+          imagenPortada {
+              fluid(maxWidth: 800, quality: 80) {
+               ...GatsbyContentfulFluid_tracedSVG
+              }
+          }
         }
       }
     }
   }
 `
+
+// export const query = graphql`
+//   query ProjectPageQuery ($slug: String!) {
+//     allContentfulProyecto(fields: { slug: { eq: $slug } }) {
+//       frontmatter {
+//         name
+//         introduction
+//         concept
+//         attachments {
+//           publicURL
+//         }
+//         credits {
+//           title
+//           color
+//           name
+//         }
+//         bigimage1 {
+//           childImageSharp {
+//             fluid(maxWidth: 800, quality: 80) {
+//               ...GatsbyImageSharpFluid
+//             }
+//           }
+//         }
+//         bigimage2 {
+//           childImageSharp {
+//             fluid(maxWidth: 800, quality: 80) {
+//               ...GatsbyImageSharpFluid
+//             }
+//           }
+//         }
+//         smallimage1 {
+//           childImageSharp {
+//             fluid(maxWidth: 800, quality: 80) {
+//               ...GatsbyImageSharpFluid
+//             }
+//           }
+//         }
+//         smallimage2 {
+//           childImageSharp {
+//             fluid(maxWidth: 800, quality: 80) {
+//               ...GatsbyImageSharpFluid
+//             }
+//           }
+//         }
+//       }
+//     }
+//     allFile(filter: { extension: { eq: "gif" } }) {
+//       edges {
+//         node {
+//           publicURL
+//         }
+//       }
+//     }
+//   }
+// `
