@@ -18,9 +18,9 @@ const ProjectWrapper = styled.main`
   grid-template-columns: 1fr;
 `
 
-const SmallImg = styled(Img)`
-  width: 50%;
-  display: inline-block;
+const ProjectImg = styled(Img)`
+  width: ${ props => props.small ? '50%' : '' };
+  display: ${ props => props.small ? 'inline-block' : '' };
 `
 
 const CreditsList = styled.ul`
@@ -52,7 +52,7 @@ export default ({ data }) => {
         />
         <Fade duration={500}>
           <div style={{ maxWidth: '100%' }}>
-            <Img fluid={node.imagenPortada.fluid} />
+            <ProjectImg fluid={node.imagenPortada.fluid} />
           </div>
         </Fade>
         <TextBlock
@@ -61,46 +61,60 @@ export default ({ data }) => {
           textRight={node.bloquesDeTexto[0].childContentfulBloqueDeTextoBodyTextNode.childMarkdownRemark.rawMarkdownBody}
           padding="4vw 0"
         />
-        {/* <Fade duration={500}>
-          <Img fluid={frontmatter.bigimage2.childImageSharp.fluid} />
+        <Fade duration={500}>
+          <ProjectImg fluid={node.imagenes[0].imagen.fluid} />
         </Fade>
         <TextBlock
           colorLeft={randomColor()}
-          textLeft={node.textoBloque2.childMarkdownRemark.frontmatter.titulo}
-          textRight={node.textoBloque2.childMarkdownRemark.rawMarkdownBody}
+          textLeft={node.bloquesDeTexto[1].titulo}
+          textRight={node.bloquesDeTexto[1].childContentfulBloqueDeTextoBodyTextNode.childMarkdownRemark.rawMarkdownBody}
           padding="4vw 0"
         />
         <Fade cascade duration={500}>
-          <div>
-            <SmallImg fluid={frontmatter.smallimage1.childImageSharp.fluid} />
-            <SmallImg fluid={frontmatter.smallimage2.childImageSharp.fluid} />
-          </div>
+          <>
+          {node.imagenes[1] && (<ProjectImg small={node.imagenes[1].esPequena} fluid={node.imagenes[1].imagen.fluid} />)}
+          {node.imagenes[2] && (<ProjectImg small={node.imagenes[2].esPequena} fluid={node.imagenes[2].imagen.fluid} />)}
+          </>
+        </Fade>
+        {node.bloquesDeTexto[2] && (<TextBlock
+          colorLeft={randomColor()}
+          textLeft={node.bloquesDeTexto[2].titulo}
+          textRight={node.bloquesDeTexto[2].childContentfulBloqueDeTextoBodyTextNode.childMarkdownRemark.rawMarkdownBody}
+          padding="4vw 0"
+        />)}
+        <Fade cascade duration={500}>
+          <>
+          {node.imagenes[3] && (<ProjectImg small={node.imagenes[3].esPequena} fluid={node.imagenes[3].imagen.fluid} />)}
+          {node.imagenes[4] && (<ProjectImg small={node.imagenes[4].esPequena} fluid={node.imagenes[4].imagen.fluid} />)}
+          </>
+        </Fade>
+        {node.bloquesDeTexto[3] && (<TextBlock
+          colorLeft={randomColor()}
+          textLeft={node.bloquesDeTexto[3].titulo}
+          textRight={node.bloquesDeTexto[3].childContentfulBloqueDeTextoBodyTextNode.childMarkdownRemark.rawMarkdownBody}
+          padding="4vw 0"
+        />)}
+        <Fade cascade duration={500}>
+          <>
+          {node.imagenes[5] && (<ProjectImg small={node.imagenes[5].esPequena} fluid={node.imagenes[5].imagen.fluid} />)}
+          {node.imagenes[6] && (<ProjectImg small={node.imagenes[6].esPequena} fluid={node.imagenes[6].imagen.fluid} />)}
+          </>
         </Fade>
 
-        {frontmatter.attachments &&
-          frontmatter.attachments.map(item => (
-            <video
-              key={item.publicURL}
-              loop
-              controls
-              style={{ width: '100%' }}
-              src={item.publicURL}
-            />
-          ))}
         <Fade cascade duration={2000}>
           <Wrapper style={{ padding: '4vw 0' }}>
             <CreditsList>
-              {frontmatter.credits.map(credit => (
+              {node.listaDeCreditos.map(credito => (
                 <ul style={{ marginBottom: '2.5vw' }}>
-                  <li style={{ color: randomColor() }} key={credit.title}>
-                    {credit.title}
+                  <li style={{ color: credito.color }} key={credito.titulo}>
+                    {credito.titulo}
                   </li>
-                  <li>{credit.name}</li>
+                  <li>{credito.nombre}</li>
                 </ul>
               ))}
             </CreditsList>
           </Wrapper>
-        </Fade> */}
+        </Fade>
         <ScrollToClose />
       </ProjectWrapper>
     </>
@@ -113,12 +127,6 @@ export const query = graphql`
       edges {
         node {
           titulo
-          listacreditos {
-            credito1
-            credito2
-            credito3
-            credito4
-          }
           imagenPortada {
             fluid(maxWidth: 800, quality: 80) {
                ...GatsbyContentfulFluid_tracedSVG
@@ -133,12 +141,17 @@ export const query = graphql`
             }
           }
           imagenes {
-            esgrande
+            esPequena
             imagen {
               fluid(maxWidth: 800, quality: 80) {
                ...GatsbyContentfulFluid_tracedSVG
               }
             }
+          }
+          listaDeCreditos {
+            titulo
+            color
+            nombre
           }
         }
       }
