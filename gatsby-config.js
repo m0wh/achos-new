@@ -20,6 +20,13 @@ module.exports = {
         accessToken: `${ process.env.ACCESS_TOKEN }`,
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `locationimages`,
+        path: `${ __dirname }/src/images/locations`
+      }
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-remark`,

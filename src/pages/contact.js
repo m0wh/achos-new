@@ -1,15 +1,11 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 import Img from 'gatsby-image'
 
 import posed from 'react-pose'
-import TextBlock from '../components/textblock'
-import AboutPic from '../images/about.gif'
 import fontSizes from '../utils/fontSizes'
 import media from '../utils/breakpoints'
-
-import BeansImg from '../images/beans.jpg'
 
 const hoverProps = {
   hoverable: true,
