@@ -62,7 +62,14 @@ export default ({ data }) => {
           padding="4vw 0"
         />
         <Fade duration={500}>
-          <ProjectImg fluid={node.imagenes[0].imagen.fluid} />
+          {node.imagenes[0] && (<ProjectImg small={node.imagenes[0].esPequena} fluid={node.imagenes[0].imagen.fluid} />)}
+
+          {/* {node.gifsvideos[0] && (<video
+            loop
+            controls
+            style={{ width: '100%' }}
+            src={node.gifsvideos[0].archivo.file.url}
+          />)} */}
         </Fade>
         <TextBlock
           colorLeft={randomColor()}
@@ -71,10 +78,10 @@ export default ({ data }) => {
           padding="4vw 0"
         />
         <Fade cascade duration={500}>
-          <>
-          {node.imagenes[1] && (<ProjectImg small={node.imagenes[1].esPequena} fluid={node.imagenes[1].imagen.fluid} />)}
-          {node.imagenes[2] && (<ProjectImg small={node.imagenes[2].esPequena} fluid={node.imagenes[2].imagen.fluid} />)}
-          </>
+          <div>
+            {node.imagenes[1] && (<ProjectImg small={node.imagenes[1].esPequena} fluid={node.imagenes[1].imagen.fluid} />)}
+            {node.imagenes[2] && (<ProjectImg small={node.imagenes[2].esPequena} fluid={node.imagenes[2].imagen.fluid} />)}
+          </div>
         </Fade>
         {node.bloquesDeTexto[2] && (<TextBlock
           colorLeft={randomColor()}
@@ -83,10 +90,10 @@ export default ({ data }) => {
           padding="4vw 0"
         />)}
         <Fade cascade duration={500}>
-          <>
-          {node.imagenes[3] && (<ProjectImg small={node.imagenes[3].esPequena} fluid={node.imagenes[3].imagen.fluid} />)}
-          {node.imagenes[4] && (<ProjectImg small={node.imagenes[4].esPequena} fluid={node.imagenes[4].imagen.fluid} />)}
-          </>
+          <div>
+            {node.imagenes[3] && (<ProjectImg small={node.imagenes[3].esPequena} fluid={node.imagenes[3].imagen.fluid} />)}
+            {node.imagenes[4] && (<ProjectImg small={node.imagenes[4].esPequena} fluid={node.imagenes[4].imagen.fluid} />)}
+          </div>
         </Fade>
         {node.bloquesDeTexto[3] && (<TextBlock
           colorLeft={randomColor()}
@@ -95,10 +102,10 @@ export default ({ data }) => {
           padding="4vw 0"
         />)}
         <Fade cascade duration={500}>
-          <>
-          {node.imagenes[5] && (<ProjectImg small={node.imagenes[5].esPequena} fluid={node.imagenes[5].imagen.fluid} />)}
-          {node.imagenes[6] && (<ProjectImg small={node.imagenes[6].esPequena} fluid={node.imagenes[6].imagen.fluid} />)}
-          </>
+          <div>
+            {node.imagenes[5] && (<ProjectImg small={node.imagenes[5].esPequena} fluid={node.imagenes[5].imagen.fluid} />)}
+            {node.imagenes[6] && (<ProjectImg small={node.imagenes[6].esPequena} fluid={node.imagenes[6].imagen.fluid} />)}
+          </div>
         </Fade>
 
         <Fade cascade duration={2000}>
@@ -129,7 +136,7 @@ export const query = graphql`
           titulo
           imagenPortada {
             fluid(maxWidth: 800, quality: 80) {
-               ...GatsbyContentfulFluid_tracedSVG
+               ...GatsbyContentfulFluid
             }
           }
           bloquesDeTexto {
@@ -144,10 +151,20 @@ export const query = graphql`
             esPequena
             imagen {
               fluid(maxWidth: 800, quality: 80) {
-               ...GatsbyContentfulFluid_tracedSVG
+               ...GatsbyContentfulFluid
               }
             }
           }
+          # If the field is empty, build fails. Need to fix how to query empty fields
+          # gifsvideos {
+          #   titulo
+          #   esPequeno
+          #   archivo {
+          #     file {
+          #       url
+          #     }
+          #   }
+          # }
           listaDeCreditos {
             titulo
             color
