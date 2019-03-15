@@ -5,16 +5,12 @@ const BackgroundGif = createGlobalStyle`
   body {
     background: url("${ props => props.gif }") no-repeat center center fixed; 
     background-size: cover;
-    div:not(:hover) {
-      opacity: 0;
-      transition: all 0.5s;
-    }
-    ul:not(:hover) {
-      opacity: 0
-      transition: all 0.5s;
-    }
-    span:not(:hover) {
+    *:not(:hover) {
       opacity: 0.3;
+      transition: all 0.5s;
+    }
+    main:not(:hover) {
+      opacity: 0;
       transition: all 0.5s;
     }
     
