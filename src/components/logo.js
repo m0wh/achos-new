@@ -9,7 +9,7 @@ import Sound from '../images/barcelona.mp3'
 import GIF from '../images/gifs/5sectour.gif'
 
 const LogoWrapper = styled.div`
-  // z-index: 1000;
+  z-index: 1;
 `
 
 const LogoText = styled.h2`
