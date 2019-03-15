@@ -7,6 +7,7 @@ import BeansPic from '../images/beans.jpg'
 import fontSizes from '../utils/fontSizes'
 import AboutPic from '../images/about.gif'
 import media from '../utils/breakpoints'
+import Fade from 'react-reveal/Fade'
 
 const aboutText = [
   {
@@ -230,10 +231,14 @@ export default () => (
       </ImageWrapper>
 
       <CreditsList style={{ margin: '0 3rem' }}>
-        <li style={{ color: 'var(--green)', marginBottom: '2rem' }}>
-          and everything nice!
-        </li>
-        <li style={{ textAlign: 'center' }}>{hotBranding}</li>
+        <Fade duration={1000}>
+          <li style={{ color: 'var(--green)', marginBottom: '2rem' }}>
+           and everything nice!
+          </li>
+        </Fade>
+        <Fade duration={2000}>
+          <li style={{ textAlign: 'center' }}>{hotBranding}</li>
+        </Fade>
       </CreditsList>
 
       {/* <CreditsList style={{ padding: "0 3rem" }}>
@@ -244,34 +249,46 @@ export default () => (
 
       <ShowsContainer>
         <ul>
-          <ul style={{ color: 'var(--green)' }}>Bla Bla</ul>
-          {blaBoomBling[0].map(item => (
-            <li key={item.id}>
-              <a href={item.link} target="_blank" rel="noopener noreferrer">
-                {item.name}
-              </a>
-            </li>
-          ))}
+          <Fade duration={1000}>
+            <ul style={{ color: 'var(--green)' }}>Bla Bla</ul>
+          </Fade>
+          <Fade cascade duration={2000}>
+            {blaBoomBling[0].map(item => (
+              <li key={item.id}>
+                <a href={item.link} target="_blank" rel="noopener noreferrer">
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </Fade>
         </ul>
         <ul>
-          <ul style={{ color: 'var(--cyan)' }}>Boom Boom</ul>
-          {blaBoomBling[1].map(item => (
-            <li key={item.id}>
-              <a href={item.link} target="_blank" rel="noopener noreferrer">
-                {item.name}
-              </a>
-            </li>
-          ))}
+          <Fade duration={1000}>
+            <ul style={{ color: 'var(--cyan)' }}>Boom Boom</ul>
+          </Fade>
+          <Fade cascade duration={2000}>
+            {blaBoomBling[1].map(item => (
+              <li key={item.id}>
+                <a href={item.link} target="_blank" rel="noopener noreferrer">
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </Fade>
         </ul>
         <ul>
-          <ul style={{ color: 'var(--yellow)' }}>Bling Bling</ul>
-          {blaBoomBling[2].map(item => (
-            <li key={item.id}>
-              <a href={item.link} target="_blank" rel="noopener noreferrer">
-                {item.name}
-              </a>
-            </li>
-          ))}
+          <Fade duration={1000}>
+            <ul style={{ color: 'var(--yellow)' }}>Bling Bling</ul>
+          </Fade>
+          <Fade cascade duration={2000}>
+            {blaBoomBling[2].map(item => (
+              <li key={item.id}>
+                <a href={item.link} target="_blank" rel="noopener noreferrer">
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </Fade>
         </ul>
       </ShowsContainer>
     </ProjectWrapper>
