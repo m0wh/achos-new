@@ -10,7 +10,7 @@ import Marquee from '../components/marquee'
 
 export default ({
   data: {
-    allMarkdownRemark: { edges: projectEdges }
+    allContentfulProyecto: { edges: projectEdges }
   }
 }) => (
   <>
@@ -24,23 +24,18 @@ export default ({
 
 export const pageQuery = graphql`
   query IndexQuery {
-    allMarkdownRemark(sort: { fields: [fileAbsolutePath], order: ASC }) {
+    allContentfulProyecto(sort: { fields: [orden] order: DESC }) {
       edges {
         node {
-          fields {
-            slug
-          }
-          frontmatter {
-            name
-            isbig 
-            category
-            bigimage1 {
-              childImageSharp {
-                fluid(maxWidth: 800, quality: 80) {
-                  ...GatsbyImageSharpFluid_tracedSVG
-                }
+          titulo
+          orden
+          slug
+          esGrande
+          categoria
+          imagenPortada {
+              fluid(maxWidth: 800, quality: 80) {
+               ...GatsbyContentfulFluid_tracedSVG
               }
-            }
           }
         }
       }

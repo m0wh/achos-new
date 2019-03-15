@@ -18,9 +18,9 @@ const ProjectWrapper = styled.main`
   grid-template-columns: 1fr;
 `
 
-const SmallImg = styled(Img)`
-  width: 50%;
-  display: inline-block;
+const ProjectImg = styled(Img)`
+  width: ${ props => props.small ? '50%' : '' };
+  display: ${ props => props.small ? 'inline-block' : '' };
 `
 
 const CreditsList = styled.ul`
@@ -32,71 +32,91 @@ const CreditsList = styled.ul`
 `
 
 export default ({ data }) => {
-  const { frontmatter } = data.markdownRemark
-  // console.log(frontmatter);
+  const { node } = data.allContentfulProyecto.edges[0]
   return (
     <>
       <SEO
-        title={frontmatter.name}
+        title={node.titulo}
         description={
-          frontmatter.introduction || frontmatter.concept || 'nothin’'
+          node.bloquesDeTexto[0].childContentfulBloqueDeTextoBodyTextNode.childMarkdownRemark.rawMarkdownBody || 'nothin’'
         }
-        image={frontmatter.bigimage1.childImageSharp.fluid}
+        image={node.imagenPortada.fluid}
       />
 
       <ProjectWrapper>
         <TextBlock
-          textCenter={frontmatter.name}
+          textCenter={node.titulo}
           padding="4vw 0"
           sizeCenter={fontSizes(5)}
           colorCenter="white"
         />
         <Fade duration={500}>
           <div style={{ maxWidth: '100%' }}>
-            <Img fluid={frontmatter.bigimage1.childImageSharp.fluid} />
+            <ProjectImg fluid={node.imagenPortada.fluid} />
           </div>
         </Fade>
         <TextBlock
           colorLeft={randomColor()}
-          textLeft="introduction"
-          textRight={frontmatter.introduction}
+          textLeft={node.bloquesDeTexto[0].titulo}
+          textRight={node.bloquesDeTexto[0].childContentfulBloqueDeTextoBodyTextNode.childMarkdownRemark.rawMarkdownBody}
           padding="4vw 0"
         />
         <Fade duration={500}>
-          <Img fluid={frontmatter.bigimage2.childImageSharp.fluid} />
+          {node.imagenes[0] && (<ProjectImg small={node.imagenes[0].esPequena} fluid={node.imagenes[0].imagen.fluid} />)}
+
+          {/* {node.gifsvideos[0] && (<video
+            loop
+            controls
+            style={{ width: '100%' }}
+            src={node.gifsvideos[0].archivo.file.url}
+          />)} */}
         </Fade>
         <TextBlock
           colorLeft={randomColor()}
-          textLeft="concept & execution"
-          textRight={frontmatter.concept}
+          textLeft={node.bloquesDeTexto[1].titulo}
+          textRight={node.bloquesDeTexto[1].childContentfulBloqueDeTextoBodyTextNode.childMarkdownRemark.rawMarkdownBody}
           padding="4vw 0"
         />
         <Fade cascade duration={500}>
           <div>
-            <SmallImg fluid={frontmatter.smallimage1.childImageSharp.fluid} />
-            <SmallImg fluid={frontmatter.smallimage2.childImageSharp.fluid} />
+            {node.imagenes[1] && (<ProjectImg small={node.imagenes[1].esPequena} fluid={node.imagenes[1].imagen.fluid} />)}
+            {node.imagenes[2] && (<ProjectImg small={node.imagenes[2].esPequena} fluid={node.imagenes[2].imagen.fluid} />)}
+          </div>
+        </Fade>
+        {node.bloquesDeTexto[2] && (<TextBlock
+          colorLeft={randomColor()}
+          textLeft={node.bloquesDeTexto[2].titulo}
+          textRight={node.bloquesDeTexto[2].childContentfulBloqueDeTextoBodyTextNode.childMarkdownRemark.rawMarkdownBody}
+          padding="4vw 0"
+        />)}
+        <Fade cascade duration={500}>
+          <div>
+            {node.imagenes[3] && (<ProjectImg small={node.imagenes[3].esPequena} fluid={node.imagenes[3].imagen.fluid} />)}
+            {node.imagenes[4] && (<ProjectImg small={node.imagenes[4].esPequena} fluid={node.imagenes[4].imagen.fluid} />)}
+          </div>
+        </Fade>
+        {node.bloquesDeTexto[3] && (<TextBlock
+          colorLeft={randomColor()}
+          textLeft={node.bloquesDeTexto[3].titulo}
+          textRight={node.bloquesDeTexto[3].childContentfulBloqueDeTextoBodyTextNode.childMarkdownRemark.rawMarkdownBody}
+          padding="4vw 0"
+        />)}
+        <Fade cascade duration={500}>
+          <div>
+            {node.imagenes[5] && (<ProjectImg small={node.imagenes[5].esPequena} fluid={node.imagenes[5].imagen.fluid} />)}
+            {node.imagenes[6] && (<ProjectImg small={node.imagenes[6].esPequena} fluid={node.imagenes[6].imagen.fluid} />)}
           </div>
         </Fade>
 
-        {frontmatter.attachments &&
-          frontmatter.attachments.map(item => (
-            <video
-              key={item.publicURL}
-              loop
-              controls
-              style={{ width: '100%' }}
-              src={item.publicURL}
-            />
-          ))}
         <Fade cascade duration={2000}>
           <Wrapper style={{ padding: '4vw 0' }}>
             <CreditsList>
-              {frontmatter.credits.map(credit => (
+              {node.listaDeCreditos.map(credito => (
                 <ul style={{ marginBottom: '2.5vw' }}>
-                  <li style={{ color: randomColor() }} key={credit.title}>
-                    {credit.title}
+                  <li style={{ color: credito.color }} key={credito.titulo}>
+                    {credito.titulo}
                   </li>
-                  <li>{credit.name}</li>
+                  <li>{credito.nombre}</li>
                 </ul>
               ))}
             </CreditsList>
@@ -109,54 +129,47 @@ export default ({ data }) => {
 }
 
 export const query = graphql`
-  query($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      frontmatter {
-        name
-        introduction
-        concept
-        attachments {
-          publicURL
-        }
-        credits {
-          title
-          color
-          name
-        }
-        bigimage1 {
-          childImageSharp {
-            fluid(maxWidth: 800, quality: 80) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-        bigimage2 {
-          childImageSharp {
-            fluid(maxWidth: 800, quality: 80) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-        smallimage1 {
-          childImageSharp {
-            fluid(maxWidth: 800, quality: 80) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-        smallimage2 {
-          childImageSharp {
-            fluid(maxWidth: 800, quality: 80) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-      }
-    }
-    allFile(filter: { extension: { eq: "gif" } }) {
+  query ProjectPageQuery ($slug: String!) {
+    allContentfulProyecto(filter: { slug: { eq: $slug }}) {
       edges {
         node {
-          publicURL
+          titulo
+          imagenPortada {
+            fluid(maxWidth: 800, quality: 80) {
+               ...GatsbyContentfulFluid
+            }
+          }
+          bloquesDeTexto {
+            titulo
+            childContentfulBloqueDeTextoBodyTextNode {
+              childMarkdownRemark {
+                rawMarkdownBody
+              }
+            }
+          }
+          imagenes {
+            esPequena
+            imagen {
+              fluid(maxWidth: 800, quality: 80) {
+               ...GatsbyContentfulFluid
+              }
+            }
+          }
+          # If the field is empty, build fails. Need to fix how to query empty fields
+          # gifsvideos {
+          #   titulo
+          #   esPequeno
+          #   archivo {
+          #     file {
+          #       url
+          #     }
+          #   }
+          # }
+          listaDeCreditos {
+            titulo
+            color
+            nombre
+          }
         }
       }
     }
