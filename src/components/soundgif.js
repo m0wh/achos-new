@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { createGlobalStyle } from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components'
 
 const BackgroundGif = createGlobalStyle`
   body {
@@ -43,7 +43,7 @@ class SoundGIF extends Component {
   }
 
   render () {
-    const { isGifShowing } = this.state
+    const isGifShowing = this.state.isGifShowing
     const { children } = this.props
 
     return (
