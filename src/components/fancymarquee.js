@@ -53,10 +53,11 @@ class FancyMarquee extends React.Component {
   }
 
   handleScroll = () => {
+    const range = 40
     let scrolled = window.pageYOffset
     const elemHeight = this.myRef.current && this.myRef.current.offsetHeight
     const elemOffsetTop = this.myRef.current && this.myRef.current.offsetTop
-    let calc = 1 - ((scrolled - elemOffsetTop + 600) / 600).toFixed(2) * 100
+    let calc = 1 - ((scrolled - elemOffsetTop + range) / range).toFixed(2) * 100
 
     this.setState({
       translateX: `translateX(${ calc }%)`
