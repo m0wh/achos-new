@@ -7,7 +7,6 @@ import Work from '../components/work'
 import ContactUs from '../components/contactus'
 import LuckyDay from '../components/luckyday'
 import Marquee from '../components/marquee'
-import Cookie from '../components/cookie'
 
 export default ({
   data: {
@@ -15,7 +14,6 @@ export default ({
   }
 }) => (
   <>
-    {/* <Cookie /> */}
     <Intro />
     <Marquee text="Scroll Down!" />
     <Work projectEdges={projectEdges} />
