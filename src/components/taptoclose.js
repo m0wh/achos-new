@@ -5,7 +5,7 @@ import React, { Component } from 'react'
 const GiantDiv = styled.div`
   position: absolute;
   background: red;
-  z-index: 99999;
+  z-index: 4;
   top: 0;
   left: 0;
   width: 100vw;

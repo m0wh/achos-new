@@ -8,7 +8,7 @@ const Wrapper = styled.div`
   background-size: cover;
   top: 0;
   left: 0;
-  z-index: 90000;
+  z-index: 3;
   width: 100vw;
   height: 100vh;
 `;

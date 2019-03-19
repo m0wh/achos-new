@@ -9,7 +9,7 @@ const StyledBurgerMenu = styled.div`
   ${media.tablet`display: inherit;`};
   ${media.phone`display: inherit;`};
   position: fixed;
-  z-index: 100;
+  z-index: 2;
   cursor: pointer;
   right: 12rem;
   top: 0;
@@ -85,7 +85,7 @@ const StyledBurgerMenu = styled.div`
     margin: 0;
     overflow: visible;
     position: fixed;
-    z-index: 10001;
+    z-index: 2;
   }
   .hamburger:hover {
     animation: zoom 300ms ease-in;
