@@ -1,10 +1,10 @@
-const transitionDuration = 300;
-const transitionDelay = 350;
+const transitionDuration = 300
+const transitionDelay = 350
 
 export const pageFade = {
   initial: {
     opacity: 0,
-    filter: "blur(100px)"
+    filter: 'blur(100px)'
   },
   enter: {
     opacity: 1,
@@ -12,28 +12,28 @@ export const pageFade = {
     transition: { duration: transitionDuration },
     delay: transitionDelay,
     beforeChildren: true,
-    filter: "blur(0px)"
+    filter: 'blur(0px)'
   },
   exit: {
     // y: "-900px",
     opacity: 0,
     transition: { duration: transitionDuration },
-    filter: "blur(100px)"
+    filter: 'blur(100px)'
   }
-};
+}
 
 export const staggerChildren = {
   enter: { staggerChildren: 50 }
-};
+}
 
 export const delayChildren = {
   enter: { delayChildren: transitionDelay }
-};
+}
 
 export const slideUp = {
-  initial: { y: "110%" },
+  initial: { y: '110%' },
   enter: { y: 0, transition: { duration: transitionDuration } }
-};
+}
 
 export const appear = {
   initial: { opacity: 0, y: 10 },
@@ -42,7 +42,7 @@ export const appear = {
     y: 0,
     transition: { duration: transitionDuration }
   }
-};
+}
 
 export const fade = {
   initial: { opacity: 0 },
@@ -50,4 +50,4 @@ export const fade = {
     opacity: 1,
     transition: { duration: transitionDuration }
   }
-};
+}
