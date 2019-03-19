@@ -114,7 +114,7 @@ const Layout = ({ children }) => (
     <TapToClose />
     <Resizer />
     <Header />
-    <Cookie />
+    {typeof location !== `undefined` && location.pathname === '/' && (<Cookie />)}
     <PoseGroup animateOnMount preEnterPose="initial">
       <Transition key={typeof location !== `undefined` && location.pathname}>
         {children}
