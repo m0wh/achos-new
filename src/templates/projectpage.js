@@ -8,6 +8,7 @@ import SEO from '../components/SEO'
 import randomColor from '../utils/randomColor'
 import fontSizes from '../utils/fontSizes'
 import ScrollToClose from '../components/scrolltoclose'
+import TuberiaSound from '../images/mariobros.mp3'
 
 // TODO: play Mario sound on route change/load
 
@@ -42,6 +43,10 @@ export default ({ data }) => {
         }
         image={node.imagenPortada.fluid}
       />
+
+    <audio autoPlay preload="auto">
+      <source src={TuberiaSound} type="audio/mpeg"></source>
+    </audio>
 
       <ProjectWrapper>
         <TextBlock
