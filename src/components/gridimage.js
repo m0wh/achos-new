@@ -19,24 +19,13 @@ const hoverProps = {
 
 const titleProps = {
   init: {
-    x: '-100%',
+    y: '300%',
     scale: 0,
   },
   hover: {
-    x: '0',
+    y: '0',
     scale: 1,
 
-  }
-}
-
-const categoryProps = {
-  init: {
-    x: '-100%',
-    scale: 0,
-  },
-  hover: {
-    x: '0',
-    scale: 1,
   }
 }
 
@@ -75,7 +64,7 @@ const Title = styled(posed.h3(titleProps))`
   color: ${ props => props.color };
 `
 
-const Category = styled(posed.p(categoryProps))`
+const Category = styled(posed.p(titleProps))`
   color: var(--lightgrey);
   ${ fontSizes(1.875) };
 `
