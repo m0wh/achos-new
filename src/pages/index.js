@@ -17,6 +17,7 @@ export default ({
     <Intro />
     <FancyMarquee text="Scroll Down!" />
     <Work projectEdges={projectEdges} />
+    <FancyMarquee black text="We need a developer that likes 🍺🍺🍺" />
     <ContactUs />
     <LuckyDay />
   </>

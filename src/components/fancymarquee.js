@@ -1,18 +1,18 @@
 import React from 'react'
 import styled from 'styled-components'
 import fontSizes from '../utils/fontSizes'
+import _ from 'lodash'
 
 const ScrollingText = styled.p`
   ${ fontSizes(9) };
+  transition: all 0.1s;
 `
 
+// Width is 300vw, otherwise long text justifies itself because it does not fit the viewport
 const Wrapper = styled.section`
-  display: grid;
-  align-items: center;
+  width: 300vw;
   margin: auto;
-  height: 200px; 
   overflow: hidden;
-  position: relative;
   padding: 2.625rem 0;
   color: white;
   background: ${ props => props.black ? 'var(--black)' : 'linear-gradient(246deg, #ff60dd, #60ff66, #f4ff60, #60f0ff)' };
@@ -31,10 +31,10 @@ const Wrapper = styled.section`
       background-position: 0% 72%;
     }
   }
-  &:hover {
-    background-size: 100% 100%;
-    cursor: ${ props => props.cursormail ? 'var(--mail)' : 'var(--down)' };
-  }
+  // &:hover {
+  //   background-size: 100% 100%;
+  //   cursor: ${ props => props.cursormail ? 'var(--mail)' : 'var(--down)' };
+  // }
 `
 
 class FancyMarquee extends React.Component {
@@ -53,9 +53,9 @@ class FancyMarquee extends React.Component {
   }
 
   handleScroll = () => {
-    const range = 40
+    const range = 200
     let scrolled = window.pageYOffset
-    const elemHeight = this.myRef.current && this.myRef.current.offsetHeight
+    // const elemHeight = this.myRef.current && this.myRef.current.offsetHeight
     const elemOffsetTop = this.myRef.current && this.myRef.current.offsetTop
     let calc = 1 - ((scrolled - elemOffsetTop + range) / range).toFixed(2) * 100
 
