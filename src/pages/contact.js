@@ -47,8 +47,22 @@ const List = styled.ul`
 `
 const LocationWrapper = styled.article`
   position: relative;
+
 `
-const Overlay = styled.div`
+// const AddressDetails = styled(posed.article(hoverProps))`
+//   //asas
+// `
+
+const AddressDetails = styled.article`
+  //asas
+`
+
+const Title = styled.h3`
+  ${ fontSizes(3) };
+  color: ${ props => props.color };
+`
+
+const Overlay = styled(posed.div(hoverProps))`
   background: rgba(26, 26, 26, 0.69);
   grid-column: 1 / -1;
   grid-row: 1 / -1;
@@ -67,10 +81,6 @@ const Overlay = styled.div`
 const OverlayWrapper = styled.div`
   margin: 3.5vw 4.1875vw;
 `
-const Title = styled.h3`
-  ${ fontSizes(3) };
-  color: ${ props => props.color };
-`
 
 const BusinessMail = styled.a`
   ${ fontSizes(8) };
@@ -80,10 +90,6 @@ const CollabsMail = styled.a`
 `
 const InternshipsMail = styled.a`
   ${ fontSizes(2.2) };
-`
-
-const AddressDetails = styled(posed.article(hoverProps))`
-  //asas
 `
 
 export default ({
