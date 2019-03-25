@@ -5,7 +5,7 @@ require('dotenv').config({
 module.exports = {
   siteMetadata: {
     title: 'achos!',
-    titleTemplate: 'achos&%s!',
+    titleTemplate: 'achos & %s!',
     description:
       'achos! attention-grabbing, panty-dropping communication and interactive design agency based in Barcelona and Silicon Bali.',
     url: 'https://www.doe.com', // No trailing slash allowed!
