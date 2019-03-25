@@ -5,7 +5,7 @@ import _ from 'lodash'
 
 const ScrollingText = styled.p`
   ${ fontSizes(9) };
-  transition: all 0.1s;
+  transition: transform 0.2s linear;
 `
 
 // Width is 300vw, otherwise long text justifies itself because it does not fit the viewport
@@ -57,7 +57,7 @@ class FancyMarquee extends React.Component {
     let scrolled = window.pageYOffset
     // const elemHeight = this.myRef.current && this.myRef.current.offsetHeight
     const elemOffsetTop = this.myRef.current && this.myRef.current.offsetTop
-    let calc = 1 - ((scrolled - elemOffsetTop + range) / range).toFixed(2) * 100
+    let calc = (1 - ((scrolled - elemOffsetTop + range) / range).toFixed(2) * 100)
 
     this.setState({
       translateX: `translateX(${ calc }%)`
