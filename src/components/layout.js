@@ -14,7 +14,7 @@ import BlackMail from '../images/icons/black-contact2.png'
 import DownCursor from '../images/icons/white-down.png'
 import Resizer from './resizer'
 import SecretCode from './secretcode'
-import Cookie from './cookie';
+import Cookie from './cookie'
 import { pageFade } from '../styles/poses'
 
 import Header from './header'

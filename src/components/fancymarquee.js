@@ -62,7 +62,6 @@ class FancyMarquee extends React.Component {
 
   render () {
     const { text, black } = this.props
-    console.log(this.state.translateX)
     return (
       <Wrapper black={black} ref={this.myRef}>
         <ScrollingText style={{ transform: `${ this.state.translateX } translateZ(1px)` }}>{text}</ScrollingText>

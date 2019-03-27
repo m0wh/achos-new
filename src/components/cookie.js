@@ -6,11 +6,12 @@ import styled, { css } from 'styled-components'
 import media from '../utils/breakpoints'
 
 const CookieWrapper = styled.div`
-${ media.tablet`display: none;` }
   position: fixed;
   bottom: 10%;
   right: -100px;
   z-index: 2;
+  ${ media.tablet`display: none;` }
+  
 `
 
 const CookieImage = styled.img`
