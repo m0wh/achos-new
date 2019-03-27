@@ -6,7 +6,7 @@ import Intro from '../components/intro'
 import Work from '../components/work'
 import ContactUs from '../components/contactus'
 import LuckyDay from '../components/luckyday'
-import Marquee from '../components/marquee'
+import FancyMarquee from '../components/fancymarquee'
 
 export default ({
   data: {
@@ -15,8 +15,9 @@ export default ({
 }) => (
   <>
     <Intro />
-    <Marquee text="Scroll Down!" />
+    <FancyMarquee text="Scroll Down!" />
     <Work projectEdges={projectEdges} />
+    <FancyMarquee black text="We need a developer that likes 🍺🍺🍺" />
     <ContactUs />
     <LuckyDay />
   </>
