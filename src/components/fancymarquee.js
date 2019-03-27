@@ -1,14 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
 import fontSizes from '../utils/fontSizes'
-import _ from 'lodash'
 
 const ScrollingText = styled.p`
   ${ fontSizes(9) };
   transition: transform 0.2s linear;
 `
 
-// Width is 300vw, otherwise long text justifies itself because it does not fit the viewport
+// Width has to be more than 100vw, otherwise long text justifies itself because it does not fit the viewport.
+
 const Wrapper = styled.section`
   width: 300vw;
   margin: auto;
@@ -31,10 +31,6 @@ const Wrapper = styled.section`
       background-position: 0% 72%;
     }
   }
-  // &:hover {
-  //   background-size: 100% 100%;
-  //   cursor: ${ props => props.cursormail ? 'var(--mail)' : 'var(--down)' };
-  // }
 `
 
 class FancyMarquee extends React.Component {
@@ -57,7 +53,7 @@ class FancyMarquee extends React.Component {
     let scrolled = window.pageYOffset
     // const elemHeight = this.myRef.current && this.myRef.current.offsetHeight
     const elemOffsetTop = this.myRef.current && this.myRef.current.offsetTop
-    let calc = (1 - ((scrolled - elemOffsetTop + range) / range).toFixed(2) * 100)
+    let calc = 0.2 * (1 - ((scrolled - elemOffsetTop + range) / range) * 100)
 
     this.setState({
       translateX: `translateX(${ calc }%)`
@@ -69,10 +65,20 @@ class FancyMarquee extends React.Component {
     console.log(this.state.translateX)
     return (
       <Wrapper black={black} ref={this.myRef}>
-        <ScrollingText style={{ transform: this.state.translateX }}>{text}</ScrollingText>
+        <ScrollingText style={{ transform: `${ this.state.translateX } translateZ(1px)` }}>{text}</ScrollingText>
       </Wrapper>
     )
   }
 };
 
 export default FancyMarquee
+
+// STUDIO JOB
+// key: "onScroll",
+//             value: function(e) {
+//                 e.scrollY + window.innerHeight >= this.containerBounds.top && e.scrollY <= this.containerBounds.bottom && this.inner && (this.nextTranslationValue = e.scrollY + window.innerHeight - this.containerBounds.top,
+//                 this.nextTranslationValue = c.map([0, window.innerHeight + this.containerBounds.height], [0, 75], this.nextTranslationValue),
+//                 this.translationValue += .12 * (this.nextTranslationValue - this.currentTranslationValue),
+//                 this.currentTranslationValue = this.translationValue,
+//                 this.inner.style.transform = "translateX(-" + this.translationValue + "%) translateZ(1px)")
+//             }
