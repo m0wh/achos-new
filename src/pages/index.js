@@ -25,7 +25,7 @@ export default ({
 
 export const pageQuery = graphql`
   query IndexQuery {
-    allContentfulProyecto(sort: { fields: [orden] order: DESC }) {
+    allContentfulProyecto(sort: { fields: [orden] order: ASC }) {
       edges {
         node {
           titulo
