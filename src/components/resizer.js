@@ -37,7 +37,7 @@ class Resizer extends Component {
 
   render () {
     return (
-      <div onResize={this.onResize}>
+      <div>
         {this.state.isResizing && <Wrapper />}
         {this.state.isResizing && <audio autoPlay src={DidgeridooSound}></audio>}
       </div>

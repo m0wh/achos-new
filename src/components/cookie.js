@@ -85,7 +85,7 @@ class Cookie extends Component {
         <CookieImage src={CookieFile} onMouseOver={this.handleHover} onMouseOut={this.stopHover} onClick={this.handleClick} deleted={isClosed} />
       </CookieWrapper>
       {(<VideoWrapper visible={isHovering ? 'grid' : 'none'}>
-        <VideoElement preload controls ref={this.myRef}>
+        <VideoElement controls ref={this.myRef}>
           <source src={CookiesVideoFile} />
         </VideoElement>
       </VideoWrapper>)}
