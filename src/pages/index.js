@@ -28,6 +28,7 @@ export const pageQuery = graphql`
     allContentfulProyecto(sort: { fields: [orden] order: ASC }) {
       edges {
         node {
+          id
           titulo
           orden
           slug
