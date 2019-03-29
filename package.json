@@ -21,6 +21,7 @@
     "lodash": "^4.17.11",
     "path": "^0.12.7",
     "prop-types": "^15.7.2",
+    "raf-schd": "^4.0.0",
     "react": "^16.8.5",
     "react-bottom-scroll-listener": "^2.1.2",
     "react-burger-menu": "^2.6.5",
