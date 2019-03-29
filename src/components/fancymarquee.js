@@ -40,8 +40,14 @@ class FancyMarquee extends React.Component {
 
   myRef = React.createRef();
 
+  getOffsetTop = () => this.myRef.current && this.myRef.current.offsetTop
+
+  getHeight = () => this.myRef.current && this.myRef.current.offsetHeight
+
   componentDidMount () {
     window.addEventListener('scroll', this.handleScroll)
+    this.elemOffsetTop = this.getOffsetTop()
+    this.elemOffsetHeight = this.getHeight()
   }
 
   componentWillUnmount () {
@@ -51,9 +57,7 @@ class FancyMarquee extends React.Component {
   handleScroll = () => {
     const range = 200
     let scrolled = window.pageYOffset
-    // const elemHeight = this.myRef.current && this.myRef.current.offsetHeight
-    const elemOffsetTop = this.myRef.current && this.myRef.current.offsetTop
-    let calc = 0.2 * (1 - ((scrolled - elemOffsetTop + range) / range) * 100)
+    let calc = 0.2 * (1 - (((scrolled - this.elemOffsetTop - (this.elemOffsetHeight / 2) + range) / range) * 100))
 
     this.setState({
       translateX: `translateX(${ calc }%)`
@@ -71,6 +75,8 @@ class FancyMarquee extends React.Component {
 };
 
 export default FancyMarquee
+
+// https://reactjs.org/docs/faq-functions.html#requestanimationframe-throttling
 
 // STUDIO JOB
 // key: "onScroll",
