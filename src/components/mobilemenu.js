@@ -1,13 +1,13 @@
-import React from "react";
-import { slide as BurgerMenu } from "react-burger-menu";
-import { List, ListItem, StyledLink } from "./navbar";
-import styled from "styled-components";
-import media from "../utils/breakpoints";
+import React from 'react'
+import { slide as BurgerMenu } from 'react-burger-menu'
+import { List, ListItem, StyledLink } from './navbar'
+import styled from 'styled-components'
+import media from '../utils/breakpoints'
 
 const StyledBurgerMenu = styled.div`
   display: none;
-  ${media.tablet`display: inherit;`};
-  ${media.phone`display: inherit;`};
+  ${ media.tablet`display: inherit;` };
+  ${ media.phone`display: inherit;` };
   position: fixed;
   z-index: 2;
   cursor: pointer;
@@ -85,7 +85,7 @@ const StyledBurgerMenu = styled.div`
     margin: 0;
     overflow: visible;
     position: fixed;
-    z-index: 2;
+    z-index: 1100;
   }
   .hamburger:hover {
     animation: zoom 300ms ease-in;
@@ -158,53 +158,50 @@ const StyledBurgerMenu = styled.div`
   .hamburger--slider.is-active .hamburger-inner::after {
     transform: translate3d(0, -30px, 0) rotate(-90deg);
   }
-`;
-
-
+`
 
 class MobileMenu extends React.Component {
   state = {
     menuOpen: false,
   }
   handleStateChange (state) {
-    this.setState({menuOpen: state.isOpen})  
+    this.setState({ menuOpen: state.isOpen })
   }
   closeMenu () {
-    this.setState({menuOpen: false})
+    this.setState({ menuOpen: false })
   }
   toggleMenu () {
-    this.setState({menuOpen: !this.state.menuOpen})
-
+    this.setState({ menuOpen: !this.state.menuOpen })
   }
-  render() {
+  render () {
     return (
       <StyledBurgerMenu>
         <BurgerMenu isOpen={this.state.menuOpen}
-          onStateChange={(state) => this.handleStateChange(state)} customBurgerIcon={false} customCrossIcon={false} noOverlay right width="100%">
-          <List style={{ textAlign: "center", lineHeight: "1.3" }} onClick={()=> this.toggleMenu()}>
-            <ListItem style={{ fontSize: "4rem" }} hoverable>
+          onStateChange={state => this.handleStateChange(state)} customBurgerIcon={false} customCrossIcon={false} noOverlay right width="100%">
+          <List style={{ textAlign: 'center', lineHeight: '1.3' }} onClick={() => this.toggleMenu()}>
+            <ListItem style={{ fontSize: '4rem' }} hoverable>
               <StyledLink to="/">home</StyledLink>
             </ListItem>
             {/* onClick scrolls down to beginning of projects */}
             {/* <ListItem style={{ fontSize: "4rem" }} hoverable>
               <StyledLink to="/">work</StyledLink>
             </ListItem> */}
-            <ListItem style={{ fontSize: "4rem" }} hoverable>
+            <ListItem style={{ fontSize: '4rem' }} hoverable>
               <StyledLink to="/about">about</StyledLink>
             </ListItem>
-            <ListItem style={{ fontSize: "4rem" }} hoverable>
+            <ListItem style={{ fontSize: '4rem' }} hoverable>
               <StyledLink to="/contact">contact</StyledLink>
             </ListItem>
           </List>
         </BurgerMenu>
-        <button onClick={() => this.toggleMenu()} className={this.state.menuOpen ? "hamburger hamburger--slider is-active" : "hamburger hamburger--slider"} type="button">
+        <button onClick={() => this.toggleMenu()} className={this.state.menuOpen ? 'hamburger hamburger--slider is-active' : 'hamburger hamburger--slider'} type="button">
           <span className="hamburger-box">
             <span className="hamburger-inner" />
           </span>
         </button>
       </StyledBurgerMenu>
-    );
+    )
   }
 }
 
-export default MobileMenu;
+export default MobileMenu
