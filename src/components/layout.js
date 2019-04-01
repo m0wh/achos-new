@@ -20,7 +20,7 @@ import { pageFade } from '../styles/poses'
 import Header from './header'
 import TapToClose from './taptoclose'
 
-const Transition = posed.div(pageFade)
+const Main = posed('main')(pageFade)
 
 const GlobalStyle = createGlobalStyle`
   ${ reset }
@@ -116,9 +116,9 @@ const Layout = ({ children }) => (
     <Header />
     {typeof location !== `undefined` && location.pathname === '/' && (<Cookie />)}
     <PoseGroup animateOnMount preEnterPose="initial">
-      <Transition key={typeof location !== `undefined` && location.pathname}>
+      <Main key={typeof location !== `undefined` && location.pathname} id="content" role="main">
         {children}
-      </Transition>
+      </Main>
     </PoseGroup>
     <SecretCode />
   </>
