@@ -9,11 +9,10 @@ import {
 import media from '../utils/breakpoints'
 import MobileMenu from './mobilemenu'
 import posed from 'react-pose'
-
 import SoundGif from './soundgif'
-
 import Sound from '../images/hadouken.mp3'
 import GIF from '../images/gifs/baseball.gif'
+import rafSchd from 'raf-schd'
 
 const navWrapperProps = {
   hidden: {
@@ -75,16 +74,17 @@ class Navbar extends React.Component {
   };
 
   componentDidMount () {
-    window.addEventListener('scroll', this.handleScroll)
+    window.addEventListener('scroll', rafSchd(this.handleScroll))
   }
 
   componentWillUnmount () {
-    window.removeEventListener('scroll', this.handleScroll)
+    rafSchd(this.handleScroll).cancel()
+    window.removeEventListener('scroll', rafSchd(this.handleScroll))
   }
 
   handleScroll = () => {
     const { lastScrollY } = this.state
-    const currentScrollY = window.scrollY
+    const currentScrollY = window.pageYOffset
 
     if (currentScrollY > lastScrollY) {
       this.setState({ isShowing: false })

@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import _ from 'lodash'
 import DidgeridooImage from '../images/didgeridoo.jpg'
 import DidgeridooSound from '../images/didgeridoosound.mp3'
+import rafSchd from 'raf-schd'
+
 
 const Wrapper = styled.div`
   background: url("${ DidgeridooImage }") no-repeat center center fixed; 
@@ -21,11 +22,12 @@ class Resizer extends Component {
   }
 
   componentDidMount () {
-    window.addEventListener('resize', _.debounce(this.onResize, 20))
+    window.addEventListener('resize', rafSchd(this.onResize))
   }
 
   componentWillUnmount () {
-    window.removeEventListener('resize', _.debounce(this.onResize, 20))
+    rafSchd(this.onResize).cancel()
+    window.removeEventListener('resize', rafSchd(this.onResize))
   }
 
   onResize = () => {

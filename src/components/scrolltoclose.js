@@ -1,10 +1,8 @@
 import React from 'react'
-import { Link } from 'gatsby'
 import styled from 'styled-components'
 import fontSizes from '../utils/fontSizes'
-import debounce from '../utils/debounce'
-import BottomScrollListener from 'react-bottom-scroll-listener'
 import { navigate } from 'gatsby'
+import rafSchd from 'raf-schd'
 
 const Wrapper = styled.div`
   display: grid;
@@ -24,17 +22,17 @@ class ScrollToClose extends React.Component {
   myRef = React.createRef();
 
   componentDidMount () {
-    // window.scrollTo(0,0);
-    window.addEventListener('scroll', this.handleScroll)
+    window.addEventListener('scroll', rafSchd(this.handleScroll))
   }
 
   componentWillUnmount () {
-    window.removeEventListener('scroll', this.handleScroll)
+    rafSchd(this.handleScroll).cancel()
+    window.removeEventListener('scroll', rafSchd(this.handleScroll))
   }
 
   handleScroll = () => {
     let scrolled = window.pageYOffset
-    const elemHeight = this.myRef.current && this.myRef.current.offsetHeight
+    // const elemHeight = this.myRef.current && this.myRef.current.offsetHeight
     const elemOffsetTop = this.myRef.current && this.myRef.current.offsetTop
     let calc = ((scrolled - elemOffsetTop + 400) / 400).toFixed(2)
 
@@ -45,6 +43,7 @@ class ScrollToClose extends React.Component {
     if ((window.innerHeight + window.pageYOffset) >= document.body.scrollHeight - 1) {
       // you're at the bottom of the page
       navigate('/')
+      // window.history.back()
     }
   }
 

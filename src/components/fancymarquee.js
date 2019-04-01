@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import fontSizes from '../utils/fontSizes'
-import rafSchedule from 'raf-schd'
+import rafSchd from 'raf-schd'
 
 const ScrollingText = styled.p`
   ${ fontSizes(9) };
@@ -46,13 +46,14 @@ class FancyMarquee extends React.Component {
   getHeight = () => this.myRef.current && this.myRef.current.offsetHeight
 
   componentDidMount () {
-    window.addEventListener('scroll', rafSchedule(this.handleScroll))
+    window.addEventListener('scroll', rafSchd(this.handleScroll))
     this.elemOffsetTop = this.getOffsetTop()
     this.elemOffsetHeight = this.getHeight()
   }
 
   componentWillUnmount () {
-    window.removeEventListener('scroll', rafSchedule(this.handleScroll))
+    rafSchd(this.handleScroll).cancel()
+    window.removeEventListener('scroll', rafSchd(this.handleScroll))
   }
 
   handleScroll = () => {
