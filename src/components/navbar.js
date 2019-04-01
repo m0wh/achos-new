@@ -3,11 +3,7 @@ import { Link } from 'gatsby'
 import styled from 'styled-components'
 import {
   Link as ScrollLink,
-  DirectLink,
-  Element,
-  Events,
   animateScroll as scroll,
-  scrollSpy,
   scroller
 } from 'react-scroll'
 import media from '../utils/breakpoints'
@@ -79,12 +75,10 @@ class Navbar extends React.Component {
   };
 
   componentDidMount () {
-    // When this component mounts, begin listening for scroll changes
     window.addEventListener('scroll', this.handleScroll)
   }
 
   componentWillUnmount () {
-    // If this component is unmounted, stop listening
     window.removeEventListener('scroll', this.handleScroll)
   }
 

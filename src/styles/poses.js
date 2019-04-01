@@ -8,14 +8,12 @@ export const pageFade = {
   },
   enter: {
     opacity: 1,
-    // y: "0px",
     transition: { duration: transitionDuration },
     delay: transitionDelay,
     beforeChildren: true,
     filter: 'blur(0px)'
   },
   exit: {
-    // y: "-900px",
     opacity: 0,
     transition: { duration: transitionDuration },
     filter: 'blur(100px)'
