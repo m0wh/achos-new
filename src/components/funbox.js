@@ -30,7 +30,6 @@ export default class FunBox extends React.Component {
     const {
       link,
       text,
-
     } = this.props
     return (
       <Wrapper onMouseEnter={this.startSound}>
