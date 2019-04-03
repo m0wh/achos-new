@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import CookieFile from '../images/cookies.png'
-import CookiesVideoFile from '../images/cookiesvideo.mp4'
+import CookiesVideoFile from '../images/cookiesvideo2.mp4'
 import WhiteXCursor from '../images/icons/white-x.png'
 import styled, { css } from 'styled-components'
 import media from '../utils/breakpoints'
