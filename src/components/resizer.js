@@ -4,7 +4,6 @@ import DidgeridooImage from '../images/didgeridoo.jpg'
 import DidgeridooSound from '../images/didgeridoosound.mp3'
 import rafSchd from 'raf-schd'
 
-
 const Wrapper = styled.div`
   background: url("${ DidgeridooImage }") no-repeat center center fixed; 
   background-size: cover;
@@ -14,6 +13,7 @@ const Wrapper = styled.div`
   width: 100vw;
   height: 100vh;
 `
+// TODO: possible refactor using:
 // https://codesandbox.io/s/m76o28w4k9?from-embed
 
 class Resizer extends Component {
@@ -38,11 +38,14 @@ class Resizer extends Component {
   }
 
   render () {
+    const windowWidth = window.innerWidth
     return (
-      <div>
-        {this.state.isResizing && <Wrapper />}
-        {this.state.isResizing && <audio autoPlay src={DidgeridooSound}></audio>}
-      </div>
+      windowWidth > 768 && (
+        <div>
+          {this.state.isResizing && <Wrapper />}
+          {this.state.isResizing && <audio autoPlay src={DidgeridooSound}></audio>}
+        </div>
+      )
     )
   }
 }
