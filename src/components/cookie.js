@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, useState, useRef } from 'react'
 import CookieFile from '../images/cookies.png'
 import CookiesVideoFile from '../images/cookiesvideo2.mp4'
 import WhiteXCursor from '../images/icons/white-x.png'
@@ -50,48 +50,29 @@ const VideoElement = styled.video`
   position: relative;
 `
 
-class Cookie extends Component {
-  state = {
-    isHovering: false,
-    isClosed: false
+function Cookie () {
+  const [isHovering, setIsHovering] = useState(false)
+  const [isClosed, setIsClosed] = useState(false)
+  const myRef = useRef(null)
+  const PlayVideo = () => {
+    myRef.current.play()
+  }
+  const StopVideo = () => {
+    myRef.current.pause()
   }
 
-  myRef = React.createRef();
-
-  handleHover = () => {
-    this.setState({
-      isHovering: true
-    }, () => this.myRef.current.play())
-  }
-
-  stopHover = () => {
-    this.setState({
-      isHovering: false
-    }, () => this.myRef.current.pause())
-  }
-
-  handleClick = () => {
-    this.setState({
-      isClosed: true,
-      isHovering: false
-    })
-  }
-
-  render () {
-    const { isHovering, isClosed } = this.state
-    return (
-      <>
+  return (
+    <>
       <CookieWrapper>
-        <CookieImage src={CookieFile} onMouseOver={this.handleHover} onMouseOut={this.stopHover} onClick={this.handleClick} deleted={isClosed} />
+        <CookieImage src={CookieFile} onMouseOver={() => { setIsHovering(true); PlayVideo() }} onMouseOut={() => { setIsHovering(false); StopVideo() }} onClick={() => { setIsClosed(true); setIsHovering(false) }} deleted={isClosed} />
       </CookieWrapper>
       {(<VideoWrapper visible={isHovering ? 'grid' : 'none'}>
-        <VideoElement controls ref={this.myRef}>
+        <VideoElement controls ref={myRef}>
           <source src={CookiesVideoFile} />
         </VideoElement>
       </VideoWrapper>)}
       </>
-    )
-  }
+  )
 }
 
 export default Cookie
