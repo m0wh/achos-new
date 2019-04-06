@@ -21,8 +21,8 @@ function Resizer () {
 
   return (
     <>
-      {width > 768 && isResizing && <Wrapper />}
-      {width > 768 && isResizing && <audio autoPlay src={DidgeridooSound}></audio>}
+      {width.windowWidth > 768 && isResizing && <Wrapper />}
+      {width.windowWidth > 768 && isResizing && <audio autoPlay src={DidgeridooSound}></audio>}
     </>
   )
 }

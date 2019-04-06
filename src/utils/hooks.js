@@ -1,11 +1,17 @@
 import { useState, useEffect } from 'react'
 
+let defaultWidth
+
+if (typeof window !== `undefined`) {
+  defaultWidth = window.innerWidth
+}
+
 export function useWindowResize () {
-  const [width, setWidth] = useState(window.innerWidth)
+  const [width, setWidth] = useState({ windowWidth: defaultWidth })
   const [isResizing, setIsResizing] = useState(false)
 
   const listener = () => {
-    setWidth(window.innerWidth)
+    setWidth({ windowWidth: window.innerWidth })
     setIsResizing(true)
     setTimeout(() => setIsResizing(false), 1000)
   }
