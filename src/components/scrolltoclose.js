@@ -42,8 +42,7 @@ class ScrollToClose extends React.Component {
 
     if ((window.innerHeight + window.pageYOffset) >= document.body.scrollHeight - 1) {
       // you're at the bottom of the page
-      navigate('/')
-      // window.history.back()
+      window.history.back()
     }
   }
 
