@@ -1,9 +1,8 @@
-// import React, { Component } from 'react'
-import React, { useState, useEffect, Component } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import DidgeridooImage from '../images/didgeridoo.jpg'
 import DidgeridooSound from '../images/didgeridoosound.mp3'
-import rafSchd from 'raf-schd'
+// import rafSchd from 'raf-schd'
 import { useWindowResize } from '../utils/hooks'
 
 const Wrapper = styled.div`
