@@ -12,7 +12,6 @@ import posed from 'react-pose'
 import SoundGif from './soundgif'
 import Sound from '../images/hadouken.mp3'
 import GIF from '../images/gifs/baseball.gif'
-import rafSchd from 'raf-schd'
 
 const navWrapperProps = {
   hidden: {
@@ -74,12 +73,11 @@ class Navbar extends React.Component {
   };
 
   componentDidMount () {
-    window.addEventListener('scroll', rafSchd(this.handleScroll))
+    window.addEventListener('scroll', this.handleScroll)
   }
 
   componentWillUnmount () {
-    rafSchd(this.handleScroll).cancel()
-    window.removeEventListener('scroll', rafSchd(this.handleScroll))
+    window.removeEventListener('scroll', this.handleScroll)
   }
 
   handleScroll = () => {
