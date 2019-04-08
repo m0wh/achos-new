@@ -1,6 +1,5 @@
+import React, { useState } from 'react'
 import styled from 'styled-components'
-
-import React, { Component } from 'react'
 
 const GiantDiv = styled.div`
   position: absolute;
@@ -15,23 +14,14 @@ const GiantDiv = styled.div`
   align-items: center;
 `
 
-class TapToClose extends Component {
-  state = {
-    isClicked: false
-  }
+function TapToClose () {
+  const [isClicked, setIsClicked] = useState(false)
 
-  render () {
-    return (
-      <div onClick={() => this.setState({ isClicked: true })}>
-        {!this.state.isClicked && (
-          <GiantDiv>
-            <h1>Tap to close</h1>
-          </GiantDiv>
-        )
-        }
-      </div>
-    )
-  }
+  return (
+    <div onClick={() => setIsClicked(true)}>
+      {!isClicked && (<GiantDiv><h1>Tap to close</h1></GiantDiv>)}
+    </div>
+  )
 }
 
 export default TapToClose
