@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import fontSizes from '../utils/fontSizes'
 import { navigate } from 'gatsby'
-import rafSchd from 'raf-schd'
 
 const Wrapper = styled.div`
   display: grid;
@@ -22,12 +21,11 @@ class ScrollToClose extends React.Component {
   myRef = React.createRef();
 
   componentDidMount () {
-    window.addEventListener('scroll', rafSchd(this.handleScroll))
+    window.addEventListener('scroll', this.handleScroll)
   }
 
   componentWillUnmount () {
-    rafSchd(this.handleScroll).cancel()
-    window.removeEventListener('scroll', rafSchd(this.handleScroll))
+    window.removeEventListener('scroll', this.handleScroll)
   }
 
   handleScroll = () => {
