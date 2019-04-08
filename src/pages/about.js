@@ -5,7 +5,6 @@ import styled from 'styled-components'
 import TextBlock from '../components/textblock'
 import BeansPic from '../images/beans.jpg'
 import fontSizes from '../utils/fontSizes'
-import AboutPic from '../images/about.gif'
 import media from '../utils/breakpoints'
 import Fade from 'react-reveal/Fade'
 
