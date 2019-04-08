@@ -2,10 +2,10 @@ import React from 'react'
 import { Link, graphql } from 'gatsby'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
-
 import posed from 'react-pose'
 import fontSizes from '../utils/fontSizes'
 import media from '../utils/breakpoints'
+import ContactGame from '../components/contactgame'
 
 const hoverProps = {
   hoverable: true,
@@ -21,11 +21,6 @@ const Wrapper = styled.main`
   background-color: var(--lightblack);
   color: var(--lightgrey);
   ${ fontSizes(1.875) }
-`
-const ImageWrapper = styled.div`
-  max-width: 100%;
-  position: relative;
-  bottom: 180px;
 `
 
 const LocationsGrid = styled.section`
@@ -99,9 +94,7 @@ export default ({
 }) => (
   <>
     <Wrapper>
-      <ImageWrapper>
-        <Img fluid={locationEdges[0].node.childImageSharp.fluid} />
-      </ImageWrapper>
+      <ContactGame />
       <ListsWrapper>
         <List>
           <li style={{ color: 'var(--pink)' }}>Business Enquiries</li>
