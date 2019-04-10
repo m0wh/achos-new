@@ -1,5 +1,6 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components'
+
 import DidgeridooImage from '../images/didgeridoo.jpg'
 import DidgeridooSound from '../images/didgeridoosound.mp3'
 import { useWindowResize } from '../utils/hooks'
@@ -12,6 +13,17 @@ const Wrapper = styled.div`
   z-index: 3;
   width: 100vw;
   height: 100vh;
+  
+`
+const HideEverything = createGlobalStyle`
+  body {
+    header {
+      opacity: 0;
+    }
+    * > img {
+      opacity: 0;
+    }
+  }
 `
 
 function Resizer () {
@@ -19,8 +31,13 @@ function Resizer () {
 
   return (
     <>
-      {width.windowWidth > 768 && isResizing && <Wrapper />}
-      {width.windowWidth > 768 && isResizing && <audio autoPlay src={DidgeridooSound}></audio>}
+      {width.windowWidth > 768 && isResizing &&
+      <>
+        <Wrapper />
+        <HideEverything />
+        <audio autoPlay src={DidgeridooSound}></audio>
+      </>}
+
     </>
   )
 }
