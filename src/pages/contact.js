@@ -79,12 +79,15 @@ const OverlayWrapper = styled.div`
 
 const BusinessMail = styled.a`
   ${ fontSizes(8) };
+  ${ media.tablet`${ fontSizes(4) }` };
 `
 const CollabsMail = styled.a`
   ${ fontSizes(4.6) };
+  ${ media.tablet`${ fontSizes(2.3) }` };
 `
 const InternshipsMail = styled.a`
   ${ fontSizes(2.2) };
+  ${ media.tablet`${ fontSizes(1.1) }` };
 `
 
 export default ({
