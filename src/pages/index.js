@@ -7,6 +7,7 @@ import Work from '../components/work'
 import ContactUs from '../components/contactus'
 import LuckyDay from '../components/luckyday'
 import FancyMarquee from '../components/fancymarquee'
+import SecretCode from '../components/secretcode'
 
 export default ({
   data: {
@@ -20,6 +21,7 @@ export default ({
     <FancyMarquee black text="We need a developer 🍺🍺🍺" />
     <ContactUs />
     <LuckyDay />
+    <SecretCode />
   </>
 )
 
