@@ -8,7 +8,7 @@ class SecretCode extends Component {
   }
 
   render = () => (
-    <Konami action={this.easterEgg} code={['65', '67', '72', '79', '83']}>
+    <Konami action={this.easterEgg} code={['65', '67', '72', '79', '83']} resetDelay={500}>
       <audio preload="auto" ref={test => { this.sound = test }}><source src={HadoukenSound} type="audio/mpeg"></source></audio>
     </Konami>
   )

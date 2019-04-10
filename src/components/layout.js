@@ -13,7 +13,7 @@ import PlusCursor from '../images/icons/white-+.png'
 import BlackMail from '../images/icons/black-contact2.png'
 import DownCursor from '../images/icons/white-down.png'
 import Resizer from './resizer'
-import SecretCode from './secretcode'
+
 import Cookie from './cookie'
 import { pageFade } from '../styles/poses'
 
@@ -120,7 +120,7 @@ const Layout = ({ children }) => (
         {children}
       </Main>
     </PoseGroup>
-    <SecretCode />
+
   </>
 )
 
