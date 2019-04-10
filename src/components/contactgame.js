@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
@@ -9,9 +9,11 @@ import StaticImage from '../images/contact/contact-static.jpg'
 import MovingImage from '../images/contact/contact-gif.gif'
 import CarCursorImage from '../images/contact/car-cursor-image.gif'
 import UfoCursorImage from '../images/contact/ufo-gif-image.gif'
+import CarClaxon from '../images/contact/car-claxon.mp3'
+import UfoSound from '../images/contact/ufo-ovni.mp3'
+import CarMusic from '../images/contact/car-sound.mp3'
+import UfoMusic from '../images/contact/ufo-sound.mp3'
 import { useMousePosition } from 'use-events'
-
-// https://stackoverflow.com/questions/9189250/animated-cursor-support-in-web-applications
 
 const HeroWrapper = styled.section`
   width: 100%;
@@ -52,16 +54,29 @@ const UfoCursor = styled(CarCursor)`
 
 `
 
-function ContactGame ({ visible }) {
+function ContactGame () {
   const [isHovering, setIsHovering] = useState(false)
   const [isVisible, setIsVisible] = useState(false)
   const [x, y, bind] = useMousePosition()
+  const refClaxonSound = useRef()
+  const refUfoSound = useRef()
+  function playClaxonSound () {
+    refClaxonSound.current.play()
+  }
+  function playUfoSound () {
+    refUfoSound.current.play()
+  }
+
   return (
     <HeroWrapper {...bind} >
-      <Test onMouseOver={() => setIsVisible(true)} onMouseOut={() => setIsVisible(false)}></Test>
-      <Image onMouseOver={() => setIsHovering(true)} onMouseOut={() => setIsHovering(false)} src={isHovering || isVisible ? MovingImage : StaticImage} />
+      <Test onClick={() => playUfoSound()} onMouseOver={() => setIsVisible(true)} onMouseOut={() => setIsVisible(false)}></Test>
+      <Image onClick={() => playClaxonSound()} onMouseOver={() => setIsHovering(true)} onMouseOut={() => setIsHovering(false)} src={isHovering || isVisible ? MovingImage : StaticImage} />
       <CarCursor visible={isHovering} style={{ top: `${ y }px`, left: `${ x }px` }} />
       <UfoCursor visible={isVisible} style={{ top: `${ y }px`, left: `${ x }px` }} />
+      { isHovering && (<audio autoPlay src={CarMusic}></audio>)}
+      { isVisible && (<audio autoPlay src={UfoMusic}></audio>)}
+      <audio ref={refClaxonSound} src={CarClaxon}></audio>
+      <audio ref={refUfoSound} src={UfoSound}></audio>
 
     </HeroWrapper>
   )
