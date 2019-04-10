@@ -1,13 +1,13 @@
-import React from "react";
-import { Link } from "gatsby";
-import styled from "styled-components";
-import { Element } from "react-scroll";
-import media from "../utils/breakpoints";
-
-import FacebookIcon from "../images/icons/facebook.svg";
-import TinderIcon from "../images/icons/tinder.svg";
-import TwitterIcon from "../images/icons/twitter.svg";
-import YoutubeIcon from "../images/icons/youtube.svg";
+import React from 'react'
+import { Link } from 'gatsby'
+import styled from 'styled-components'
+import { Element } from 'react-scroll'
+import media from '../utils/breakpoints'
+import fontSizes from '../utils/fontSizes'
+import FacebookIcon from '../images/icons/facebook.svg'
+import TinderIcon from '../images/icons/tinder.svg'
+import TwitterIcon from '../images/icons/twitter.svg'
+import YoutubeIcon from '../images/icons/youtube.svg'
 
 const Wrapper = styled.footer`
   margin: 3.75rem 3.1875rem 5.25rem 3.5625rem;
@@ -17,44 +17,35 @@ const Wrapper = styled.footer`
   justify-items: start;
   align-items: baseline;
   color: var(--lightgrey);
-  @media (min-width: 320px) {
-     {
-      font-size: calc(1.1rem + ((1vw - 0.2rem) * 2.4107));
-    }
-  }
-  @media (min-width: 768px) {
-     {
-      font-size: 1.875rem;
-    }
-  }
+  ${ fontSizes(1.875) }
   line-height: var(--bigtextlineheight);
-  ${media.tablet`grid-gap: 5vw;`}
-  ${media.phone`
+  ${ media.tablet`grid-gap: 5vw;` }
+  ${ media.phone`
     grid-template-columns: 1fr;
     justify-items: center;
     align-items: center;
     text-align: center;
-    ;`}
-`;
+    ;` }
+`
 
 const ContactList = styled.ul`
   list-style: none;
-`;
+`
 
 const FollowUs = styled.ul`
   list-style: none;
   justify-self: center;
   margin-right: 3vw;
-`;
+`
 
 const ListItem = styled.li`
-  color: ${props => props.color};
-`;
+  color: ${ props => props.color };
+`
 
 const SocialIcon = styled.img`
-  color: ${props => props.color};
+  color: ${ props => props.color };
   padding-right: 2.08vw;
-`;
+`
 
 // const Mail = styled.li``;
 
@@ -143,6 +134,6 @@ const ContactUs = () => (
       </FollowUs>
     </Wrapper>
   </Element>
-);
+)
 
-export default ContactUs;
+export default ContactUs
