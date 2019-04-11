@@ -48,6 +48,7 @@ const VideoElement = styled.video`
   max-width: 100%;
   height: auto;
   position: relative;
+  width: 80%;
 `
 
 function Cookie () {
