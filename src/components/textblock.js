@@ -10,7 +10,7 @@ export const Wrapper = styled.article`
   grid-gap: 1vw;
   align-items: baseline;
   ${ fontSizes(1.875) }
-  margin: 0 3.5625vw;
+  margin: var(--generalSpacing);
   padding: ${ props => props.padding };
 `
 
