@@ -31,7 +31,7 @@ const navWrapperProps = {
 
 const NavWrapper = styled(posed.nav(navWrapperProps))`
   justify-self: end;
-  padding: 0.5rem 0;
+  padding: 1vw 0;
   z-index: 2;
   position: fixed;
   right: 100px;

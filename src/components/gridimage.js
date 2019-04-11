@@ -57,7 +57,7 @@ const Overlay = styled(posed.div(hoverProps))`
 `
 
 const OverlayWrapper = styled.div`
-  margin: 3.5vw 4.1875vw;
+  padding: var(--generalSpacing);
 `
 const Title = styled(posed.h3(titleProps))`
   ${ fontSizes(3.33) };

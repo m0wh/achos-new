@@ -10,7 +10,9 @@ import TwitterIcon from '../images/icons/twitter.svg'
 import YoutubeIcon from '../images/icons/youtube.svg'
 
 const Wrapper = styled.footer`
-  margin: 3.75rem 3.1875rem 5.25rem 3.5625rem;
+  padding: var(--generalSpacing);
+  padding-top: 3.75vw;
+  padding-bottom: 5.25vw;
   max-width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;

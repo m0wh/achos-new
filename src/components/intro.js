@@ -67,7 +67,7 @@ import Sound34 from '../images/sounds/34_hotter.mp3'
 import Sound35 from '../images/sounds/35_than_a_banging_supernova.mp3'
 
 const IntroWrapper = styled.section`
-  margin: 3.5vw 4.187vw;
+  margin: var(--generalSpacing);
 `
 
 const IntroText = styled.p`

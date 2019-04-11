@@ -49,7 +49,8 @@ const GlobalStyle = createGlobalStyle`
     --bigtextlineheight: 1.4;
     --mobilelineheight: 1.7;
 
-    // 
+    // Margins and padding
+    --generalSpacing: 2.625vw 3.5625vw;
   }
 
   // html > * {
