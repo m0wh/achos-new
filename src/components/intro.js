@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import Fade from 'react-reveal/Fade'
 import fontSizes from '../utils/fontSizes'
 import SoundGIF from './soundgif'
+import media from '../utils/breakpoints'
 
 // Gif imports
 import Gif1 from '../images/gifs/1_achos.gif'
@@ -65,13 +66,13 @@ import Sound33 from '../images/sounds/33_brand.mp3'
 import Sound34 from '../images/sounds/34_hotter.mp3'
 import Sound35 from '../images/sounds/35_than_a_banging_supernova.mp3'
 
-
 const IntroWrapper = styled.section`
   margin: 3.5vw 4.187vw;
 `
 
 const IntroText = styled.p`
-  ${ fontSizes(3) };
+  ${ fontSizes(2.5) };
+  ${ media.tablet`${ fontSizes(1.875) }` }
   color: var(--lightgrey);
   line-height: var(--bigtextlineheight);
 `
@@ -109,10 +110,6 @@ const Inside = styled.span`
     transform: scaleY(0.9) translateX(0);
   }
 `
-
-// if one gif is playing, hide other elements on the page
-// add a class of hidden to all?
-//
 
 const Intro = () => (
   <IntroWrapper>
