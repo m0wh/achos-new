@@ -3,7 +3,8 @@ import styled from 'styled-components'
 
 const GiantDiv = styled.div`
   position: absolute;
-  background: red;
+  background: var(--black);
+  font-size: 1.875rem;
   z-index: 4;
   top: 0;
   left: 0;
@@ -12,6 +13,8 @@ const GiantDiv = styled.div`
   display: grid;
   justify-items: center;
   align-items: center;
+  opacity: 0.95;
+  color: white;
 `
 
 function TapToClose () {
@@ -19,7 +22,7 @@ function TapToClose () {
 
   return (
     <div onClick={() => setIsClicked(true)}>
-      {!isClicked && (<GiantDiv><h1>Tap to close</h1></GiantDiv>)}
+      {!isClicked && (<GiantDiv><h1>Tap to continue</h1></GiantDiv>)}
     </div>
   )
 }
