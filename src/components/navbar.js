@@ -12,6 +12,7 @@ import posed from 'react-pose'
 import SoundGif from './soundgif'
 import Sound from '../images/hadouken.mp3'
 import GIF from '../images/gifs/baseball.gif'
+import fontSizes from '../utils/fontSizes'
 
 const navWrapperProps = {
   hidden: {
@@ -30,7 +31,7 @@ const navWrapperProps = {
 
 const NavWrapper = styled(posed.nav(navWrapperProps))`
   justify-self: end;
-  padding: 1rem 0;
+  padding: 0.5rem 0;
   z-index: 2;
   position: fixed;
   right: 100px;
@@ -43,7 +44,7 @@ export const List = styled.ul`
   ${ media.tablet`display: none;` };
 `
 export const ListItem = styled.li`
-  font-size: 1.875rem;
+${ fontSizes(1.875) }
   padding: 0 1.25rem;
   color: ${ props => props.color };
   &:hover {
