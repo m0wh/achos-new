@@ -10,7 +10,6 @@ import fontSizes from '../utils/fontSizes'
 import ScrollToClose from '../components/scrolltoclose'
 import TuberiaSound from '../images/mariobros.mp3'
 
-// TODO: play Mario sound on route change/load
 
 const ProjectWrapper = styled.main`
   background-color: var(--lightblack);

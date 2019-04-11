@@ -78,6 +78,8 @@ export default FancyMarquee
 
 // https://reactjs.org/docs/faq-functions.html#requestanimationframe-throttling
 
+// TODO: useOnScreen to optimize (https://usehooks.com/useOnScreen/)
+
 // STUDIO JOB
 // key: "onScroll",
 //             value: function(e) {
