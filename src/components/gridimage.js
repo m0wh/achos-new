@@ -19,13 +19,10 @@ const hoverProps = {
 
 const titleProps = {
   init: {
-    y: '300%',
-    scale: 0,
+    filter: `blur(200px)`,
   },
   hover: {
-    y: '0',
-    scale: 1,
-
+    filter: `blur(0px)`,
   }
 }
 
