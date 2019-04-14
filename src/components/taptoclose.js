@@ -15,6 +15,7 @@ const GiantDiv = styled.div`
   align-items: center;
   opacity: 0.95;
   color: white;
+  cursor: var(--whiteX);
 `
 
 function TapToClose () {
