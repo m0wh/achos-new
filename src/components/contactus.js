@@ -6,7 +6,7 @@ import media from '../utils/breakpoints'
 import fontSizes from '../utils/fontSizes'
 import FacebookIcon from '../images/icons/facebook.svg'
 import TinderIcon from '../images/icons/tinder.svg'
-import TwitterIcon from '../images/icons/twitter.svg'
+import RAIcon from '../images/icons/ra.png'
 import YoutubeIcon from '../images/icons/youtube.svg'
 
 const Wrapper = styled.footer`
@@ -125,12 +125,12 @@ const ContactUs = () => (
         </ListItem>
         <ListItem color="var(--yellow)">
           <a
-            href="https://twitter.com/achosagency"
+            href="https://www.residentadvisor.net/profile/achos"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <SocialIcon src={TwitterIcon} />
-            Twitter
+            <SocialIcon width="23px" src={RAIcon} />
+            RA
           </a>
         </ListItem>
       </FollowUs>
