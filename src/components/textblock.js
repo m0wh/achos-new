@@ -14,7 +14,7 @@ export const Wrapper = styled.article`
   padding: ${ props => props.padding };
 `
 
-const TextLeft = styled.p`
+export const TextLeft = styled.p`
   grid-column-start: 1;
   grid-column-end: 2;
   color: ${ props => props.color };
