@@ -12,6 +12,7 @@ import PointerWhite from '../images/icons/white-default.png'
 import PlusCursor from '../images/icons/white-+.png'
 import BlackMail from '../images/icons/black-contact2.png'
 import DownCursor from '../images/icons/white-down.png'
+import WhiteX from '../images/icons/white-x.png'
 import Resizer from './resizer'
 
 import Cookie from './cookie'
@@ -42,6 +43,7 @@ const GlobalStyle = createGlobalStyle`
       --plusminus: url(${ PlusCursor }) 40 40, auto;
       --mail: url(${ BlackMail }) 40 40, auto;
       --down: url(${ DownCursor }) 40 40, auto;
+      --whiteX: url(${ WhiteX }) 40 40, auto;
     //
     
     // Line-height
