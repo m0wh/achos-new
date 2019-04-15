@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import fontSizes from '../utils/fontSizes'
+import ScrollPercentage from 'react-scroll-percentage'
 import { navigate } from 'gatsby'
 
 const Wrapper = styled.div`
@@ -15,39 +16,29 @@ const Wrapper = styled.div`
 
 class ScrollToClose extends React.Component {
   state = {
-    opacity: 0,
+    percentage: 0,
+    inView: false
   };
 
-  myRef = React.createRef();
-
-  componentDidMount () {
-    window.addEventListener('scroll', this.handleScroll)
-  }
-
-  componentWillUnmount () {
-    window.removeEventListener('scroll', this.handleScroll)
-  }
-
-  handleScroll = () => {
-    let scrolled = window.pageYOffset
-    // const elemHeight = this.myRef.current && this.myRef.current.offsetHeight
-    const elemOffsetTop = this.myRef.current && this.myRef.current.offsetTop
-    let calc = ((scrolled - elemOffsetTop + 400) / 400).toFixed(2)
-
-    this.setState({
-      opacity: calc
-    })
-
-    if ((window.innerHeight + window.pageYOffset) >= document.body.scrollHeight - 1) {
-      // you're at the bottom of the page
-      navigate('/')
+  takeMeBack = (function () {
+    let executed = false
+    return function () {
+      if (!executed) {
+        executed = true
+        window.history.back()
+      }
     }
-  }
+  })();
 
   render () {
     return (
-      <Wrapper ref={this.myRef}>
-        <p style={{ opacity: this.state.opacity }}>Scroll to close</p>
+      <Wrapper>
+        <ScrollPercentage
+          onChange={(percentage, inView) => this.setState({ percentage, inView })}
+        >
+          <p style={{ opacity: `${ this.state.percentage.toFixed(2) }` }}>Scroll to close</p>
+          {this.state.percentage === 1 ? this.takeMeBack() : null}
+        </ScrollPercentage>
       </Wrapper>
     )
   }
