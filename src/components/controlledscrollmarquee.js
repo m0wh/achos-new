@@ -5,7 +5,7 @@ import ScrollPercentage from 'react-scroll-percentage'
 
 const ScrollingText = styled.p`
   ${ fontSizes(9) };
-  transition: transform 0.2s linear;
+  transition: transform 0.1s linear;
 `
 
 // Width has to be more than 100vw, otherwise long text justifies itself because it does not fit the viewport.
@@ -34,7 +34,7 @@ const Wrapper = styled.section`
   }
 `
 
-class FancyMarquee extends React.Component {
+class ControlledScrollMarquee extends React.Component {
   state = {
     percentage: null,
   };
@@ -53,7 +53,7 @@ class FancyMarquee extends React.Component {
   }
 };
 
-export default FancyMarquee
+export default ControlledScrollMarquee
 
 // https://reactjs.org/docs/faq-functions.html#requestanimationframe-throttling
 

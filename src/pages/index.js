@@ -6,7 +6,7 @@ import Intro from '../components/intro'
 import Work from '../components/work'
 import ContactUs from '../components/contactus'
 import LuckyDay from '../components/luckyday'
-import FancyMarquee from '../components/fancymarquee'
+import ControlledScrollMarquee from '../components/controlledscrollmarquee'
 import SecretCode from '../components/secretcode'
 
 export default ({
@@ -16,9 +16,9 @@ export default ({
 }) => (
   <>
     <Intro />
-    <FancyMarquee text="Scroll Down  Scroll Down Scroll Down" />
+    <ControlledScrollMarquee text="Scroll Down  Scroll Down Scroll Down" />
     <Work projectEdges={projectEdges} />
-    <FancyMarquee black text="We need a developer 🍺🍺🍺" />
+    <ControlledScrollMarquee black text="We need a developer 🍺🍺🍺" />
     <ContactUs />
     <LuckyDay />
     <SecretCode />
