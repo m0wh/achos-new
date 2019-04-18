@@ -51,6 +51,7 @@ const CarCursor = styled.div`
 
 const UfoCursor = styled(CarCursor)`
   background: transparent url(${ UfoCursorImage }) no-repeat;
+  height: 250px;
 
 `
 
