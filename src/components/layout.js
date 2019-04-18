@@ -114,7 +114,7 @@ const Layout = ({ children }) => (
   <>
     <SEO />
     <GlobalStyle />
-    <TapToClose />
+    {typeof location !== `undefined` && location.pathname === '/' && (<TapToClose />)}
     <Resizer />
     <Header />
     {typeof location !== `undefined` && location.pathname === '/' && (<Cookie />)}
