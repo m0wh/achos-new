@@ -42,7 +42,7 @@ class ControlledScrollMarquee extends React.Component {
   render () {
     const { text, black } = this.props
     return (
-      <Wrapper black={black} ref={this.myRef}>
+      <Wrapper black={black}>
         <ScrollPercentage
           onChange={percentage => this.setState({ percentage })}
         >
