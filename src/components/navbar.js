@@ -13,6 +13,7 @@ import SoundGif from './soundgif'
 import Sound from '../images/hadouken.mp3'
 import GIF from '../images/gifs/baseball.gif'
 import fontSizes from '../utils/fontSizes'
+import { navigate } from '@reach/router'
 
 const navWrapperProps = {
   hidden: {
@@ -94,11 +95,20 @@ class Navbar extends React.Component {
   };
 
   scrollToWork () {
-    scroller.scrollTo('work', {
-      duration: 800,
-      delay: 0,
-      smooth: true
-    })
+    if (typeof location !== `undefined` && location.pathname !== '/') {
+      navigate('/')
+      setTimeout(() => (scroller.scrollTo('work', {
+        duration: 800,
+        delay: 0,
+        smooth: true
+      })), 200)
+    } else {
+      scroller.scrollTo('work', {
+        duration: 800,
+        delay: 0,
+        smooth: true
+      })
+    }
   }
 
   render () {
@@ -136,12 +146,11 @@ class Navbar extends React.Component {
               ? fiveSecLink
               : homeLink}
           </ListItem>
-          {(typeof location !== `undefined` && location.pathname === '/') &&
-            (
-              <ListItem color="var(--cyan)">
-                <ScrollLink onClick={() => this.scrollToWork()}>work</ScrollLink>
-              </ListItem>)
-          }
+
+          <ListItem color="var(--cyan)">
+            <ScrollLink onClick={() => this.scrollToWork()}>work</ScrollLink>
+          </ListItem>
+
           <ListItem color="var(--green)">
             <StyledLink to="/about">about</StyledLink>
           </ListItem>
