@@ -16,13 +16,6 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: `gatsby-source-contentful`,
-      options: {
-        spaceId: `7q0ttflu0eox`,
-        accessToken: `${ process.env.GATSBY_ACCESS_TOKEN }`,
-      },
-    },
-    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `locationimages`,
@@ -36,7 +29,44 @@ module.exports = {
         path: `${ __dirname }/src/pages`
       }
     },
-    `gatsby-mdx`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `projects`,
+        path: `${ __dirname }/src/projects`
+      }
+    },
+    {
+      resolve: 'gatsby-mdx',
+      options: {
+        extensions: ['.mdx', '.md'],
+        gatsbyRemarkPlugins: [
+          {
+            resolve: 'gatsby-remark-external-links',
+            options: {
+              target: '_blank',
+              rel: 'nofollow noopener noreferrer',
+            },
+          },
+          {
+            resolve: 'gatsby-remark-images',
+            options: {
+              maxWidth: 830,
+              quality: 70,
+              withWebp: true,
+              linkImagesToOriginal: false,
+            },
+          },
+          // TODO: Replace with "mdx-component-autolink-headers"
+          {
+            resolve: 'gatsby-remark-autolink-headers',
+            options: {
+              maintainCase: false,
+            },
+          },
+        ],
+      },
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-remark`,
