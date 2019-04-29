@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 
 const GiantDiv = styled.div`
-  position: absolute;
+  position: fixed;
   background: var(--black);
   font-size: 1.875rem;
   z-index: 4;
