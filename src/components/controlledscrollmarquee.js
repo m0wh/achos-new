@@ -16,6 +16,7 @@ const Wrapper = styled.section`
   overflow: hidden;
   padding: 2.625rem 0;
   color: white;
+  white-space: nowrap;
   background: ${ props => props.black ? 'var(--black)' : 'linear-gradient(246deg, #ff60dd, #60ff66, #f4ff60, #60f0ff)' };
   background-size: 400% 400%;
 
