@@ -38,7 +38,14 @@ const Wrapper = styled.section`
 class ControlledScrollMarquee extends React.Component {
   state = {
     percentage: null,
+    windowWidth: null
   };
+
+  componentDidMount () {
+    this.setState({
+      windowWidth: window.innerWidth
+    })
+  }
 
   render () {
     const { text, black } = this.props
@@ -47,7 +54,7 @@ class ControlledScrollMarquee extends React.Component {
         <ScrollPercentage
           onChange={percentage => this.setState({ percentage })}
         >
-          <ScrollingText style={{ transform: `translateX(${ -this.state.percentage * window.innerWidth }px) translateZ(1px)` }}>{text}</ScrollingText>
+          <ScrollingText style={{ transform: `translateX(${ -this.state.percentage * this.state.windowWidth }px) translateZ(1px)` }}>{text}</ScrollingText>
         </ScrollPercentage>
       </Wrapper>
     )
