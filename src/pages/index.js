@@ -7,6 +7,7 @@ import Work from '../components/work'
 import ContactUs from '../components/contactus'
 import LuckyDay from '../components/luckyday'
 import ControlledScrollMarquee from '../components/controlledscrollmarquee'
+import AutoScroll from '../components/autoscroll'
 import SecretCode from '../components/secretcode'
 
 export default ({
@@ -18,7 +19,7 @@ export default ({
     <Intro />
     <ControlledScrollMarquee text="Scroll Down  Scroll Down Scroll Down" />
     <Work projectEdges={projectEdges} />
-    <ControlledScrollMarquee black text="We need a developer 🍺🍺🍺" />
+    <AutoScroll/>
     <ContactUs />
     <LuckyDay />
     <SecretCode />
