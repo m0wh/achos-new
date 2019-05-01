@@ -61,17 +61,33 @@ function Cookie () {
   const StopVideo = () => {
     myRef.current.pause()
   }
+  let cookieClosedData = sessionStorage.getItem('cookieClosed')
+
+  function handleCookieClick () {
+    setIsClosed(true)
+    setIsHovering(false)
+    sessionStorage.setItem('cookieClosed', 'yeah sonn')
+  }
 
   return (
     <>
-      <CookieWrapper>
-        <CookieImage src={CookieFile} onMouseOver={() => { setIsHovering(true); PlayVideo() }} onMouseOut={() => { setIsHovering(false); StopVideo() }} onClick={() => { setIsClosed(true); setIsHovering(false) }} deleted={isClosed} />
-      </CookieWrapper>
-      {(<VideoWrapper visible={isHovering ? 'grid' : 'none'}>
-        <VideoElement controls ref={myRef}>
-          <source src={CookiesVideoFile} />
-        </VideoElement>
-      </VideoWrapper>)}
+      {!cookieClosedData && (
+        <>
+        <>
+        <CookieWrapper>
+          <CookieImage src={CookieFile} onMouseOver={() => { setIsHovering(true); PlayVideo() }} onMouseOut={() => { setIsHovering(false); StopVideo() }} onClick={() => handleCookieClick()} deleted={isClosed} />
+        </CookieWrapper>
+        </>
+        <>
+        <VideoWrapper visible={isHovering ? 'grid' : 'none'}>
+          <VideoElement controls ref={myRef}>
+            <source src={CookiesVideoFile} />
+          </VideoElement>
+        </VideoWrapper>
+        </>
+        </>
+      )
+      }
       </>
   )
 }

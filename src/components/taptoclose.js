@@ -20,10 +20,16 @@ const GiantDiv = styled.div`
 
 function TapToClose () {
   const [isClicked, setIsClicked] = useState(false)
+  let clickedData = sessionStorage.getItem('clicked')
+
+  function cliCkAndSaveStorage () {
+    setIsClicked(true)
+    sessionStorage.setItem('clicked', 'yeah boy')
+  }
 
   return (
-    <div onClick={() => setIsClicked(true)}>
-      {!isClicked && (<GiantDiv><h1>Tap to continue</h1></GiantDiv>)}
+    <div onClick={() => cliCkAndSaveStorage()}>
+      {!isClicked && !clickedData && (<GiantDiv><h1>Tap to continue</h1></GiantDiv>)}
     </div>
   )
 }
