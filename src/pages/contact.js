@@ -17,7 +17,7 @@ const hoverProps = {
   }
 }
 
-const Wrapper = styled.main`
+const Wrapper = styled.section`
   background-color: var(--lightblack);
   color: var(--lightgrey);
   ${ fontSizes(1.875) }

@@ -10,8 +10,7 @@ import fontSizes from '../utils/fontSizes'
 import ScrollToClose from '../components/scrolltoclose'
 import TuberiaSound from '../images/mariobros.mp3'
 
-
-const ProjectWrapper = styled.main`
+const ProjectWrapper = styled.section`
   background-color: var(--lightblack);
   color: var(--lightgrey);
   display: grid;

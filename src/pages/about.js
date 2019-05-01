@@ -30,7 +30,7 @@ const aboutText = [
 const hotBranding =
   'art direction / bondage / events / graphic design / illustration / digital marketing / sex / print /  editorial / naming / messaging / tone of voice / strategy / positioning / latex / packaging design / porn / social media / film / WOW factor! / creative team'
 
-const ProjectWrapper = styled.main`
+const ProjectWrapper = styled.section`
   background-color: var(--lightblack);
   color: var(--lightgrey);
   ${ fontSizes(1.875) }

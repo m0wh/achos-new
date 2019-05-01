@@ -9,7 +9,7 @@ import randomMoan from '../utils/randomMoan'
 
 import TickSound from '../images/tick3.mp3'
 
-const WorkGrid = styled.main`
+const WorkGrid = styled.section`
   display: grid;
   grid-template-columns: 1fr 1fr;
   ${ media.phone`grid-template-columns: 1fr` };
