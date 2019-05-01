@@ -1,30 +1,29 @@
-import { css } from "styled-components";
+import { css } from 'styled-components'
 
 // Change sizes or add new ones and then reference by ${media.sizename}
 const sizes = {
   desktop: 992,
   tablet: 768,
   phone: 576
-};
+}
 
 /*
 desktop -> 62rem
 tablet -> 48rem
 phone -> 36rem
 
-
 */
 
 // Iterate through the sizes and create a media template
 const media = Object.keys(sizes).reduce((acc, label) => {
   acc[label] = (...args) => css`
-    @media (max-width: ${sizes[label] / 16}em) {
-      ${css(...args)};
+    @media (max-width: ${ sizes[label] / 16 }em) {
+      ${ css(...args) };
     }
-  `;
+  `
 
-  return acc;
-}, {});
+  return acc
+}, {})
 
 /*
 EXAMPLES
@@ -33,4 +32,4 @@ EXAMPLES
   ${media.desktop`background-color: palevioletred;`}
 */
 
-export default media;
+export default media
