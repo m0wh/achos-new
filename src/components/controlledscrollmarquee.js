@@ -2,16 +2,16 @@ import React from 'react'
 import styled from 'styled-components'
 import fontSizes from '../utils/fontSizes'
 import ScrollPercentage from 'react-scroll-percentage'
+import media from '../utils/breakpoints'
+
+// ${ media.tablet`display: none;` };
 
 const ScrollingText = styled.p`
   ${ fontSizes(9) };
   transition: transform 0.1s linear;
 `
 
-// Width has to be more than 100vw, otherwise long text justifies itself because it does not fit the viewport.
-
 const Wrapper = styled.section`
-  width: 300vw;
   margin: auto;
   overflow: hidden;
   padding: 2.625rem 0;
