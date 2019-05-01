@@ -1,6 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import fontSizes from '../utils/fontSizes'
+import media from '../utils/breakpoints'
+
+// ${ media.tablet`display: none;` };
 
 const data = [
   {
@@ -30,8 +33,6 @@ const data = [
   }
 ]
 
-// alternativa: https://codepen.io/letea/pen/yXweBM
-
 const Wrapper = styled.section`
   width: 100vw;
   height: 25vh;
@@ -53,16 +54,39 @@ const ScrollingTexts = styled.div`
   display: flex;
   align-items: center;
   text-align: center;
-  transform: translateX(100%); 
-  animation: scroll-left 20s linear infinite;
+  transform: translateX(-1%); 
+  animation: scroll-left 300s linear infinite;
   @keyframes scroll-left {
     0% { 
-      transform: translateX(100%); 
+      transform: translateX(-1%); 
     }
     100% { 
-      transform: translateX(-100%); 
+      transform: translateX(-1000%); 
     }
   }
+  ${ media.tablet`
+    width: 100%;
+    @keyframes scroll-left {
+      0% { 
+        transform: translateX(-1%); 
+      }
+      100% { 
+        transform: translateX(-2000%); 
+      }
+    }
+  ` }
+  ${ media.phone`
+    width: 100%;
+    @keyframes scroll-left {
+      0% { 
+        transform: translateX(-1%); 
+      }
+      100% { 
+        transform: translateX(-5000%); 
+      }
+    }
+  ` }
+    
 `
 
 const ScrollingElement = styled.a`
