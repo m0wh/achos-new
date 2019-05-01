@@ -9,7 +9,8 @@ const Wrapper = styled.div`
   justify-items: center;
   align-items: center;
   height: 60vh;
-  padding-bottom: 400px;
+  padding: 10rem 0 20rem 0;
+  margin-bottom: 20rem;
   color: white;
   ${ fontSizes(1.875) }
 `
@@ -17,7 +18,6 @@ const Wrapper = styled.div`
 class ScrollToClose extends React.Component {
   state = {
     percentage: 0,
-    inView: false
   };
 
   takeMeBack = (function () {
@@ -34,7 +34,8 @@ class ScrollToClose extends React.Component {
     return (
       <Wrapper>
         <ScrollPercentage
-          onChange={(percentage, inView) => this.setState({ percentage, inView })}
+          onChange={percentage => this.setState({ percentage })}
+          threshold={0.25}
         >
           <p style={{ opacity: `${ this.state.percentage.toFixed(2) }` }}>Scroll to close</p>
           {this.state.percentage === 1 ? this.takeMeBack() : null}
