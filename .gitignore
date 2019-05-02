@@ -8,3 +8,6 @@ yarn-error.log
 # Build directory
 /public
 .DS_Store
+
+# Others
+src/projects
