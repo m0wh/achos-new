@@ -1,6 +1,7 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import { Link, useStaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
+import Img from 'gatsby-image'
 
 const SliderWrapper = styled.section`
   overflow: auto;
@@ -30,13 +31,13 @@ const SliderImage = styled.div`
 
 `
 
-const ImageSlider = ({ images }) => {
+const ImageSlider = ({ edges }) => {
   return (
     <SliderWrapper>
       <SliderContainer>
-        {images.map((item, index) => (
-          <SliderImage key={index}>
-            <img width="100%" src={item} />
+        {edges.filter(element => element.node.childImageSharp !== null).map(item => (
+          <SliderImage>
+            <Img width="100%" fluid={item.node.childImageSharp.fluid} />
           </SliderImage>
         ))}
       </SliderContainer>

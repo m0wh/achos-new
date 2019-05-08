@@ -7,6 +7,7 @@ import BeansPic from '../images/beans.jpg'
 import fontSizes from '../utils/fontSizes'
 import media from '../utils/breakpoints'
 import Fade from 'react-reveal/Fade'
+import ImageSlider from '../components/imageslider'
 
 const aboutText = [
   {
@@ -65,7 +66,7 @@ const CreditsList = styled.ul`
   justify-items: center;
 `
 
-export default ({ data }) => (
+export default ({ data, attention }) => (
   <>
     <ProjectWrapper>
       <VideoWrapper style={{ marginTop: 0, marginBottom: '6rem' }}>
@@ -99,28 +100,6 @@ export default ({ data }) => (
       <ImageWrapper>
         <img src={BeansPic} width="100%" />
       </ImageWrapper>
-      <TextBlock
-        colorLeft="var(--yellow)"
-        textLeft="attention"
-        textRight={aboutText[1].attention}
-      />
-      <br />
-      <br />
-      <TextBlock
-        colorLeft="var(--pink)"
-        textLeft="crazy websites"
-        textRight={aboutText[1].crazyWebsites}
-      />
-      <br />
-      <br />
-      <TextBlock
-        colorLeft="var(--green)"
-        textLeft="hot branding"
-        textRight={aboutText[1].hotBranding}
-      />
-      <ImageWrapper>
-        <img src={BeansPic} width="100%" />
-      </ImageWrapper>
 
       <CreditsList style={{ margin: '0 3rem' }}>
         <Fade duration={1000}>
@@ -133,6 +112,30 @@ export default ({ data }) => (
         </Fade>
       </CreditsList>
 
+      <TextBlock
+        colorLeft="var(--yellow)"
+        textLeft="Attention"
+        textRight={aboutText[1].attention}
+      />
+      {/* <ImageSlider /> */}
+      <br />
+      <br />
+      <TextBlock
+        colorLeft="var(--pink)"
+        textLeft="Digital"
+        textRight={aboutText[1].crazyWebsites}
+      />
+      <ImageSlider edges={data.attention.edges} />
+      <br />
+      <br />
+      <TextBlock
+        colorLeft="var(--green)"
+        textLeft="Branding"
+        textRight={aboutText[1].hotBranding}
+      />
+      {/* <ImageSlider images={BeansPic} /> */}
+
+      {/* <Img fluid={data.allFile.edges[1].node.childImageSharp.fluid} /> */}
       {/* <CreditsList style={{ padding: "0 3rem" }}>
         <li style={{ color: "var(--pink)", marginBottom: "2rem" }}>
           Shooting Range
@@ -200,5 +203,16 @@ export const query = graphql`
         }
       }
     }
-  }  
+    attention: allFile(filter: {sourceInstanceName: {eq: "aboutimages"}, relativeDirectory: {eq: "attention"}}) {
+        edges {
+          node {
+            childImageSharp {
+              fluid(maxWidth: 800, quality: 80) {
+                ...GatsbyImageSharpFluid_tracedSVG
+              }
+            }
+          }
+        }
+      }
+    }  
 `
