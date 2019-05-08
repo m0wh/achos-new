@@ -30,6 +30,56 @@ const data = [
     text: `we need you`,
     href: `mailto:hi@achos.es?Subject=I'm a fucking interested and I want my beer!`,
     color: `white`
+  },
+  {
+    text: `we need designers & artists`,
+    href: `mailto:hi@achos.es?Subject=I'm a fucking Designer / Artist and I want my beer!`,
+    color: `var(--pink)`
+  },
+  {
+    text: `we need front end & back end developers`,
+    href: `mailto:hi@achos.es?Subject=I'm a fucking Developer and I want my beer!`,
+    color: `var(--cyan)`
+  },
+  {
+    text: `we need thinkers & social media`,
+    href: `mailto:hi@achos.es?Subject=I'm a fucking Thinker / Social and I want my beer!`,
+    color: `var(--green)`
+  },
+  {
+    text: `we need accounts & project managers`,
+    href: `mailto:hi@achos.es?Subject=I'm a fucking Account Manager / Project manager / I want my beer!`,
+    color: `var(--yellow)`
+  },
+  {
+    text: `we need you`,
+    href: `mailto:hi@achos.es?Subject=I'm a fucking interested and I want my beer!`,
+    color: `white`
+  },
+  {
+    text: `we need designers & artists`,
+    href: `mailto:hi@achos.es?Subject=I'm a fucking Designer / Artist and I want my beer!`,
+    color: `var(--pink)`
+  },
+  {
+    text: `we need front end & back end developers`,
+    href: `mailto:hi@achos.es?Subject=I'm a fucking Developer and I want my beer!`,
+    color: `var(--cyan)`
+  },
+  {
+    text: `we need thinkers & social media`,
+    href: `mailto:hi@achos.es?Subject=I'm a fucking Thinker / Social and I want my beer!`,
+    color: `var(--green)`
+  },
+  {
+    text: `we need accounts & project managers`,
+    href: `mailto:hi@achos.es?Subject=I'm a fucking Account Manager / Project manager / I want my beer!`,
+    color: `var(--yellow)`
+  },
+  {
+    text: `we need you`,
+    href: `mailto:hi@achos.es?Subject=I'm a fucking interested and I want my beer!`,
+    color: `white`
   }
 ]
 
@@ -61,7 +111,7 @@ const ScrollingTexts = styled.div`
       transform: translateX(-1%); 
     }
     100% { 
-      transform: translateX(-1000%); 
+      transform: translateX(-3000%); 
     }
   }
   ${ media.tablet`
@@ -71,7 +121,7 @@ const ScrollingTexts = styled.div`
         transform: translateX(-1%); 
       }
       100% { 
-        transform: translateX(-2000%); 
+        transform: translateX(-7000%); 
       }
     }
   ` }
@@ -82,7 +132,7 @@ const ScrollingTexts = styled.div`
         transform: translateX(-1%); 
       }
       100% { 
-        transform: translateX(-5000%); 
+        transform: translateX(-11000%); 
       }
     }
   ` }
@@ -98,8 +148,8 @@ function AutoScroll () {
   return (
     <Wrapper>
       <ScrollingTexts>
-        {data.map(item => (
-          <ScrollingElement key={item.text} href={item.href} color={item.color}>
+        {data.map((item, index) => (
+          <ScrollingElement key={index} href={item.href} color={item.color}>
             {item.text}
           </ScrollingElement>))}
       </ScrollingTexts>
