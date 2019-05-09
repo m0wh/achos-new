@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef, useEffect, useState } from 'react'
 import { Link, useStaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
@@ -9,13 +9,10 @@ const SliderWrapper = styled.section`
   display: grid;
   align-items: center;
   width: 100vw;
-  // height: 60vh;
   
 `
 
 const SliderContainer = styled.div`
-  display: flex;
-  align-items: center;
   position: relative;
   padding: 0 6vmin;
   white-space: nowrap;
@@ -23,18 +20,27 @@ const SliderContainer = styled.div`
 `
 const SliderImage = styled.div`
   display: inline-block;
-  width: 40vw;
+  width: 50vmax;
   margin: 0 2vmin;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
-  // transform: scale(1, 1);
   transition: all 0.65s ease;
 
 `
 
 const ImageSlider = ({ edges }) => {
+  let parentRef = useRef(null)
+  let childRef = useRef(null)
+  function mouseMove (event) {
+    let thisWidth = childRef.current.offsetWidth
+    let barWidth = (window.innerWidth / thisWidth) * window.innerWidth
+    let maxScroll = parentRef.current.offsetWidth
+    let scrollSize = (event.clientX * thisWidth) / maxScroll
+
+    parentRef.current.scrollLeft = scrollSize - barWidth
+  }
   return (
-    <SliderWrapper>
-      <SliderContainer>
+    <SliderWrapper onMouseMove={mouseMove} ref={parentRef}>
+      <SliderContainer ref={childRef}>
         {edges.filter(element => element.node.childImageSharp !== null).map(item => (
           <SliderImage>
             <Img width="100%" fluid={item.node.childImageSharp.fluid} />
