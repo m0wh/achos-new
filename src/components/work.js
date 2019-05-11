@@ -24,13 +24,13 @@ export default ({ projectEdges }) => {
           (
             <GridImage
               color={randomColor()}
-              key={project.node.id}
-              big={project.node.esGrande}
-              fluid={project.node.imagenPortada.fluid}
-              name={project.node.titulo}
-              category={project.node.categoria}
-              link={project.node.slug}
-              sound={project.node.esGrande ? randomMoan() : TickSound}
+              key={project.node.frontmatter.title}
+              big={project.node.frontmatter.esGrande}
+              fluid={project.node.frontmatter.cover.childImageSharp.fluid}
+              name={project.node.frontmatter.title}
+              category={project.node.frontmatter.category}
+              link={project.node.fields.slug}
+              sound={project.node.frontmatter.esGrande ? randomMoan() : TickSound}
             />
 
           )
