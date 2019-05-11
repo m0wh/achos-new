@@ -1,5 +1,13 @@
 const _ = require('lodash')
+const path = require('path')
 
+exports.onCreateWebpackConfig = ({ actions }) => {
+  actions.setWebpackConfig({
+    resolve: {
+      modules: [path.resolve(__dirname, 'src'), 'node_modules'],
+    },
+  })
+}
 // graphql function doesn't throw an error so we have to check to check for the result.errors to throw manually
 const wrapper = promise =>
   promise.then(result => {
@@ -68,19 +76,3 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   })
 }
-
-// Necessary changes to get gatsby-mdx and Cypress working
-// exports.onCreateWebpackConfig = ({ stage, actions, loaders, getConfig }) => {
-//   const config = getConfig()
-
-//   config.module.rules = [
-//     ...config.module.rules.filter(rule => String(rule.test) !== String(/\.jsx?$/)),
-//     {
-//       ...loaders.js(),
-//       test: /\.jsx?$/,
-//       exclude: modulePath => /node_modules/.test(modulePath) && !/node_modules\/gatsby-mdx/.test(modulePath),
-//     },
-//   ]
-
-//   actions.replaceWebpackConfig(config)
-// }
