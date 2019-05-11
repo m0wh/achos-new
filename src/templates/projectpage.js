@@ -39,7 +39,7 @@ export default ({ data: { mdx } }) => {
         description={
           mdx.frontmatter.title || 'nothin’'
         }
-        // image={node.imagenPortada.fluid}
+        image={mdx.frontmatter.cover.childImageSharp.fluid}
       />
 
     <audio autoPlay preload="auto">
