@@ -4,12 +4,10 @@ slug: "caca"
 cover: "./bleep-00.jpg"
 category: "porn"
 esGrande: true
-# introduction: "#bleepme is a free social platform for discovering creative talent of all types, allowing you to curate your online presence in one simple, beautiful layout. Unleash your creativity and showcase your talent to the world!"
-
-# concept: "#bleepme allows users to mix and match the best elements of their online profiles and content. We set out to design a simple and clean website to complement the service that this new social platform provides."
-# bigimage2: "./bleep-01.jpg"
-# smallimage1: "./bleep-02.jpg"
-# smallimage2: "./bleep-03.jpg"
+images: 
+  - ./bleep-01.jpg
+  - ./bleep-02.jpg
+  - ./bleepme3.png
 credits:
   - title: "producer"
     color: "var(--yellow)"
@@ -27,21 +25,13 @@ credits:
 ---
 
 import { Wrapper, TextLeft, TextRight } from 'components/textblock'
+import ProjectImg from 'components/projectimg'
 
-
-test2
-
+<Wrapper padding="2rem"><TextLeft color="var(--pink)">introduction</TextLeft><TextRight color="green">#bleepme is a free social platform for discovering creative talent of all types, allowing you to curate your online presence in one simple, beautiful layout. Unleash your creativity and showcase your talent to the world!</TextRight></Wrapper>
 <Wrapper padding="2rem"><TextLeft color="red">sdssdsd</TextLeft><TextRight color="green">right</TextRight></Wrapper>
-<Wrapper padding="2rem"><TextLeft color="red">sdssdsd</TextLeft><TextRight color="green">right</TextRight></Wrapper>
-s
-df
-sd
-designf
-sdf
-s
-design
 
-
-
-
-sdf
+<div>
+  <ProjectImg fluid={props.images[0]} small/>
+  <ProjectImg fluid={props.images[2]} small/>
+</div>
+ 
