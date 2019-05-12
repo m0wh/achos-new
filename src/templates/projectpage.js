@@ -77,7 +77,7 @@ export default ({ data: { mdx } }) => {
             </CreditsList>
           </Wrapper>
         </Fade>
-        {/* <ScrollToClose /> */}
+        <ScrollToClose />
       </ProjectWrapper>
     </>
   )
