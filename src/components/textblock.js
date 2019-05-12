@@ -20,7 +20,7 @@ export const TextLeft = styled.p`
   color: ${ props => props.color };
   font-size: ${ props => props.sizeLeft };
 `
-const TextRight = styled.p`
+export const TextRight = styled.p`
   grid-column-start: 2;
   grid-column-end: 3;
   ${ media.phone`
