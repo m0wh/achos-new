@@ -14,13 +14,13 @@ export const Wrapper = styled.article`
   padding: ${ props => props.padding };
 `
 
-const TextLeft = styled.p`
+export const TextLeft = styled.p`
   grid-column-start: 1;
   grid-column-end: 2;
   color: ${ props => props.color };
   font-size: ${ props => props.sizeLeft };
 `
-const TextRight = styled.p`
+export const TextRight = styled.p`
   grid-column-start: 2;
   grid-column-end: 3;
   ${ media.phone`

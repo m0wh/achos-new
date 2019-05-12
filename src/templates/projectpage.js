@@ -1,9 +1,10 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import styled from 'styled-components'
-import Img from 'gatsby-image'
+import ProjectImg from '../components/projectimg'
 import Fade from 'react-reveal/Fade'
 import TextBlock, { Wrapper } from '../components/textblock'
+import MDXRenderer from 'gatsby-mdx/mdx-renderer'
 import SEO from '../components/SEO'
 import randomColor from '../utils/randomColor'
 import fontSizes from '../utils/fontSizes'
@@ -17,11 +18,6 @@ const ProjectWrapper = styled.section`
   grid-template-columns: 1fr;
 `
 
-const ProjectImg = styled(Img)`
-  width: ${ props => props.small ? '50%' : '' };
-  display: ${ props => props.small ? 'inline-block' : '' };
-`
-
 const CreditsList = styled.ul`
   grid-column: span 2;
   justify-items: center;
@@ -30,16 +26,24 @@ const CreditsList = styled.ul`
   color: ${ props => props.color };
 `
 
-export default ({ data }) => {
-  const { node } = data.allContentfulProyecto.edges[0]
+export default ({ data: { mdx } }) => {
+  const projectImages = mdx.frontmatter.images
+  const imgs = []
+  if (projectImages) {
+    projectImages.forEach((image, i) => {
+      const { fluid } = image.childImageSharp
+      imgs.push(fluid)
+    })
+  }
+
   return (
     <>
       <SEO
-        title={node.titulo}
+        title={mdx.frontmatter.title}
         description={
-          node.bloquesDeTexto[0].childContentfulBloqueDeTextoBodyTextNode.childMarkdownRemark.rawMarkdownBody || 'nothin’'
+          mdx.frontmatter.title || 'nothin’'
         }
-        image={node.imagenPortada.fluid}
+        image={mdx.frontmatter.cover.childImageSharp.fluid}
       />
 
     <audio autoPlay preload="auto">
@@ -48,74 +52,32 @@ export default ({ data }) => {
 
       <ProjectWrapper>
         <TextBlock
-          textCenter={node.titulo}
+          textCenter={mdx.frontmatter.title}
           padding="4vw 0"
           sizeCenter={fontSizes(5)}
           colorCenter="white"
         />
-        <div style={{ maxWidth: '100%' }}>
-          <ProjectImg fluid={node.imagenPortada.fluid} />
-        </div>
-        <TextBlock
-          colorLeft={randomColor()}
-          textLeft={node.bloquesDeTexto[0].titulo}
-          textRight={node.bloquesDeTexto[0].childContentfulBloqueDeTextoBodyTextNode.childMarkdownRemark.rawMarkdownBody}
-          padding="4vw 0"
-        />
-        {node.imagenes[0] && (<ProjectImg small={node.imagenes[0].esPequena} fluid={node.imagenes[0].imagen.fluid} />)}
-
-        {/* {node.gifsvideos[0] && (<video
-            loop
-            controls
-            style={{ width: '100%' }}
-            src={node.gifsvideos[0].archivo.file.url}
-          />)} */}
-        <TextBlock
-          colorLeft={randomColor()}
-          textLeft={node.bloquesDeTexto[1].titulo}
-          textRight={node.bloquesDeTexto[1].childContentfulBloqueDeTextoBodyTextNode.childMarkdownRemark.rawMarkdownBody}
-          padding="4vw 0"
-        />
-        <div>
-          {node.imagenes[1] && (<ProjectImg small={node.imagenes[1].esPequena} fluid={node.imagenes[1].imagen.fluid} />)}
-          {node.imagenes[2] && (<ProjectImg small={node.imagenes[2].esPequena} fluid={node.imagenes[2].imagen.fluid} />)}
-        </div>
-        {node.bloquesDeTexto[2] && (<TextBlock
-          colorLeft={randomColor()}
-          textLeft={node.bloquesDeTexto[2].titulo}
-          textRight={node.bloquesDeTexto[2].childContentfulBloqueDeTextoBodyTextNode.childMarkdownRemark.rawMarkdownBody}
-          padding="4vw 0"
-        />)}
-        <div>
-          {node.imagenes[3] && (<ProjectImg small={node.imagenes[3].esPequena} fluid={node.imagenes[3].imagen.fluid} />)}
-          {node.imagenes[4] && (<ProjectImg small={node.imagenes[4].esPequena} fluid={node.imagenes[4].imagen.fluid} />)}
-        </div>
-        {node.bloquesDeTexto[3] && (<TextBlock
-          colorLeft={randomColor()}
-          textLeft={node.bloquesDeTexto[3].titulo}
-          textRight={node.bloquesDeTexto[3].childContentfulBloqueDeTextoBodyTextNode.childMarkdownRemark.rawMarkdownBody}
-          padding="4vw 0"
-        />)}
-        <div>
-          {node.imagenes[5] && (<ProjectImg small={node.imagenes[5].esPequena} fluid={node.imagenes[5].imagen.fluid} />)}
-          {node.imagenes[6] && (<ProjectImg small={node.imagenes[6].esPequena} fluid={node.imagenes[6].imagen.fluid} />)}
-        </div>
-
+        <Fade duration={500}>
+          <div style={{ maxWidth: '100%' }}>
+            <ProjectImg fluid={mdx.frontmatter.cover.childImageSharp.fluid} />
+          </div>
+        </Fade>
+        <MDXRenderer media={mdx.frontmatter.media} images={imgs}>{mdx.code.body}</MDXRenderer>
         <Fade cascade duration={2000}>
           <Wrapper style={{ padding: '4vw 0' }}>
             <CreditsList>
-              {node.listaDeCreditos.map(credito => (
+              {mdx.frontmatter.credits.map(credito => (
                 <ul style={{ marginBottom: '2.5vw' }}>
-                  <li style={{ color: credito.color }} key={credito.titulo}>
-                    {credito.titulo}
+                  <li style={{ color: credito.color }} key={credito.title}>
+                    {credito.title}
                   </li>
-                  <li>{credito.nombre}</li>
+                  <li>{credito.name}</li>
                 </ul>
               ))}
             </CreditsList>
           </Wrapper>
         </Fade>
-        <ScrollToClose />
+        {/* <ScrollToClose /> */}
       </ProjectWrapper>
     </>
   )
@@ -123,47 +85,38 @@ export default ({ data }) => {
 
 export const query = graphql`
   query ProjectPageQuery ($slug: String!) {
-    allContentfulProyecto(filter: { slug: { eq: $slug }}) {
-      edges {
-        node {
-          titulo
-          imagenPortada {
-            fluid(maxWidth: 800, quality: 80) {
-               ...GatsbyContentfulFluid
+    mdx(fields: {slug: { eq: $slug }}) {
+      fields {
+        slug
+      }
+      frontmatter {
+        title
+        slug
+        cover {
+          childImageSharp {
+            fluid(maxWidth: 850, quality: 80) {
+              ...GatsbyImageSharpFluid_withWebp_tracedSVG
             }
-          }
-          bloquesDeTexto {
-            titulo
-            childContentfulBloqueDeTextoBodyTextNode {
-              childMarkdownRemark {
-                rawMarkdownBody
-              }
-            }
-          }
-          imagenes {
-            esPequena
-            imagen {
-              fluid(maxWidth: 800, quality: 80) {
-               ...GatsbyContentfulFluid
-              }
-            }
-          }
-          # If the field is empty, build fails. Need to fix how to query empty fields
-          # gifsvideos {
-          #   titulo
-          #   esPequeno
-          #   archivo {
-          #     file {
-          #       url
-          #     }
-          #   }
-          # }
-          listaDeCreditos {
-            titulo
-            color
-            nombre
           }
         }
+        media {
+          publicURL
+        }
+        images {
+          childImageSharp {
+            fluid(maxWidth: 850, quality: 80) {
+              ...GatsbyImageSharpFluid_withWebp_tracedSVG
+            }
+          }
+        }
+        credits {
+          title
+          color
+          name
+        }
+      }
+      code {
+        body
       }
     }
   }

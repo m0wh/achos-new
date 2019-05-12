@@ -10,11 +10,7 @@ import ControlledScrollMarquee from '../components/controlledscrollmarquee'
 import AutoScroll from '../components/autoscroll'
 import SecretCode from '../components/secretcode'
 
-export default ({
-  data: {
-    allContentfulProyecto: { edges: projectEdges }
-  }
-}) => (
+export default ({ data: { allMdx: { edges: projectEdges } } }) => (
   <>
     <Intro />
     <ControlledScrollMarquee text="Scroll Down  Scroll Down Scroll Down" />
@@ -28,19 +24,26 @@ export default ({
 
 export const pageQuery = graphql`
   query IndexQuery {
-    allContentfulProyecto(sort: { fields: [orden] order: ASC }) {
+    allMdx(
+      sort: { fields: [frontmatter___title], order: DESC }
+      filter: { fields: { sourceInstanceName: { eq: "projects" } } }
+    ) {
       edges {
         node {
-          id
-          titulo
-          orden
-          slug
-          esGrande
-          categoria
-          imagenPortada {
-              fluid(maxWidth: 800, quality: 80) {
-               ...GatsbyContentfulFluid_tracedSVG
+          fields {
+            slug
+          }
+          frontmatter {
+            title
+            category
+            esGrande
+            cover {
+              childImageSharp {
+                fluid(maxWidth: 850, quality: 80) {
+                  ...GatsbyImageSharpFluid_withWebp_tracedSVG
+                }
               }
+            }
           }
         }
       }
