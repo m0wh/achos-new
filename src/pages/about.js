@@ -27,6 +27,107 @@ const aboutText = [
   }
 ]
 
+const blaBla =
+  [
+    { name: 'Pecha Kucha Den Haag', link: 'http://www.pechakuchadenhaag.nl' },
+    {
+      name: 'EVA',
+      link: 'http://evafest.com/'
+    },
+    {
+      name: 'ADCE Potencial',
+      link:
+        'http://www.adceurope.org/news/detail/id/140/adce-high-potentials-comes-to-munich-in-2017'
+    },
+    { name: 'OFFF Barcelona', link: 'http://www.offf.ws' },
+    { name: 'ENED', link: 'https://ened.pt' },
+    { name: 'ADCE', link: 'http://europeancreativityfestival.com' },
+    { name: 'Idep Barcelona', link: 'http://www.idep.es' },
+    { name: 'FIU Barcelona', link: 'http://www.fiubcn.com' },
+    { name: 'UAB', link: 'http://www.fiubcn.com' }
+  ]
+
+const boomBoom =
+  [
+    {
+      name: 'Design Kids',
+      link: 'http://thedesignkids.org/interviews/achos/'
+    },
+    {
+      name: 'TIA',
+      link:
+        'http://www.topinteractiveagencies.com/digital/agency/profiles/mixing-work-pleasure-search-creativity/'
+    },
+    {
+      name: 'Charlie Magazine',
+      link: 'http://charliemag.be/wereld/barcelona1/'
+    },
+    {
+      name: 'el Periodico',
+      link:
+        'http://www.elperiodico.com/es/noticias/sociedad/espai-born-compartir-espacio-los-proyectos-trabajo-4186661'
+    },
+    {
+      name: 'Graffica',
+      link: 'http://graffica.info/achos-robo-sagmeister-walsh/'
+    },
+    {
+      name: 'Creative Review',
+      link:
+        'http://www.creativereview.co.uk/cr-blog/2015/april/sagmeister-walsh-and-the-robbery-that-never-was/'
+    },
+    {
+      name: 'BOOOOOOOM',
+      link:
+        'http://www.booooooom.com/2015/04/21/how-to-get-noticed-steal-work-from-sagmeister-walsh/'
+    },
+    { name: 'Murcia Visual', link: 'http://www.murciavisual.com/?p=8170' },
+    { name: 'Idep Barcelona', link: 'http://www.idep.es' },
+    {
+      name: 'Small Job',
+      link:
+        'http://blog.asmalljob.com/?utm_source=rss&utm_medium=rss&utm_campaign=como-partir-un-laus'
+    }
+  ]
+
+const blingBling =
+  [
+    {
+      name: 'Mariano Pascual · SOTD & Dev. Awwwards ',
+      link: 'https://www.awwwards.com/sites/mariano-pascual'
+    },
+    {
+      name: 'DOOB · Brutalist Website',
+      link: 'http://brutalistwebsites.com/dictionaryofonlinebehavior.com/'
+    },
+    {
+      name: 'Lazy Eyes · Honors Awwwards',
+      link: 'https://www.awwwards.com/sites/lazy-eyes'
+    },
+    {
+      name: 'Lazy Eyes · Brutalist Website',
+      link: 'http://brutalistwebsites.com/lazyeyes.cool/'
+    },
+    {
+      name: 'Codea Studio · Honors Awwwards',
+      link: 'https://www.awwwards.com/sites/codea-studio'
+    },
+    {
+      name: 'Codea Studio · Brutalist Website',
+      link: 'http://brutalistwebsites.com/codeastudio.com/'
+    },
+    {
+      name: 'Jen Lu · Honors Awwwards',
+      link: 'https://www.awwwards.com/sites/collabwith-jen-lu'
+    },
+    {
+      name: 'Smash · Honors Awwwards',
+      link: 'https://www.awwwards.com/sites/smash-post-production-company'
+    },
+    { name: "Laus '15", link: '' },
+    { name: "Laus '14", link: '' }
+  ]
+
 const hotBranding =
   'art direction / bondage / events / graphic design / illustration / digital marketing / sex / print /  editorial / naming / messaging / tone of voice / strategy / positioning / latex / packaging design / porn / social media / film / WOW factor! / creative team'
 
@@ -142,13 +243,13 @@ export default ({ data }) => (
       <ShowsContainer>
         <ul>
           <Fade duration={1000}>
-            <ul style={{ color: 'var(--cyan)' }}>{data.allContentfulListaAbout.edges[2].node.titulo}</ul>
+            <ul style={{ color: 'var(--cyan)' }}>bla bla</ul>
           </Fade>
           <Fade cascade duration={2000}>
-            {data.allContentfulListaAbout.edges[2].node.enlaces.map(item => (
+            {blaBla.map(item => (
               <li key={item.id}>
-                <a href={item.enlace} target="_blank" rel="noopener noreferrer">
-                  {item.texto}
+                <a href={item.link} target="_blank" rel="noopener noreferrer">
+                  {item.name}
                 </a>
               </li>
             ))}
@@ -156,13 +257,13 @@ export default ({ data }) => (
         </ul>
         <ul>
           <Fade duration={1000}>
-            <ul style={{ color: 'var(--yellow)' }}>{data.allContentfulListaAbout.edges[1].node.titulo}</ul>
+            <ul style={{ color: 'var(--yellow)' }}>boom boom</ul>
           </Fade>
           <Fade cascade duration={2000}>
-            {data.allContentfulListaAbout.edges[1].node.enlaces.map(item => (
+            {boomBoom.map(item => (
               <li key={item.id}>
-                <a href={item.enlace} target="_blank" rel="noopener noreferrer">
-                  {item.texto}
+                <a href={item.link} target="_blank" rel="noopener noreferrer">
+                  {item.name}
                 </a>
               </li>
             ))}
@@ -170,13 +271,13 @@ export default ({ data }) => (
         </ul>
         <ul>
           <Fade duration={1000}>
-            <ul style={{ color: 'var(--pink)' }}>{data.allContentfulListaAbout.edges[0].node.titulo}</ul>
+            <ul style={{ color: 'var(--pink)' }}>bling bling</ul>
           </Fade>
           <Fade cascade duration={2000}>
-            {data.allContentfulListaAbout.edges[0].node.enlaces.map(item => (
+            {blingBling.map(item => (
               <li key={item.id}>
-                <a href={item.enlace} target="_blank" rel="noopener noreferrer">
-                  {item.texto}
+                <a href={item.link} target="_blank" rel="noopener noreferrer">
+                  {item.name}
                 </a>
               </li>
             ))}
@@ -186,19 +287,3 @@ export default ({ data }) => (
     </ProjectWrapper>
   </>
 )
-
-export const query = graphql`
-  query AboutPageQuery {
-    allContentfulListaAbout {
-      edges {
-        node {
-          titulo
-          enlaces {
-            texto
-            enlace
-          }
-        }
-      }
-    }
-  }  
-`
