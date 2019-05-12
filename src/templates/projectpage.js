@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import styled from 'styled-components'
-import Img from 'gatsby-image'
+import ProjectImg from '../components/projectimg'
 import Fade from 'react-reveal/Fade'
 import TextBlock, { Wrapper } from '../components/textblock'
 import MDXRenderer from 'gatsby-mdx/mdx-renderer'
@@ -18,11 +18,6 @@ const ProjectWrapper = styled.main`
   grid-template-columns: 1fr;
 `
 
-const ProjectImg = styled(Img)`
-  width: ${ props => props.small ? '50%' : '' };
-  display: ${ props => props.small ? 'inline-block' : '' };
-`
-
 const CreditsList = styled.ul`
   grid-column: span 2;
   justify-items: center;
@@ -32,6 +27,15 @@ const CreditsList = styled.ul`
 `
 
 export default ({ data: { mdx } }) => {
+  const projectImages = mdx.frontmatter.images
+  const imgs = []
+  if (projectImages) {
+    projectImages.forEach((image, i) => {
+      const { fluid } = image.childImageSharp
+      imgs.push(fluid)
+    })
+  }
+
   return (
     <>
       <SEO
@@ -39,7 +43,7 @@ export default ({ data: { mdx } }) => {
         description={
           mdx.frontmatter.title || 'nothin’'
         }
-        image={mdx.frontmatter.cover.childImageSharp.fluid}
+        // image={mdx.frontmatter.cover.childImageSharp.fluid}
       />
 
     <audio autoPlay preload="auto">
@@ -58,7 +62,7 @@ export default ({ data: { mdx } }) => {
             <ProjectImg fluid={mdx.frontmatter.cover.childImageSharp.fluid} />
           </div>
         </Fade>
-        <MDXRenderer>{mdx.code.body}</MDXRenderer>
+        <MDXRenderer images={imgs}>{mdx.code.body}</MDXRenderer>
         <Fade cascade duration={2000}>
           <Wrapper style={{ padding: '4vw 0' }}>
             <CreditsList>
@@ -89,6 +93,16 @@ export const query = graphql`
         title
         slug
         cover {
+          childImageSharp {
+            fluid(maxWidth: 850, quality: 80) {
+              ...GatsbyImageSharpFluid_withWebp_tracedSVG
+            }
+          }
+        }
+        attachments {
+          publicURL
+        }
+        images {
           childImageSharp {
             fluid(maxWidth: 850, quality: 80) {
               ...GatsbyImageSharpFluid_withWebp_tracedSVG
