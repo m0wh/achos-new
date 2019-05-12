@@ -43,7 +43,7 @@ export default ({ data: { mdx } }) => {
         description={
           mdx.frontmatter.title || 'nothin’'
         }
-        // image={mdx.frontmatter.cover.childImageSharp.fluid}
+        image={mdx.frontmatter.cover.childImageSharp.fluid}
       />
 
     <audio autoPlay preload="auto">
@@ -62,7 +62,7 @@ export default ({ data: { mdx } }) => {
             <ProjectImg fluid={mdx.frontmatter.cover.childImageSharp.fluid} />
           </div>
         </Fade>
-        <MDXRenderer images={imgs}>{mdx.code.body}</MDXRenderer>
+        <MDXRenderer media={mdx.frontmatter.media} images={imgs}>{mdx.code.body}</MDXRenderer>
         <Fade cascade duration={2000}>
           <Wrapper style={{ padding: '4vw 0' }}>
             <CreditsList>
@@ -99,7 +99,7 @@ export const query = graphql`
             }
           }
         }
-        attachments {
+        media {
           publicURL
         }
         images {
