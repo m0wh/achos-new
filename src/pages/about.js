@@ -139,27 +139,39 @@ const ProjectWrapper = styled.section`
 `
 const ImageWrapper = styled.div`
   max-width: 100%;
-  margin: var(--generalSpacing);
+  margin: var(--sectionSpacer);
 `
 const VideoWrapper = styled.div`
   max-width: 100%;
   position: relative;
+  margin: var(--sectionSpacer);
+`
+const AboutTextSection = styled.section`
+  margin: var(--sectionSpacer);
 `
 
-const ShowsContainer = styled.section`
+const ShowsSection = styled.section`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  grid  -gap: 3vw;
+  grid-gap: 3vw;
   justify-items: center;
   align-items: baseline;
   text-align: center;
   padding: 9vh 3.5vw;
+  margin: var(--sectionSpacer);
   ul {
     ${ media.tablet`margin: 5vw 0;` }
     ul {
       margin-bottom: 3vw;
     }
   }
+`
+const CreditsSection = styled.section`
+  margin: var(--sectionSpacer);
+`
+
+const WhatWeDoSection = styled.section`
+  margin: var(--sectionSpacer);
 `
 
 const CreditsList = styled.ul`
@@ -171,7 +183,7 @@ const CreditsList = styled.ul`
 export default ({ data, attention }) => (
   <>
     <ProjectWrapper>
-      <VideoWrapper style={{ marginTop: 0, marginBottom: '6rem' }}>
+      <VideoWrapper>
         <video
           style={{ width: '100%' }}
           controls
@@ -185,57 +197,62 @@ export default ({ data, attention }) => (
           Your browser does not support the video tag.
         </video>
       </VideoWrapper>
-      <TextBlock
-        colorLeft="var(--pink)"
-        textLeft="who we are"
-        textRight={aboutText[0].header}
-        sizeRight={fontSizes(3)}
-        style={{ margin: '9vw 0' }}
-      />
-      <TextBlock textRight={aboutText[0].first} />
-      <TextBlock textRight={aboutText[0].second} />
+      <AboutTextSection>
+        <TextBlock
+          colorLeft="var(--pink)"
+          textLeft="who we are"
+          textRight={aboutText[0].header}
+          sizeRight={fontSizes(3)}
+        />
+        <TextBlock textRight={aboutText[0].first} />
+        <TextBlock textRight={aboutText[0].second} />
+      </AboutTextSection>
 
       <ImageWrapper>
         <img src={BeansPic} width="100%" />
       </ImageWrapper>
 
-      <CreditsList>
-        <Fade duration={1000}>
-          <li style={{ color: 'var(--green)', marginBottom: '2rem' }}>
+      <CreditsSection>
+        <CreditsList>
+          <Fade duration={1000}>
+            <li style={{ color: 'var(--green)' }}>
            and everything nice!
-          </li>
-        </Fade>
-        <Fade duration={2000}>
-          <li style={{ padding: '0 4vw', textAlign: 'center' }}>{hotBranding}</li>
-        </Fade>
-      </CreditsList>
+            </li>
+            <br />
+          </Fade>
+          <Fade duration={2000}>
+            <li style={{ padding: '0 4vw', textAlign: 'center' }}>{hotBranding}</li>
+          </Fade>
+        </CreditsList>
+      </CreditsSection>
 
-      <TextBlock
-        colorLeft="var(--yellow)"
-        textLeft="Attention"
-        textRight={aboutText[1].attention}
-      />
-      <ImageSlider edges={data.attention.edges} />
-      <TextBlock
-        colorLeft="var(--pink)"
-        textLeft="Digital"
-        textRight={aboutText[1].crazyWebsites}
-      />
-      <ImageSlider edges={data.attention.edges} />
-      <TextBlock
-        colorLeft="var(--green)"
-        textLeft="Branding"
-        textRight={aboutText[1].hotBranding}
-      />
-      <ImageSlider edges={data.attention.edges} />
-
+      <WhatWeDoSection>
+        <TextBlock
+          colorLeft="var(--yellow)"
+          textLeft="Attention"
+          textRight={aboutText[1].attention}
+        />
+        <ImageSlider edges={data.attention.edges} />
+        <TextBlock
+          colorLeft="var(--pink)"
+          textLeft="Digital"
+          textRight={aboutText[1].crazyWebsites}
+        />
+        <ImageSlider edges={data.attention.edges} />
+        <TextBlock
+          colorLeft="var(--green)"
+          textLeft="Branding"
+          textRight={aboutText[1].hotBranding}
+        />
+        <ImageSlider edges={data.attention.edges} />
+      </WhatWeDoSection>
       {/* <CreditsList style={{ padding: "0 3rem" }}>
         <li style={{ color: "var(--pink)", marginBottom: "2rem" }}>
           Shooting Range
         </li>
       </CreditsList> */}
 
-      <ShowsContainer>
+      <ShowsSection>
         <ul>
           <Fade duration={1000}>
             <ul style={{ color: 'var(--cyan)' }}>bla bla</ul>
@@ -278,7 +295,7 @@ export default ({ data, attention }) => (
             ))}
           </Fade>
         </ul>
-      </ShowsContainer>
+      </ShowsSection>
     </ProjectWrapper>
   </>
 )
