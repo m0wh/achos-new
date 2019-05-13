@@ -139,7 +139,7 @@ const ProjectWrapper = styled.section`
 `
 const ImageWrapper = styled.div`
   max-width: 100%;
-  margin: 9vw 0;
+  margin: var(--generalSpacing);
 `
 const VideoWrapper = styled.div`
   max-width: 100%;
@@ -165,6 +165,7 @@ const ShowsContainer = styled.section`
 const CreditsList = styled.ul`
   display: grid;
   justify-items: center;
+  margin: var(--generalSpacing);
 `
 
 export default ({ data, attention }) => (
@@ -174,8 +175,6 @@ export default ({ data, attention }) => (
         <video
           style={{ width: '100%' }}
           controls
-          loop
-          autoPlay
           muted
           playsInline
         >
@@ -193,23 +192,21 @@ export default ({ data, attention }) => (
         sizeRight={fontSizes(3)}
         style={{ margin: '9vw 0' }}
       />
-      <br />
       <TextBlock textRight={aboutText[0].first} />
-      <br />
       <TextBlock textRight={aboutText[0].second} />
 
       <ImageWrapper>
         <img src={BeansPic} width="100%" />
       </ImageWrapper>
 
-      <CreditsList style={{ margin: '0 3rem' }}>
+      <CreditsList>
         <Fade duration={1000}>
           <li style={{ color: 'var(--green)', marginBottom: '2rem' }}>
            and everything nice!
           </li>
         </Fade>
         <Fade duration={2000}>
-          <li style={{ textAlign: 'center' }}>{hotBranding}</li>
+          <li style={{ padding: '0 4vw', textAlign: 'center' }}>{hotBranding}</li>
         </Fade>
       </CreditsList>
 
@@ -218,25 +215,20 @@ export default ({ data, attention }) => (
         textLeft="Attention"
         textRight={aboutText[1].attention}
       />
-      {/* <ImageSlider /> */}
-      <br />
-      <br />
+      <ImageSlider edges={data.attention.edges} />
       <TextBlock
         colorLeft="var(--pink)"
         textLeft="Digital"
         textRight={aboutText[1].crazyWebsites}
       />
       <ImageSlider edges={data.attention.edges} />
-      <br />
-      <br />
       <TextBlock
         colorLeft="var(--green)"
         textLeft="Branding"
         textRight={aboutText[1].hotBranding}
       />
-      {/* <ImageSlider images={BeansPic} /> */}
+      <ImageSlider edges={data.attention.edges} />
 
-      {/* <Img fluid={data.allFile.edges[1].node.childImageSharp.fluid} /> */}
       {/* <CreditsList style={{ padding: "0 3rem" }}>
         <li style={{ color: "var(--pink)", marginBottom: "2rem" }}>
           Shooting Range
