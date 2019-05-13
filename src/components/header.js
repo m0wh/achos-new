@@ -14,9 +14,6 @@ const HeaderWrapper = styled.header`
   margin: var(--generalSpacing);
 `
 
-// location.history.pathname
-// TODO: if location is a project, replace "!" with "&"
-
 const Header = () => (
   <HeaderWrapper>
     <Logo />

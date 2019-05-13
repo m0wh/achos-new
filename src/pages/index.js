@@ -13,7 +13,7 @@ import SecretCode from '../components/secretcode'
 export default ({ data: { allMdx: { edges: projectEdges } } }) => (
   <>
     <Intro />
-    <ControlledScrollMarquee text="Scroll Down  Scroll Down Scroll Down" />
+    <ControlledScrollMarquee text="Scroll Down Scroll Down Scroll Down" />
     <Work projectEdges={projectEdges} />
     <AutoScroll/>
     <ContactUs />
@@ -25,7 +25,7 @@ export default ({ data: { allMdx: { edges: projectEdges } } }) => (
 export const pageQuery = graphql`
   query IndexQuery {
     allMdx(
-      sort: { fields: [frontmatter___title], order: DESC }
+      sort: { fields: [fileAbsolutePath], order: ASC }
       filter: { fields: { sourceInstanceName: { eq: "projects" } } }
     ) {
       edges {
