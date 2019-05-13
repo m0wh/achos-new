@@ -7,6 +7,8 @@ esGrande: true
 images: 
   - ./bleep-01.jpg
   - ./bleep-02.jpg
+  - ./bleep-03.jpg
+  - ./bleep-04.jpg
   - ./bleepme3.png
 credits:
   - title: "producer"
@@ -27,11 +29,13 @@ credits:
 import { Wrapper, TextLeft, TextRight } from 'components/textblock'
 import ProjectImg from 'components/projectimg'
 
-<Wrapper padding="2rem"><TextLeft color="var(--pink)">introduction</TextLeft><TextRight color="green">#bleepme is a free social platform for discovering creative talent of all types, allowing you to curate your online presence in one simple, beautiful layout. Unleash your creativity and showcase your talent to the world!</TextRight></Wrapper>
-<Wrapper padding="2rem"><TextLeft color="red">sdssdsd</TextLeft><TextRight color="green">right</TextRight></Wrapper>
+<Wrapper padding="2rem">
+  <TextLeft color="var(--pink)">introduction</TextLeft>
+  <TextRight color="green">#bleepme is a free social platform for discovering creative talent of all types, allowing you to curate your online presence in one simple, beautiful layout. Unleash your creativity and showcase your talent to the world!</TextRight>
+</Wrapper>
 
 <div>
   <ProjectImg fluid={props.images[0]} small/>
-  <ProjectImg fluid={props.images[2]} small/>
+  <ProjectImg fluid={props.images[1]} small/>
 </div>
  
