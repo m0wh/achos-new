@@ -43,7 +43,7 @@ export default ({ data: { mdx } }) => {
         description={
           mdx.frontmatter.title || 'nothin’'
         }
-        image={mdx.frontmatter.cover.childImageSharp.fluid}
+        image={mdx.frontmatter.cover.childImageSharp.fluid.src}
       />
 
     <audio autoPlay preload="auto">
