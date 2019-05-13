@@ -9,5 +9,3 @@ yarn-error.log
 /public
 .DS_Store
 
-# Others
-src/projects
