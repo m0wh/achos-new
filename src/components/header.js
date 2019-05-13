@@ -9,7 +9,7 @@ const HeaderWrapper = styled.header`
   max-width: 100%;
   display: grid;
   grid-template-columns: 1fr 3fr;
-  align-items: end;
+  align-items: baseline;
   color: white;
   margin: var(--generalSpacing);
 `
