@@ -53,7 +53,7 @@ const GlobalStyle = createGlobalStyle`
 
     // Margins and padding
     --generalSpacing: 2.625vw 3.5625vw;
-    --sectionSpacer: 8vw auto;
+    --sectionSpacer: 6.25rem auto 7.25rem auto;
   }
 
   // html > * {
