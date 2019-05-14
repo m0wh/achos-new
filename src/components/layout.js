@@ -54,6 +54,7 @@ const GlobalStyle = createGlobalStyle`
     // Margins and padding
     --generalSpacing: 2.625vw 3.5625vw;
     --sectionSpacer: 6.25rem auto 7.25rem auto;
+    ${ media.phone`--sectionSpacer: 1.5625rem auto;` }
   }
 
   // html > * {
