@@ -10,6 +10,7 @@ import GIF from '../images/gifs/5sectour.gif'
 
 const LogoWrapper = styled.div`
   z-index: 1;
+  margin-top: 15px;
 `
 
 const LogoText = styled.h2`

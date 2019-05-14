@@ -12,6 +12,7 @@ const HeaderWrapper = styled.header`
   align-items: baseline;
   color: white;
   margin: var(--generalSpacing);
+  margin-top: 0;
 `
 
 const Header = () => (
