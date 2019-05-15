@@ -1,13 +1,14 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
 import styled from 'styled-components'
-
+import Img from 'gatsby-image'
 import TextBlock from '../components/textblock'
 import BeansPic from '../images/beans.jpg'
 import fontSizes from '../utils/fontSizes'
 import media from '../utils/breakpoints'
 import Fade from 'react-reveal/Fade'
 import ImageSlider from '../components/imageslider'
+import Tilt from 'react-tilt'
 
 const aboutText = [
   {
@@ -166,12 +167,28 @@ const ShowsSection = styled.section`
     }
   }
 `
-const CreditsSection = styled.section`
-  margin: var(--sectionSpacer);
-`
+const CreditsSection = styled(AboutTextSection)``
 
-const WhatWeDoSection = styled.section`
-  margin: var(--sectionSpacer);
+const WhatWeDoSection = styled(AboutTextSection)``
+
+const ShootingRangeSection = styled(AboutTextSection)`
+  display: grid;
+  justify-content: center;
+  justify-items: center;
+  align-content: center;
+  align-items: center;
+  width: 90%;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+`
+const ClientLogo = styled(Img)`
+  filter: invert(1);
+  opacity: 0.7;
+  margin: 10px;
+  transition: all 0.2s linear;
+  &:hover {
+    opacity: 1;
+    transition: all 0.2s linear;
+  }
 `
 
 const CreditsList = styled.ul`
@@ -180,12 +197,12 @@ const CreditsList = styled.ul`
   margin: var(--generalSpacing);
 `
 
-export default ({ data, attention }) => (
+export default ({ data }) => (
   <>
     <ProjectWrapper>
       <VideoWrapper>
         <video
-          style={{ width: '100%' }}
+          css={`width: 100%;`}
           controls
           muted
           playsInline
@@ -215,13 +232,13 @@ export default ({ data, attention }) => (
       <CreditsSection>
         <CreditsList>
           <Fade duration={1000}>
-            <li style={{ color: 'var(--green)' }}>
+            <li css={`color: var(--green);`}>
            and everything nice!
             </li>
             <br />
           </Fade>
           <Fade duration={2000}>
-            <li style={{ padding: '0 4vw', textAlign: 'center' }}>{hotBranding}</li>
+            <li css={`padding: 0 4vw; text-align: center;`}>{hotBranding}</li>
           </Fade>
         </CreditsList>
       </CreditsSection>
@@ -246,16 +263,20 @@ export default ({ data, attention }) => (
         />
         <ImageSlider edges={data.attention.edges} />
       </WhatWeDoSection>
-      {/* <CreditsList style={{ padding: "0 3rem" }}>
-        <li style={{ color: "var(--pink)", marginBottom: "2rem" }}>
-          Shooting Range
-        </li>
-      </CreditsList> */}
 
+      <ShootingRangeSection>
+
+        {data.clients.edges.map(logo => (
+          <Tilt className="Tilt" options={{ perspective: 200, scale: 1.5 }}>
+            <ClientLogo className="Tilt-inner" fixed={logo.node.childImageSharp.fixed} />
+          </Tilt>
+        ))}
+
+      </ShootingRangeSection>
       <ShowsSection>
         <ul>
           <Fade duration={1000}>
-            <ul style={{ color: 'var(--cyan)' }}>bla bla</ul>
+            <ul css={`color: var(--cyan);`}>bla bla</ul>
           </Fade>
           <Fade cascade duration={2000}>
             {blaBla.map(item => (
@@ -269,7 +290,7 @@ export default ({ data, attention }) => (
         </ul>
         <ul>
           <Fade duration={1000}>
-            <ul style={{ color: 'var(--yellow)' }}>boom boom</ul>
+            <ul css={`color: var(--yellow);`}>boom boom</ul>
           </Fade>
           <Fade cascade duration={2000}>
             {boomBoom.map(item => (
@@ -283,7 +304,7 @@ export default ({ data, attention }) => (
         </ul>
         <ul>
           <Fade duration={1000}>
-            <ul style={{ color: 'var(--pink)' }}>bling bling</ul>
+            <ul css={`color: var(--pink);`}>bling bling</ul>
           </Fade>
           <Fade cascade duration={2000}>
             {blingBling.map(item => (
@@ -303,15 +324,26 @@ export default ({ data, attention }) => (
 export const query = graphql`
   query AboutPageQuery {
     attention: allFile(filter: {sourceInstanceName: {eq: "aboutimages"}, relativeDirectory: {eq: "attention"}}) {
-        edges {
-          node {
-            childImageSharp {
-              fluid(maxWidth: 800, quality: 80) {
-                ...GatsbyImageSharpFluid_tracedSVG
-              }
+      edges {
+        node {
+          childImageSharp {
+            fluid(maxWidth: 800, quality: 80) {
+              ...GatsbyImageSharpFluid_tracedSVG
+            }
+          }
+        }
+      } 
+    }
+    clients: allFile(filter: {sourceInstanceName: {eq: "clients"}}) {
+      edges {
+        node {
+          childImageSharp {
+            fixed(width: 150, height: 150, quality: 80) {
+              ...GatsbyImageSharpFixed_tracedSVG
             }
           }
         }
       }
-    }  
+    }
+  }   
 `
