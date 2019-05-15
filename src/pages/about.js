@@ -328,7 +328,7 @@ export const query = graphql`
         node {
           childImageSharp {
             fluid(maxWidth: 800, quality: 80) {
-              ...GatsbyImageSharpFluid_tracedSVG
+              ...GatsbyImageSharpFluid_withWebp_tracedSVG
             }
           }
         }
@@ -338,8 +338,8 @@ export const query = graphql`
       edges {
         node {
           childImageSharp {
-            fixed(width: 150, height: 150, quality: 80) {
-              ...GatsbyImageSharpFixed_tracedSVG
+            fixed(width: 150, height: 150, quality: 90) {
+              ...GatsbyImageSharpFixed_withWebp_tracedSVG
             }
           }
         }
