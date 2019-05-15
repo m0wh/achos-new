@@ -100,8 +100,8 @@ export default ({
       <ContactGame />
       <ListsWrapper>
         <List>
-          <li style={{ color: 'var(--pink)' }}>Business Enquiries</li>
-          <li style={{ textAlign: 'center' }}>
+          <li css={`color: var(--pink);`}>Business Enquiries</li>
+          <li css={`text-align: center;`}>
             <BusinessMail
               href="mailto:hi@achos.es?Subject=Shut up and take my money!"
               target="_blank"
@@ -112,8 +112,8 @@ export default ({
           </li>
         </List>
         <List>
-          <li style={{ color: 'var(--cyan)' }}>Collabs</li>
-          <li style={{ textAlign: 'center' }}>
+          <li css={`color: var(--cyan);`}>Collabs</li>
+          <li css={`text-align: center;`}>>
             <CollabsMail
               href="mailto:collab@achos.es"
               target="_blank"
@@ -124,8 +124,8 @@ export default ({
           </li>
         </List>
         <List>
-          <li style={{ color: 'var(--yellow)' }}>Internships</li>
-          <li style={{ textAlign: 'center' }}>
+          <li css={`color: var(--yellow);`}>Internships</li>
+          <li css={`text-align: center;`}>>
             <InternshipsMail
               href="mailto:experience@achos.es"
               target="_blank"
