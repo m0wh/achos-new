@@ -11,6 +11,8 @@ import fontSizes from '../utils/fontSizes'
 import ScrollToClose from '../components/scrolltoclose'
 import TuberiaSound from '../images/mariobros.mp3'
 
+// TODO: replace react-reveal with https://usehooks.com/useOnScreen/ and custom animations
+
 const ProjectWrapper = styled.section`
   background-color: var(--lightblack);
   color: var(--lightgrey);
@@ -58,17 +60,17 @@ export default ({ data: { mdx } }) => {
           colorCenter="white"
         />
         <Fade duration={500}>
-          <div style={{ maxWidth: '100%' }}>
+          <div css={`max-width: 100%;`}>
             <ProjectImg fluid={mdx.frontmatter.cover.childImageSharp.fluid} />
           </div>
         </Fade>
         <MDXRenderer media={mdx.frontmatter.media} images={imgs}>{mdx.code.body}</MDXRenderer>
         <Fade cascade duration={2000}>
-          <Wrapper style={{ padding: '4vw 0' }}>
+          <Wrapper css={`padding: 4vw 0;`}>
             <CreditsList>
               {mdx.frontmatter.credits.map(credito => (
-                <ul style={{ marginBottom: '2.5vw' }}>
-                  <li style={{ color: credito.color }} key={credito.title}>
+                <ul css={`margin-bottom: 2.5vw;`}>
+                  <li css={`color: ${ credito.color };`} key={credito.title}>
                     {credito.title}
                   </li>
                   <li>{credito.name}</li>
