@@ -31,7 +31,7 @@ export const TextRight = styled.p`
   color: inherit;
   font-size: ${ props => props.sizeRight };
 `
-const TextCenter = styled.p`
+export const TextCenter = styled.p`
   grid-column: span 2;
   justify-items: center;
   text-align: center;

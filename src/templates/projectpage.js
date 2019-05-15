@@ -3,7 +3,7 @@ import { graphql } from 'gatsby'
 import styled from 'styled-components'
 import ProjectImg from '../components/projectimg'
 import Fade from 'react-reveal/Fade'
-import TextBlock, { Wrapper } from '../components/textblock'
+import TextBlock, { Wrapper, TextCenter } from '../components/textblock'
 import MDXRenderer from 'gatsby-mdx/mdx-renderer'
 import SEO from '../components/SEO'
 import randomColor from '../utils/randomColor'
@@ -53,12 +53,9 @@ export default ({ data: { mdx } }) => {
     </audio>
 
       <ProjectWrapper>
-        <TextBlock
-          textCenter={mdx.frontmatter.title}
-          padding="4vw 0"
-          sizeCenter={fontSizes(5)}
-          colorCenter="white"
-        />
+        <Wrapper css={`padding: 4vw 0;`}>
+          <TextCenter sizeCenter={fontSizes(5)} color="white">{mdx.frontmatter.title}</TextCenter>
+        </Wrapper>
         <Fade duration={500}>
           <div css={`max-width: 100%;`}>
             <ProjectImg fluid={mdx.frontmatter.cover.childImageSharp.fluid} />
