@@ -3,7 +3,8 @@ import { graphql } from 'gatsby'
 import styled from 'styled-components'
 import ProjectImg from '../components/projectimg'
 import Fade from 'react-reveal/Fade'
-import TextBlock, { Wrapper, TextCenter } from '../components/textblock'
+import { MDXProvider } from '@mdx-js/react'
+import TextBlock, { Wrapper, TextCenter, TextLeft, TextRight } from '../components/textblock'
 import MDXRenderer from 'gatsby-mdx/mdx-renderer'
 import SEO from '../components/SEO'
 import randomColor from '../utils/randomColor'
@@ -37,6 +38,7 @@ export default ({ data: { mdx } }) => {
       imgs.push(fluid)
     })
   }
+  const shortcodes = { ProjectImg, Wrapper, TextLeft, TextRight }
 
   return (
     <>
@@ -51,33 +53,34 @@ export default ({ data: { mdx } }) => {
     <audio autoPlay preload="auto">
       <source src={TuberiaSound} type="audio/mpeg"></source>
     </audio>
-
-      <ProjectWrapper>
-        <Wrapper css={`padding: 4vw 0;`}>
-          <TextCenter sizeCenter={fontSizes(5)} color="white">{mdx.frontmatter.title}</TextCenter>
-        </Wrapper>
-        <Fade duration={500}>
-          <div css={`max-width: 100%;`}>
-            <ProjectImg fluid={mdx.frontmatter.cover.childImageSharp.fluid} />
-          </div>
-        </Fade>
-        <MDXRenderer media={mdx.frontmatter.media} images={imgs}>{mdx.code.body}</MDXRenderer>
-        <Fade cascade duration={2000}>
-          <Wrapper css={`padding: 4vw 0;`}>
-            <CreditsList>
-              {mdx.frontmatter.credits.map(credito => (
-                <ul css={`margin-bottom: 2.5vw;`}>
-                  <li css={`color: ${ credito.color };`} key={credito.title}>
-                    {credito.title}
-                  </li>
-                  <li>{credito.name}</li>
-                </ul>
-              ))}
-            </CreditsList>
-          </Wrapper>
-        </Fade>
-        <ScrollToClose />
-      </ProjectWrapper>
+        <MDXProvider components={shortcodes}>
+          <ProjectWrapper>
+            <Wrapper css={`padding: 4vw 0;`}>
+              <TextCenter sizeCenter={fontSizes(5)} color="white">{mdx.frontmatter.title}</TextCenter>
+            </Wrapper>
+            <Fade duration={500}>
+              <div css={`max-width: 100%;`}>
+                <ProjectImg fluid={mdx.frontmatter.cover.childImageSharp.fluid} />
+              </div>
+            </Fade>
+            <MDXRenderer components={shortcodes} media={mdx.frontmatter.media} images={imgs}>{mdx.code.body}</MDXRenderer>
+            <Fade cascade duration={2000}>
+              <Wrapper css={`padding: 4vw 0;`}>
+                <CreditsList>
+                  {mdx.frontmatter.credits.map(credito => (
+                    <ul css={`margin-bottom: 2.5vw;`}>
+                      <li css={`color: ${ credito.color };`} key={credito.title}>
+                        {credito.title}
+                      </li>
+                      <li>{credito.name}</li>
+                    </ul>
+                  ))}
+                </CreditsList>
+              </Wrapper>
+            </Fade>
+            <ScrollToClose />
+          </ProjectWrapper>
+        </MDXProvider>
     </>
   )
 }
