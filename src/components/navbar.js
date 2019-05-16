@@ -34,7 +34,7 @@ const NavWrapper = styled(posed.nav(navWrapperProps))`
   justify-self: end;
   z-index: 2;
   position: fixed;
-  right: 100px;
+  right: 50px;
   top: 64px;
 `
 export const List = styled.ul`

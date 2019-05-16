@@ -74,7 +74,6 @@ const IntroText = styled.p`
   ${ fontSizes(2.5) };
   ${ media.tablet`${ fontSizes(1.875) }` }
   color: var(--lightgrey);
-  line-height: var(--bigtextlineheight);
 `
 
 const Inside = styled.span`
