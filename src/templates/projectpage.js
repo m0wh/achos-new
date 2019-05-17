@@ -97,7 +97,7 @@ export const query = graphql`
         cover {
           childImageSharp {
             fluid(maxWidth: 850, quality: 80) {
-              ...GatsbyImageSharpFluid_withWebp_tracedSVG
+              ...GatsbyImageSharpFluid_withWebp
             }
           }
         }
@@ -107,7 +107,7 @@ export const query = graphql`
         images {
           childImageSharp {
             fluid(maxWidth: 850, quality: 80) {
-              ...GatsbyImageSharpFluid_withWebp_tracedSVG
+              ...GatsbyImageSharpFluid_withWebp
             }
           }
         }

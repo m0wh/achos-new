@@ -328,7 +328,7 @@ export const query = graphql`
         node {
           childImageSharp {
             fluid(maxWidth: 800, quality: 80) {
-              ...GatsbyImageSharpFluid_withWebp_tracedSVG
+              ...GatsbyImageSharpFluid_withWebp
             }
           }
         }
@@ -339,7 +339,7 @@ export const query = graphql`
         node {
           childImageSharp {
             fixed(width: 150, height: 150, quality: 90) {
-              ...GatsbyImageSharpFixed_withWebp_tracedSVG
+              ...GatsbyImageSharpFixed_withWebp
             }
           }
         }

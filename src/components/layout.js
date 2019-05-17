@@ -77,10 +77,6 @@ const GlobalStyle = createGlobalStyle`
     font-family: "AvantGardeBold", sans-serif;
     line-height: var(--regularlineheight);
     ${ media.phone`line-height: var(--mobilelineheight);` }
-    
-    
-    
-    
   }
 
   a {
