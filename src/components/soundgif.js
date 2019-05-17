@@ -3,8 +3,7 @@ import styled, { createGlobalStyle } from 'styled-components'
 
 const BackgroundGif = createGlobalStyle`
   body {
-    background-color: var(--black);
-    background: url("${ props => props.gif }") no-repeat center center fixed; 
+    background: var(--black) url("${ props => props.gif }") no-repeat center center fixed; 
     background-size: cover;
     *:not(:hover) {
       opacity: 0.3;
