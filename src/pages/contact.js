@@ -113,7 +113,7 @@ export default ({
         </List>
         <List>
           <li css={`color: var(--cyan);`}>Collabs</li>
-          <li css={`text-align: center;`}>>
+          <li css={`text-align: center;`}>
             <CollabsMail
               href="mailto:collab@achos.es"
               target="_blank"
@@ -125,7 +125,7 @@ export default ({
         </List>
         <List>
           <li css={`color: var(--yellow);`}>Internships</li>
-          <li css={`text-align: center;`}>>
+          <li css={`text-align: center;`}>
             <InternshipsMail
               href="mailto:experience@achos.es"
               target="_blank"
