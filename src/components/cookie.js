@@ -2,8 +2,9 @@ import React, { Component, useState, useRef } from 'react'
 import CookieFile from '../images/cookies.png'
 import CookiesVideoFile from '../images/cookiesvideo2.mp4'
 import WhiteXCursor from '../images/icons/white-x.png'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 import media from '../utils/breakpoints'
+import { useSpring, animated } from 'react-spring'
 
 const CookieWrapper = styled.div`
   position: fixed;
@@ -14,33 +15,19 @@ const CookieWrapper = styled.div`
   
 `
 
-const CookieImage = styled.img`
+const CookieImage = styled(animated.img)`
   height: 200px;
-  transition: all .35s linear;
-  transform: rotate(25deg);
   cursor: url(${ WhiteXCursor }) 40 40, auto;
-  &:hover {
-    right: 20px;
-    margin-right: 50px;
-    transition: all .35s linear;
-    transform: rotate(0deg);
-  }
-  ${ props => props.deleted ? css`
-    margin-right: -150px;
-    transform: rotate(150deg);
-    transition: all .35s linear;
-  ` : '' }
   
 `
 
-const VideoWrapper = styled.div`
+const VideoWrapper = styled(animated.div)`
   position: fixed;
   z-index: 3;
   width: 80%;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  display: ${ props => props.visible };
 `
 
 const VideoElement = styled.video`
@@ -54,32 +41,42 @@ const VideoElement = styled.video`
 function Cookie () {
   const [isHovering, setIsHovering] = useState(false)
   const [isClosed, setIsClosed] = useState(false)
+  let cookieClosedData = sessionStorage.getItem('cookieClosed')
+  const cookieAnimation = useSpring({
+    marginRight: isHovering ? `50px` : isClosed ? `-150px` : `0px`,
+    transform: isHovering ? `rotate(0deg)` : isClosed ? `rotate(150deg)` : `rotate(25deg)`,
+    right: isHovering ? `20px` : `0px`
+  })
+  const videoFade = useSpring({
+    display: isHovering ? `grid` : `none`,
+    opacity: isHovering ? 1 : 0
+  })
+
   const myRef = useRef(null)
-  const PlayVideo = () => {
+  const playVideo = () => {
     myRef.current.play()
   }
-  const StopVideo = () => {
+  const stopVideo = () => {
     myRef.current.pause()
   }
-  let cookieClosedData = sessionStorage.getItem('cookieClosed')
 
-  function handleCookieClick () {
-    setIsClosed(true)
-    setIsHovering(false)
-    sessionStorage.setItem('cookieClosed', 'yeah sonn')
+  const handleCookieClick = async () => {
+    await setIsClosed(true)
+    await setIsHovering(false)
+    await sessionStorage.setItem('cookieClosed', 'yeah sonn')
   }
 
   return (
     <>
-      {!cookieClosedData && (
+      {cookieClosedData !== 'yeah sonn' && (
         <>
         <>
         <CookieWrapper>
-          <CookieImage src={CookieFile} onMouseOver={() => { setIsHovering(true); PlayVideo() }} onMouseOut={() => { setIsHovering(false); StopVideo() }} onClick={() => handleCookieClick()} deleted={isClosed} />
+          <CookieImage style={cookieAnimation} src={CookieFile} onMouseOver={() => { setIsHovering(true); playVideo() }} onClick={() => handleCookieClick()} onMouseOut={() => { setIsHovering(false); stopVideo() }} />
         </CookieWrapper>
         </>
         <>
-        <VideoWrapper visible={isHovering ? 'grid' : 'none'}>
+        <VideoWrapper style={videoFade}>
           <VideoElement controls ref={myRef}>
             <source src={CookiesVideoFile} />
           </VideoElement>
