@@ -26,7 +26,7 @@ const navWrapperProps = {
     opacity: 1,
     filter: 'blur(0px)',
     x: '0%',
-    delay: 400
+    delay: 1500
   }
 }
 
