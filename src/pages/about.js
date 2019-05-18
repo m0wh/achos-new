@@ -8,7 +8,6 @@ import fontSizes from '../utils/fontSizes'
 import media from '../utils/breakpoints'
 import Fade from 'react-reveal/Fade'
 import ImageSlider from '../components/imageslider'
-import Tilt from 'react-tilt'
 
 const aboutText = [
   {
@@ -267,9 +266,7 @@ export default ({ data }) => (
       <ShootingRangeSection>
 
         {data.clients.edges.map(logo => (
-          <Tilt className="Tilt" options={{ perspective: 200, scale: 1.5 }}>
-            <ClientLogo className="Tilt-inner" fixed={logo.node.childImageSharp.fixed} />
-          </Tilt>
+          <ClientLogo fixed={logo.node.childImageSharp.fixed} />
         ))}
 
       </ShootingRangeSection>
