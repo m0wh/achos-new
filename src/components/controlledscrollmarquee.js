@@ -2,7 +2,6 @@ import React, { useCallback, useEffect, useState } from 'react'
 import styled from 'styled-components'
 import fontSizes from '../utils/fontSizes'
 import ScrollPercentage from 'react-scroll-percentage'
-import useWindowScroll from '@react-hook/window-scroll'
 import { useSpring, animated, interpolate } from 'react-spring'
 import media from '../utils/breakpoints'
 
