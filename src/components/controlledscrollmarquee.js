@@ -9,7 +9,6 @@ import media from '../utils/breakpoints'
 
 const ScrollingText = styled(animated.p)`
   ${ fontSizes(9) };
-  // transition: transform 0.1s linear;
 `
 
 const Wrapper = styled.section`
@@ -53,32 +52,4 @@ const ControlledScrollMarquee = ({ text, black }) => {
   )
 }
 
-// class ControlledScrollMarquee extends React.Component {
-//   state = {
-//     percentage: null,
-//     windowWidth: null
-//   };
-
-//   componentDidMount () {
-//     this.setState({
-//       windowWidth: window.innerWidth
-//     })
-//   }
-
-//   render () {
-//     const { text, black } = this.props
-//     return (
-//       <Wrapper black={black}>
-//         <ScrollPercentage
-//           onChange={percentage => this.setState({ percentage })}
-//         >
-//           <ScrollingText style={{ transform: `translateX(${ -this.state.percentage * this.state.windowWidth }px) translateZ(1px)` }}>{text}</ScrollingText>
-//         </ScrollPercentage>
-//       </Wrapper>
-//     )
-//   }
-// };
-
 export default ControlledScrollMarquee
-
-// TODO: useOnScreen to optimize (https://usehooks.com/useOnScreen/)
