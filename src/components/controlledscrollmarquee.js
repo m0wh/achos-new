@@ -1,14 +1,16 @@
-import React from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import styled from 'styled-components'
 import fontSizes from '../utils/fontSizes'
 import ScrollPercentage from 'react-scroll-percentage'
+import useWindowScroll from '@react-hook/window-scroll'
+import { useSpring, animated, interpolate } from 'react-spring'
 import media from '../utils/breakpoints'
 
 // ${ media.tablet`display: none;` };
 
-const ScrollingText = styled.p`
+const ScrollingText = styled(animated.p)`
   ${ fontSizes(9) };
-  transition: transform 0.1s linear;
+  // transition: transform 0.1s linear;
 `
 
 const Wrapper = styled.section`
@@ -35,34 +37,49 @@ const Wrapper = styled.section`
   }
 `
 
-class ControlledScrollMarquee extends React.Component {
-  state = {
-    percentage: null,
-    windowWidth: null
-  };
+const ControlledScrollMarquee = ({ text, black }) => {
+  const [percent, setPercent] = useState(0)
+  const { x } = useSpring({ x: percent })
+  return (
+    <Wrapper black={black}>
+      <ScrollPercentage
+        onChange={percentage => setPercent(percentage)}
+      >
+        <ScrollingText style={{ transform: x.interpolate(x => `translate3d(${ -x * 100 }%, 0, 0)`) }}>
+          {text}
+        </ScrollingText>
+      </ScrollPercentage>
 
-  componentDidMount () {
-    this.setState({
-      windowWidth: window.innerWidth
-    })
-  }
+    </Wrapper>
+  )
+}
 
-  render () {
-    const { text, black } = this.props
-    return (
-      <Wrapper black={black}>
-        <ScrollPercentage
-          onChange={percentage => this.setState({ percentage })}
-        >
-          <ScrollingText style={{ transform: `translateX(${ -this.state.percentage * this.state.windowWidth }px) translateZ(1px)` }}>{text}</ScrollingText>
-        </ScrollPercentage>
-      </Wrapper>
-    )
-  }
-};
+// class ControlledScrollMarquee extends React.Component {
+//   state = {
+//     percentage: null,
+//     windowWidth: null
+//   };
+
+//   componentDidMount () {
+//     this.setState({
+//       windowWidth: window.innerWidth
+//     })
+//   }
+
+//   render () {
+//     const { text, black } = this.props
+//     return (
+//       <Wrapper black={black}>
+//         <ScrollPercentage
+//           onChange={percentage => this.setState({ percentage })}
+//         >
+//           <ScrollingText style={{ transform: `translateX(${ -this.state.percentage * this.state.windowWidth }px) translateZ(1px)` }}>{text}</ScrollingText>
+//         </ScrollPercentage>
+//       </Wrapper>
+//     )
+//   }
+// };
 
 export default ControlledScrollMarquee
-
-// https://reactjs.org/docs/faq-functions.html#requestanimationframe-throttling
 
 // TODO: useOnScreen to optimize (https://usehooks.com/useOnScreen/)
