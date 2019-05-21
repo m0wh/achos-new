@@ -13,6 +13,8 @@ import PlusCursor from '../images/icons/white-+.png'
 import BlackMail from '../images/icons/black-contact2.png'
 import DownCursor from '../images/icons/white-down.png'
 import WhiteX from '../images/icons/white-x.png'
+import ZoomIn from '../images/icons/white-zoom.png'
+import ZoomOut from '../images/icons/white-zoom2.png'
 import Resizer from './resizer'
 
 import Cookie from './cookie'
@@ -44,6 +46,8 @@ const GlobalStyle = createGlobalStyle`
       --mail: url(${ BlackMail }) 40 40, auto;
       --down: url(${ DownCursor }) 40 40, auto;
       --whiteX: url(${ WhiteX }) 40 40, auto;
+      --zoomIn: url(${ ZoomIn }) 40 40, auto;
+      --zoomOut: url(${ ZoomOut }) 40 40, auto;
     //
     
     // Line-height
