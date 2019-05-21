@@ -38,7 +38,7 @@ export default ({ data: { mdx } }) => {
       imgs.push(fluid)
     })
   }
-  const shortcodes = { ProjectImg, Wrapper, TextLeft, TextRight }
+  const shortcodes = { ProjectImg, Wrapper, TextLeft, TextRight, Fade }
 
   return (
     <>
