@@ -31,28 +31,10 @@ import ImageZoom from 'react-medium-image-zoom'
 </Wrapper>
 
 <div>
-  <ProjectImg fluid={props.images[0]} small/>
-  <ProjectImg fluid={props.images[1]} small/>
+  <ProjectImg image={props.images[0].src} small/>
+  <ProjectImg image={props.images[0].src} small/>
 </div>
 
-<div>
-  <ImageZoom
-    image={{
-      src: props.images[0].src,
-      style: { width: '50%' } }}
-    defaultStyles={
-      {
-        overlay: { backgroundColor: 'var(--black)' },
-        image: {
-          cursor: 'var(--zoomIn)'
-        },
-        zoomImage: {
-          cursor: 'var(--zoomOut)'
-        }
-      }
-    }
-  />
-</div>
 
 
 <Wrapper padding="2rem">
