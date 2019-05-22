@@ -57,7 +57,7 @@ const GlobalStyle = createGlobalStyle`
     ${ media.phone`--sectionSpacer: 1.5625rem auto;` }
   }
 
-  // html > * {
+  // body > * {
   //   border: 1px solid red;
   // }
   
@@ -108,7 +108,8 @@ const GlobalStyle = createGlobalStyle`
   //
 `
 
-const Layout = ({ children }) => (
+const Layout = ({ children, location }) => {
+  return (
   <>
     <SEO />
     <GlobalStyle />
@@ -123,7 +124,8 @@ const Layout = ({ children }) => (
     </PoseGroup>
 
   </>
-)
+  )
+}
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired
