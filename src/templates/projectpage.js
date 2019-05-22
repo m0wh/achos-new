@@ -11,6 +11,8 @@ import randomColor from '../utils/randomColor'
 import fontSizes from '../utils/fontSizes'
 import ScrollToClose from '../components/scrolltoclose'
 import TuberiaSound from '../images/mariobros.mp3'
+import Img from 'gatsby-image'
+import media from '../utils/breakpoints'
 
 // TODO: replace react-reveal with https://usehooks.com/useOnScreen/ and custom animations
 
@@ -19,6 +21,13 @@ const ProjectWrapper = styled.section`
   color: var(--lightgrey);
   display: grid;
   grid-template-columns: 1fr;
+`
+const HeaderImg = styled(Img)`
+width: ${ props => props.small ? '50%' : '' };
+display: ${ props => props.small ? 'inline-block' : '' };
+${ media.phone`width: 100%;
+  display: block;
+` }
 `
 
 const CreditsList = styled.ul`
@@ -60,7 +69,7 @@ export default ({ data: { mdx } }) => {
             </Wrapper>
             <Fade duration={500}>
               <div css={`max-width: 100%;`}>
-                <ProjectImg fluid={mdx.frontmatter.cover.childImageSharp.fluid} />
+                <HeaderImg fluid={mdx.frontmatter.cover.childImageSharp.fluid} />
               </div>
             </Fade>
             <MDXRenderer components={shortcodes} media={mdx.frontmatter.media} images={imgs}>{mdx.code.body}</MDXRenderer>
