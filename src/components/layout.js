@@ -1,9 +1,8 @@
 import React from 'react'
-import posed, { PoseGroup } from 'react-pose'
 import PropTypes from 'prop-types'
 // import posed from "react-pose";
 // import { StaticQuery, graphql } from "gatsby";
-import { createGlobalStyle } from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components'
 import reset from 'styled-reset'
 import SEO from './SEO'
 import media from '../utils/breakpoints'
@@ -18,12 +17,28 @@ import ZoomOut from '../images/icons/white-zoom2.png'
 import Resizer from './resizer'
 
 import Cookie from './cookie'
-import { pageFade } from '../styles/poses'
-
+import { useSpring, animated, config } from 'react-spring'
 import Header from './header'
 import TapToClose from './taptoclose'
 
-const Main = posed('main')(pageFade)
+// export const pageFade = {
+//   initial: {
+//     opacity: 0,
+//     filter: 'blur(100px)'
+//   },
+//   enter: {
+//     opacity: 1,
+//     transition: { duration: transitionDuration },
+//     delay: transitionDelay,
+//     beforeChildren: true,
+//     filter: 'blur(0px)'
+//   },
+//   exit: {
+//     opacity: 0,
+//     transition: { duration: transitionDuration },
+//     filter: 'blur(100px)'
+//   }
+// }
 
 const GlobalStyle = createGlobalStyle`
   ${ reset }
@@ -113,21 +128,25 @@ const GlobalStyle = createGlobalStyle`
 `
 
 const Layout = ({ children, location }) => {
+  const transition = useSpring({
+    from: { filter: 'blur(100px)' },
+    filter: 'blur(0px)',
+    config: config.molasses
+  })
+  console.log(location)
   return (
-  <>
+    <>
     <SEO />
     <GlobalStyle />
-    {typeof location !== `undefined` && location.pathname === '/' && (<TapToClose />)}
-    <Resizer />
-    <Header />
-    {typeof location !== `undefined` && location.pathname === '/' && (<Cookie />)}
-    <PoseGroup animateOnMount preEnterPose="initial">
-      <Main key={typeof location !== `undefined` && location.pathname} id="content" role="main">
-        {children}
-      </Main>
-    </PoseGroup>
+      {typeof location !== `undefined` && location.pathname === '/' && (<TapToClose />)}
+      <animated.main style={transition} id="content" role="main">
+        <Resizer />
+        <Header />
+        {typeof location !== `undefined` && location.pathname === '/' && (<Cookie />)}
 
-  </>
+        {children}
+      </animated.main>
+    </>
   )
 }
 

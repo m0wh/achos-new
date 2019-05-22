@@ -13,10 +13,11 @@ import ScrollToClose from '../components/scrolltoclose'
 import TuberiaSound from '../images/mariobros.mp3'
 import Img from 'gatsby-image'
 import media from '../utils/breakpoints'
+import { useSpring, animated, config } from 'react-spring'
 
 // TODO: replace react-reveal with https://usehooks.com/useOnScreen/ and custom animations
 
-const ProjectWrapper = styled.section`
+const ProjectWrapper = styled(animated.section)`
   background-color: var(--lightblack);
   color: var(--lightgrey);
   display: grid;
@@ -48,7 +49,11 @@ export default ({ data: { mdx } }) => {
     })
   }
   const shortcodes = { ProjectImg, Wrapper, TextLeft, TextRight, Fade }
-
+  const transition = useSpring({
+    from: { filter: 'blur(100px)' },
+    filter: 'blur(0px)',
+    config: config.molasses
+  })
   return (
     <>
       <SEO
@@ -63,7 +68,7 @@ export default ({ data: { mdx } }) => {
       <source src={TuberiaSound} type="audio/mpeg"></source>
     </audio>
         <MDXProvider components={shortcodes}>
-          <ProjectWrapper>
+          <ProjectWrapper style={transition}>
             <Wrapper css={`padding: 4vw 0;`}>
               <TextCenter sizeCenter={fontSizes(5)} color="white">{mdx.frontmatter.title}</TextCenter>
             </Wrapper>
