@@ -1,13 +1,29 @@
-import styled from 'styled-components'
-import Img from 'gatsby-image'
-import media from '../utils/breakpoints'
+import React from 'react'
+import ImageZoom from 'react-medium-image-zoom'
 
-const ProjectImg = styled(Img)`
-width: ${ props => props.small ? '50%' : '' };
-display: ${ props => props.small ? 'inline-block' : '' };
-${ media.phone`width: 100%;
-  display: block;
-` }
+const ProjectImg = ({ image, small }) => {
+  return (
+    <ImageZoom
+      image={{
+        src: image,
+        style: {
+          width: small ? '50%' : '100%',
+          display: small ? 'inline-block' : 'block',
+        }
+      }}
+      defaultStyles={
+        {
+          overlay: { backgroundColor: 'var(--black)' },
+          image: {
+            cursor: 'var(--zoomIn)'
+          },
+          zoomImage: {
+            cursor: 'var(--zoomOut)'
+          }
+        }
+      }
+    />
+  )
+}
 
-`
 export default ProjectImg
