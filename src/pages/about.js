@@ -8,7 +8,7 @@ import fontSizes from '../utils/fontSizes'
 import media from '../utils/breakpoints'
 import Fade from 'react-reveal/Fade'
 import ImageSlider from '../components/imageslider'
-import ShootingRange from '../components/shootingrange'
+import ShootingRangeElement from '../components/shootingrangeelement'
 
 const aboutText = [
   {
@@ -264,7 +264,11 @@ export default ({ data }) => (
         <ImageSlider edges={data.attention.edges} />
       </WhatWeDoSection>
 
-      <ShootingRange />
+      <ShootingRangeSection>
+        {data.clients.edges.map(logo => (
+          <ShootingRangeElement image={logo.node.childImageSharp.fixed.src} />
+        ))}
+      </ShootingRangeSection>
       <ShowsSection>
         <ul>
           <Fade duration={1000}>

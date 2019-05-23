@@ -1,19 +1,23 @@
 import React, { useState, useRef } from 'react'
 import styled from 'styled-components'
 import Image from '../images/gunshot.png'
-import BgImg from '../images/clients/01_limon.png'
-import { useSpring, animated } from 'react-spring'
+import { useSpring, animated, config } from 'react-spring'
 
 const Container = styled(animated.section)`
   width: 150px;
   height: 150px;
-  background-image: url(${ BgImg });
+  background-image: url(${ props => props.image });
   background-size: contain;
   position: relative;
-  border: 1px solid brown;
   overflow: hidden;
-  display: inline-block;
-  margin: 0 20px 10px;
+  // filter: invert(1);
+  opacity: 0.7;
+  margin: 10px;
+  transition: all 0.2s linear;
+  &:hover {
+    opacity: 1;
+    transition: all 0.2s linear;
+  }
 `
 
 const BloodGunshot = styled(animated.img)`
@@ -27,20 +31,19 @@ const BloodGunshot = styled(animated.img)`
   z-index: 300;
 `
 
-const ShootingRange = () => {
+const ShootingRangeElement = ({ image }) => {
   const [ isClicked, setClicked ] = useState(false)
   const gunshotRef = useRef(null)
   const audioRef = useRef(null)
-  const containerAnimation = useSpring({
-    transform: isClicked ? `rotate(15deg)` : `rotate(0deg)`,
-  })
+  const { x } = useSpring({ from: { x: 0 }, x: isClicked ? 1 : 0, config: { duration: 500 } })
   const shootAnimation = useSpring({
-    opacity: isClicked ? 1 : 0
+    opacity: isClicked ? 1 : 0,
+    config: config.wobbly
   })
   const handleClick = e => {
     let rect = e.target.getBoundingClientRect()
-    let x = e.clientX - rect.left - 50 // x position within the element.
-    let y = e.clientY - rect.top - 50 // y position within the element.
+    let x = e.clientX - rect.left - 20 // x position within the element.
+    let y = e.clientY - rect.top - 20 // y position within the element.
     gunshotRef.current.style.top = `${ y }px`
     gunshotRef.current.style.left = `${ x }px`
     audioRef.current.play()
@@ -48,11 +51,18 @@ const ShootingRange = () => {
   }
 
   return (
-    <Container onClick={handleClick} style={containerAnimation}>
+    <Container onClick={handleClick} style={{
+      transform: x
+        .interpolate({
+          range: [0, 0.25, 0.35, 0.45, 0.55, 0.65, 0.75, 1],
+          output: [1, 0.97, 0.9, 1.1, 0.9, 1.1, 1.03, 1]
+        })
+        .interpolate(x => `scale(${ x })`)
+    }} image={image} >
       <BloodGunshot ref={gunshotRef} src={Image} style={shootAnimation} />
       <audio ref={audioRef} preload="auto" src="http://soundbible.com/mp3/ie_shot_gun-luminalace-770179786.mp3" type="audio/mpeg"></audio>
     </Container>
   )
 }
 
-export default ShootingRange
+export default ShootingRangeElement
