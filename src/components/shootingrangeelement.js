@@ -42,8 +42,8 @@ const ShootingRangeElement = ({ image }) => {
   })
   const handleClick = e => {
     let rect = e.target.getBoundingClientRect()
-    let x = e.clientX - rect.left - 20 // x position within the element.
-    let y = e.clientY - rect.top - 20 // y position within the element.
+    let x = e.clientX - rect.left - 20 // last substraction is because of cursor size
+    let y = e.clientY - rect.top - 20
     gunshotRef.current.style.top = `${ y }px`
     gunshotRef.current.style.left = `${ x }px`
     audioRef.current.play()
