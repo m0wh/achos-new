@@ -1,30 +1,11 @@
-import React from 'react'
+import React, { useState, useRef } from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
-import posed from 'react-pose'
 import fontSizes from '../utils/fontSizes'
 import media from '../utils/breakpoints'
 import Fade from 'react-reveal/Fade'
-
-const hoverProps = {
-  hoverable: true,
-  init: {
-    opacity: 0,
-  },
-  hover: {
-    opacity: 1,
-  }
-}
-
-const titleProps = {
-  init: {
-    filter: `blur(200px)`,
-  },
-  hover: {
-    filter: `blur(0px)`,
-  }
-}
+import { useSpring, animated, config } from 'react-spring'
 
 const Wrapper = styled.div`
   display: grid;
@@ -34,7 +15,7 @@ const Wrapper = styled.div`
   // height: 80vh;
   
 `
-const Overlay = styled(posed.div(hoverProps))`
+const Overlay = styled(animated.div)`
   background: rgba(26, 26, 26, 0.69);
   grid-column: 1 / -1;
   grid-row: 1 / -1;
@@ -56,12 +37,12 @@ const Overlay = styled(posed.div(hoverProps))`
 const OverlayWrapper = styled.div`
   padding: var(--generalSpacing);
 `
-const Title = styled(posed.h3(titleProps))`
+const Title = styled(animated.h3)`
   ${ fontSizes(3.33) };
   color: ${ props => props.color };
 `
 
-const Category = styled(posed.p(titleProps))`
+const Category = styled(animated.p)`
   color: var(--lightgrey);
   ${ fontSizes(1.875) };
 `
@@ -70,39 +51,46 @@ const StyledImg = styled(Img)`
   grid-column: ${ props => (props.big ? 'span 2' : null) };
 `
 
-export default class Gridimage extends React.Component {
-  myRef = React.createRef();
-
-  startSound = () => {
-    this.myRef.current.play()
+const GridImage = ({
+  big,
+  link,
+  fluid,
+  name,
+  category,
+  color,
+  sound
+}) => {
+  const [isHovering, setIsHovering] = useState(false)
+  const myRef = useRef(null)
+  const overlayAnimation = useSpring({
+    opacity: isHovering ? 1 : 0
+  })
+  const blurAnimation = useSpring({
+    filter: isHovering ? `blur(0px)` : `blur(100px)`,
+    config: config.default
+  })
+  const startSound = () => {
+    myRef.current.play()
   }
-  render () {
-    const {
-      big,
-      link,
-      fluid,
-      name,
-      category,
-      color
-    } = this.props
-    return (
-      <Wrapper big={big} onMouseEnter={this.startSound}>
-        <Fade duration={500} delay={400}>
-          <Link to={link}>
-            <StyledImg fluid={fluid} />
-            <audio preload="auto" ref={this.myRef} >
-              <source src={this.props.sound} type="audio/mpeg"></source>
-            </audio>
+  return (
+    <Wrapper big={big} onMouseEnter={startSound}>
+      <Fade duration={500} delay={400}>
+        <Link to={link}>
+          <StyledImg fluid={fluid} />
+          <audio preload="auto" ref={myRef} >
+            <source src={sound} type="audio/mpeg"></source>
+          </audio>
 
-            <Overlay>
-              <OverlayWrapper>
-                <Title color={color}>{name}</Title>
-                <Category>{category}</Category>
-              </OverlayWrapper>
-            </Overlay>
-          </Link>
-        </Fade>
-      </Wrapper>
-    )
-  }
+          <Overlay style={overlayAnimation} onMouseOver={() => setIsHovering(true)} onMouseOut={() => setIsHovering(false)}>
+            <OverlayWrapper>
+              <Title style={blurAnimation} color={color}>{name}</Title>
+              <Category style={blurAnimation}>{category}</Category>
+            </OverlayWrapper>
+          </Overlay>
+        </Link>
+      </Fade>
+    </Wrapper>
+  )
 }
+
+export default GridImage
