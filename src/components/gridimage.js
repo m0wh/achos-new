@@ -50,15 +50,18 @@ const Category = styled(animated.p)`
 const StyledImg = styled(Img)`
   grid-column: ${ props => (props.big ? 'span 2' : null) };
 `
+const StyledGif = styled.img`
+  grid-column: ${ props => (props.big ? 'span 2' : null) };
+`
 
 const GridImage = ({
   big,
   link,
-  fluid,
+  cover,
   name,
   category,
   color,
-  sound
+  sound,
 }) => {
   const [isHovering, setIsHovering] = useState(false)
   const myRef = useRef(null)
@@ -76,7 +79,7 @@ const GridImage = ({
     <Wrapper big={big} onMouseEnter={startSound}>
       <Fade duration={500} delay={400}>
         <Link to={link}>
-          <StyledImg fluid={fluid} />
+          {cover.src ? <StyledImg fluid={cover} /> : <StyledGif width="100%" src={cover} />}
           <audio preload="auto" ref={myRef} >
             <source src={sound} type="audio/mpeg"></source>
           </audio>

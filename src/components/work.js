@@ -20,20 +20,18 @@ export default ({ projectEdges }) => {
   return (
     <Element name="work">
       <WorkGrid>
-        {projectEdges.map(project =>
-          (
-            <GridImage
-              color={randomColor()}
-              key={project.node.frontmatter.title}
-              big={project.node.frontmatter.esGrande}
-              fluid={project.node.frontmatter.cover.childImageSharp.fluid}
-              name={project.node.frontmatter.title}
-              category={project.node.frontmatter.category}
-              link={project.node.fields.slug}
-              sound={project.node.frontmatter.esGrande ? randomMoan() : TickSound}
-            />
-
-          )
+        {projectEdges.map(({ node }) => (
+          <GridImage
+            color={randomColor()}
+            key={node.frontmatter.title}
+            big={node.frontmatter.esGrande}
+            cover={node.frontmatter.cover.extension === 'gif' ? node.frontmatter.cover.publicURL : node.frontmatter.cover.childImageSharp.fluid}
+            name={node.frontmatter.title}
+            category={node.frontmatter.category}
+            link={node.fields.slug}
+            sound={node.frontmatter.esGrande ? randomMoan() : TickSound}
+          />
+        )
         )}
       </WorkGrid>
     </Element>

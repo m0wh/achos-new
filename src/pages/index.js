@@ -43,6 +43,8 @@ export const pageQuery = graphql`
                   ...GatsbyImageSharpFluid_withWebp
                 }
               }
+              extension
+              publicURL
             }
           }
         }
