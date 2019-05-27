@@ -1,8 +1,8 @@
 {
-  "name": "achos",
-  "description": "Achos new",
-  "version": "0.0.1",
-  "author": "Pol Milian & Achos <pol@polmilian.com>",
+  "name": "achos-new",
+  "description": "Achos site redesign using React + Gatsby",
+  "version": "0.1.0",
+  "author": "Pol Milian & Achos <pol.milian.dev@gmail.com>",
   "dependencies": {
     "@mdx-js/mdx": "^1.0.19",
     "@mdx-js/react": "^1.0.2",
