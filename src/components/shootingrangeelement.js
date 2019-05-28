@@ -40,6 +40,10 @@ const ShootingRangeElement = ({ image }) => {
     opacity: isClicked ? 1 : 0,
     config: config.wobbly
   })
+  const fadeOut = useSpring({
+    opacity: isClicked ? 0 : 1,
+    delay: 1500
+  })
   const handleClick = e => {
     let rect = e.target.getBoundingClientRect()
     let x = e.clientX - rect.left - 20 // last substraction is because of cursor size
@@ -57,7 +61,8 @@ const ShootingRangeElement = ({ image }) => {
           range: [0, 0.25, 0.35, 0.45, 0.55, 0.65, 0.75, 0.25, 0.35, 0.45, 0.55, 0.65, 0.75, 1],
           output: [1, 0.97, 0.9, 1.1, 0.9, 1.1, 1.03, 0.97, 0.9, 1.1, 0.9, 1.1, 1.03, 1]
         })
-        .interpolate(x => `scale(${ x })`)
+        .interpolate(x => `scale(${ x })`),
+      ...fadeOut
     }} image={image} >
       <BloodGunshot ref={gunshotRef} src={Image} style={shootAnimation} />
       <audio ref={audioRef} preload="auto" src="http://soundbible.com/mp3/ie_shot_gun-luminalace-770179786.mp3" type="audio/mpeg"></audio>
