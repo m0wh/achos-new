@@ -180,16 +180,16 @@ const ShootingRangeSection = styled(AboutTextSection)`
   width: 90%;
   grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
 `
-const ClientLogo = styled(Img)`
-  filter: invert(1);
-  opacity: 0.7;
-  margin: 10px;
-  transition: all 0.2s linear;
-  &:hover {
-    opacity: 1;
-    transition: all 0.2s linear;
-  }
-`
+// const ClientLogo = styled(Img)`
+//   filter: invert(1);
+//   opacity: 0.7;
+//   margin: 10px;
+//   transition: all 0.2s linear;
+//   &:hover {
+//     opacity: 1;
+//     transition: all 0.2s linear;
+//   }
+// `
 
 const CreditsList = styled.ul`
   display: grid;
@@ -264,6 +264,7 @@ export default ({ data }) => (
         <ImageSlider edges={data.attention.edges} />
       </WhatWeDoSection>
 
+      <TextBlock colorCenter="var(--pink)" textCenter="shooting range" />
       <ShootingRangeSection>
         {data.clients.edges.map(logo => (
           <ShootingRangeElement image={logo.node.childImageSharp.fixed.src} />
