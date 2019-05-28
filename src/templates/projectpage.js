@@ -22,13 +22,6 @@ const ProjectWrapper = styled.section`
   display: grid;
   grid-template-columns: 1fr;
 `
-const HeaderImg = styled(Img)`
-width: ${ props => props.small ? '50%' : '' };
-display: ${ props => props.small ? 'inline-block' : '' };
-${ media.phone`width: 100%;
-  display: block;
-` }
-`
 
 const CreditsList = styled.ul`
   grid-column: span 2;
@@ -56,7 +49,6 @@ export default ({ data: { mdx } }) => {
         description={
           mdx.frontmatter.title || 'nothin’'
         }
-        image={mdx.frontmatter.cover.childImageSharp.fluid.src}
       />
 
     <audio autoPlay preload="auto">
@@ -69,7 +61,7 @@ export default ({ data: { mdx } }) => {
             </Wrapper>
             <Fade duration={500}>
               <div css={`max-width: 100%;`}>
-                <HeaderImg fluid={mdx.frontmatter.cover.childImageSharp.fluid} />
+                {mdx.frontmatter.cover.src ? <Img fluid={mdx.frontmatter.cover.childImageSharp.fluid} /> : <img width="100%" src={mdx.frontmatter.cover.publicURL} />}
               </div>
             </Fade>
             <MDXRenderer components={shortcodes} media={mdx.frontmatter.media} images={imgs}>{mdx.code.body}</MDXRenderer>
@@ -109,6 +101,8 @@ export const query = graphql`
               ...GatsbyImageSharpFluid_withWebp
             }
           }
+          extension
+          publicURL
         }
         media {
           publicURL
