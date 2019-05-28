@@ -6,12 +6,16 @@ import posed from 'react-pose'
 import fontSizes from '../utils/fontSizes'
 import media from '../utils/breakpoints'
 import Fade from 'react-reveal/Fade'
+import PropTypes from 'prop-types'
 
 const Wrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr;
-  position: relative;
-  // height: 80vh;
+  grid-column: ${ props => (props.big ? 'span 2' : null) };
+  background: url(${ props => props.background }) no-repeat center/100%;
+  background-color: ${ props => props.backgroundColor };
+  align-items: center;
+  text-align: center;
   
 `
 
@@ -20,28 +24,26 @@ const FunBoxText = styled.h3`
   color: white;
 `
 
-export default class FunBox extends React.Component {
-  myRef = React.createRef();
-
-  startSound = () => {
-    this.myRef.current.play()
-  }
-  render () {
-    const {
-      link,
-      text,
-    } = this.props
-    return (
-      <Wrapper onMouseEnter={this.startSound}>
-        <Fade duration={500} delay={400}>
-          <Link to={link}>
-            <audio preload="auto" ref={this.myRef} >
-              <source src={this.props.sound} type="audio/mpeg"></source>
-            </audio>
-            <FunBoxText>{text}</FunBoxText>
-          </Link>
-        </Fade>
-      </Wrapper>
-    )
-  }
+const FunBox = ({ isBig, text, background, link, video, backgroundColor }) => {
+  return (
+    <Wrapper background={background} backgroundColor={backgroundColor} isBig={isBig}>
+      <Fade duration={500} delay={400}>
+        <a href={link} rel="noopener noreferrer">
+          {text && <FunBoxText>{text}</FunBoxText>}
+          {video && <video width="100%" controls src={video} />}
+        </a>
+      </Fade>
+    </Wrapper>
+  )
 }
+
+FunBox.propTypes = {
+  isBig: PropTypes.bool,
+  text: PropTypes.string,
+  background: PropTypes.string,
+  link: PropTypes.string,
+  video: PropTypes.string,
+  backgroundColor: PropTypes.string
+}
+
+export default FunBox
