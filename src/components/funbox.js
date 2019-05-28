@@ -21,15 +21,15 @@ const Wrapper = styled.div`
 
 const FunBoxText = styled.h3`
   ${ fontSizes(3.33) };
-  color: white;
+  color: ${ props => props.textColor ? props.textColor : 'white' };
 `
 
-const FunBox = ({ isBig, text, background, link, video, backgroundColor }) => {
+const FunBox = ({ isBig, text, background, link, video, backgroundColor, textColor }) => {
   return (
     <Wrapper background={background} backgroundColor={backgroundColor} isBig={isBig}>
       <Fade duration={500} delay={400}>
         <a href={link} rel="noopener noreferrer">
-          {text && <FunBoxText>{text}</FunBoxText>}
+          {text && <FunBoxText textColor={textColor}>{text}</FunBoxText>}
           {video && <video width="100%" controls src={video} />}
         </a>
       </Fade>
@@ -43,7 +43,8 @@ FunBox.propTypes = {
   background: PropTypes.string,
   link: PropTypes.string,
   video: PropTypes.string,
-  backgroundColor: PropTypes.string
+  backgroundColor: PropTypes.string,
+  textColor: PropTypes.string
 }
 
 export default FunBox
