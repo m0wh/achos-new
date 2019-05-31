@@ -12,7 +12,7 @@ const Wrapper = styled.div`
   position: relative;
   grid-template-columns: 1fr;
   grid-column: ${ props => (props.big ? 'span 2' : null) };
-  ${ media.tablet`grid-column: inherit;` }
+  ${ media.phone`grid-column: inherit;` }
   
 `
 const Overlay = styled(animated.div)`
