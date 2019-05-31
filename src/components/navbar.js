@@ -136,7 +136,6 @@ const Navbar = ({ location }) => {
           <ListItem color="var(--pink)">
             <StyledLink to="/contact">contact</StyledLink>
           </ListItem>
-          {/* <ListItem color="var(--darkgrey)">eng</ListItem> */}
         </List>
       </NavWrapper>
       <MobileMenu />
