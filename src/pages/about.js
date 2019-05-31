@@ -264,9 +264,8 @@ export default ({ data }) => (
       </WhatWeDoSection>
 
       <ShootingRangeSection>
-
         {data.clients.edges.map(logo => (
-          <ClientLogo fixed={logo.node.childImageSharp.fixed} />
+          <ClientLogo key={logo.node.publicURL} fixed={logo.node.childImageSharp.fixed} />
         ))}
 
       </ShootingRangeSection>
@@ -277,7 +276,7 @@ export default ({ data }) => (
           </Fade>
           <Fade cascade duration={2000}>
             {blaBla.map(item => (
-              <li key={item.id}>
+              <li key={item.name}>
                 <a href={item.link} target="_blank" rel="noopener noreferrer">
                   {item.name}
                 </a>
@@ -291,7 +290,7 @@ export default ({ data }) => (
           </Fade>
           <Fade cascade duration={2000}>
             {boomBoom.map(item => (
-              <li key={item.id}>
+              <li key={item.name}>
                 <a href={item.link} target="_blank" rel="noopener noreferrer">
                   {item.name}
                 </a>
@@ -305,7 +304,7 @@ export default ({ data }) => (
           </Fade>
           <Fade cascade duration={2000}>
             {blingBling.map(item => (
-              <li key={item.id}>
+              <li key={item.name}>
                 <a href={item.link} target="_blank" rel="noopener noreferrer">
                   {item.name}
                 </a>
@@ -328,6 +327,7 @@ export const query = graphql`
               ...GatsbyImageSharpFluid_withWebp
             }
           }
+          publicURL
         }
       } 
     }
@@ -339,6 +339,7 @@ export const query = graphql`
               ...GatsbyImageSharpFixed_withWebp
             }
           }
+          publicURL
         }
       }
     }

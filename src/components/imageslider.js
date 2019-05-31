@@ -1,5 +1,4 @@
-import React, { useRef, useEffect, useState } from 'react'
-import { Link, useStaticQuery, graphql } from 'gatsby'
+import React, { useRef } from 'react'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
 
@@ -42,7 +41,7 @@ const ImageSlider = ({ edges }) => {
     <SliderWrapper onMouseMove={mouseMove} ref={parentRef}>
       <SliderContainer ref={childRef}>
         {edges.filter(element => element.node.childImageSharp !== null).map(item => (
-          <SliderImage>
+          <SliderImage key={item.node.publicURL}>
             <Img width="100%" fluid={item.node.childImageSharp.fluid} />
           </SliderImage>
         ))}
