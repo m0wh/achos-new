@@ -3,7 +3,6 @@ import styled, { createGlobalStyle } from 'styled-components'
 
 import DidgeridooImage from '../images/didgeridoo.jpg'
 import DidgeridooSound from '../images/didgeridoosound.mp3'
-import { useWindowResize } from '../utils/hooks'
 
 const Wrapper = styled.div`
   background: url("${ DidgeridooImage }") no-repeat center center fixed; 
@@ -26,8 +25,7 @@ const HideEverything = createGlobalStyle`
   }
 `
 
-function Resizer () {
-  const { width, isResizing } = useWindowResize()
+function Resizer ({ width, isResizing }) {
 
   return (
     <>

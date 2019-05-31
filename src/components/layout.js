@@ -16,6 +16,7 @@ import WhiteX from '../images/icons/white-x.png'
 import ZoomIn from '../images/icons/white-zoom.png'
 import ZoomOut from '../images/icons/white-zoom2.png'
 import Resizer from './resizer'
+import { useWindowResize } from '../utils/hooks'
 
 import Cookie from './cookie'
 import { pageFade } from '../styles/poses'
@@ -120,13 +121,14 @@ const GlobalStyle = createGlobalStyle`
 `
 
 const Layout = ({ children, location }) => {
+  const { width, isResizing } = useWindowResize()
   return (
   <>
     <SEO />
     <GlobalStyle />
     {typeof location !== `undefined` && location.pathname === '/' && (<TapToClose />)}
-    <Resizer />
-    <Header />
+    <Resizer width={width} isResizing={isResizing}/>
+    <Header width={width} />
     {typeof location !== `undefined` && location.pathname === '/' && (<Cookie />)}
     <PoseGroup animateOnMount preEnterPose="initial">
       <Main key={typeof location !== `undefined` && location.pathname} id="content" role="main">

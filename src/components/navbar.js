@@ -52,7 +52,7 @@ export const StyledLink = styled(Link)`
   }
 `
 
-const Navbar = ({ location }) => {
+const Navbar = ({ location, width }) => {
   const [isShowing, setIsShowing] = useState(true)
   const [lastScrollY, setLastScrollY] = useState(0)
   const [currentScrollY, setCurrentScrollY] = useState(0)
@@ -138,7 +138,7 @@ const Navbar = ({ location }) => {
           </ListItem>
         </List>
       </NavWrapper>
-      <MobileMenu />
+      {width.windowWidth < 576 && <MobileMenu />}
 
     </>
   )

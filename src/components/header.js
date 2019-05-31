@@ -14,10 +14,10 @@ const HeaderWrapper = styled.header`
   margin-top: 0;
 `
 
-const Header = () => (
+const Header = ({ width }) => (
   <HeaderWrapper>
     <Logo />
-    <Navbar />
+    <Navbar width={width} />
   </HeaderWrapper>
 )
 
