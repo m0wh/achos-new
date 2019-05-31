@@ -26,14 +26,14 @@ export const List = styled.ul`
   list-style: none;
   display: flex;
   flex-direction: row;
-  ${ media.tablet`display: none;` };
+  ${ media.tablet`display: none;` }
 `
 export const ListItem = styled.li`
 ${ fontSizes(1.875) }
   padding: 0 1.25rem;
   color: ${ props => props.color };
   &:hover {
-    animation: ${ props => (props.hoverable ? 'zoom 200ms ease-in' : null) };
+    animation: zoom 200ms ease-in;
   }
   a:hover {
     text-decoration: none;
