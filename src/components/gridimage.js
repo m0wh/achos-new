@@ -9,10 +9,10 @@ import { useSpring, animated, config } from 'react-spring'
 
 const Wrapper = styled.div`
   display: grid;
-  grid-template-columns: 1fr;
   position: relative;
+  grid-template-columns: 1fr;
   grid-column: ${ props => (props.big ? 'span 2' : null) };
-  // height: 80vh;
+  ${ media.tablet`position: inherit;` }
   
 `
 const Overlay = styled(animated.div)`
