@@ -8,7 +8,6 @@ import ContactUs from '../components/contactus'
 import LuckyDay from '../components/luckyday'
 import ControlledScrollMarquee from '../components/controlledscrollmarquee'
 import AutoScroll from '../components/autoscroll'
-import SecretCode from '../components/secretcode'
 
 export default ({ data: { allMdx: { edges: projectEdges } } }) => (
   <>
@@ -18,7 +17,6 @@ export default ({ data: { allMdx: { edges: projectEdges } } }) => (
     <AutoScroll/>
     <ContactUs />
     <LuckyDay />
-    <SecretCode />
   </>
 )
 
