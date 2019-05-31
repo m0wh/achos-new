@@ -8,7 +8,6 @@ import {
 } from 'react-scroll'
 import media from '../utils/breakpoints'
 import MobileMenu from './mobilemenu'
-import useWindowScroll from '@react-hook/window-scroll'
 import { useSpring, animated } from 'react-spring'
 import SoundGif from './soundgif'
 import Sound from '../images/hadouken.mp3'
