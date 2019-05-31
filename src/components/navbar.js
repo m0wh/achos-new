@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
 import {
@@ -8,29 +8,15 @@ import {
 } from 'react-scroll'
 import media from '../utils/breakpoints'
 import MobileMenu from './mobilemenu'
-import posed from 'react-pose'
+import useWindowScroll from '@react-hook/window-scroll'
+import { useSpring, animated } from 'react-spring'
 import SoundGif from './soundgif'
 import Sound from '../images/hadouken.mp3'
 import GIF from '../images/gifs/baseball.gif'
 import fontSizes from '../utils/fontSizes'
 import { navigate } from '@reach/router'
 
-const navWrapperProps = {
-  hidden: {
-    opacity: 0,
-    filter: 'blur(10px)',
-    x: '80%'
-
-  },
-  visible: {
-    opacity: 1,
-    filter: 'blur(0px)',
-    x: '0%',
-    delay: 1500
-  }
-}
-
-const NavWrapper = styled(posed.nav(navWrapperProps))`
+const NavWrapper = styled(animated.nav)`
   justify-self: end;
   z-index: 2;
   position: fixed;
@@ -67,33 +53,30 @@ export const StyledLink = styled(Link)`
   }
 `
 
-class Navbar extends React.Component {
-  state = {
-    lastScrollY: 0,
-    isShowing: true
-  };
+const Navbar = ({ location }) => {
+  const [isShowing, setIsShowing] = useState(true)
+  const [lastScrollY, setLastScrollY] = useState(0)
+  const [currentScrollY, setCurrentScrollY] = useState(0)
+  const navHidingAnimation = useSpring({
+    opacity: isShowing ? 1 : 0,
+    filter: isShowing ? `blur(0px)` : `blur(10px)`,
+    transform: isShowing ? `translate3d(0%, 0, 0)` : `translate3d(80%, 0, 0)`
+  })
 
-  componentDidMount () {
-    window.addEventListener('scroll', this.handleScroll)
-  }
-
-  componentWillUnmount () {
-    window.removeEventListener('scroll', this.handleScroll)
-  }
-
-  handleScroll = () => {
-    const { lastScrollY } = this.state
-    const currentScrollY = window.pageYOffset
-
-    if (currentScrollY > lastScrollY) {
-      this.setState({ isShowing: false })
-    } else {
-      this.setState({ isShowing: true })
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll)
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
     }
-    this.setState({ lastScrollY: currentScrollY })
-  };
+  }, [currentScrollY])
 
-  scrollToWork () {
+  const handleScroll = () => {
+    setCurrentScrollY(window.pageYOffset)
+    setIsShowing(!(currentScrollY > lastScrollY))
+    setLastScrollY(currentScrollY)
+  }
+
+  const scrollToWork = () => {
     if (typeof location !== `undefined` && location.pathname !== '/') {
       navigate('/')
       setTimeout(() => (scroller.scrollTo('work', {
@@ -110,35 +93,31 @@ class Navbar extends React.Component {
     }
   }
 
-  render () {
-    const fiveSecLink = (
-      <ScrollLink
-        onClick={() =>
-          scroll.scrollToBottom({
-            duration: 5000,
-            smooth: true
-          })
-        }
-      >
-        <SoundGif sound={Sound} gif={GIF}>
+  const fiveSecLink = (
+    <ScrollLink
+      onClick={() =>
+        scroll.scrollToBottom({
+          duration: 5000,
+          smooth: true
+        })
+      }
+    >
+      <SoundGif sound={Sound} gif={GIF}>
           5 Second Tour
-        </SoundGif>
-      </ScrollLink>
-    )
+      </SoundGif>
+    </ScrollLink>
+  )
 
-    const homeLink = (
-      <StyledLink to="/">
-        <SoundGif sound={Sound} gif={GIF}>
+  const homeLink = (
+    <StyledLink to="/">
+      <SoundGif sound={Sound} gif={GIF}>
           home
-        </SoundGif>
-      </StyledLink>
-    )
-
-    const { isShowing } = this.state
-
-    return (
+      </SoundGif>
+    </StyledLink>
+  )
+  return (
       <>
-      <NavWrapper pose={isShowing ? 'visible' : 'hidden'}>
+      <NavWrapper style={navHidingAnimation}>
         <List>
           <ListItem color="var(--yellow)">
             {typeof location !== `undefined` && location.pathname === '/'
@@ -147,7 +126,7 @@ class Navbar extends React.Component {
           </ListItem>
 
           <ListItem color="var(--cyan)">
-            <ScrollLink onClick={() => this.scrollToWork()}>work</ScrollLink>
+            <ScrollLink onClick={() => scrollToWork()}>work</ScrollLink>
           </ListItem>
 
           <ListItem color="var(--green)">
@@ -162,8 +141,7 @@ class Navbar extends React.Component {
       <MobileMenu />
 
     </>
-    )
-  }
+  )
 }
 
 export default Navbar
