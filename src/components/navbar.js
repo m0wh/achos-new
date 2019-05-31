@@ -8,7 +8,7 @@ import {
 } from 'react-scroll'
 import media from '../utils/breakpoints'
 import MobileMenu from './mobilemenu'
-import { useSpring, animated } from 'react-spring'
+import { useSpring, animated, config } from 'react-spring'
 import SoundGif from './soundgif'
 import Sound from '../images/hadouken.mp3'
 import GIF from '../images/gifs/baseball.gif'
@@ -59,7 +59,9 @@ const Navbar = ({ location }) => {
   const navHidingAnimation = useSpring({
     opacity: isShowing ? 1 : 0,
     filter: isShowing ? `blur(0px)` : `blur(10px)`,
-    transform: isShowing ? `translate3d(0%, 0, 0)` : `translate3d(80%, 0, 0)`
+    transform: isShowing ? `translate3d(0%, 0, 0)` : `translate3d(80%, 0, 0)`,
+    config: config.default,
+    delay: 300
   })
 
   useEffect(() => {
