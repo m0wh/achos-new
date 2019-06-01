@@ -13,7 +13,7 @@ export function useWindowResize () {
   const listener = () => {
     setWidth({ windowWidth: window.innerWidth })
     setIsResizing(true)
-    setTimeout(() => setIsResizing(false), 1500)
+    setTimeout(() => setIsResizing(false), 2000)
   }
 
   useEffect(() => {
