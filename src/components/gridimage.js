@@ -69,7 +69,7 @@ const GridImage = ({
   const audioRef = useRef(null)
   const [ref, inView] = useInView({
     threshold: 0.9,
-    rootMargin: '-400px 0px'
+    rootMargin: '-100px 0px'
   })
   const overlayAnimation = useSpring({
     opacity: (width.windowWidth < 768 ? inView : isHovering) ? 1 : 0
