@@ -110,165 +110,181 @@ const Inside = styled.span`
   }
 `
 
-const Intro = () => (
-  <IntroWrapper>
-    <Fade cascade duration={3000}>
-      <IntroText>
-        <Inside>
-          <SoundGIF sound={Sound1} gif={Gif1}>
+const MobileIntro = () => {
+  return (
+    <IntroWrapper>
+      <Fade cascade duration={3000}>
+        <IntroText>
+          achos! attention-grabbing, panty-dropping communication and interactive design agency based in Barcelona and Silicon Bali. We despise the boring and are always looking for fun! We provide bold creative solutions allowing our clients to stand out! In other words, we come up with sick ideas, and create neat designs and seriously provocative work that will make your brand hotter than a banging supernova!
+        </IntroText>
+      </Fade>
+    </IntroWrapper>
+  )
+}
+
+const BigIntro = () => {
+  return (
+    <IntroWrapper>
+      <Fade cascade duration={3000}>
+        <IntroText>
+          <Inside>
+            <SoundGIF sound={Sound1} gif={Gif1}>
             achos!
-          </SoundGIF>
-        </Inside>{' '}
-        <Inside>
-          <SoundGIF sound={Sound2} gif={Gif2}>
+            </SoundGIF>
+          </Inside>{' '}
+          <Inside>
+            <SoundGIF sound={Sound2} gif={Gif2}>
             attention-grabbing,
-          </SoundGIF>
-        </Inside>{' '}
-        <Inside>
-          <SoundGIF sound={Sound3} gif={Gif3}>
+            </SoundGIF>
+          </Inside>{' '}
+          <Inside>
+            <SoundGIF sound={Sound3} gif={Gif3}>
             panty-dropping
-          </SoundGIF>
-        </Inside>{' '}
-        <Inside>
-          <SoundGIF sound={Sound4}>communication</SoundGIF>
-        </Inside>{' '}
-        <Inside>
-          <SoundGIF sound={Sound5} gif={Gif5}>
+            </SoundGIF>
+          </Inside>{' '}
+          <Inside>
+            <SoundGIF sound={Sound4}>communication</SoundGIF>
+          </Inside>{' '}
+          <Inside>
+            <SoundGIF sound={Sound5} gif={Gif5}>
             and interactive
-          </SoundGIF>
-        </Inside>{' '}
-        <Inside>
-          <SoundGIF sound={Sound6} gif={Gif6}>
+            </SoundGIF>
+          </Inside>{' '}
+          <Inside>
+            <SoundGIF sound={Sound6} gif={Gif6}>
             design
-          </SoundGIF>
-        </Inside>{' '}
-        <Inside>
-          <SoundGIF sound={Sound7}>agency</SoundGIF>
-        </Inside>{' '}
-        <Inside>
-          <SoundGIF sound={Sound8}>based in</SoundGIF>
-        </Inside>{' '}
-        <Inside>
-          <SoundGIF sound={Sound9} gif={Gif9}>
+            </SoundGIF>
+          </Inside>{' '}
+          <Inside>
+            <SoundGIF sound={Sound7}>agency</SoundGIF>
+          </Inside>{' '}
+          <Inside>
+            <SoundGIF sound={Sound8}>based in</SoundGIF>
+          </Inside>{' '}
+          <Inside>
+            <SoundGIF sound={Sound9} gif={Gif9}>
             Barcelona
-          </SoundGIF>
-        </Inside>{' '}
-        <Inside>
-          <SoundGIF sound={Sound10} gif={Gif10}>
+            </SoundGIF>
+          </Inside>{' '}
+          <Inside>
+            <SoundGIF sound={Sound10} gif={Gif10}>
             and Silicon Bali.
-          </SoundGIF>
-        </Inside>{' '}
-        <Inside>
-          <SoundGIF sound={Sound11}>We despise</SoundGIF>
-        </Inside>{' '}
-        <Inside>
-          <SoundGIF sound={Sound12} gif={Gif12}>
+            </SoundGIF>
+          </Inside>{' '}
+          <Inside>
+            <SoundGIF sound={Sound11}>We despise</SoundGIF>
+          </Inside>{' '}
+          <Inside>
+            <SoundGIF sound={Sound12} gif={Gif12}>
             the boring
-          </SoundGIF>
-        </Inside>{' '}
-        <Inside>
-          <SoundGIF sound={Sound13} gif={Gif13}>
+            </SoundGIF>
+          </Inside>{' '}
+          <Inside>
+            <SoundGIF sound={Sound13} gif={Gif13}>
             and are
-          </SoundGIF>
-        </Inside>{' '}
-        <Inside>
-          <SoundGIF sound={Sound14}>always</SoundGIF>
-        </Inside>{' '}
-        <Inside>
-          <SoundGIF sound={Sound15} gif={Gif15}>
+            </SoundGIF>
+          </Inside>{' '}
+          <Inside>
+            <SoundGIF sound={Sound14}>always</SoundGIF>
+          </Inside>{' '}
+          <Inside>
+            <SoundGIF sound={Sound15} gif={Gif15}>
             looking for
-          </SoundGIF>
-        </Inside>{' '}
-        <Inside>
-          <SoundGIF sound={Sound16} gif={Gif16}>
+            </SoundGIF>
+          </Inside>{' '}
+          <Inside>
+            <SoundGIF sound={Sound16} gif={Gif16}>
             fun!
-          </SoundGIF>
-        </Inside>{' '}
-        <Inside>
-          <SoundGIF sound={Sound17} gif={Gif17}>
+            </SoundGIF>
+          </Inside>{' '}
+          <Inside>
+            <SoundGIF sound={Sound17} gif={Gif17}>
             We provide
-          </SoundGIF>
-        </Inside>{' '}
-        <Inside>
-          <SoundGIF sound={Sound18} gif={Gif18}>
+            </SoundGIF>
+          </Inside>{' '}
+          <Inside>
+            <SoundGIF sound={Sound18} gif={Gif18}>
             bold
-          </SoundGIF>
-        </Inside>{' '}
-        <Inside>
-          <SoundGIF sound={Sound19}>creative</SoundGIF>
-        </Inside>{' '}
-        <Inside>
-          <SoundGIF sound={Sound20} gif={Gif20}>
+            </SoundGIF>
+          </Inside>{' '}
+          <Inside>
+            <SoundGIF sound={Sound19}>creative</SoundGIF>
+          </Inside>{' '}
+          <Inside>
+            <SoundGIF sound={Sound20} gif={Gif20}>
             solutions
-          </SoundGIF>
-        </Inside>{' '}
-        <Inside>
-          <SoundGIF sound={Sound21} gif={Gif21}>
+            </SoundGIF>
+          </Inside>{' '}
+          <Inside>
+            <SoundGIF sound={Sound21} gif={Gif21}>
             allowing
-          </SoundGIF>
-        </Inside>{' '}
-        <Inside>
-          <SoundGIF sound={Sound22} gif={Gif22}>
+            </SoundGIF>
+          </Inside>{' '}
+          <Inside>
+            <SoundGIF sound={Sound22} gif={Gif22}>
             our clients
-          </SoundGIF>
-        </Inside>{' '}
-        <Inside>
-          <SoundGIF sound={Sound23} gif={Gif23}>
+            </SoundGIF>
+          </Inside>{' '}
+          <Inside>
+            <SoundGIF sound={Sound23} gif={Gif23}>
             to stand out!
-          </SoundGIF>
-        </Inside>{' '}
-        <Inside>
-          <SoundGIF sound={Sound24} gif={Gif23}>
+            </SoundGIF>
+          </Inside>{' '}
+          <Inside>
+            <SoundGIF sound={Sound24} gif={Gif23}>
             In other words,
-          </SoundGIF>
-        </Inside>{' '}
-        <Inside>
-          <SoundGIF sound={Sound25} gif={Gif25}>
+            </SoundGIF>
+          </Inside>{' '}
+          <Inside>
+            <SoundGIF sound={Sound25} gif={Gif25}>
             we come up with
-          </SoundGIF>
-        </Inside>{' '}
-        <Inside>
-          <SoundGIF sound={Sound26} gif={Gif26}>
+            </SoundGIF>
+          </Inside>{' '}
+          <Inside>
+            <SoundGIF sound={Sound26} gif={Gif26}>
             sick ideas,
-          </SoundGIF>
-        </Inside>{' '}
-        <Inside>
-          <SoundGIF sound={Sound27}>and create</SoundGIF>
-        </Inside>{' '}
-        <Inside>
-          <SoundGIF sound={Sound28} gif={Gif28}>
+            </SoundGIF>
+          </Inside>{' '}
+          <Inside>
+            <SoundGIF sound={Sound27}>and create</SoundGIF>
+          </Inside>{' '}
+          <Inside>
+            <SoundGIF sound={Sound28} gif={Gif28}>
             neat designs
-          </SoundGIF>
-        </Inside>{' '}
-        <Inside>
-          <SoundGIF sound={Sound29} gif={Gif29}>
+            </SoundGIF>
+          </Inside>{' '}
+          <Inside>
+            <SoundGIF sound={Sound29} gif={Gif29}>
             and seriously provocative
-          </SoundGIF>
-        </Inside>{' '}
-        <Inside>
-          <SoundGIF sound={Sound30}>work</SoundGIF>
-        </Inside>{' '}
-        <Inside>
-          <SoundGIF sound={Sound31}>that will make</SoundGIF>
-        </Inside>{' '}
-        <Inside>
-          <SoundGIF sound={Sound33} gif={Gif33}>
+            </SoundGIF>
+          </Inside>{' '}
+          <Inside>
+            <SoundGIF sound={Sound30}>work</SoundGIF>
+          </Inside>{' '}
+          <Inside>
+            <SoundGIF sound={Sound31}>that will make</SoundGIF>
+          </Inside>{' '}
+          <Inside>
+            <SoundGIF sound={Sound33} gif={Gif33}>
             your brand
-          </SoundGIF>
-        </Inside>{' '}
-        <Inside>
-          <SoundGIF sound={Sound34} gif={Gif34}>
+            </SoundGIF>
+          </Inside>{' '}
+          <Inside>
+            <SoundGIF sound={Sound34} gif={Gif34}>
             hotter
-          </SoundGIF>
-        </Inside>{' '}
-        <Inside>
-          <SoundGIF sound={Sound35} gif={Gif35}>
+            </SoundGIF>
+          </Inside>{' '}
+          <Inside>
+            <SoundGIF sound={Sound35} gif={Gif35}>
             than a banging supernova!
-          </SoundGIF>
-        </Inside>{' '}
-      </IntroText>
-    </Fade>
-  </IntroWrapper>
-)
+            </SoundGIF>
+          </Inside>{' '}
+        </IntroText>
+      </Fade>
+    </IntroWrapper>
+  )
+}
+
+const Intro = ({ width }) => width.windowWidth < 768 ? <MobileIntro /> : <BigIntro />
 
 export default Intro
