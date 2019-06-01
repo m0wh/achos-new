@@ -9,12 +9,12 @@ import AutoScroll from '../components/autoscroll'
 import { useWindowResize } from '../utils/hooks'
 
 export default ({ data: { allMdx: { edges: projectEdges } } }) => {
-  const { width, isResizing } = useWindowResize()
+  const { width } = useWindowResize()
   return (
   <>
     <Intro width={width} />
     <ControlledScrollMarquee text="Scroll Down Scroll Down Scroll Down" />
-    <Work projectEdges={projectEdges} />
+    <Work width={width} projectEdges={projectEdges} />
     <AutoScroll/>
     <ContactUs />
     <LuckyDay />
