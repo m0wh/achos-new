@@ -6,6 +6,7 @@ import fontSizes from '../utils/fontSizes'
 import media from '../utils/breakpoints'
 import Fade from 'react-reveal/Fade'
 import { useSpring, animated, config } from 'react-spring'
+import { useInView } from 'react-intersection-observer'
 
 const Wrapper = styled.div`
   display: grid;
@@ -62,29 +63,34 @@ const GridImage = ({
   category,
   color,
   sound,
+  width
 }) => {
   const [isHovering, setIsHovering] = useState(false)
-  const myRef = useRef(null)
+  const audioRef = useRef(null)
+  const [ref, inView] = useInView({
+    threshold: 0.9,
+    rootMargin: '-400px 0px'
+  })
   const overlayAnimation = useSpring({
-    opacity: isHovering ? 1 : 0
+    opacity: (width.windowWidth < 768 ? inView : isHovering) ? 1 : 0
   })
   const blurAnimation = useSpring({
-    filter: isHovering ? `blur(0px)` : `blur(100px)`,
+    filter: (width.windowWidth < 768 ? inView : isHovering) ? `blur(0px)` : `blur(100px)`,
     config: config.default
   })
   const startSound = () => {
-    myRef.current.play()
+    audioRef.current.play()
   }
+
   return (
-    <Wrapper big={big} onMouseEnter={startSound}>
+    <Wrapper big={big} onMouseEnter={width.windowWidth > 768 ? startSound : undefined}>
       <Fade duration={500} delay={400}>
         <Link to={link}>
           {cover.src ? <StyledImg fluid={cover} /> : <StyledGif width="100%" src={cover} />}
-          <audio preload="auto" ref={myRef} >
+          <audio preload="auto" ref={audioRef} >
             <source src={sound} type="audio/mpeg"></source>
           </audio>
-
-          <Overlay style={overlayAnimation} onMouseOver={() => setIsHovering(true)} onMouseOut={() => setIsHovering(false)}>
+          <Overlay ref={ref} style={overlayAnimation} onMouseOver={() => width.windowWidth > 768 ? setIsHovering(true) : undefined} onMouseOut={() => width.windowWidth > 768 ? setIsHovering(false) : undefined}>
             <OverlayWrapper>
               <Title style={blurAnimation} color={color}>{name}</Title>
               <Category style={blurAnimation}>{category}</Category>

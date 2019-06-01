@@ -15,7 +15,7 @@ const WorkGrid = styled.section`
   ${ media.phone`grid-template-columns: 1fr;` }
 `
 
-export default ({ projectEdges }) => {
+export default ({ projectEdges, width }) => {
   // Element is just a wrapper for react-scroll
   return (
     <Element name="work">
@@ -30,6 +30,7 @@ export default ({ projectEdges }) => {
             category={node.frontmatter.category}
             link={node.fields.slug}
             sound={node.frontmatter.esGrande ? randomMoan() : TickSound}
+            width={width}
           />
         )
         )}
