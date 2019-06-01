@@ -20,11 +20,11 @@ const GiantDiv = styled.div`
 
 function TapToClose () {
   const [isClicked, setIsClicked] = useState(false)
-  let clickedData = sessionStorage.getItem('clicked')
+  let clickedData = typeof sessionStorage !== `undefined` && sessionStorage.getItem('clicked')
 
   function cliCkAndSaveStorage () {
     setIsClicked(true)
-    sessionStorage.setItem('clicked', 'yeah boy')
+    typeof sessionStorage !== `undefined` && sessionStorage.setItem('clicked', 'yeah boy')
   }
 
   return (

@@ -1,4 +1,4 @@
-import React, { Component, useState, useRef } from 'react'
+import React, { useState, useRef } from 'react'
 import CookieFile from '../images/cookies.png'
 import CookiesVideoFile from '../images/cookiesvideo2.mp4'
 import WhiteXCursor from '../images/icons/white-x.png'
@@ -41,7 +41,7 @@ const VideoElement = styled.video`
 function Cookie () {
   const [isHovering, setIsHovering] = useState(false)
   const [isClosed, setIsClosed] = useState(false)
-  let cookieClosedData = sessionStorage.getItem('cookieClosed')
+  let cookieClosedData = typeof sessionStorage !== `undefined` && sessionStorage.getItem('cookieClosed')
   const cookieAnimation = useSpring({
     marginRight: isHovering ? `50px` : isClosed ? `-150px` : `0px`,
     transform: isHovering ? `rotate(0deg)` : isClosed ? `rotate(150deg)` : `rotate(25deg)`,
@@ -63,7 +63,7 @@ function Cookie () {
   const handleCookieClick = async () => {
     await setIsClosed(true)
     await setIsHovering(false)
-    await sessionStorage.setItem('cookieClosed', 'yeah sonn')
+    await typeof sessionStorage !== `undefined` && sessionStorage.setItem('cookieClosed', 'yeah sonn')
   }
 
   return (
