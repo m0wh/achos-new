@@ -1,8 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import fontSizes from '../utils/fontSizes'
-import ScrollPercentage from 'react-scroll-percentage'
-import { navigate } from 'gatsby'
+import { useScrollPercentage } from 'react-scroll-percentage'
 
 const Wrapper = styled.div`
   display: grid;
@@ -15,12 +14,8 @@ const Wrapper = styled.div`
   ${ fontSizes(1.875) }
 `
 
-class ScrollToClose extends React.Component {
-  state = {
-    percentage: 0,
-  };
-
-  takeMeBack = (function () {
+const ScrollToClose = () => {
+  const takeMeBack = (function () {
     let executed = false
     return function () {
       if (!executed) {
@@ -28,21 +23,16 @@ class ScrollToClose extends React.Component {
         window.history.back()
       }
     }
-  })();
-
-  render () {
-    return (
-      <Wrapper>
-        <ScrollPercentage
-          onChange={percentage => this.setState({ percentage })}
-          threshold={0.25}
-        >
-          <p style={{ opacity: `${ this.state.percentage.toFixed(2) }` }}>Scroll to close</p>
-          {this.state.percentage === 1 ? this.takeMeBack() : null}
-        </ScrollPercentage>
-      </Wrapper>
-    )
-  }
+  })()
+  const [ref, percentage] = useScrollPercentage({
+    threshold: 0.25,
+  })
+  return (
+    <Wrapper>
+      <p ref={ref} style={{ opacity: `${ percentage.toFixed(2) }` }}>Scroll to close</p>
+      {percentage === 1 ? takeMeBack() : null}
+    </Wrapper>
+  )
 }
 
 export default ScrollToClose
