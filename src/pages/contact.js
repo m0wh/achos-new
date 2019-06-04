@@ -1,21 +1,10 @@
-import React from 'react'
-import { Link, graphql } from 'gatsby'
+import React, { useState } from 'react'
+import { graphql } from 'gatsby'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
-import posed from 'react-pose'
 import fontSizes from '../utils/fontSizes'
 import media from '../utils/breakpoints'
 import ContactGame from '../components/contactgame'
-
-const hoverProps = {
-  hoverable: true,
-  init: {
-    opacity: 0
-  },
-  hover: {
-    opacity: 1
-  }
-}
 
 const Wrapper = styled.section`
   background-color: var(--lightblack);
@@ -44,9 +33,6 @@ const LocationWrapper = styled.article`
   position: relative;
 
 `
-// const AddressDetails = styled(posed.article(hoverProps))`
-//   //asas
-// `
 
 const AddressDetails = styled.article`
   //asas
@@ -57,8 +43,11 @@ const Title = styled.h3`
   color: ${ props => props.color };
 `
 
-const Overlay = styled(posed.div(hoverProps))`
-  background: rgba(26, 26, 26, 0.69);
+const Overlay = styled.div`
+  background: inherit;
+  &:hover {
+    background: rgba(26, 26, 26, 0.69);
+  }
   grid-column: 1 / -1;
   grid-row: 1 / -1;
   display: flex;
@@ -66,11 +55,16 @@ const Overlay = styled(posed.div(hoverProps))`
   justify-content: space-between;
   position: absolute;
   width: 100%;
-  // height: 80vh;
   left: 0;
   top: 0;
   bottom: 0;
   right: 0;
+  div {
+    opacity: 0;
+    &:hover {
+      opacity: 1;
+    }
+  }
 `
 
 const OverlayWrapper = styled.div`
@@ -89,12 +83,18 @@ const InternshipsMail = styled.a`
   ${ fontSizes(2.2) };
   ${ media.tablet`${ fontSizes(1.1) }` };
 `
+// onMouseOver={() => width.windowWidth > 768 ? setIsHovering(true) : undefined} onMouseOut={() => width.windowWidth > 768 ? setIsHovering(false) : undefined}
 
-export default ({
+const Contact = ({
   data: {
     allFile: { edges: locationEdges }
   }
-}) => (
+}) => {
+  const [isHovering, setIsHovering] = useState(false)
+  const overlayAnimation = useSpring({
+    opacity: isHovering ? 1 : 0
+  })
+  return (
   <>
     <Wrapper>
       <ContactGame />
@@ -236,7 +236,10 @@ export default ({
       </LocationsGrid>
     </Wrapper>
   </>
-)
+  )
+}
+
+export default Contact
 
 export const pageQuery = graphql`
   query ContactQuery {
