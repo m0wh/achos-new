@@ -1,8 +1,6 @@
 import React from 'react'
 import posed, { PoseGroup } from 'react-pose'
 import PropTypes from 'prop-types'
-// import posed from "react-pose";
-// import { StaticQuery, graphql } from "gatsby";
 import { createGlobalStyle } from 'styled-components'
 import reset from 'styled-reset'
 import SEO from './SEO'
