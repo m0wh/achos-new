@@ -49,11 +49,6 @@ export default ({ data: { mdx } }) => {
     })
   }
   const shortcodes = { ProjectImg, Wrapper, TextLeft, TextRight, Fade }
-  const transition = useSpring({
-    from: { filter: 'blur(100px)' },
-    filter: 'blur(0px)',
-    config: config.molasses
-  })
   return (
     <>
       <SEO
@@ -68,7 +63,7 @@ export default ({ data: { mdx } }) => {
       <source src={TuberiaSound} type="audio/mpeg"></source>
     </audio>
         <MDXProvider components={shortcodes}>
-          <ProjectWrapper style={transition}>
+          <ProjectWrapper>
             <Wrapper css={`padding: 4vw 0;`}>
               <TextCenter sizeCenter={fontSizes(5)} color="white">{mdx.frontmatter.title}</TextCenter>
             </Wrapper>
