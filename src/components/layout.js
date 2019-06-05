@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 // import posed from "react-pose";
 // import { StaticQuery, graphql } from "gatsby";
@@ -17,7 +17,7 @@ import ZoomOut from '../images/icons/white-zoom2.png'
 import Resizer from './resizer'
 
 import Cookie from './cookie'
-import { useSpring, animated, config } from 'react-spring'
+import { useSpring, useTransition, animated, config } from 'react-spring'
 import Header from './header'
 import TapToClose from './taptoclose'
 
@@ -128,24 +128,28 @@ const GlobalStyle = createGlobalStyle`
 `
 
 const Layout = ({ children, location }) => {
-  const transition = useSpring({
-    from: { filter: 'blur(100px)' },
-    filter: 'blur(0px)',
-    config: config.molasses
+  const [on, off] = useState(true)
+  const transition = useTransition(on, null, {
+    from: { filter: `blur(100px)` },
+    enter: { filter: `blur(0px)` },
+    leave: { filter: `blur(100px)` }
   })
-  console.log(location)
   return (
     <>
     <SEO />
     <GlobalStyle />
       {typeof location !== `undefined` && location.pathname === '/' && (<TapToClose />)}
-      <animated.main style={transition} id="content" role="main">
-        <Resizer />
-        <Header />
-        {typeof location !== `undefined` && location.pathname === '/' && (<Cookie />)}
+      {transition.map(({ item, key, props }) =>
+        item && (
+          <animated.main key={key} style={props} id="content" role="main">
+            <Resizer />
+            <Header />
+            {typeof location !== `undefined` && location.pathname === '/' && (<Cookie />)}
+            {children}
+          </animated.main>
+        )
+      )}
 
-        {children}
-      </animated.main>
     </>
   )
 }
