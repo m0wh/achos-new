@@ -21,25 +21,6 @@ import { useSpring, useTransition, animated, config } from 'react-spring'
 import Header from './header'
 import TapToClose from './taptoclose'
 
-// export const pageFade = {
-//   initial: {
-//     opacity: 0,
-//     filter: 'blur(100px)'
-//   },
-//   enter: {
-//     opacity: 1,
-//     transition: { duration: transitionDuration },
-//     delay: transitionDelay,
-//     beforeChildren: true,
-//     filter: 'blur(0px)'
-//   },
-//   exit: {
-//     opacity: 0,
-//     transition: { duration: transitionDuration },
-//     filter: 'blur(100px)'
-//   }
-// }
-
 const GlobalStyle = createGlobalStyle`
   ${ reset }
   
@@ -128,11 +109,11 @@ const GlobalStyle = createGlobalStyle`
 `
 
 const Layout = ({ children, location }) => {
-  const [on, off] = useState(true)
-  const transition = useTransition(on, null, {
-    from: { filter: `blur(100px)` },
-    enter: { filter: `blur(0px)` },
-    leave: { filter: `blur(100px)` }
+  console.log(location)
+  const transition = useTransition(location, location => location.key, {
+    from: { filter: `blur(100px)`, opacity: 0 },
+    enter: { filter: `blur(0px)`, opacity: 1 },
+    leave: { filter: `blur(100px)`, opacity: 0 }
   })
   return (
     <>
