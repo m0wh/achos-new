@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import fontSizes from '../utils/fontSizes'
 import ScrollPercentage from 'react-scroll-percentage'

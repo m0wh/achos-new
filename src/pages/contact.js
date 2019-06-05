@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { graphql } from 'gatsby'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
@@ -83,17 +83,12 @@ const InternshipsMail = styled.a`
   ${ fontSizes(2.2) };
   ${ media.tablet`${ fontSizes(1.1) }` };
 `
-// onMouseOver={() => width.windowWidth > 768 ? setIsHovering(true) : undefined} onMouseOut={() => width.windowWidth > 768 ? setIsHovering(false) : undefined}
 
 const Contact = ({
   data: {
     allFile: { edges: locationEdges }
   }
 }) => {
-  const [isHovering, setIsHovering] = useState(false)
-  const overlayAnimation = useSpring({
-    opacity: isHovering ? 1 : 0
-  })
   return (
   <>
     <Wrapper>
